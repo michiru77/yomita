@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   	@result3=params[:job]
   	@result4=params[:tel]
   	@result5=params[:sakka]
+  	@result6=params[:bestbook1]
+  	@result7=params[:bestbook2]
+  	@result8=params[:bestbook3]
   	# redirect_to("/home/question")
   end
 end
