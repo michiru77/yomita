@@ -1,4 +1,4 @@
-<FORM method="POST" enctype="multipart/form-data" action="act_post.php">
+<!-- <FORM method="POST" enctype="multipart/form-data" action="act_post.php"> -->
   <TABLE border="0">
     <TBODY>
     <TR>
@@ -6,22 +6,33 @@
       <TD><textarea name="input_txtarea" cols=40 rows=4></textarea></TD>
     </TR>
     <TR>
-      <TD>テキスト</TD>
+    <%= form_tag("/home/result") do %>
+      <TD>好きな本ベスト3</TD>
       <TD><INPUT size="35" type="text" name="input_txt"></TD>
+      <% end %>
     </TR>
     <TR>
-      <TD>パスワード</TD>
+      <TD></TD>
+      <TD><INPUT size="35" type="password" name="input_passwd"></TD>
+    </TR>
+     <TR>
+      <TD></TD>
       <TD><INPUT size="35" type="password" name="input_passwd"></TD>
     </TR>
     <TR>
       <TD>好きなジャンル</TD>
       <TD><select name="month">
-        <option value="Jan">January
-        <option value="Feb">February
-        <option value="Mar">March
-        <option value="Apr">April
+        <option value="Jan">
+        <option value="Feb">
+        <option value="Mar">
+        <option value="Apr">
+        <option value="Jan">
+        <option value="Feb">
+        <option value="Mar">
+        <option value="Apr">
       </select></TD>
     </TR>
+<!--
     <TR>
       <TD>チェックボックス</TD>
       <TD><INPUT type="checkbox" name="check[]" value="one">one
@@ -29,11 +40,14 @@
         <INPUT type="checkbox" name="check[]" value="three">three
         <INPUT type="checkbox" name="check[]" value="four">four</TD>
     </TR>
+-->
     <TR>
-      <TD>ラジオボタン</TD>
-      <TD><INPUT type="radio" name="button" value="eins" checked>eins
-        <INPUT type="radio" name="button" value="zwei">zwei
-        <INPUT type="radio" name="button" value="deri">drei</TD>
+      <TD>読書頻度　月の冊数</TD>
+      <TD><INPUT type="radio" name="button" value="eins" checked>0~1
+        <INPUT type="radio" name="button" value="zwei">2~3
+        <INPUT type="radio" name="button" value="deri">4~5
+        <INPUT type="radio" name="button" value="deri">6~
+        </TD>
     </TR>
     <TR>
       <TD></TD>
