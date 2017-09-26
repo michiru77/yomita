@@ -1,3 +1,46 @@
+<!--
+<form action="http://localhost:3000" method="post">
+-->
+<%= form_tag("/home/result") do %>
+   <fieldset>
+      <legend>読者カルテ</legend>
+      <p>
+         <label>名前:<input type="text" name="username"></label>
+         <label>年齢:<input type="number" name="age" min="0"></label>
+      </p>
+      <p><label>好きなジャンル</label>
+      <select name="job">
+         <option value="office">文学</option>
+         <option value="public">推理小説</option>
+         <option value="self">自己啓発</option>
+         <option value="student">SF</option>
+         <option value="house">ホラー</option>
+         <option value="other">絵本</option>
+      </select>
+      </p>
+
+      <p><label>ジャンル</label>
+      <select name="job">
+         <option value="office">文学</option>
+         <option value="public">推理小説</option>
+         <option value="self">自己啓発</option>
+         <option value="student">SF</option>
+         <option value="house">ホラー</option>
+         <option value="other">絵本</option>
+      </select>
+      </p>
+
+
+      
+      <p><label>読書の頻度<input type="tel" name="tel"></label></p>
+      <p><label>好きな作家<input type="text" name="sakka"></label></p>
+      <p><label><input type="checkbox" name="dm" checked></label></p>
+      <p><input type="reset"><input type="submit"></p>
+   </fieldset>
+<% end %>
+
+<!--
+
 <FORM method="POST" enctype="multipart/form-data" action="act_post.php">
   <TABLE border="0">
     <TBODY>
@@ -6,46 +49,36 @@
       <TD><textarea name="input_txtarea" cols=40 rows=4></textarea></TD>
     </TR>
     <TR>
+    <%= form_tag("/home/result") do %>
       <TD>好きな本ベスト3</TD>
-      <TD><INPUT size="35" type="text" name="input_txt"></TD>
+      <TD><textarea name="input_txtarea" cols=40 rows=4></textarea></TD>
+      <TD><textarea name="input_txtarea" cols=40 rows=4></textarea></TD>
+      <% end %>
     </TR>
     <TR>
       <TD></TD>
       <TD><INPUT size="35" type="password" name="input_passwd"></TD>
     </TR>
-    <TR>
+     <TR>
       <TD></TD>
       <TD><INPUT size="35" type="password" name="input_passwd"></TD>
     </TR>
     <TR>
       <TD>好きなジャンル</TD>
       <TD><select name="month">
-        <option value="Mar">文学・児童文学
-        <option value="Mar">ミステリー・推理小説
-        <option value="Mar">社会・ビジネス
-        <option value="Mar">SF・ファンタジー
-        <option value="Mar">ライトノベル
-        <option value="Mar">ホラー
-        <option value="Mar">ノンフィクション
+        <option value="Jan">文学・児童文学
+        <option value="Feb">ミステリー・推理小説
         <option value="Mar">自己啓発・HowTo
+        <option value="Apr">ノンフィクション
+        <option value="Jan">SF
+        <option value="Feb">ホラー
         <option value="Mar">絵本
       </select></TD>
     </TR>
     <!--🔵
     <TR>
-      <TD>ボツ</TD>
-      <TD>
-        <INPUT type="checkbox" name="check[]" value="one">0~1
-        <INPUT type="checkbox" name="check[]" value="two">2~3
-        <INPUT type="checkbox" name="check[]" value="three">3~5
-        <INPUT type="checkbox" name="check[]" value="four">6~
-        </TD>
-    </TR>
-    -->
-    <TR>
-      <TD>読書頻度:月の冊数</TD>
-      <TD>
-      <INPUT type="radio" name="button" value="eins" checked>0~1
+      <TD>読書頻度　月の冊数</TD>
+      <TD><INPUT type="radio" name="button" value="eins" checked>0~1
         <INPUT type="radio" name="button" value="zwei">2~3
         <INPUT type="radio" name="button" value="deri">4~5
         <INPUT type="radio" name="button" value="deri">6~
@@ -59,3 +92,5 @@
     </TBODY>
   </TABLE>
 </FORM>
+
+-->
