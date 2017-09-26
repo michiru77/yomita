@@ -1,2 +1,45 @@
-<h1>Home#question</h1>
-<p>Find me in app/views/home/question.html.erb</p>
+<FORM method="POST" enctype="multipart/form-data" action="act_post.php">
+  <TABLE border="0">
+    <TBODY>
+    <TR>
+      <TD>好きな作家名</TD>
+      <TD><textarea name="input_txtarea" cols=40 rows=4></textarea></TD>
+    </TR>
+    <TR>
+      <TD>テキスト</TD>
+      <TD><INPUT size="35" type="text" name="input_txt"></TD>
+    </TR>
+    <TR>
+      <TD>パスワード</TD>
+      <TD><INPUT size="35" type="password" name="input_passwd"></TD>
+    </TR>
+    <TR>
+      <TD>好きなジャンル</TD>
+      <TD><select name="month">
+        <option value="Jan">January
+        <option value="Feb">February
+        <option value="Mar">March
+        <option value="Apr">April
+      </select></TD>
+    </TR>
+    <TR>
+      <TD>チェックボックス</TD>
+      <TD><INPUT type="checkbox" name="check[]" value="one">one
+        <INPUT type="checkbox" name="check[]" value="two">two
+        <INPUT type="checkbox" name="check[]" value="three">three
+        <INPUT type="checkbox" name="check[]" value="four">four</TD>
+    </TR>
+    <TR>
+      <TD>ラジオボタン</TD>
+      <TD><INPUT type="radio" name="button" value="eins" checked>eins
+        <INPUT type="radio" name="button" value="zwei">zwei
+        <INPUT type="radio" name="button" value="deri">drei</TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD><input type="submit" value="実行">
+        <input type="reset" value="リセット"></TD>
+    </TR>
+    </TBODY>
+  </TABLE>
+</FORM>
