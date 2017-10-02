@@ -13,4 +13,6 @@ class HomeController < ApplicationController
   	@result8=params[:bestbook3]
   	# redirect_to("/home/question")
   end
+  def recommend
+  end
 end

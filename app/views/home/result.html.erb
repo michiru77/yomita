@@ -1,3 +1,4 @@
+<%= form_tag("/home/result") do %>
 <h1>確認</h1>
 <p>名前：<%= @result1 %></p>
 <p>年齢：<%= @result2 %></p>
@@ -8,3 +9,6 @@
 <p>1：<%= @result6 %></p>
 <p>2：<%= @result7 %></p>
 <p>3：<%= @result8 %></p>
+<input type="button" onclick="location.href='/' "value="戻る">
+<input type="button" onclick="location.href='/home/recommend' "value="登録">
+<% end %>
