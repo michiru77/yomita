@@ -1,8 +1,9 @@
 ##### Mac #####
 
-.idea
 *~
 .*~
+\#*
+.idea
 .DS_Store
 
 
