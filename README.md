@@ -10,7 +10,7 @@
 一万円選書とは違って
 Webで、予約なしで、待たずに使える。
 ```
-* Product Backlog:https://docs.google.com/spreadsheets/d/1GAC_qyrNckGz4uCLuc7Y_L32GH0ZzEsfw59I6hSZg3w/edit?ts=59ca092a#gid=0
+* Product Backlog:https://trello.com/b/P2NewDfE/読み太log
 * Members: YutaMiyagi(@e155721),HiroyaSunagawa(@SunagawaHiro),MichiruTakamine(@minemichi),ShogoKuba(@98kuba),ShoichiroYamazato(@o-yama)
 * Service URL: https://yomita.herokuapp.com/
 * Business Hours: 未定
