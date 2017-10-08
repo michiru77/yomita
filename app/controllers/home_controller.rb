@@ -3,4 +3,8 @@ class HomeController < ApplicationController
   end
   def introduct
   end
+  def e155736
+  end
+  def sandbox
+  end
 end
