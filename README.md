@@ -7,7 +7,7 @@
 読み太。というサービスです。
 これは本を読むきっかけを得ることができ，
 Kakidashi と違い，
-一分以内に本との出会いを提供することができます。
+より直感的な本との出会いを提供することができます。
 ```
 * Product Backlog: https://trello.com/b/Xk1orLQS/%E8%AA%AD%E3%81%BF%E3%81%9Flog2
 * Members: YutaMiyagi(@e155721),HiroyaSunagawa(@SunagawaHiro),MichiruTakamine(@minemichi),ShogoKuba(@98kuba),ShoichiroYamazato(@o-yama)
