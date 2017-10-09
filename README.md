@@ -10,7 +10,12 @@ Kakidashi と違い，
 より直感的な本との出会いを提供することができます。
 ```
 * Product Backlog: https://trello.com/b/Xk1orLQS/%E8%AA%AD%E3%81%BF%E3%81%9Flog2
-* Members: YutaMiyagi(@e155721),HiroyaSunagawa(@SunagawaHiro),MichiruTakamine(@minemichi),ShogoKuba(@98kuba),ShoichiroYamazato(@o-yama)
+* Members:<br>
+YutaMiyagi(@e155721)<br>
+HiroyaSunagawa(@SunagawaHiro)<br>
+MichiruTakamine(@minemichi)<br>
+ShogoKuba(@98kuba)<br>
+ShoichiroYamazato(@o-yama)
 * Service URL: https://yomita.herokuapp.com/
 * Business Hours: 未定
 * notes:
