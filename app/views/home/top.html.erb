@@ -1,10 +1,10 @@
-<h1>読み太。</h1>
-<p>Find me in app/views/home/top.html.erb</p>
-<a href="/home/introduct">intro</a>
-
 <script type="text/javascript">
 var msg = new Array();
 var no = 0;
+// scriptタグを用いると、ブラウザバックを行った際に、scriptタグ内部しか表示しないバグが、あるっぽい。なので、scriptタグ内で表示
+msg[0] = '<h1>読み太。</h1><p>Find me in app/views/home/top.html.erb</p><a href="/home/introduct">intro</a>';
+document.write(msg[0]);
+
 
 // 配列用意
 msg[0] = '<p><a href="https://www.amazon.co.jp/%E3%81%82%E3%82%89%E3%81%97%E3%81%AE%E3%82%88%E3%82%8B%E3%81%AB%E5%85%A87%E5%B7%BB%E3%82%BB%E3%83%83%E3%83%88-%E3%81%82%E3%82%89%E3%81%97%E3%81%AE%E3%82%88%E3%82%8B%E3%81%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E8%AC%9B%E8%AB%87%E7%A4%BE/dp/4069362231/ref=sr_1_2?s=books&ie=UTF8&qid=1507352729&sr=1-2&refinements=p_n_feature_eleven_browse-bin%3A2254963051" target="_blank">あらしのよるに</a></p>';
