@@ -57,10 +57,11 @@ span.headline3{
     background-attachment: fixed;
     background-repeat: repeat;
     background-size: 50%;
-    background-position: top left;
+    background-position: top center;
     padding-top: 3px;
     padding-bottom: 3px;
     width: 43%;
+    margin: auto;
 }
 
 // 左上に表示されるタイトル見出し用
