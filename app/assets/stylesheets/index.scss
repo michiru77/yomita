@@ -4,6 +4,8 @@
 
 body {
   margin: 60px 160px 160px 160px;
+  //background-color: #fafad2;
+  //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
 }
 
 h1 {
@@ -12,6 +14,34 @@ h1 {
   border-bottom: solid 3px #498bff;
   //margin: 20px 20px 20px 20px;
 }
+
+
+#photos_1 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 1;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    1;
+  -moz-column-gap:      0px;
+  column-count:         1;
+  column-gap:           0px;
+
+}
+
+
+#photos_1 img {
+  /* Just in case there are inline attributes */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  //width: 100% !important;
+  width: 350px  !important;
+  height: auto !important;
+  //margin: 30px;
+
+}
+
 
 
 
@@ -32,9 +62,9 @@ h1 {
 #photos_3 img {
   /* Just in case there are inline attributes */
   //width: 100% !important;
-  width: 240px  !important;
+  width: 250px  !important;
   height: auto !important;
-  margin: 40px;
+  margin: 30px;
 
 }
 
