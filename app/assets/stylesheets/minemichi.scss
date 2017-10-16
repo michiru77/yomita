@@ -1,0 +1,88 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// 〓
+// 背景画像をhtml側で変更したい場合、以下を冒頭に記述
+//  <body style="background: url(/samuel-zeller-356186.jpg) center top / cover no-repeat fixed" />
+// 文字色も透過させたい場合
+//  opacity: 0.3;
+// 背景色だけ透過させたい場合
+//  background-color: rgba(0,135,0,0.5);
+// 〓
+// 階段の背景画像
+//  <body style="background: url(/samuel-zeller-356186.jpg) center top / cover no-repeat fixed" />
+// 〓バグ技
+// </div>で閉じるべきところを閉じないで複数回使用することで、段々と文字が大きくなっていく
+//  <div class="enclosure1"/><h1/>a
+// <div class="enclosure1"/><h1/>a</div>の間に混ぜることで行間を開ける
+//  <h1 style="color: rgba(200,230,255,0);">Space</h1>
+
+span.headline2 {
+    font-size: 3vw;
+}
+span.headline1 {
+    font-size: 3vw;
+}
+span.headline3{
+    font-size: 2vw;
+}
+.headline3 a{
+    margin-left: 7%;
+}
+
+.ataglink1 a {
+    text-decoration:none;
+    //background-color: rgba(20,20,50,1);
+    background-color: rgba(250,250,250,0.7);
+    color: rgba(20,20,50,1);
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #333333;
+}
+
+// 見出し囲い用
+.enclosure1 {
+    //background-image: url("/sofiya-levchenko-308460.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: 50%;
+    background-position: top left;
+    //padding-top: 3px;
+    //padding-bottom: 3px;
+    width: 43%;
+}
+
+.enclosure2 {
+    background-image: url("/sofiya-levchenko-308460.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: 50%;
+    background-position: top center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 43%;
+    margin: auto;
+}
+
+// 左上に表示されるタイトル見出し用
+.headline1 {
+    //background-color: rgba(20,20,50,1);
+    //background-color: rgba(200,230,255,0.7);
+    background-color: rgba(250,250,250,0.7);
+    //color: rgba(255,255,255,0.8);
+    color: rgba(20,20,50,1);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 23px;
+}
+// 背景色なし
+.headline2 {
+    background-color: rgba(250,250,255,0.3);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 23px;
+}

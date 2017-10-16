@@ -1,0 +1,2 @@
+module MinemichiHelper
+end
