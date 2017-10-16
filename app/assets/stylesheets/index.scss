@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  margin: 200px;
+  margin: 60px 160px 160px 160px;
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 40px;
   text-align: center;
   border-bottom: solid 4px #498bff;
   //margin: 20px 20px 20px 20px;
@@ -32,7 +32,7 @@ h1 {
 #photos_3 img {
   /* Just in case there are inline attributes */
   //width: 100% !important;
-  width: 600px  !important;
+  width: 240px  !important;
   height: auto !important;
   margin: 40px;
 
@@ -57,6 +57,7 @@ h1 {
 
 #photos_5 img {
   /* Just in case there are inline attributes */
+ // width: 100% !important;
   width: 100% !important;
   height: auto !important;
   margin: 15px;
@@ -101,7 +102,8 @@ h1 {
 
 #photos_6 img {
   /* Just in case there are inline attributes */
-  width: 100% !important;
+  //width: 100% !important;
+  width: 130px !important;
   height: auto !important;
   margin: 15px;
 }
