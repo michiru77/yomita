@@ -1,0 +1,2 @@
+module MichiruPanelImgHelper
+end

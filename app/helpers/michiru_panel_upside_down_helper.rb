@@ -1,0 +1,2 @@
+module MichiruPanelUpsideDownHelper
+end
