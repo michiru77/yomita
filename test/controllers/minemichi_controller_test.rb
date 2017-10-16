@@ -4,6 +4,7 @@ class MinemichiControllerTest < ActionDispatch::IntegrationTest
   test "should get img1" do
     get minemichi_img1_url
     assert_response :success
+    assert_select "title", "Yomita"
   end
 
 end
