@@ -2,31 +2,77 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-li {
-  list-style: none;
-  float: left;
+body {
+  margin: 60px 160px 160px 160px;
+  //background-color: #fafad2;
+  //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
 }
 
-.header-logo{
-  float: left;
-  padding: 20px 20px 20px 20px;
+h1 {
+  font-size: 40px;
+  text-align: center;
+  border-bottom: solid 3px #498bff;
+  //margin: 20px 20px 20px 20px;
 }
 
-.header-list{
-  float: left;
-  padding: 20px 20px 20px 20px;
-}
 
-.logo1{
-  border-bottom: 1px solid #333;
-  margin: 20px 20px;
-}
-
-.contents{
-  margin-top: 100px;
-
+#photos_1 {
   /* Prevent vertical gaps */
-  /*
+  line-height: 0;
+
+  -webkit-column-count: 1;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    1;
+  -moz-column-gap:      0px;
+  column-count:         1;
+  column-gap:           0px;
+
+}
+
+
+#photos_1 img {
+  /* Just in case there are inline attributes */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  //width: 100% !important;
+  width: 350px  !important;
+  height: auto !important;
+  //margin: 30px;
+
+}
+
+
+
+
+#photos_3 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 3;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    3;
+  -moz-column-gap:      0px;
+  column-count:         3;
+  column-gap:           0px;
+
+}
+
+
+#photos_3 img {
+  /* Just in case there are inline attributes */
+  //width: 100% !important;
+  width: 250px  !important;
+  height: auto !important;
+  margin: 30px;
+
+}
+
+
+
+
+#photos_5 {
+  /* Prevent vertical gaps */
   line-height: 0;
 
   -webkit-column-count: 5;
@@ -35,88 +81,67 @@ li {
   -moz-column-gap:      0px;
   column-count:         5;
   column-gap:           0px;
-   */
+
 }
 
-.contents-item{
-  max-width: 200px;
-  display: inline-block;
-  vertical-align: middle;
-  //float:  left;
-  margin: 10px;
- // margin: auto;
+
+#photos_5 img {
+  /* Just in case there are inline attributes */
+ // width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 15px;
 }
+
+
+#photos_4 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 4;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    4;
+  -moz-column-gap:      0px;
+  column-count:         4;
+  column-gap:           0px;
+
+}
+
+
+#photos_4 img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+  margin: 15px;
+}
+
+
+#photos_6 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 6;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    6;
+  -moz-column-gap:      0px;
+  column-count:         6;
+  column-gap:           0px;
+
+}
+
+
+#photos_6 img {
+  /* Just in case there are inline attributes */
+  //width: 100% !important;
+  width: 130px !important;
+  height: auto !important;
+  margin: 15px;
+}
+
+
 
 /*
-#enjoy {
-  width: 400px;
-  height: 200px;
+.book1{
+  width: 1000px;
 }
 */
-
-
-/*
-p {
-  max-width: 200px;
-  //width: 100%;
-  //height: auto;
-  display: inline-block;
-  vertical-align: bottom;   /* 上端を揃える */
-  //margin: 5px 0px;
-  //padding: 10px;
-  //border: 2px solid green;
-  //background-color: #ddffdd;
-  //width: auto;
-  //max-height: 300px;
-//}
-
-
-
-img {
-  max-width: 200px;
-  //width: 100%;
-  //height: auto;
-  display: inline-block;
-  vertical-align: bottom;   /* 上端を揃える */
-  //margin: 5px 0px;
-  //padding: 10px;
-  //border: 2px solid green;
-  //background-color: #ddffdd;
-  //width: auto;
-  //max-height: 300px;
-}
-
-
-/*
-@media (max-width: 1200px) {
-  #photos {
-    -moz-column-count:    4;
-    -webkit-column-count: 4;
-    column-count:         4;
-  }
-}
-@media (max-width: 1000px) {
-  #photos {
-    -moz-column-count:    3;
-    -webkit-column-count: 3;
-    column-count:         3;
-  }
-}
-@media (max-width: 800px) {
-  #photos {
-    -moz-column-count:    2;
-    -webkit-column-count: 2;
-    column-count:         2;
-  }
-}
-@media (max-width: 400px) {
-  #photos {
-    -moz-column-count:    1;
-    -webkit-column-count: 1;
-    column-count:         1;
-  }
-}
-*/
-
-
-
