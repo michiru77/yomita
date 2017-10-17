@@ -1,0 +1,185 @@
+// Place all the styles related to the index controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  margin: 60px 160px 160px 160px;
+  //background-color: #fafad2;
+  //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
+}
+
+.tittle_choice {
+  width:100px;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:8px 0 10px;
+  color:#fff;
+  background-color:#49a9d4;
+  border-radius:10px;
+}
+
+/*
+.reload {
+  width:100px;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:8px 0 10px;
+  color:#fff;
+  background-color:#49a9d4;
+  border-radius:10px;
+  float: right;
+}
+*/
+
+
+h1 {
+  font-size: 40px;
+  font-family: 'Trebuchet';
+  text-align: center;
+  //border-bottom: solid 3px #498bff;
+  border-bottom: solid 3px #49a9d4;
+  //margin: 20px 20px 20px 20px;
+}
+
+
+img:hover {
+  opacity: 0.76;
+  transition: 0.35s;
+  background-color: #000;
+}
+
+#photos_1 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 1;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    1;
+  -moz-column-gap:      0px;
+  column-count:         1;
+  column-gap:           0px;
+
+}
+
+
+#photos_1 img {
+  /* Just in case there are inline attributes */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  //width: 100% !important;
+  width: 350px  !important;
+  height: auto !important;
+  //margin: 30px;
+
+}
+
+
+
+
+#photos_3 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 3;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    3;
+  -moz-column-gap:      0px;
+  column-count:         3;
+  column-gap:           0px;
+
+}
+
+
+#photos_3 img {
+  /* Just in case there are inline attributes */
+  //width: 100% !important;
+  width: 250px  !important;
+  height: auto !important;
+  margin: 30px;
+
+}
+
+
+
+
+#photos_5 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 5;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    5;
+  -moz-column-gap:      0px;
+  column-count:         5;
+  column-gap:           0px;
+
+}
+
+
+#photos_5 img {
+  /* Just in case there are inline attributes */
+ // width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 15px;
+}
+
+
+#photos_4 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 4;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    4;
+  -moz-column-gap:      0px;
+  column-count:         4;
+  column-gap:           0px;
+
+}
+
+
+#photos_4 img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+  margin: 15px;
+}
+
+
+#photos_6 {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 6;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    6;
+  -moz-column-gap:      0px;
+  column-count:         6;
+  column-gap:           0px;
+
+}
+
+
+#photos_6 img {
+  /* Just in case there are inline attributes */
+  //width: 100% !important;
+  width: 130px !important;
+  height: auto !important;
+  margin: 15px;
+}
+
+
+
+/*
+.book1{
+  width: 1000px;
+}
+*/
