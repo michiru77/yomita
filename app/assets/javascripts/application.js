@@ -14,8 +14,7 @@
 //= require turbolinks
 //= require_tree .
 
-//上段
-//下段
+// AmazonLink
 simg=new Array(0);
 simg.push('<a target="_blank" href="https://www.amazon.co.jp/gp/product/4048692712/ref=s9_dcacsd_dcoop_bw_c_x_3_w?pf_rd_m=AN1VRQENFRJN5&pf_rd_s=merchandised-search-5&pf_rd_r=WR3PFZMZ1WER6DB0APDM&pf_rd_r=WR3PFZMZ1WER6DB0APDM&pf_rd_t=101&pf_rd_p=a5a2dc3e-76dc-4071-bb8f-980d94b8d358&pf_rd_p=a5a2dc3e-76dc-4071-bb8f-980d94b8d358&pf_rd_i=466280"><img src="https://images-na.ssl-images-amazon.com/images/I/51QyAm7YKsL._SX349_BO1,204,203,200_.jpg"></a>');
 simg.push('<a target="_blank" href="https://www.amazon.co.jp/gp/product/4094516743/ref=s9_acsd_hps_bw_c_x_5_w?pf_rd_m=AN1VRQENFRJN5&pf_rd_s=merchandised-search-7&pf_rd_r=WR3PFZMZ1WER6DB0APDM&pf_rd_r=WR3PFZMZ1WER6DB0APDM&pf_rd_t=101&pf_rd_p=020b91a2-2ea5-488b-a5e9-808efb690088&pf_rd_p=020b91a2-2ea5-488b-a5e9-808efb690088&pf_rd_i=466280"><img src="https://images-na.ssl-images-amazon.com/images/I/51bHdNk7oPL._SX348_BO1,204,203,200_.jpg"></a>');
@@ -62,7 +61,18 @@ simg.push('<a target="_blank" href="https://www.amazon.co.jp/バッタを倒し�
 simg.push('<a target="_blank" href="https://www.amazon.co.jp/カラフル-文春文庫-森-絵都/dp/4167741016/ref=pd_sim_14_2?_encoding=UTF8&psc=1&refRID=BE0M99CD32SKBNXVAK8Q"><img src="https://images-na.ssl-images-amazon.com/images/I/41f6NlMFL6L._SX346_BO1,204,203,200_.jpg"></a>');
 simg.push('<a target="_blank" href="https://www.amazon.co.jp/gp/product/416390624X/ref=s9_acsd_zgift_hd_bw_b240G_c_x_w?pf_rd_m=AN1VRQENFRJN5&pf_rd_s=merchandised-search-5&pf_rd_r=V1P36BFGFNWWF7XW4DMY&pf_rd_t=101&pf_rd_p=60b727b1-a088-5224-8541-f994c7433c47&pf_rd_i=492048"><img src="https://images-na.ssl-images-amazon.com/images/I/51%2BcMWBJwHL._SX346_BO1,204,203,200_.jpg"></a>');
 simg.push('<a target="_blank" href="https://www.amazon.co.jp/西の魔女が死んだ-新潮文庫-梨木-香歩/dp/4101253323/ref=pd_rhf_dp_5?_encoding=UTF8&pd_rd_i=4101253323&pd_rd_r=3GEZQW4G991DZBRD44E9&pd_rd_w=LfFUM&pd_rd_wg=hWH81&psc=1&refRID=3GEZQW4G991DZBRD44E9"><img src="https://images-na.ssl-images-amazon.com/images/I/411eu0htNhL._SX355_BO1,204,203,200_.jpg"></a>');
+// パラメーター取得用URL生成
+var reg = new RegExp('(<a target=\"_blank\" href=\").*(\"><img src=\")', 'gi');
+paramList=new Array(0);
+countNumber = 0;
+for(let loopNumber = 0; loopNumber < simg.length; loopNumber++) {
+	countNumberSt = countNumber + '';
+	paramList.push(simg[loopNumber].replace( reg , "<a target=\"new\" href=\""+"/?id="+countNumberSt+"$2" ));
+	countNumber = countNumber+1;
+}
+//paramList.push()
 // 配列の大きさ
 var simgCopyLength = simg.length;
 // 副次配列の準備
-simgCopy = simg.concat();
+simgCopy = paramList.concat();
+//simgCopy = simg.concat();

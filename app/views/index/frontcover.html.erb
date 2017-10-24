@@ -1,5 +1,15 @@
+<!--
+<%= @id %>
+-->
 <!--　🔵JSの使用宣言　-->
 <SCRIPT LANGUAGE="JavaScript">
+// URLからパラメータを読み込んでるぜ！
+var urlPrm = new Object;
+var urlSearch = location.search.substring(1).split('&');
+for(i=0;urlSearch[i];i++) {
+  var kv = urlSearch[i].split('=');
+  urlPrm[kv[0]]=kv[1];
+}
 </SCRIPT>
 <!--
 <a href="/frontcover" class="tittle_choice">タイトル選書</a>
@@ -7,7 +17,7 @@
 <!--　🔵基本　-->
 <h1>読み太。</h1>
 <!--
- <SCRIPT>
+<SCRIPT>
     for ( var forNumber1=0 ; forNumber1<simgCopy.length ; forNumber1++ ) {
         document.write(simgCopy[forNumber1]);
     }
@@ -16,7 +26,11 @@
 <!--　🔵上段　-->
 <section id="photos_1">
     <SCRIPT>
-        number1 = Math.floor(Math.random() * simgCopy.length);
+        number1 = Number(urlPrm.id);
+        // 一番最初にページを読み込んだ時はパラメータがないからランダム表示
+        if ( !isFinite(number1) ){
+            number1 = Math.floor(Math.random() * simgCopy.length);   
+        }
         document.write(simgCopy[number1]);
         simgCopy.splice(number1,1);
     </SCRIPT>
