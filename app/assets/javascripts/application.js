@@ -67,7 +67,7 @@ paramList=new Array(0);
 countNumber = 0;
 for(let loopNumber = 0; loopNumber < simg.length; loopNumber++) {
 	countNumberSt = countNumber + '';
-	paramList.push(simg[loopNumber].replace( reg , "<a target=\"new\" href=\""+"/?id="+countNumberSt+"$2" ));
+	paramList.push(simg[loopNumber].replace( reg , "<a target=\"_self\" href=\""+"/?id="+countNumberSt+"$2" ));
 	countNumber = countNumber+1;
 }
 //paramList.push()
