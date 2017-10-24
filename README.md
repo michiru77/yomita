@@ -7,7 +7,7 @@
 新しい本選びを実現するサービスです。
 
 このサービスは，ユーザーに本を読むきっかけを与え，
-Kakidashi や Amazon と違って，
+Amazon と違って，
 より直感的な本との出会いを提供することができます。
 ```
 * Product Backlog: https://trello.com/b/Xk1orLQS/%E8%AA%AD%E3%81%BF%E3%81%9Flog2
