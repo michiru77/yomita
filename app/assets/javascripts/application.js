@@ -65,7 +65,7 @@ simg.push('<a target="_blank" href="https://www.amazon.co.jp/西の魔女が死�
 var reg = new RegExp('(<a target=\"_blank\" href=\").*(\"><img src=\")', 'gi');
 paramList=new Array(0);
 countNumber = 0;
-for(let loopNumber = 0; loopNumber < simg.length; loopNumber++) {
+for(var loopNumber = 0; loopNumber < simg.length; loopNumber++) {
 	countNumberSt = countNumber + '';
 	paramList.push(simg[loopNumber].replace( reg , "<a target=\"_self\" href=\""+"/?id="+countNumberSt+"$2" ));
 	countNumber = countNumber+1;
