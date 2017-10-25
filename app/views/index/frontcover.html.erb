@@ -31,7 +31,8 @@ for(i=0;urlSearch[i];i++) {
         if ( !isFinite(number1) ){
             number1 = Math.floor(Math.random() * simgCopy.length);   
         }
-        document.write(simgCopy[number1]);
+        // Topの時だけ、クラス名を変更し、iconの表示を正常にする
+        document.write(simgCopy[number1].replace( "iconBuyButton" , "iconBuyButtonTop" ));
         simgCopy.splice(number1,1);
     </SCRIPT>
 </section>
