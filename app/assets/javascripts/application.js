@@ -85,4 +85,5 @@ for(let loopNumber = 0; loopNumber < simg.length; loopNumber++) {
 var simgCopyLength = paramListIcon.length;
 // 副次配列の準備
 simgCopy = paramListIcon.concat();
+//simgCopy = paramList.concat();
 //simgCopy = simg.concat();

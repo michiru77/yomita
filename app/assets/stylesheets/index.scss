@@ -18,7 +18,12 @@ h1 {
   //margin: 20px 20px 20px 20px;
 }
 
-
+// 2017/10/25バグ解決
+// 参考:https://yumeirodesign.jp/blog/201312/csstransforms_fixed.html
+img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility:hidden;
+}
 img:hover {
   opacity: 0.76;
   transition: 0.35s;
