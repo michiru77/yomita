@@ -24,11 +24,13 @@ img {
     backface-visibility: hidden;
     -webkit-backface-visibility:hidden;
 }
-img:hover {
-  opacity: 0.76;
+
+img:hover{
+  opacity: 0.8;
   transition: 0.35s;
   background-color: #000;
 }
+
 
 #photos_1 {
   /* Prevent vertical gaps */
@@ -176,9 +178,11 @@ img:hover {
   margin: 0; /*余計な隙間を除く*/
   color: rgba(0,0,40,0.3);/*文字を白に*/
   background: rgba(200,200,200,0.6);/*背景色*/
-  //font-size: 15px;
+  font-size: 1.2em;
+  border-radius: 45%;
   line-height: 1;/*行高は1に*/
   //padding: 5px 10px;/*文字周りの余白*/
+  opacity:		0;	/* マスクを表示しない */
 }
 
 .iconBuyButtonTop {
@@ -195,11 +199,19 @@ img:hover {
     margin-left: 350px;
     color: rgba(0,0,40,0.3);/*文字を白に*/
     background: rgba(200,200,200,0.6);/*背景色*/
-    //font-size: 15px;
+    font-size: 2em;
+    border-radius: 45%;
     line-height: 1;/*行高は1に*/
     //padding: 5px 10px;/*文字周りの余白*/
+    opacity:		0;	/* マスクを表示しない */
 }
 
-.iconBuyButton img {
-  //width: 100%;
+.iconBuyButton:hover i{
+	opacity:		1;	/* ホバー時にマスクを表示する */
+    transition: 0.35s;
+}
+
+.iconBuyButtonTop:hover i{
+	opacity:		1;	/* ホバー時にマスクを表示する */
+    transition: 0.35s;
 }
