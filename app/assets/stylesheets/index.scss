@@ -215,3 +215,8 @@ img:hover{
 	opacity:		1;	/* ホバー時にマスクを表示する */
     transition: 0.35s;
 }
+
+i:hover {
+  //opacity: 1;
+  background-color: #a9a9a9;
+}
