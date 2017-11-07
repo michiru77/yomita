@@ -1,5 +1,5 @@
 <!--
-<%= @id %>
+<%= @id %>🔴
 -->
 <!--　🔵JSの使用宣言　-->
 <SCRIPT LANGUAGE="JavaScript">
@@ -10,12 +10,33 @@ for(i=0;urlSearch[i];i++) {
   var kv = urlSearch[i].split('=');
   urlPrm[kv[0]]=kv[1];
 }
+number1 = Number(urlPrm.authorID);
+var simg01=new Array(0);
+//document.write(authorPo[number1]);document.write('<br>');document.write(authorPo[number1+1]);document.write('<br>');
+if(!isFinite(number1) ){ 
+    simg01=simgCopy01.concat();
+    //document.write(simg01.length);
+}else{
+    // ID番地の値から、ID+1番地の値まで
+    for(i2=authorPo[number1];i2<authorPo[number1+1];i2++){
+        simg01.push(simgCopy01[i2]);
+    }  
+    //document.write(authorPo[number1+1]);
+    //document.write(simg01.length);document.write('<br>');
+}
+simgCopy = simg01.concat();
 </SCRIPT>
 <!--
 <a href="/frontcover" class="tittle_choice">タイトル選書</a>
 -->
 <!--　🔵基本　-->
-<h1>読み太。</h1>
+<SCRIPT>
+if( isFinite(number1)){
+    document.write("<h1>"+authorList[number1]+"</h1>");
+}else{
+    document.write('<a href="/" style="text-decoration:none;" onclick="window.location.reload();" onclick="javascript:window.history.back(-1);return false;" ><h1>読み太。</h1></a>')
+}
+</SCRIPT>
 <!--
 <SCRIPT>
     for ( var forNumber1=0 ; forNumber1<simgCopy.length ; forNumber1++ ) {
@@ -26,15 +47,19 @@ for(i=0;urlSearch[i];i++) {
 <!--　🔵上段　-->
 <section id="photos_1">
     <SCRIPT>
-        number1 = Number(urlPrm.id);
+        number2 = Number(urlPrm.bookID);
         // 一番最初にページを読み込んだ時はパラメータがないからランダム表示
-        if ( !isFinite(number1) ){
-            number1 = Math.floor(Math.random() * simgCopy.length);   
-        }
         // Topの時だけ、クラス名を変更し、iconの表示を正常にする
-        document.write(simgCopy[number1].replace( "iconBuyButton" , "iconBuyButtonTop" ));
-        //document.write(simgCopy[number1]);
-        simgCopy.splice(number1,1);
+        if ( !isFinite(number1) ){
+            number2 = Math.floor(Math.random() * simgCopy.length);
+            document.write(simgCopy[number2].replace( "iconBuyButton" , "iconBuyButtonTop" ));
+            //document.write(simgCopy[number2]);
+            simgCopy.splice(number2,1);
+        }else{
+            document.write(simg2[number2].replace( "iconBuyButton" , "iconBuyButtonTop" ));
+            //document.write(simgCopy[number2]);
+            simgCopy.splice(number2-authorPo[number1],1);
+        }
     </SCRIPT>
 </section>
 <!--　🔵中段　-->
@@ -50,7 +75,7 @@ for(i=0;urlSearch[i];i++) {
 <!--　🔵下段　-->
 <section id="photos_6">
     <SCRIPT>
-        for ( var forNumber1=0 ; forNumber1<simgCopyLength-4 ; forNumber1++ ) {
+        for ( var forNumber1=0 ; forNumber1<simgCopy.length ; forNumber1++ ) {
             number1 = Math.floor(Math.random() * simgCopy.length);
             document.write(simgCopy[number1]);
             simgCopy.splice(number1,1);

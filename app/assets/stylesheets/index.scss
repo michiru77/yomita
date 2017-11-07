@@ -31,6 +31,10 @@ img:hover{
   background-color: #000;
 }
 
+#title00 {
+    
+}
+
 
 #photos_1 {
   /* Prevent vertical gaps */
@@ -49,7 +53,7 @@ img:hover{
 #photos_1 img {
   /* Just in case there are inline attributes */
   display: block;
-  margin-left: 350px;
+  margin-left: auto;
   margin-right: auto;
   //width: 100% !important;
   width: 350px  !important;
