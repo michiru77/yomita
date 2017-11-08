@@ -4,16 +4,51 @@
 <%= submit_tag "検索" %>
 <% end %>
 
-<table>
-  <tbody>
-    <% if @items.present? %>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= link_to item.name, "#{item.url}" %></td>
-      <td><%= image_tag item["mediumImageUrls"][0] %></td>
+<!--　🔵上段　-->
+<section id="photos_1">
+  <table>
+    <tbody>
+      <% if @items1.present? %>
+      <% @items1.each do |item| %>
+      <tr>
+        <td><%= link_to item.name, "#{item.url}" %></td>
+        <td><%= image_tag item["mediumImageUrls"][0] %></td>
 
-    </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<!--　🔵中段　-->
+<section id="photos_3">
+  <table>
+    <tbody>
+      <% if @items2.present? %>
+      <% @items2.each do |item| %>
+      <tr>
+        <td><%= link_to item.name, "#{item.url}" %></td>
+        <td><%= image_tag item["mediumImageUrls"][0] %></td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<!--　🔵下段　-->
+<section id="photos_6">
+  <table>
+    <tbody>
+      <% if @items3.present? %>
+      <% @items3.each do |item| %>
+      <tr>
+        <td><%= link_to item.name, "#{item.url}" %></td>
+        <td><%= image_tag item["mediumImageUrls"][0] %></td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
