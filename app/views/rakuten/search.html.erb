@@ -10,11 +10,9 @@
     <tbody>
       <% if @items1.present? %>
       <% @items1.each do |item| %>
-      <tr>
-        <td><%= link_to item.name, "#{item.url}" %></td>
-        <td><%= image_tag item["mediumImageUrls"][0] %></td>
 
-      </tr>
+      <%= link_to image_tag(item["mediumImageUrls"][0]), "#{item.url}" %>
+
       <% end %>
       <% end %>
     </tbody>
@@ -27,10 +25,9 @@
     <tbody>
       <% if @items2.present? %>
       <% @items2.each do |item| %>
-      <tr>
-        <td><%= link_to item.name, "#{item.url}" %></td>
-        <td><%= image_tag item["mediumImageUrls"][0] %></td>
-      </tr>
+
+      <%= link_to image_tag(item["mediumImageUrls"][0]), "#{item.url}" %>
+
       <% end %>
       <% end %>
     </tbody>
@@ -43,10 +40,9 @@
     <tbody>
       <% if @items3.present? %>
       <% @items3.each do |item| %>
-      <tr>
-        <td><%= link_to item.name, "#{item.url}" %></td>
-        <td><%= image_tag item["mediumImageUrls"][0] %></td>
-      </tr>
+
+      <%= link_to image_tag(item["mediumImageUrls"][0]), "#{item.url}" %>
+
       <% end %>
       <% end %>
     </tbody>
