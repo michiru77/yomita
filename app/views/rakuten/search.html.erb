@@ -1,6 +1,6 @@
 <%= form_tag :rakuten_search, method: :get do  %>
-<%= label_tag :keyword, 'Keyword Search' %>
-<%= text_field_tag 'keyword', params[:keyword] %>
+<%= label_tag :author, 'Author Search' %>
+<%= text_field_tag 'author', params[:author] %>
 <%= submit_tag "Search" %>
 <% end %>
 
@@ -10,7 +10,7 @@
     <tbody>
       <% if @items1.present? %>
       <% @items1.each do |item| %>
-      
+
       <%= link_to image_tag("#{item.large_image_url}"), "#{item.item_url}" %>
 
       <% end %>
@@ -42,7 +42,7 @@
       <% @items3.each do |item| %>
 
       <%= link_to image_tag("#{item.large_image_url}"), "#{item.item_url}" %>
-      
+
       <% end %>
       <% end %>
     </tbody>
