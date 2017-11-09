@@ -11,7 +11,7 @@
       <% if @items1.present? %>
       <% @items1.each do |item| %>
 
-      <%= link_to image_tag(item["mediumImageUrls"][0]), "#{item.url}", :target=>["_blank"] %>
+      <%= link_to image_tag(item['mediumImageUrl']), "#{item.url}" %>
 
       <% end %>
       <% end %>
