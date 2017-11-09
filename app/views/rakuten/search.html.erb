@@ -1,6 +1,6 @@
 <%= form_tag :rakuten_search, method: :get do  %>
-<%= label_tag :author, 'Author Search' %>
-<%= text_field_tag 'author', params[:author] %>
+<%= label_tag :title, 'Title Search' %>
+<%= text_field_tag 'title', params[:title] %>
 <%= submit_tag "Search" %>
 <% end %>
 
