@@ -1,0 +1,20 @@
+<%= form_tag :rakuten_search, method: :get do  %>
+<%= label_tag :title, 'Title Search' %>
+<%= text_field_tag 'title', params[:title] %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<!--　Lower Stage　-->
+<section id="photos_6">
+  <table>
+    <tbody>
+      <% if @items_3.present? %>
+      <% @items_3.each do |item| %>
+
+      <%= link_to image_tag("#{item.large_image_url}"), "#{item.item_url}" %>
+
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
