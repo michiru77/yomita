@@ -2,11 +2,9 @@ class HomeController < ApplicationController
   def index
   end
 
-=begin
   def search
     if params[:title]
       @items = RakutenWebService::Books::Book.search(title: params[:title], hits: 30)
-
       @items_1 = []
       @items_2 = []
       @items_3 = []
@@ -16,7 +14,7 @@ class HomeController < ApplicationController
         @items_3 << item if i >= 4
       end
     end
+    render :action => "index"
   end
-=end
 
 end
