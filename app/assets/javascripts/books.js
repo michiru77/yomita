@@ -1,5 +1,33 @@
 // var t = $("#title").val();
 
+$(function() {
+    $(window).load(function(){
+        //    $("#search").on("click", function(){
+        var title = '恋愛';
+        $.ajax({
+            url: '/home_search',
+            type: 'GET',
+            dataType: 'json',
+            async: true,
+            data: {title: title}
+        }).done(function(data){
+            var bookTitle = JSON.stringify(data[0]["params"]["title"]);
+            var imgURL = JSON.stringify(data[0]["params"]["largeImageUrl"]);
+            var list = '<div class="inner_b">'
+                + bookTitle
+                + '</div>'
+                + '<div class="inner_c">'
+                + imgURL
+                + '</div>';
+            $("#wrap").html(list);
+        }).fail(function(data){
+            $('#out').html('<p>Failure</p>');
+        });
+    });
+});
+
+
+
 /*
   $(function() {
   $("#search").on("click", function(){
@@ -30,26 +58,3 @@
   });
   });
 */
-
-$(function() {
-    //    $(window).load(function(){
-    $("#search").on("click", function(){
-        var title = $("#title").val();
-        $("#out").append('<p>hoge</p>');
-        $.ajax({
-            url: '/home_search',
-            type: 'GET',
-            dataType: 'json',
-            async: true,
-            //data: {title: title},
-            data: {title: '化学'}
-        }).done(function(data){
-            var h = '<p>'
-                + data
-                + '</p>';
-            $("#wrap").html( h );
-        }).fail(function(data){
-            $('#out').html('<p>Failure</p>');
-        });
-    });
-});
