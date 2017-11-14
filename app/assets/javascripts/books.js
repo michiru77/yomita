@@ -121,15 +121,18 @@ $(document).ready(function() {
 
 
 
-$('.submit').click(function () {
-    //$('.seikou').hide();
-    var keyword = $(this).attr('value');
-    if (!keyword) {
-        return;
-    }
-    ajaxSearch(keyword);
-})
-
+$(function() {
+    $(window).load(function() {
+        $('.submit').click(function () {
+            //$('.seikou').hide();
+            var keyword = $(this).attr('value');
+            if (!keyword) {
+                return;
+            }
+            ajaxSearch(keyword);
+        });
+    });
+});
 
 function ajaxSearch(keyword,page) {
     //$('.seikou').hide();
