@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   #get 'rakuten_search' => 'rakuten#search'
   root 'home#index'
   get 'home_search' => 'home#search'
+  post 'home_search' => 'home#search'
 end

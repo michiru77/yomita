@@ -1,20 +1,37 @@
+<!--
 <%= form_tag :home_search, method: :get do  %>
 <%= label_tag :title, 'Title Search' %>
 <%= text_field_tag 'title', params[:title] %>
 <%= submit_tag "Search" %>
 <% end %>
+-->
+
+
+<!--
+<form action="/home_search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />-->
+  <label for="title">Title Search</label>
+  <input type="text" name="title" id="title" value="化学" />
+  <input id="search" type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>
 
 <!--　Lower Stage　-->
-<section id="photos_6">
-  <table>
-    <tbody>
-      <% if @items_3.present? %>
-      <% @items_3.each do |item| %>
-      <%= link_to image_tag("#{item.large_image_url}"), "#{item.item_url}" %>
-      <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</section>
 
+<!--
+    <section id="photos_6">
+      <table>
+        <tbody>
+          <% if @items_3.present? %>
+          <% @items_3.each do |item| %>
+          <%= link_to image_tag("#{item.large_image_url}"), "#{item.item_url}" %>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+-->
+
+<div id="wrap">
+</div>
+
+<div id="out">
 </div>
