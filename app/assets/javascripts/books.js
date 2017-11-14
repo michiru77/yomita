@@ -123,7 +123,7 @@ $(document).ready(function() {
 
 $(function() {
     $(window).load(function() {
-        $('#title').click(function () {
+        $("#title").on("click", function(){
             var keyword = $("#title").val(); 
             //var keyword = $(this).attr('value');
             if (!keyword) {
@@ -160,8 +160,7 @@ function ajaxSearch(keyword,page) {
 }
 
 
-
-
+)
 function _getItems(data) {
     //$('.seikou').hide();
     console.log(data);
