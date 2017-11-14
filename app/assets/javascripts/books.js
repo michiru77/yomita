@@ -120,10 +120,9 @@ $(document).ready(function() {
 */
 
 
-
 $(function() {
     $(window).load(function() {
-        $("#title").on("click", function(){
+        $("title").on("click", function(){
             var keyword = $("#title").val(); 
             //var keyword = $(this).attr('value');
             if (!keyword) {
