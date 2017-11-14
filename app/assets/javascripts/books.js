@@ -1,3 +1,8 @@
+//= require rails-ujs
+//= require jquery
+//= require turbolinks
+//= require_tree .
+
 /*
 $(function(){
     var h = '<div class="inner_b">'
@@ -102,6 +107,10 @@ $(function _action() {
     })
 });
 
+
+$(document).ready(function() {
+    $("p").css("color", "blue");
+});
 
 
 
