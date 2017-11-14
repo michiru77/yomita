@@ -123,9 +123,9 @@ $(document).ready(function() {
 
 $(function() {
     $(window).load(function() {
-        $('.submit').click(function () {
-            //$('.seikou').hide();
-            var keyword = $(this).attr('value');
+        $('#title').click(function () {
+            var keyword = $("#title").val(); 
+            //var keyword = $(this).attr('value');
             if (!keyword) {
                 return;
             }
