@@ -10,7 +10,7 @@ for(i=0;urlSearch[i];i++) {
 }
 // URLから現在のURLを生成
 var urlLocation1 = location;
-document.write(urlLocation1);
+//document.write(urlLocation1);
 // 🔵
 number1 = Number(urlPrm.authorID);
 number90 = Number(urlPrm.authorID2);
@@ -45,7 +45,7 @@ if(!isFinite(number1) ){
     // genreIDがあるなら、表示配列に追加
     simgTemp1=new Array(0);
     if(isFinite(genreIDNumber) ){ // genreIDが与えられているなら
-        document.write('🔵'+genrePo[genreIDNumber]+'から'+genrePo[genreIDNumber+1]+'<br>');
+        //document.write('🔵'+genrePo[genreIDNumber]+'から'+genrePo[genreIDNumber+1]+'<br>');
         // genreのpositionを見て格納
         for(i2=genrePo[genreIDNumber];i2<genrePo[genreIDNumber+1];i2++){
             simgTemp1.push(simg2[i2]);
@@ -77,43 +77,50 @@ urlCreate0=urlLocation1+'';
 urlCreate0=urlCreate0.replace(/(.*&genreID=[0-9]*).*/,"$1");
 // 作者1の絞りボタン
 urlCreate1='<a href="'+urlCreate0+'&kategorie=0'+'">'+authorList[number1][0]+'<a>';
-document.write( urlCreate1+'<br>');
+//document.write( urlCreate1+'<br>');
 if(isFinite(number90)){
     // 作者2の絞りボタン
     urlCreate2='<a href="'+urlCreate0+'&kategorie=1'+'">'+authorList[number90][0]+'<a>';
-    document.write(urlCreate2+'<br>');
+    //document.write(urlCreate2+'<br>');
 }
 // genreの絞りボタン
 urlCreate3='<a href="'+urlCreate0+'&kategorie=2'+'">'+genreList[genreIDNumber]+'<a>';
-document.write(urlCreate3+'<br>');
+//document.write(urlCreate3+'<br>');
 </SCRIPT>
 
 <!--　🔴基本　-->
 <SCRIPT>
 // 🔵トップに、現在表示している作者の関連を表示している。
 if( isFinite(number1)){
-    //if( (!isFinite(kategorieNumber)) || (kategorieNubmer==0) ){
-        //document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number1][0]+'</h1></a>');
-    //}
-    //if( !isFinite(kategorieNumber) || kategorieNubmer==1 ){
-        //document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number90][0]+'</h1></a>');
-    //}
-    //if( !isFinite(kategorieNumber) || kategorieNubmer==2 ){
-        //document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+genreList[genreIDNumber]+'</h1></a>');
-    //}
-    document.write('<a href="/" style="text-decoration:none;" onclick="window.location.reload();" onclick="javascript:window.history.back(-1);return false;" ><h1>読み太。</h1></a>')
+document.write('<a href="/" style="text-decoration:none;" ><h1>読み太。TOPへ</h1></a>')
+if( isFinite(number1) ){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number1][0]+'</h1></a>');
+document.write('<h1>作者1：'+authorList[number1][0]+'</h1>');
+}
+if( isFinite(number90)){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number90][0]+'</h1></a>');
+document.write('<h1>作者2：'+authorList[number90][0]+'</h1>');
+}
+if( isFinite(genreIDNumber) ){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+genreList[genreIDNumber]+'</h1></a>');
+document.write('<h1>分類：'+genreList[genreIDNumber]+'</h1>');
+}
 }else{
-    document.write('<a href="/" style="text-decoration:none;" onclick="window.location.reload();" onclick="javascript:window.history.back(-1);return false;" ><h1>読み太。</h1></a>')
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.location.reload();" onclick="javascript:window.history.back(-1);return false;" ><h1>読み太。</h1></a>')
+document.write('<h1>読み太。</h1>');
 }
 </SCRIPT>
 
 <SCRIPT>
 <!-- ★★★ 作者&ジャンルボタン -->
-document.write('<a class="button" href="'+urlCreate0+'&kategorie=0'+'" >'+authorList[number1][0]+'</a>');
+if(isFinite(genreIDNumber)){
+    document.write('<a class="button" href="'+urlCreate0+'&kategorie=2'+'" >'+genreList[genreIDNumber]+'</a>');
+}
+document.write('<a class="button" href="'+urlCreate0+'&kategorie=0'+'" >'+'作者1：'+authorList[number1][0]+'</a>');
     if(isFinite(number90)){
-        document.write('<a class="button" href="'+urlCreate0+'&kategorie=1'+'" >'+authorList[number90][0]+'</a>');
+        document.write('<a class="button" href="'+urlCreate0+'&kategorie=1'+'" >'+'作者2：'+authorList[number90][0]+'</a>');
     }
-document.write('<a class="button" href="'+urlCreate0+'&kategorie=2'+'" >'+genreList[genreIDNumber]+'</a>');
+
 </SCRIPT>
 
 <!--
