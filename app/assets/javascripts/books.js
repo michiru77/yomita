@@ -1,7 +1,16 @@
+//= require rails-ujs
+//= require jquery
+//= require turbolinks
+//= require_tree .
+//= require rails-ujs
+//= require jquery
+//= require turbolinks
+//= require_tree .
+
 $(function() {
     $(window).load(function() {
-        $('.submit').on("click", function(){
-            // var keyword = $("#title").val();
+        $('.submit').click(function () {
+            //$('.seikou').hide();
             var keyword = $(this).attr('value');
             if (!keyword) {
                 return;
@@ -23,7 +32,7 @@ function ajaxSearch(keyword,page) {
             applicationId: '1011423156545588403', // 必須
             affiliateId: '1619c75a.e3347e97.1619c75b.0859ce2c',
             title: keyword,
-            //            booksGenreId: keyword,
+//            booksGenreId: keyword,
             hits: 10,
             itemCaption: keyword,
             //page: 10,
@@ -35,7 +44,10 @@ function ajaxSearch(keyword,page) {
         _getItems(data)
     })
 }
-)
+
+
+
+
 function _getItems(data) {
     //$('.seikou').hide();
     console.log(data);
@@ -74,6 +86,7 @@ function _getItems(data) {
 
     }
 }
+
 
 
 /*
