@@ -48,6 +48,18 @@
 
 <script type="text/javascript">
 
+  /*
+    function funcAdd1() {
+        //$('.seikou').hide();
+        document.getElementById( "sample" ).innerHTML =
+            parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 1;
+    }
+    function funcAdd2() {
+        document.getElementById( "sample" ).innerHTML =
+            parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 2;
+    }
+    */
+
 /*
     function  valuereceive(){
         $(function () {
@@ -63,6 +75,7 @@
 */
 
 
+/*
     $('.submit').click(function () {
         //$('.seikou').hide();
         var keyword = $(this).attr('value');
@@ -86,7 +99,7 @@ function ajaxSearch(keyword,page) {
             affiliateId: '1619c75a.e3347e97.1619c75b.0859ce2c',
             title: keyword,
 //            booksGenreId: keyword,
-            hits: 10,
+            hits: 30,
             itemCaption: keyword,
             //page: 10,
             //size: 0,
@@ -124,12 +137,19 @@ function _getItems(data) {
             var itemPrice = item.itemPrice;
 
             if (largeimageUrl !='https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/noimage_01.gif?_ex=200x200'){
+
                 var htmlTemplate = $('<div class="grid">' +
                     '<div class="imgholder swing">' +
                     '<a href="' + affiliateUrl + '">' +
-                    '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="128" ' +
-                    'height="128"/>' +
+                    '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                    'height="200"/>' +
                     '</a></div>'+'<p>'+ itemCap + '</p>' );
+
+                var htmlTemplate = $('<section class="photos_6">' +
+                    '<a href="' + affiliateUrl + '">' +
+                    '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                    'height="200"/>' +
+                    '</a></section>' );
             }
 
             //テンプレートを追加
@@ -139,12 +159,12 @@ function _getItems(data) {
 
     }
 }
+*/
 
 
 
 
-
-
+/*
     function funcAdd1() {
         //$('.seikou').hide();
         document.getElementById( "sample" ).innerHTML =
@@ -160,6 +180,7 @@ function _getItems(data) {
         document.getElementById( "sample" ).innerHTML =
             parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 3;
     });
+*/
 
 
 </script>
