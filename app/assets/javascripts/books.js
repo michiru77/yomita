@@ -45,9 +45,6 @@ function ajaxSearch(keyword,page) {
     })
 }
 
-
-
-
 function _getItems(data) {
     //$('.seikou').hide();
     console.log(data);
