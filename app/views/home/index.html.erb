@@ -17,4 +17,101 @@
   </table>
 </section>
 
+
+<div id="container"></div>
+
+
+  <button class="btn submit" value='恋愛' >恋愛</button>
+  <button class="btn submit" value='靴下にゃんこ'> 靴下にゃんこ</button>
+  <button class="btn submit" value='ネコ金魚'> ネコ金魚</button>
+
+  <button onclick="ajaxSearch('恋愛');">1を送る</button>
+
+
+
+<div id="sample">1</div>
+<div id="sampleButton">
+  <button onclick="funcAdd2()">２を足す</button>
+  <button onclick="funcAdd1()">1を足す</button>
 </div>
+
+
+
+<script type="text/javascript">
+    function funcAdd1() {
+        document.getElementById( "sample" ).innerHTML =
+            parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 1;
+    }
+    function funcAdd2() {
+        document.getElementById( "sample" ).innerHTML =
+            parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 2;
+    }
+</script>
+
+
+<script type="text/javascript">
+    function ajaxSearch(keyword,page) {
+        if (!keyword) {
+            keyword = $('.submit.active').attr('value');
+        }
+        $.ajax({
+            type: 'GET',
+            url: 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404',
+            data: {
+                applicationId: '1011423156545588403', // 必須
+                affiliateId: '1619c75a.e3347e97.1619c75b.0859ce2c',
+                keyword: keyword,
+                page: page
+            }
+        }).done(function (data) {
+            _getItems(data)
+        })
+    }
+
+    function _getItems(data) {
+        //console.log(data);
+        $('#container').empty();
+        var pageCount = data.pageCount;
+        var current = data.page;
+
+        var dataStat = data.count;
+        if (dataStat > 0) {
+            $.each(data.Items, function (i, items) {
+                var item = items.Item;
+                var affiliateUrl = item.affiliateUrl;
+                var imageUrl = item.mediumImageUrls[0].imageUrl;
+                var itemName = item.itemName;
+                if (itemName.length > 10) {
+                    itemName = itemName.substring(0, 10) + '...';
+                }
+                var itemPrice = item.itemPrice;
+                var htmlTemplate = $('<div class="grid">' +
+                    '<div class="imgholder swing">' +
+                    '<a href="' + affiliateUrl + '">' +
+                    '<img src="' + imageUrl + '" alt="' + item.itemName + '" width="128" ' +
+                    'height="128"/>' +
+                    '</a></div>' +
+                    '<h2><a href="' + affiliateUrl + '">' + itemName + '</a></h2>' +
+                    '<p>' + item.itemName + '</p>' +
+                    '<div class="meta">' + comma(itemPrice) + '円</div>' +
+                    '</div>');
+
+                //テンプレートを追加
+                $('#container').append(htmlTemplate);
+
+            });
+        });//each
+    }
+
+    $(function () {
+        $('.btn').click(function () {
+            var keyword = $(this).attr('value');
+            //var oElements = document.getElementById("#button1");
+            //var keyword = oElements.value();
+            if (!keyword) {
+                return;
+            }
+            ajaxSearch(keyword);
+        })
+    });
+</script>
