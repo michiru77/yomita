@@ -25,36 +25,3 @@ $(function() {
         });
     });
 });
-
-
-
-/*
-  $(function() {
-  $("#search").on("click", function(){
-  var h = '<div class="inner_b">'
-  + 'コンテンツB'
-  + '</div>'
-  + '<div class="inner_c">'
-  + 'コンテンツC'
-  + '</div>';
-  $("#wrap").append( h );
-  });
-  });
-*/
-
-// Executed after top page load.
-//
-
-/*
-  $(function() {
-  $(window).load(function(){
-  var h = '<div class="inner_b">'
-  + 'コンテンツB'
-  + '</div>'
-  + '<div class="inner_c">'
-  + 'コンテンツC'
-  + '</div>';
-  $("#wrap").append( h );
-  });
-  });
-*/
