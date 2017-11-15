@@ -74,13 +74,3 @@ function _getItems(data) {
 
     }
 }
-
-
-
-/*
-  $('.seikou').click(function(){
-  $('.seikou').hide();
-  document.getElementById( "sample" ).innerHTML =
-  parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 3;
-  });
-*/
