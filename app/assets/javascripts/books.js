@@ -87,7 +87,12 @@ function _getItems(data) {
     }
 }
 
-
+$(function() {
+    $(window).load(function() {
+        $('セレクター').click(function () {
+        });
+    });
+});
 
 /*
 $('.seikou').click(function(){
