@@ -1,12 +1,3 @@
-//= require rails-ujs
-//= require jquery
-//= require turbolinks
-//= require_tree .
-//= require rails-ujs
-//= require jquery
-//= require turbolinks
-//= require_tree .
-
 $(function() {
     $(window).load(function() {
         $('.submit').click(function () {
@@ -32,7 +23,7 @@ function ajaxSearch(keyword,page) {
             applicationId: '1011423156545588403', // 必須
             affiliateId: '1619c75a.e3347e97.1619c75b.0859ce2c',
             title: keyword,
-//            booksGenreId: keyword,
+            //            booksGenreId: keyword,
             hits: 10,
             itemCaption: keyword,
             //page: 10,
@@ -49,8 +40,8 @@ function _getItems(data) {
     //$('.seikou').hide();
     console.log(data);
     $('#container').empty();
-//    var pageCount = data.pageCount;
-//    var current = data.page;
+    //    var pageCount = data.pageCount;
+    //    var current = data.page;
 
     var dataStat = data.count;
     if (dataStat > 0) {
@@ -69,11 +60,11 @@ function _getItems(data) {
 
             if (largeimageUrl !='https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/noimage_01.gif?_ex=200x200'){
                 var htmlTemplate = $('<div class="grid">' +
-                    '<div class="imgholder swing">' +
-                    '<a href="' + affiliateUrl + '">' +
-                    '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                    'height="200"/>' +
-                    '</a></div>'+'<p>'+ itemCap + '</p>' );
+                                     '<div class="imgholder swing">' +
+                                     '<a href="' + affiliateUrl + '">' +
+                                     '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                                     'height="200"/>' +
+                                     '</a></div>'+'<p>'+ itemCap + '</p>' );
             }
 
             //テンプレートを追加
@@ -87,11 +78,9 @@ function _getItems(data) {
 
 
 /*
-$('.seikou').click(function(){
-    $('.seikou').hide();
-    document.getElementById( "sample" ).innerHTML =
-        parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 3;
-});
+  $('.seikou').click(function(){
+  $('.seikou').hide();
+  document.getElementById( "sample" ).innerHTML =
+  parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 3;
+  });
 */
-
-
