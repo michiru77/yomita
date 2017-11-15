@@ -1,3 +1,5 @@
+//= require books_list
+
 // 🔵
 // bookIDを割り振る 2017/11/06
 simg2=new Array(0);
