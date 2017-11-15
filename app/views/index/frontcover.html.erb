@@ -76,10 +76,8 @@ simgCopy = simgTemp1.concat();
 urlCreate0=urlLocation1+'';
 urlCreate0=urlCreate0.replace(/(.*&genreID=[0-9]*).*/,"$1");
 // 作者1の絞りボタン
-if(isFinite(number1)){
-    urlCreate1='<a href="'+urlCreate0+'&kategorie=0'+'">'+authorList[number1][0]+'<a>';
-}
-//document.write(urlCreate1+'<br>');
+urlCreate1='<a href="'+urlCreate0+'&kategorie=0'+'">'+authorList[number1][0]+'<a>';
+//document.write( urlCreate1+'<br>');
 if(isFinite(number90)){
     // 作者2の絞りボタン
     urlCreate2='<a href="'+urlCreate0+'&kategorie=1'+'">'+authorList[number90][0]+'<a>';
@@ -89,31 +87,41 @@ if(isFinite(number90)){
 urlCreate3='<a href="'+urlCreate0+'&kategorie=2'+'">'+genreList[genreIDNumber]+'<a>';
 //document.write(urlCreate3+'<br>');
 </SCRIPT>
+
 <!--　🔴基本　-->
 <SCRIPT>
 // 🔵トップに、現在表示している作者の関連を表示している。
 if( isFinite(number1)){
-    if( isFinite(number1) ){
-        //document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number1][0]+'</h1></a>');   
-        document.write('<h1>作者1：'+authorList[number1][0]+'</h1>');
-    }
-    if( isFinite(number90)){
-        //document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number90][0]+'</h1></a>'); 
-        document.write('<h1>作者2：'+authorList[number90][0]+'</h1>');  
-    }
-    if( isFinite(genreIDNumber) ){
-        //document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+genreList[genreIDNumber]+'</h1></a>');
-        document.write('<h1>分類：'+genreList[genreIDNumber]+'</h1>');
-    }
+document.write('<a href="/" style="text-decoration:none;" ><h1>読み太。TOPへ</h1></a>')
+if( isFinite(number1) ){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number1][0]+'</h1></a>');
+document.write('<h1>作者1：'+authorList[number1][0]+'</h1>');
+}
+if( isFinite(number90)){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number90][0]+'</h1></a>');
+document.write('<h1>作者2：'+authorList[number90][0]+'</h1>');
+}
+if( isFinite(genreIDNumber) ){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+genreList[genreIDNumber]+'</h1></a>');
+document.write('<h1>分類：'+genreList[genreIDNumber]+'</h1>');
+}
 }else{
-    //document.write('<a href="/" style="text-decoration:none;" onclick="window.location.reload();" onclick="javascript:window.history.back(-1);return false;" ><h1>読み太。</h1></a>')
-    document.write('<h1>読み太。</h1>');
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.location.reload();" onclick="javascript:window.history.back(-1);return false;" ><h1>読み太。</h1></a>')
+document.write('<h1>読み太。</h1>');
 }
 </SCRIPT>
 
-<!--
-<a class="button" href="https://yahoo.co.jp" >作者</a><a class="button" href="https://yahoo.co.jp" >ジャンル</a>
--->
+<SCRIPT>
+<!-- ★★★ 作者&ジャンルボタン -->
+if(isFinite(genreIDNumber)){
+    document.write('<a class="button" href="'+urlCreate0+'&kategorie=2'+'" >'+genreList[genreIDNumber]+'</a>');
+}
+document.write('<a class="button" href="'+urlCreate0+'&kategorie=0'+'" >'+'作者1：'+authorList[number1][0]+'</a>');
+    if(isFinite(number90)){
+        document.write('<a class="button" href="'+urlCreate0+'&kategorie=1'+'" >'+'作者2：'+authorList[number90][0]+'</a>');
+    }
+
+</SCRIPT>
 
 <!--
 <SCRIPT>
