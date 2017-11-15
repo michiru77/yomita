@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+
 //= require_tree .
 // 🔵Set	link&authorID&genreID
 simg=new Array(0);
