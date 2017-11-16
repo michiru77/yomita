@@ -27,16 +27,15 @@ $(function() {
 });
 
 // from Hiro
-$(function() {
-    $(window).load(function() {
-        $('.submit').click(function () {
-            //$('.seikou').hide();
-            var keyword = $(this).attr('value');
-            if (!keyword) {
-                return;
-            }
-            ajaxSearch(keyword);
-        });
+
+$(window).load(function() {
+    $('.submit').click(function () {
+        //$('.seikou').hide();
+        var keyword = $(this).attr('value');
+        if (!keyword) {
+            return;
+        }
+        ajaxSearch(keyword);
     });
 });
 
