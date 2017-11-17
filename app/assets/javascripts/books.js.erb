@@ -1,5 +1,20 @@
 // var t = $("#title").val();
 
+$(window).load(function() {
+    $('.submit').on('click',function() {
+        $('.submit').each(function(e,v) {
+
+            var t = $('value').attr();
+            var hoge = '<div>'
+                + '<p>'
+                + t
+                + '</p>'
+                + '</div>';
+            $('#wrap').append(t);
+        });
+    });
+});
+
 $(window).load(function(){
     //    $("#search").on("click", function(){
     var title = '恋愛';
@@ -11,14 +26,16 @@ $(window).load(function(){
         data: {title: title}
     }).done(function(data){
 
+        /*
         $.each(data.Items, function (i, items) {
             var list = '<div class="inner_b">'
                 + items.title
                 + '</div>';
             $("#wrap").append(list);
         });
+        */
 
-        /*
+
         var bookTitle = JSON.stringify(data[0]["params"]["title"]);
         var imgURL = JSON.stringify(data[0]["params"]["largeImageUrl"]);
         var list = '<div class="inner_b">'
@@ -29,7 +46,7 @@ $(window).load(function(){
             + '</div>';
 
         $("#wrap").html(list);
-        */
+
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
