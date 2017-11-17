@@ -11,14 +11,25 @@
 //var largeimageUrl = item.largeImageUrl;
 
 /*
-$('.hiroya1').click(function () {
-    $('.seikou').hide();
+  $('.hiroya1').click(function () {
+  $('.seikou').hide();
 
-});
+  });
 */
 function data(a,b) {
 
-    $('#photos_1').append(a);
+
+    var url = 'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200'
+    var foo = '<img class="toBook" src="'
+        + '" alt="'
+        + '" width="200" '
+        + 'height="200"'
+        + '<p>'
+        + url
+        + '<\p>'
+        + '<p>改行します</p>';
+
+    $('#photos_1').append(foo);
     $('#photos_1').append(b);
     $('.seikou').hide();
 }
@@ -58,7 +69,7 @@ function ajaxSearch(keyword,page) {
             applicationId: '1011423156545588403', // 必須
             affiliateId: '1619c75a.e3347e97.1619c75b.0859ce2c',
             title: keyword,
-//            booksGenreId: keyword,
+            //            booksGenreId: keyword,
             hits: 10,
             itemCaption: keyword,
             //page: 10,
@@ -78,8 +89,8 @@ function _getItems(data) {
     //$('.seikou').hide();
     console.log(data);
     $('#container').empty();
-//    var pageCount = data.pageCount;
-//    var current = data.page;
+    //    var pageCount = data.pageCount;
+    //    var current = data.page;
 
     var dataStat = data.count;
     if (dataStat > 0) {
@@ -100,42 +111,41 @@ function _getItems(data) {
 
             if (largeimageUrl !='https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/noimage_01.gif?_ex=200x200'){
                 /*
-                var htmlTemplate = $('<div class="grid">' +
-                    '<div class="imgholder swing">' +
-                    '<a href="' + affiliateUrl + '">' +
-                    '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                    'height="200"/>' +
-                    '</a></div>'+'<p>'+ itemCap + '</p>' );
+                  var htmlTemplate = $('<div class="grid">' +
+                  '<div class="imgholder swing">' +
+                  '<a href="' + affiliateUrl + '">' +
+                  '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                  'height="200"/>' +
+                  '</a></div>'+'<p>'+ itemCap + '</p>' );
                 */
 
                 /*
-                var htmlTemplate = $(
-                    '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                    'height="200"' + ' onclick="data(' + largeimageUrl + ',' + item.itemName + ')" />' +
-                    '<p>改行します</p>' );
-                    */
+                  var htmlTemplate = $(
+                  '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                  'height="200"' + ' onclick="data(' + largeimageUrl + ',' + item.itemName + ')" />' +
+                  '<p>改行します</p>' );
+                */
 
 
-                var foo = 'he';
                 var htmlTemplate = $(
                     '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                    'height="200"' + ' onclick="data(\'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200\',\'ひろや\')" />' +
-                    '<p>改行します</p>' );
+                        'height="200"' + ' onclick="data(\'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200\',\'ひろ\')" />' +
+                        '<p>改行します</p>' );
 
 
 
                 /*
-                var htmlTemplate = $(
-                    '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                    'height="200"' + 'onclick="data(' + 'largeimageUrl' + ',' + 'item.itemName' + ')"  />' +
-                    '<p>改行します</p>' );
-                    */
+                  var htmlTemplate = $(
+                  '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                  'height="200"' + 'onclick="data(' + 'largeimageUrl' + ',' + 'item.itemName' + ')"  />' +
+                  '<p>改行します</p>' );
+                */
                 /*
-                var htmlTemplate = $(
-                    '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                    'height="200" onclick="data(largeimageUrl,item.itemName)" />' +
-                    '<p>改行します</p>' );
-                    */
+                  var htmlTemplate = $(
+                  '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                  'height="200" onclick="data(largeimageUrl,item.itemName)" />' +
+                  '<p>改行します</p>' );
+                */
             }
 
             //テンプレートを追加
@@ -149,9 +159,9 @@ function _getItems(data) {
 
 
 /*
-$('.hiroya1').click(function(){
-   $('#photos_1').append("ひろや");
-});
+  $('.hiroya1').click(function(){
+  $('#photos_1').append("ひろや");
+  });
 */
 
 $(function() {
@@ -159,28 +169,26 @@ $(function() {
         $('a').click(function () {
 
             /*
-            var photos_1_html = $(
-                '<a href="' + affiliateUrl + '">' +
-                '<img src="' + largeimageUrl + '" width="200" ' +
-                'height="200"/>' +
-                '</a>'+'<p>'+ itemCap + '</p>'
-            );
+              var photos_1_html = $(
+              '<a href="' + affiliateUrl + '">' +
+              '<img src="' + largeimageUrl + '" width="200" ' +
+              'height="200"/>' +
+              '</a>'+'<p>'+ itemCap + '</p>'
+              );
             */
             //$('#photos_1').append(photos_1_html);
-//            var photos_1_sample = $(
-//
-//            );
+            //            var photos_1_sample = $(
+            //
+            //            );
             $('#photos_1').append("ひろや");
         });
     });
 });
 
 /*
-$('.seikou').click(function(){
-    $('.seikou').hide();
-    document.getElementById( "sample" ).innerHTML =
-        parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 3;
-});
+  $('.seikou').click(function(){
+  $('.seikou').hide();
+  document.getElementById( "sample" ).innerHTML =
+  parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 3;
+  });
 */
-
-
