@@ -7,6 +7,9 @@
 //= require turbolinks
 //= require_tree .
 
+//var affiliateUrl = item.affiliateUrl;
+//var largeimageUrl = item.largeImageUrl;
+
 $(function() {
     $(window).load(function() {
         $('.submit').click(function () {
@@ -61,6 +64,8 @@ function _getItems(data) {
             var item = items.Item;
             var affiliateUrl = item.affiliateUrl;
             var largeimageUrl = item.largeImageUrl;
+            affiliateUrl = item.affiliateUrl;
+            largeimageUrl = item.largeImageUrl;
             var itemCap = item.itemCaption;
             //var mediumimageUrl = item.mediumImageUrl;
 
@@ -71,9 +76,18 @@ function _getItems(data) {
             var itemPrice = item.itemPrice;
 
             if (largeimageUrl !='https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/noimage_01.gif?_ex=200x200'){
+                /*
                 var htmlTemplate = $('<div class="grid">' +
                     '<div class="imgholder swing">' +
                     '<a href="' + affiliateUrl + '">' +
+                    '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                    'height="200"/>' +
+                    '</a></div>'+'<p>'+ itemCap + '</p>' );
+                */
+
+                var htmlTemplate = $('<div class="grid">' +
+                    '<div class="imgholder swing">' +
+                    '<a href="/">' +
                     '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
                     'height="200"/>' +
                     '</a></div>'+'<p>'+ itemCap + '</p>' );
@@ -89,7 +103,21 @@ function _getItems(data) {
 
 $(function() {
     $(window).load(function() {
-        $('セレクター').click(function () {
+        $('img').click(function () {
+
+            /*
+            var photos_1_html = $(
+                '<a href="' + affiliateUrl + '">' +
+                '<img src="' + largeimageUrl + '" width="200" ' +
+                'height="200"/>' +
+                '</a>'+'<p>'+ itemCap + '</p>'
+            );
+            */
+            //$('#photos_1').append(photos_1_html);
+            var photos_1_sample = $(
+                '<p>ひろや</p>'
+            );
+            $('#photos_1').append(photos_1_sample);
         });
     });
 });

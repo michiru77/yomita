@@ -38,7 +38,7 @@ img:hover{
 
 #photos_1 {
   /* Prevent vertical gaps */
-  line-height: 0;
+  line-height: 1;
 
   -webkit-column-count: 1;
   -webkit-column-gap:   0px;
