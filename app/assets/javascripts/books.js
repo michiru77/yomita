@@ -16,21 +16,25 @@
 
   });
 */
-function data(a,b) {
+/*
+$('.toBook').click(function () {
+    $('seikou').hide();
+});
+*/
 
+function data() {
 
-    var url = 'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200'
+    var src = $(".toBook").attr('src');
+    //var url = 'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200'
     var foo = '<img class="toBook" src="'
+        + src
         + '" alt="'
         + '" width="200" '
         + 'height="200"'
-        + '<p>'
-        + url
-        + '<\p>'
         + '<p>改行します</p>';
 
     $('#photos_1').append(foo);
-    $('#photos_1').append(b);
+    $('#photos_1').append(src);
     $('.seikou').hide();
 }
 
@@ -46,14 +50,10 @@ $(function() {
             ajaxSearch(keyword);
         });
 
-        $('.hiroya1').click(function () {
-            $('.seikou').hide();
+        $('.hiroya3').click(function(){
+            data();
         });
-        /*imgをセレクタとしてクリックはできない。*/
-        $('.hiroya2').click(function () {
-            $('#photos_1').append("ひろや");
-            $('#photos_1').append('<img class="hiroya2" src="https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200" >');
-        });
+
     });
 });
 
@@ -126,12 +126,17 @@ function _getItems(data) {
                   '<p>改行します</p>' );
                 */
 
-
+                /*
                 var htmlTemplate = $(
                     '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
                         'height="200"' + ' onclick="data(\'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200\',\'ひろ\')" />' +
                         '<p>改行します</p>' );
+                        */
 
+                var htmlTemplate = $(
+                    '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                    'height="200"' + 'onclick="data()"' + ' />' +
+                    '<p>改行します</p>' );
 
 
                 /*
@@ -185,10 +190,8 @@ $(function() {
     });
 });
 
-/*
-  $('.seikou').click(function(){
+
+  $('.hiroya3').click(function(){
   $('.seikou').hide();
-  document.getElementById( "sample" ).innerHTML =
-  parseInt( document.getElementById( "sample" ).firstChild.nodeValue ) + 3;
   });
-*/
+
