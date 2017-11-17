@@ -1,5 +1,7 @@
 <!--　🔵JSの使用宣言　-->
 <SCRIPT LANGUAGE="JavaScript">
+// 🔵
+//cookie.signed[:abc] = {:value => "abc", :expires => 1.year.from_now }
 // 🔵URL操作
 // URLからパラメータ
 var urlPrm = new Object;
@@ -12,6 +14,7 @@ for(i=0;urlSearch[i];i++) {
 var urlLocation1 = location;
 //document.write(urlLocation1);
 // 🔵
+number2 = Number(urlPrm.bookID);
 number1 = Number(urlPrm.authorID);
 number90 = Number(urlPrm.authorID2);
 genreIDNumber = Number(urlPrm.genreID);
@@ -88,6 +91,12 @@ urlCreate3='<a href="'+urlCreate0+'&kategorie=2'+'">'+genreList[genreIDNumber]+'
 //document.write(urlCreate3+'<br>');
 </SCRIPT>
 
+<!--　🔵session　-->
+<% if !session[:history].blank? then session[:history]=[] end %>
+<% session[:history].push( 3 ) %>
+<% session[:history].slice!(0..-11) %>
+<%= session[:history] %>
+
 <!--　🔴基本　-->
 <SCRIPT>
 // 🔵トップに、現在表示している作者の関連を表示している。
@@ -133,7 +142,6 @@ document.write('<a class="button" href="'+urlCreate0+'&kategorie=0'+'" >'+'作�
 <!--　🔵上段　-->
 <section id="photos_1">
     <SCRIPT>
-        number2 = Number(urlPrm.bookID);
         // 一番最初にページを読み込んだ時はパラメータがないからランダム表示
         // Topの時だけ、クラス名を変更し、iconの表示を正常にする
         if ( !isFinite(number1) ){
