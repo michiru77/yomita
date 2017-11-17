@@ -10,6 +10,20 @@
 //var affiliateUrl = item.affiliateUrl;
 //var largeimageUrl = item.largeImageUrl;
 
+/*
+$('.hiroya1').click(function () {
+    $('.seikou').hide();
+
+});
+*/
+function data(a,b) {
+
+    $('#photos_1').append(a);
+    $('#photos_1').append(b);
+    $('.seikou').hide();
+}
+
+/*jQueryはこの関数が読み込まれる。他に同じような関数を用意しても動作しない*/
 $(function() {
     $(window).load(function() {
         $('.submit').click(function () {
@@ -19,6 +33,15 @@ $(function() {
                 return;
             }
             ajaxSearch(keyword);
+        });
+
+        $('.hiroya1').click(function () {
+            $('.seikou').hide();
+        });
+        /*imgをセレクタとしてクリックはできない。*/
+        $('.hiroya2').click(function () {
+            $('#photos_1').append("ひろや");
+            $('#photos_1').append('<img class="hiroya2" src="https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200" >');
         });
     });
 });
@@ -101,9 +124,17 @@ function _getItems(data) {
     }
 }
 
+
+
+/*
+$('.hiroya1').click(function(){
+   $('#photos_1').append("ひろや");
+});
+*/
+
 $(function() {
     $(window).load(function() {
-        $('img').click(function () {
+        $('a').click(function () {
 
             /*
             var photos_1_html = $(
@@ -114,10 +145,10 @@ $(function() {
             );
             */
             //$('#photos_1').append(photos_1_html);
-            var photos_1_sample = $(
-                '<p>ひろや</p>'
-            );
-            $('#photos_1').append(photos_1_sample);
+//            var photos_1_sample = $(
+//
+//            );
+            $('#photos_1').append("ひろや");
         });
     });
 });
