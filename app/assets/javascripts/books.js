@@ -115,10 +115,14 @@ function _getItems(data) {
                     '<p>改行します</p>' );
                     */
 
+
+                var foo = 'he';
                 var htmlTemplate = $(
                     '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
                     'height="200"' + ' onclick="data(\'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200\',\'ひろや\')" />' +
                     '<p>改行します</p>' );
+
+
 
                 /*
                 var htmlTemplate = $(
