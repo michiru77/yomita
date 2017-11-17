@@ -108,17 +108,21 @@ function _getItems(data) {
                     '</a></div>'+'<p>'+ itemCap + '</p>' );
                 */
 
-                var htmlTemplate = $('<div class="grid">' +
-                    '<div class="imgholder swing">' +
-                    '<a href="/">' +
-                    '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                    'height="200"/>' +
-                    '</a></div>'+'<p>'+ itemCap + '</p>' );
+                /*
+                var htmlTemplate = $(
+                    '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                    'height="200"' + ' onclick="data(' + largeimageUrl + ',' + item.itemName + ')" />' +
+                    '<p>改行します</p>' );
+                    */
+                var htmlTemplate = $(
+                    '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                    'height="200"' + ' onclick="data(\'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200\',\'ひろや\')" />' +
+                    '<p>改行します</p>' );
             }
 
             //テンプレートを追加
+            //$('#container').append('<img class="Butterfly" src="https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200" onclick="data(\'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200\',\'ひろや\')" >');
             $('#container').append(htmlTemplate);
-
         });
 
     }
