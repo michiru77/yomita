@@ -1,19 +1,20 @@
 // var t = $("#title").val();
 
-$(window).load(function() {
-    $('.submit').on('click',function() {
-        $('.submit').each(function(e,v) {
 
-            var t = $('value').attr();
+function tt() {
+    $(window).load(function() {
+        $('.submit').on('click',function() {
+            var t = 'hoge'
             var hoge = '<div>'
                 + '<p>'
                 + t
                 + '</p>'
                 + '</div>';
-            $('#wrap').append(t);
+            $('#wrap').append(hoge);
         });
     });
-});
+}
+
 
 $(window).load(function(){
     //    $("#search").on("click", function(){
@@ -27,12 +28,12 @@ $(window).load(function(){
     }).done(function(data){
 
         /*
-        $.each(data.Items, function (i, items) {
-            var list = '<div class="inner_b">'
-                + items.title
-                + '</div>';
-            $("#wrap").append(list);
-        });
+          $.each(data.Items, function (i, items) {
+          var list = '<div class="inner_b">'
+          + items.title
+          + '</div>';
+          $("#wrap").append(list);
+          });
         */
 
 
@@ -53,31 +54,31 @@ $(window).load(function(){
 });
 
 /*
-$(window).load(function(){
-    //    $("#search").on("click", function(){
-    var title = '恋愛';
-    $.ajax({
-        url: '/home_search',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {title: title}
-    }).done(function(data){
+  $(window).load(function(){
+  //    $("#search").on("click", function(){
+  var title = '恋愛';
+  $.ajax({
+  url: '/home_search',
+  type: 'GET',
+  dataType: 'json',
+  async: true,
+  data: {title: title}
+  }).done(function(data){
 
-        var bookTitle = JSON.stringify(data[0]["params"]["title"]);
-        var imgURL = JSON.stringify(data[0]["params"]["largeImageUrl"]);
-        var list = '<div class="inner_b">'
-            + bookTitle
-            + '</div>'
-            + '<div class="inner_c">'
-            + imgURL
-            + '</div>';
+  var bookTitle = JSON.stringify(data[0]["params"]["title"]);
+  var imgURL = JSON.stringify(data[0]["params"]["largeImageUrl"]);
+  var list = '<div class="inner_b">'
+  + bookTitle
+  + '</div>'
+  + '<div class="inner_c">'
+  + imgURL
+  + '</div>';
 
-        $("#wrap").html(list);
-    }).fail(function(data){
-        $('#out').html('<p>Failure</p>');
-    });
-});
+  $("#wrap").html(list);
+  }).fail(function(data){
+  $('#out').html('<p>Failure</p>');
+  });
+  });
 */
 
 // from Hiro
