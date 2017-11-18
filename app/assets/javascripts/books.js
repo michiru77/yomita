@@ -1,83 +1,33 @@
 // var t = $("#title").val();
 
-
-/*
-$(window).load(function() {
-    $('.submit',).on('click',function() {
-        var t = 'hoge'
-        var hoge = '<div>'
-            + '<p>'
-            + t
-            + '</p>'
-            + '</div>';
-        $('#wrap').append(hoge);
-    });
-});
-*/
-
-
-$(window).load(function(){
-    //    $("#search").on("click", function(){
-    var title = '恋愛';
-    var hits = 1;
-    getBooks(title, hits)
-});
-
-function getBooks(title, hits) {
-    $.ajax({
-        url: '/home_search',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            title: title,
-            hits: hits,
-        }
-    }).done(function(data){
-
-        $.each(data, function (i) {
+$(function() {
+    $(window).load(function(){
+        //    $("#search").on("click", function(){
+        var title = '恋愛';
+        $.ajax({
+            url: '/home_search',
+            type: 'GET',
+            dataType: 'json',
+            async: true,
+            data: {title: title}
+        }).done(function(data){
+            var bookTitle = JSON.stringify(data[0]["params"]["title"]);
+            var imgURL = JSON.stringify(data[0]["params"]["largeImageUrl"]);
             var list = '<div class="inner_b">'
-                + '<p>'
-                + data[i]["params"]["title"]
-                + '</p>'
+                + bookTitle
+                + '</div>'
+                + '<div class="inner_c">'
+                + imgURL
                 + '</div>';
-            $("#out").append(list);
+            $("#wrap").html(list);
+        }).fail(function(data){
+            $('#out').html('<p>Failure</p>');
         });
-
-    }).fail(function(data){
-        $('#out').html('<p>Failure</p>');
     });
-}
-
-/*
-  $(window).load(function(){
-  //    $("#search").on("click", function(){
-  var title = '恋愛';
-  $.ajax({
-  url: '/home_search',
-  type: 'GET',
-  dataType: 'json',
-  async: true,
-  data: {title: title}
-  }).done(function(data){
-
-  var bookTitle = JSON.stringify(data[0]["params"]["title"]);
-  var imgURL = JSON.stringify(data[0]["params"]["largeImageUrl"]);
-  var list = '<div class="inner_b">'
-  + bookTitle
-  + '</div>'
-  + '<div class="inner_c">'
-  + imgURL
-  + '</div>';
-
-  $("#wrap").html(list);
-  }).fail(function(data){
-  $('#out').html('<p>Failure</p>');
-  });
-  });
-*/
+});
 
 // from Hiro
+
 $(window).load(function() {
     $('.submit').click(function () {
         //$('.seikou').hide();
@@ -96,7 +46,6 @@ function ajaxSearch(keyword,page) {
     }
     $.ajax({
         type: 'GET',
-        url: '/home_search',
         url: 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404',
         data: {
             applicationId: '1011423156545588403', // 必須
@@ -117,7 +66,7 @@ function ajaxSearch(keyword,page) {
 
 function _getItems(data) {
     //$('.seikou').hide();
-    // console.log(data);
+    console.log(data);
     $('#container').empty();
     //    var pageCount = data.pageCount;
     //    var current = data.page;
