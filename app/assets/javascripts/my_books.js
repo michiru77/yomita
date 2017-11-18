@@ -11,7 +11,8 @@ $(window).load(function(){
     var author = '西尾維新';
     var title = '恋愛';
     var hits = 30;
-    setBooks(author, hits);
+    var mode = 1;
+    booksSearch(author, title, hits, mode);
 });
 
 function authorSearch(author, hits) {
@@ -40,16 +41,27 @@ function titleSearch(title, hits) {
     });
 }
 
-function setBooks(author, hits) {
-    authorSearch(author, hits).done(function(data){
-        getBooks(data);
-    }).fail(function(data){
-        $('#out').html('<p>Failure</p>');
-    });
+function booksSearch(author, title, hits, mode) {
+    switch(mode) {
+    case 0:
+        authorSearch(author, hits).done(function(data){
+            getBooks(data);
+        }).fail(function(data){
+            $('#out').html('<p>Failure</p>');
+        });
+        break;
+    case 1:
+        titleSearch(title, hits).done(function(data){
+            getBooks(data);
+        }).fail(function(data){
+            $('#out').html('<p>Failure</p>');
+        });
+        break;
+    }
 }
 
 function getBooks(data) {
-    $.each(data, function (i) {
+    $.each(data, function(i) {
         var url = data[i]["params"]["itemUrl"];
         var imgUrl = data[i]["params"]["largeImageUrl"];
         var list = '<p><img src="'
@@ -58,7 +70,6 @@ function getBooks(data) {
         $("#photos_6").append(list);
     });
 }
-
 
 /*
   function getBooks(data) {
