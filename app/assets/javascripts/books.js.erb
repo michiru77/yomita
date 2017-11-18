@@ -1,19 +1,19 @@
 // var t = $("#title").val();
 
 
-function tt() {
-    $(window).load(function() {
-        $('.submit').on('click',function() {
-            var t = 'hoge'
-            var hoge = '<div>'
-                + '<p>'
-                + t
-                + '</p>'
-                + '</div>';
-            $('#wrap').append(hoge);
-        });
+/*
+$(window).load(function() {
+    $('.submit',).on('click',function() {
+        var t = 'hoge'
+        var hoge = '<div>'
+            + '<p>'
+            + t
+            + '</p>'
+            + '</div>';
+        $('#wrap').append(hoge);
     });
-}
+});
+*/
 
 
 $(window).load(function(){
@@ -24,29 +24,33 @@ $(window).load(function(){
         type: 'GET',
         dataType: 'json',
         async: true,
-        data: {title: title}
+        data: {
+            title: title,
+            hits: 1,
+        }
     }).done(function(data){
 
+        $.each(data, function (i) {
+            var list = '<div class="inner_b">'
+                + '<p>'
+                + data[i]["params"]["title"]
+                + '</p>'
+                + '</div>';
+            $("#out").append(list);
+        });
+
         /*
-          $.each(data.Items, function (i, items) {
+          var bookTitle = JSON.stringify(data[0]["params"]["title"]);
+          var imgURL = JSON.stringify(data[0]["params"]["largeImageUrl"]);
           var list = '<div class="inner_b">'
-          + items.title
+          + bookTitle
+          + '</div>'
+          + '<div class="inner_c">'
+          + imgURL
           + '</div>';
-          $("#wrap").append(list);
-          });
+
+          $("#out").html(list);
         */
-
-
-        var bookTitle = JSON.stringify(data[0]["params"]["title"]);
-        var imgURL = JSON.stringify(data[0]["params"]["largeImageUrl"]);
-        var list = '<div class="inner_b">'
-            + bookTitle
-            + '</div>'
-            + '<div class="inner_c">'
-            + imgURL
-            + '</div>';
-
-        $("#wrap").html(list);
 
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');

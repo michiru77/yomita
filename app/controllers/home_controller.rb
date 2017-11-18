@@ -5,9 +5,10 @@ class HomeController < ApplicationController
   end
 
   def search
-    data = RakutenWebService::Books::Book.search(title: params[:title], hits: 2)
+    data = RakutenWebService::Books::Book.search(title: params[:title],
+                                                 hits: params[:hits])
     render :json => data
-#    binding.pry
+    #    binding.pry
   end
 
 end
