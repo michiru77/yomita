@@ -17,25 +17,40 @@
 $(window).load(function(){
     var title = '恋愛';
     var hits = 3;
-    searchBooks(title, hits);
+    //    searchBooks(title, hits);
+    tt(title, hits);
 });
 
 function searchBooks(title, hits) {
-    $.ajax({
+    return $.ajax({
         url: '/home_search',
         type: 'GET',
         dataType: 'json',
-        async: false,
+        async: true,
         data: {
             title: title,
             hits: hits
         }
-    }).done(function(data){
-        getBooks(data);
+    });
+}
+
+function tt(title, hits) {
+    searchBooks(title, hits).done(function(data){
+        var list;
+        $.each(data, function (i) {
+            var url = data[i]["params"]["itemUrl"];
+            var imgUrl = data[i]["params"]["largeImageUrl"];
+            list = '<p><img src="'
+                + imgUrl
+                +'"></p>';
+            $("#photos_6").append(list);
+        });
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
 }
+
+
 
 function getBooks(data) {
     var list;
