@@ -1,9 +1,8 @@
-<%= form_tag :home_authorSearch, method: :get do  %>
+<%= form_tag :home_titleSearch, method: :get do  %>
 <%= label_tag :title, 'Title Search' %>
 <%= text_field_tag 'title', params[:title] %>
 <%= submit_tag "Search" %>
 <% end %>
-
 
 <!--
   <label for="title">Title Search</label>
