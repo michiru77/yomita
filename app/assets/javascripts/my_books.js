@@ -15,26 +15,65 @@
 */
 
 $(window).load(function(){
-    var title = '恋愛';
-    var hits = 3;
+    var author = '西尾維新';
+    var title = 'ミステリー';
+    var hits = 30;
+    var mode = 0;
     //    searchBooks(title, hits);
-    tt(title, hits);
+    setBooks(author, title, hits, mode);
 });
 
-function searchBooks(title, hits) {
-    return $.ajax({
-        url: '/home_search',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
+function searchBooks(author, title, hits, mode) {
+    switch(mode) {
+    case 0:
+        var url = '/home_complexSearch'
+        data = {
+            author: author,
             title: title,
             hits: hits
         }
+        break;
+    case 1:
+        var url = '/home_authorSearch'
+        data = {
+            author: author,
+            hits: hits
+        }
+        break;
+    case 2:
+        var url = '/home_titleSearch'
+        data = {
+            title: title,
+            hits: hits
+        }
+        break;
+    }
+    return $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        async: true
+        url: url,
+        data: data,
     });
 }
 
-function tt(title, hits) {
+function setBooks(author, title, hits, mode) {
+    searchBooks(author, title, hits, mode).done(function(data){
+        $.each(data, function (i) {
+            var url = data[i]["params"]["itemUrl"];
+            var imgUrl = data[i]["params"]["largeImageUrl"];
+            var list = '<p><img src="'
+                + imgUrl
+                +'"></p>';
+            $("#photos_6").append(list);
+        });
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
+    });
+}
+
+/*
+function setBooks(title, hits) {
     searchBooks(title, hits).done(function(data){
         var list;
         $.each(data, function (i) {
@@ -48,10 +87,10 @@ function tt(title, hits) {
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
-}
+}*/
 
 
-
+/*
 function getBooks(data) {
     var list;
     $.each(data, function (i) {
@@ -62,7 +101,7 @@ function getBooks(data) {
             +'"></p>';
         $("#photos_6").append(list);
     });
-}
+}*/
 
 function _getItems(data) {
     //$('.seikou').hide();
