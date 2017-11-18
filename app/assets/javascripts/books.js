@@ -22,11 +22,12 @@ $('.toBook').click(function () {
 });
 */
 
-function data() {
+function data_1(i) {
 
-    var src = $(".toBook").attr('src');
+
+    var src = $('.toBook').attr('src');
     //var url = 'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200'
-    var foo = '<img class="toBook" src="'
+    var foo = '<img src="'
         + src
         + '" alt="'
         + '" width="200" '
@@ -37,6 +38,12 @@ function data() {
     $('#photos_1').append(src);
     $('.seikou').hide();
 }
+
+$('img').click(function(){
+    var src1 = $(this).attr('src');
+    $('#photos_1').append('<img src="'+src1+'">');
+    //data();
+});
 
 /*jQueryはこの関数が読み込まれる。他に同じような関数を用意しても動作しない*/
 $(function() {
@@ -50,8 +57,10 @@ $(function() {
             ajaxSearch(keyword);
         });
 
-        $('.hiroya3').click(function(){
-            data();
+        $('.toBook').click(function(){
+            var src1 = $(this).attr('src');
+            $('#photos_1').append('<img src="'+src1+'">');
+            //data();
         });
 
     });
@@ -132,10 +141,19 @@ function _getItems(data) {
                         'height="200"' + ' onclick="data(\'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200\',\'ひろ\')" />' +
                         '<p>改行します</p>' );
                         */
+/*
+                var htmlTemplate = $(
+                    '<span>'+
+                    '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
+                    'height="200"' + 'onclick="data()"' + ' />' +
+                    '<p>改行します</p>'+
+                    '</span>'
+                );
+*/
 
                 var htmlTemplate = $(
                     '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                    'height="200"' + 'onclick="data()"' + ' />' +
+                    'height="200"' +  ' />' +
                     '<p>改行します</p>' );
 
 
