@@ -16,49 +16,41 @@
 
 $(window).load(function(){
     var author = '西尾維新';
-    var title = 'ミステリー';
+    var title = '化学';
     var hits = 30;
-    var mode = 0;
-    //    searchBooks(title, hits);
-    setBooks(author, title, hits, mode);
+    //    searchBooks(genre, hits);
+    setBooks(title, hits);
 });
 
-function searchBooks(author, title, hits, mode) {
-    switch(mode) {
-    case 0:
-        var url = '/home_complexSearch'
-        data = {
-            author: author,
-            title: title,
-            hits: hits
-        }
-        break;
-    case 1:
-        var url = '/home_authorSearch'
-        data = {
-            author: author,
-            hits: hits
-        }
-        break;
-    case 2:
-        var url = '/home_titleSearch'
-        data = {
-            title: title,
-            hits: hits
-        }
-        break;
-    }
+/*
+function authorSearch(author, hits) {
     return $.ajax({
         type: 'GET',
         dataType: 'json',
         async: true
-        url: url,
-        data: data,
+        url: '/home_authorSearch'
+        data: {
+            author: author,
+            hits: hits
+        }
+    });
+}*/
+
+function titleSearch(title, hits) {
+    return $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        async: true
+        url: '/home_titleSearch'
+        data: {
+            title: title,
+            hits: hits
+        }
     });
 }
 
-function setBooks(author, title, hits, mode) {
-    searchBooks(author, title, hits, mode).done(function(data){
+function setBooks(title, hits) {
+    titleSearch(title, hits).done(function(data){
         $.each(data, function (i) {
             var url = data[i]["params"]["itemUrl"];
             var imgUrl = data[i]["params"]["largeImageUrl"];
