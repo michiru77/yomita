@@ -40,7 +40,8 @@
     $(document).ready(function(){
         $('#container').click(function(){
             $('#photos_1').html(null);
-            var src = $(this).children('img').attr('src');
+            //var src = $(this).children('img').attr('src');
+            var src = event.target.src;
             //console.log(src);
             var foo = '<img src="'
                 + src
