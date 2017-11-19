@@ -67,8 +67,9 @@ function outBooks(data) {
     $.each(data, function(i) {
         var url = data[i]["params"]["itemUrl"];
         var imgUrl = data[i]["params"]["largeImageUrl"];
-        var noImg = encodeURI(imgUrl).match(/noimage/);
+        var noImg = imgUrl.match(/noimage/);
         if (noImg === null) {
+            imgUrl = imgUrl.replace(/\?.*$/, '');
             var list = '<p><img src="'
                 + imgUrl
                 + '"></p>';
