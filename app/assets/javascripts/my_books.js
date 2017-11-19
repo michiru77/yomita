@@ -67,9 +67,12 @@ function outBooks(data) {
     $.each(data, function(i) {
         var url = data[i]["params"]["itemUrl"];
         var imgUrl = data[i]["params"]["largeImageUrl"];
-        var list = '<p><img src="'
-            + imgUrl
-            +'"></p>';
-        $("#photos_6").append(list);
+        var noImg = encodeURI(imgUrl).match(/noimage/);
+        if (noImg === null) {
+            var list = '<p><img src="'
+                + imgUrl
+                + '"></p>';
+            $("#photos_6").append(list);
+        }
     });
 }
