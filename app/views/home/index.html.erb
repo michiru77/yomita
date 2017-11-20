@@ -20,16 +20,6 @@
 </section>
 
 
-<img class="hiroya3" src="https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200"  >
-
-<p class="seikou">成功すれば消えます</p>
-
-<div id="container"></div>
-
-<button class="hiroya1" value='恋愛'>恋愛</button>
-<button class="submit" value='ミステリー'> ミステリー</button>
-<button class="submit" value='DIVE'>DIVE!</button>
-
 <script>
     $(document).ready(function(){
         $('#photos_6').click(function(){
@@ -37,14 +27,26 @@
             //var src = $(this).children('img').attr('src');
             var src = event.target.src;
             //console.log(src);
-            var foo = '<img src="'
+            var foo = '<p>'
+                + '<img src="'
                 + src
                 + '" alt="'
                 + '" width="200" '
                 + 'height="200"'
                 + '>'
+                + '</p>'
             $('#photos_1').append(foo);
             $('.seikou').hide();
         });
     });
 </script>
+
+<!--
+<p class="seikou">成功すれば消えます</p>
+
+<div id="container"></div>
+
+<button class="hiroya1" value='恋愛'>恋愛</button>
+<button class="submit" value='ミステリー'> ミステリー</button>
+<button class="submit" value='DIVE'>DIVE!</button>
+-->
