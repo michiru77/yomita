@@ -10,7 +10,7 @@
   <input type="submit" name="commit" value="Search" data-disable-with="Search" />
 </form>
 -->
-
+<div id="photos_1"></div>
 <!--　Lower Stage　-->
 <section id="photos_1">
 </section>
@@ -20,14 +20,31 @@
 </section>
 
 
+<img class="hiroya3" src="https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200"  >
+
+<p class="seikou">成功すれば消えます</p>
+
 <div id="container"></div>
 
-<div id="out">
-</div>
-
-<!--
-<button class="submit" value='恋愛'>恋愛
-</button>
+<button class="hiroya1" value='恋愛'>恋愛</button>
 <button class="submit" value='ミステリー'> ミステリー</button>
 <button class="submit" value='DIVE'>DIVE!</button>
--->
+
+<script>
+    $(document).ready(function(){
+        $('#container').click(function(){
+            $('#photos_1').html(null);
+            //var src = $(this).children('img').attr('src');
+            var src = event.target.src;
+            //console.log(src);
+            var foo = '<img src="'
+                + src
+                + '" alt="'
+                + '" width="200" '
+                + 'height="200"'
+                + '<p>改行します</p>';
+            $('#photos_1').append(foo);
+            $('.seikou').hide();
+        });
+    });
+</script>
