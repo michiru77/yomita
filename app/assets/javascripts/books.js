@@ -7,37 +7,6 @@
 //= require turbolinks
 //= require_tree .
 
-//var affiliateUrl = item.affiliateUrl;
-//var largeimageUrl = item.largeImageUrl;
-
-/*
-  $('.hiroya1').click(function () {
-  $('.seikou').hide();
-
-  });
-*/
-/*
-$('.toBook').click(function () {
-    $('seikou').hide();
-});
-*/
-
-function data_1(i) {
-
-
-    var src = $('.toBook').attr('src');
-    //var url = 'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200'
-    var foo = '<img src="'
-        + src
-        + '" alt="'
-        + '" width="200" '
-        + 'height="200"'
-        + '<p>改行します</p>';
-
-    $('#photos_1').append(foo);
-    $('#photos_1').append(src);
-    $('.seikou').hide();
-}
 
 $('img').click(function(){
     var src1 = $(this).attr('src');
@@ -98,8 +67,8 @@ function _getItems(data) {
     //$('.seikou').hide();
     console.log(data);
     $('#container').empty();
-    //    var pageCount = data.pageCount;
-    //    var current = data.page;
+        var pageCount = data.pageCount;
+        var current = data.page;
 
     var dataStat = data.count;
     if (dataStat > 0) {
@@ -119,28 +88,6 @@ function _getItems(data) {
             var itemPrice = item.itemPrice;
 
             if (largeimageUrl !='https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/noimage_01.gif?_ex=200x200'){
-                /*
-                  var htmlTemplate = $('<div class="grid">' +
-                  '<div class="imgholder swing">' +
-                  '<a href="' + affiliateUrl + '">' +
-                  '<img src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                  'height="200"/>' +
-                  '</a></div>'+'<p>'+ itemCap + '</p>' );
-                */
-
-                /*
-                  var htmlTemplate = $(
-                  '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                  'height="200"' + ' onclick="data(' + largeimageUrl + ',' + item.itemName + ')" />' +
-                  '<p>改行します</p>' );
-                */
-
-                /*
-                var htmlTemplate = $(
-                    '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                        'height="200"' + ' onclick="data(\'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9623/9784838729623.jpg?_ex=200x200\',\'ひろ\')" />' +
-                        '<p>改行します</p>' );
-                        */
 /*
                 var htmlTemplate = $(
                     '<span>'+
@@ -155,20 +102,6 @@ function _getItems(data) {
                     '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
                     'height="200"' +  ' />' +
                     '<p>改行します</p>' );
-
-
-                /*
-                  var htmlTemplate = $(
-                  '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                  'height="200"' + 'onclick="data(' + 'largeimageUrl' + ',' + 'item.itemName' + ')"  />' +
-                  '<p>改行します</p>' );
-                */
-                /*
-                  var htmlTemplate = $(
-                  '<img class="toBook" src="' + largeimageUrl + '" alt="' + item.itemName + '" width="200" ' +
-                  'height="200" onclick="data(largeimageUrl,item.itemName)" />' +
-                  '<p>改行します</p>' );
-                */
             }
 
             //テンプレートを追加
@@ -181,35 +114,4 @@ function _getItems(data) {
 
 
 
-/*
-  $('.hiroya1').click(function(){
-  $('#photos_1').append("ひろや");
-  });
-*/
-
-$(function() {
-    $(window).load(function() {
-        $('a').click(function () {
-
-            /*
-              var photos_1_html = $(
-              '<a href="' + affiliateUrl + '">' +
-              '<img src="' + largeimageUrl + '" width="200" ' +
-              'height="200"/>' +
-              '</a>'+'<p>'+ itemCap + '</p>'
-              );
-            */
-            //$('#photos_1').append(photos_1_html);
-            //            var photos_1_sample = $(
-            //
-            //            );
-            $('#photos_1').append("ひろや");
-        });
-    });
-});
-
-
-  $('.hiroya3').click(function(){
-  $('.seikou').hide();
-  });
 
