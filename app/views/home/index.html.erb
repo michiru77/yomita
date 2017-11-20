@@ -32,7 +32,7 @@
 
 <script>
     $(document).ready(function(){
-        $('#container').click(function(){
+        $('#photos_6').click(function(){
             $('#photos_1').html(null);
             //var src = $(this).children('img').attr('src');
             var src = event.target.src;
@@ -42,7 +42,7 @@
                 + '" alt="'
                 + '" width="200" '
                 + 'height="200"'
-                + '<p>改行します</p>';
+                + '>'
             $('#photos_1').append(foo);
             $('.seikou').hide();
         });

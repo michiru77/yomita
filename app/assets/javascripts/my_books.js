@@ -10,7 +10,7 @@ $(window).load(function(){
     var author = '西尾維新';
     var title = '恋愛';
     var hits = 30;
-    var mode = 1;
+    var mode = 0;
     booksSearch(author, title, hits, mode);
 });
 
