@@ -157,6 +157,24 @@ img:hover{
     margin-top: 30px;
 }
 
+#photos_history {
+  /* Prevent vertical gaps */
+  line-height: 0;
+  -webkit-column-count: 10;
+  -webkit-column-gap:   30px;
+  -moz-column-count:    10;
+  -moz-column-gap:      30px;
+  column-count:         10;
+  column-gap:           30px;
+
+}
+#photos_history img {
+  /* Just in case there are inline attributes */
+  //width: 100% !important;
+  width: 90px !important;
+  height: auto !important;
+  margin-top: 10px;
+}
 
 
 /*
