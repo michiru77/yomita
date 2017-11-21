@@ -19,28 +19,6 @@
 <section id="photos_6">
 </section>
 
-
-<script>
-    $(document).ready(function(){
-        $('#photos_6').click(function(){
-            $('#photos_1').html(null);
-            //var src = $(this).children('img').attr('src');
-            var src = event.target.src;
-            //console.log(src);
-            var foo = '<p>'
-                + '<img src="'
-                + src
-                + '" alt="'
-                + '" width="200" '
-                + 'height="200"'
-                + '>'
-                + '</p>'
-            $('#photos_1').append(foo);
-            $('.seikou').hide();
-        });
-    });
-</script>
-
 <!--
 <p class="seikou">成功すれば消えます</p>
 

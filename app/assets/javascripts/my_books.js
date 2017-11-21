@@ -6,11 +6,28 @@
   hits:   検索ヒット数を指定。0-30までの整数
   mode:   作者検索であれば0，タイトル検索であれば1
 */
+
+$(document).ready(function(){
+    $('#photos_6').click(function(){
+        $('#photos_1').html(null);
+        //var src = $(this).children('img').attr('src');
+        var src = event.target.src;
+        //console.log(src);
+        var foo = '<p>'
+            + '<img src="'
+            + src
+            + '">'
+            + '</p>'
+        $('#photos_1').append(foo);
+        $('.seikou').hide();
+    });
+});
+
 $(window).load(function(){
     var author = '西尾維新';
     var title = '恋愛';
     var hits = 30;
-    var mode = 0;
+    var mode = 1;
     booksSearch(author, title, hits, mode);
 });
 
@@ -65,14 +82,20 @@ function booksSearch(author, title, hits, mode) {
 // 取得した書籍データを html に整形して出力
 function outBooks(data) {
     $.each(data, function(i) {
+        var author = data[i]["params"]["author"].replace(/\/.*$/, '');
         var url = data[i]["params"]["itemUrl"];
         var imgUrl = data[i]["params"]["largeImageUrl"];
+        var cap = data[i]["params"]["itemCaption"];
         var noImg = imgUrl.match(/noimage/);
+
         if (noImg === null) {
             imgUrl = imgUrl.replace(/\?.*$/, '');
             var list = '<p><img src="'
                 + imgUrl
-                + '"></p>';
+                + '" '
+                + ' alt="'
+                + author
+                + '"></p>'
             $("#photos_6").append(list);
         }
     });
