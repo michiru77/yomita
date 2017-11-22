@@ -1,41 +1,152 @@
+<SCRIPT LANGUAGE="JavaScript"></SCRIPT>
 <!--
-<%= @id %>🔴
+<%= if !@location[-1]=="/" then setLocation=(@location+"&reset=1") else  setLocation=(@location+"?reset=1") end %>
+<a href="<% $setLocation %>" style="text-decoration:none; color:#000000;">[履歴を抹消]</a>
 -->
-<!--　🔵JSの使用宣言　-->
-<SCRIPT LANGUAGE="JavaScript">
-// URLからパラメータを読み込んでるぜ！
+<!--　🔵button　-->
+<!--　🔵session　-->
+<% if session[:history].blank? then session[:history]=[] end %>
+<% if !@bookID.blank? then session[:history].push( @bookID ) end %>
+<% session[:history].uniq! %>
+<% session[:history].slice!(0..(-10-1)) %>
+<!--
+<%= session[:history] %>
+<%= @historyList %>
+<a href="\?reset=1" style="text-decoration:none; color:#000000;">[履歴を抹消]</a>
+<input type="button" value="[履歴を抹消]" onclick=""/>
+<input type="button" value="[履歴を抹消]" onclick="<% session[:history] %>;"/>
+-->
+<!--　🔵クリック履歴表示　-->
+<section id="photos_history">
+<SCRIPT>
+    for(i=0;i<gon.historyList.length;i++){　document.write(simg2[gon.historyList[i]]);　}
+</SCRIPT>
+</section>
+<!--
+-->
+<SCRIPT>
+// 🔵URL操作
+// URLからパラメータ
 var urlPrm = new Object;
 var urlSearch = location.search.substring(1).split('&');
 for(i=0;urlSearch[i];i++) {
   var kv = urlSearch[i].split('=');
   urlPrm[kv[0]]=kv[1];
 }
+// URLから現在のURLを生成
+var urlLocation1 = location;
+//document.write(urlLocation1);
+// 🔵
+number2 = Number(urlPrm.bookID);
 number1 = Number(urlPrm.authorID);
-var simg01=new Array(0);
-//document.write(authorPo[number1]);document.write('<br>');document.write(authorPo[number1+1]);document.write('<br>');
-if(!isFinite(number1) ){ 
-    simg01=simgCopy01.concat();
-    //document.write(simg01.length);
+number90 = Number(urlPrm.authorID2);
+genreIDNumber = Number(urlPrm.genreID);
+kategorieNumber = Number(urlPrm.kategorie);
+// 🔵表示したいカテゴリを表示配列に追加
+var simgGather = new Array(0);
+var simgTemp1=new Array(0);
+// authorID1が与えられていないなら、全ての配列からランダムに表示
+number1 = Number(urlPrm.authorID);
+if(!isFinite(number1) ){
+    simgTemp1=simgCopy01.concat();
 }else{
-    // ID番地の値から、ID+1番地の値まで
-    for(i2=authorPo[number1];i2<authorPo[number1+1];i2++){
-        simg01.push(simgCopy01[i2]);
-    }  
-    //document.write(authorPo[number1+1]);
-    //document.write(simg01.length);document.write('<br>');
+	// authorID1があるなら、表示配列に追加
+    simgTemp1=new Array(0);
+    if( isFinite(number1) ){ // authorID2が与えられているなら
+        for(i2=1;i2<authorList[number1].length;i2++){
+            simgTemp1.push(simgCopy01[authorList[number1][i2]]);
+        }
+        simgGather.push(simgTemp1);
+    }
+    // authorID2があるなら、表示配列に追加
+    simgTemp1=new Array(0);
+    if( isFinite(number90) ){ // authorID2が与えられているなら
+        for(i2=1;i2<authorList[number90].length;i2++){
+            simgTemp1.push(simgCopy01[authorList[number90][i2]]);
+        }
+        simgGather.push(simgTemp1);
+    }else{
+        simgGather.push(0);
+    }
+    // genreIDがあるなら、表示配列に追加
+    simgTemp1=new Array(0);
+    if(isFinite(genreIDNumber) ){ // genreIDが与えられているなら
+        //document.write('🔵'+genrePo[genreIDNumber]+'から'+genrePo[genreIDNumber+1]+'<br>');
+        // genreのpositionを見て格納
+        for(i2=genrePo[genreIDNumber];i2<genrePo[genreIDNumber+1];i2++){
+            simgTemp1.push(simg2[i2]);
+        }
+        simgGather.push(simgTemp1);
+    }
+    // 🔵kategorieを見て最終的な配列を生成
+    if( isFinite(kategorieNumber) ){
+        simgTemp1=new Array(0);
+        for(i1=0;i1<simgGather.length;i1++){
+    	    simgTemp1.push(simgGather[kategorieNumber][i1]);
+        }
+        simgTemp1=simgGather[kategorieNumber];
+    }else{
+	    simgTemp1=new Array(0);
+        for(i1=0;i1<simgGather.length;i1++){
+    	    for(i2=0;i2<simgGather[i1].length;i2++){
+    		    simgTemp1.push(simgGather[i1][i2]);
+    	    }
+        }
+    }
 }
-simgCopy = simg01.concat();
+// 🔵表示用配列に追加
+// 重複要素を削除
+simgTemp1 = simgTemp1.filter(function (x, i, self) { return self.indexOf(x) === i; });
+simgCopy = simgTemp1.concat();
+// 🔵カテゴリを絞るためのボタンを作成
+urlCreate0=urlLocation1+'';
+urlCreate0=urlCreate0.replace(/(.*&genreID=[0-9]*).*/,"$1");
+// 作者1の絞りボタン
+urlCreate1='<a href="'+urlCreate0+'&kategorie=0'+'">'+authorList[number1][0]+'<a>';
+//document.write( urlCreate1+'<br>');
+if(isFinite(number90)){
+    // 作者2の絞りボタン
+    urlCreate2='<a href="'+urlCreate0+'&kategorie=1'+'">'+authorList[number90][0]+'<a>';
+    //document.write(urlCreate2+'<br>');
+}
+// genreの絞りボタン
+urlCreate3='<a href="'+urlCreate0+'&kategorie=2'+'">'+genreList[genreIDNumber]+'<a>';
+//document.write(urlCreate3+'<br>');
 </SCRIPT>
-<!--
-<a href="/frontcover" class="tittle_choice">タイトル選書</a>
--->
-<!--　🔵基本　-->
+
+<!--　🔴基本　-->
 <SCRIPT>
+// 🔵トップに、現在表示している作者の関連を表示している。
 if( isFinite(number1)){
-    document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number1]+'</h1></a>');
-}else{
-    document.write('<a href="/" style="text-decoration:none;" onclick="window.location.reload();" onclick="javascript:window.history.back(-1);return false;" ><h1>読み太。</h1></a>')
+document.write('<a href="/" style="text-decoration:none;" ><h1>読み太。TOPへ</h1></a>')
+if( isFinite(number1) ){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number1][0]+'</h1></a>');
+document.write('<h1>作者1：'+authorList[number1][0]+'</h1>');
 }
+if( isFinite(number90)){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+authorList[number90][0]+'</h1></a>');
+document.write('<h1>作者2：'+authorList[number90][0]+'</h1>');
+}
+if( isFinite(genreIDNumber) ){
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.close();" onclick="javascript:window.history.back(-1);return false;" ><h1>'+genreList[genreIDNumber]+'</h1></a>');
+document.write('<h1>分類：'+genreList[genreIDNumber]+'</h1>');
+}
+}else{
+//document.write('<a href="/" style="text-decoration:none;" onclick="window.location.reload();" onclick="javascript:window.history.back(-1);return false;" ><h1>読み太。</h1></a>')
+document.write('<h1>読み太。</h1>');
+}
+</SCRIPT>
+
+<SCRIPT>
+<!-- ★★★ 作者&ジャンルボタン -->
+if(isFinite(genreIDNumber)){
+    document.write('<a class="button" href="'+urlCreate0+'&kategorie=2'+'" >'+genreList[genreIDNumber]+'</a>');
+}
+document.write('<a class="button" href="'+urlCreate0+'&kategorie=0'+'" >'+'作者1：'+authorList[number1][0]+'</a>');
+    if(isFinite(number90)){
+        document.write('<a class="button" href="'+urlCreate0+'&kategorie=1'+'" >'+'作者2：'+authorList[number90][0]+'</a>');
+    }
+
 </SCRIPT>
 
 <!--
@@ -48,7 +159,6 @@ if( isFinite(number1)){
 <!--　🔵上段　-->
 <section id="photos_1">
     <SCRIPT>
-        number2 = Number(urlPrm.bookID);
         // 一番最初にページを読み込んだ時はパラメータがないからランダム表示
         // Topの時だけ、クラス名を変更し、iconの表示を正常にする
         if ( !isFinite(number1) ){
@@ -58,15 +168,16 @@ if( isFinite(number1)){
             simgCopy.splice(number2,1);
         }else{
             document.write(simg2[number2].replace( "iconBuyButton" , "iconBuyButtonTop" ));
-            //document.write(simgCopy[number2]);
-            simgCopy.splice(number2-authorPo[number1],1);
+            // 一回使った本を配列から削除
+            simgCopy = simgCopy.filter(function(a) { return a !== simg2[number2]; });
         }
     </SCRIPT>
 </section>
 <!--　🔵中段　-->
 <section id="photos_3">
     <SCRIPT>
-        for ( var forNumber1=0 ; forNumber1<3 ; forNumber1++ ) {
+        lengthA = simgCopy.length;
+        for ( var forNumber1=0 ; forNumber1<3 && forNumber1<lengthA ; forNumber1++ ) {
             number1 = Math.floor(Math.random() * simgCopy.length);
             document.write(simgCopy[number1]);
             simgCopy.splice(number1,1);
@@ -76,7 +187,8 @@ if( isFinite(number1)){
 <!--　🔵下段　-->
 <section id="photos_6">
     <SCRIPT>
-        for ( var forNumber1=0 ; forNumber1<simgCopy.length ; forNumber1++ ) {
+        lengthA = simgCopy.length;
+        for ( var forNumber1=0 ; forNumber1<lengthA; forNumber1++ ) {
             number1 = Math.floor(Math.random() * simgCopy.length);
             document.write(simgCopy[number1]);
             simgCopy.splice(number1,1);

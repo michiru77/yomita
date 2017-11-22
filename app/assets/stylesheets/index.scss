@@ -157,6 +157,24 @@ img:hover{
     margin-top: 30px;
 }
 
+#photos_history {
+  /* Prevent vertical gaps */
+  line-height: 0;
+  -webkit-column-count: 10;
+  -webkit-column-gap:   30px;
+  -moz-column-count:    10;
+  -moz-column-gap:      30px;
+  column-count:         10;
+  column-gap:           30px;
+
+}
+#photos_history img {
+  /* Just in case there are inline attributes */
+  //width: 100% !important;
+  width: 90px !important;
+  height: auto !important;
+  margin-top: 10px;
+}
 
 
 /*
@@ -218,4 +236,45 @@ img:hover{
 .iconBuyButtonTop:hover i{
 	opacity:		1;	/* ホバー時にマスクを表示する */
     transition: 0.35s;
+}
+
+//ボタン用
+.button {
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 54px;
+  outline: none;
+}
+.button::before,
+.button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+.button,
+.button::before,
+.button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+//間隔
+.button {
+margin: 0px 20px 20px 20px;
+}
+
+//追加の追加
+.button {
+  background-color: #333;
+  color: #fff;
+}
+.button:hover {
+  background-color: #59b1eb;
 }
