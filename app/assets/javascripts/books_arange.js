@@ -27,7 +27,7 @@ reg4 = new RegExp('^genre@.*','i');
 reg5 = new RegExp('genre@(.*)&(.*$)','i');
 // 🔵使用する正規表現の準備
 // 型を指定する
-regCheck = new RegExp('<div class=\"iconBuyButton\"><a target=\"_self\" href=\".*\"><img src=\".*\"></a><a target=\"_blank\" href=\".*\"></a></div>','i');
+regCheck = new RegExp('<div class=\"iconBuyButton\"><a target=\"_self\" href=\".*\"><img src=\".*\"></a><a target=\"_blank\" href=\".*\"><i class=\"fa fa-shopping-cart fa-fw fa-border\" aria-hidden=\"true\"></i></a></div>','i');
 // 🔵IDへの番号振り分けと配列作成
 for( loopNumber = 0 ; loopNumber< simg.length ; loopNumber++ ) {
 	// 型が違う場合は無視する
