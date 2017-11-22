@@ -10,11 +10,11 @@
 $(window).load(function(){
     var author = '西尾維新';
     var title = '恋愛';
-    var genre = 2;
+    var genre = 001004008;
     var hits = 30;
-    var mode = 2;
+    var mode = 1;
     booksSearch(author, title, hits, mode, genre);
-//    booksSearch(author, title, hits, mode);
+    //    booksSearch(author, title, hits, mode);
 });
 
 // 作者検索関数
@@ -52,7 +52,8 @@ function genreSearch(genre, hits) {
         dataType: 'json',
         async: true,
         data: {
-            genreId: genre,
+            size: 0,
+            booksGenreId: genre,
             hits: hits
         }
     });
@@ -78,44 +79,14 @@ function booksSearch(author, title, hits, mode, genre) {
         });
         break;
     case 2:
-    genreSearch(genre, hits).done(function(data){
-        outBooks(data);
-    }).fail(function(data){
         $('#out').html('<p>Failure</p>');
-    });
-    break;
+        genreSearch(genre, hits).done(function(data){
+            outBooks(data);
+        }).fail(function(data){
+            $('#out').html('<p>Failure</p>');
+        });
     }
 }
-
-
-/*
-// 取得した書籍データを html に整形して出力
-function outBooks(data) {
-$.each(data, function(i) {
-var author = data[i]["params"]["author"].replace(/\/.*$/, '');
-var url = data[i]["params"]["itemUrl"];
-var genreId = data[i]["params"]["booksGenreId"];
-var imgUrl = data[i]["params"]["largeImageUrl"];
-var cap = data[i]["params"]["itemCaption"];
-var noImg = imgUrl.match(/noimage/);
-
-if (noImg === null) {
-//            imgUrl = imgUrl.replace(/\?.*$/, '');
-var list = '<p><img src="'
-+ imgUrl
-+ '" '
-+ 'author="'
-+ author
-+ '" '
-+ 'genreId="'
-+ genreId
-+ '">'
-+ '</p>'
-$("#photos_6").append(list);
-}
-});
-}
-*/
 
 // 取得した書籍データを html に整形して出力
 function outBooks(data) {
@@ -125,6 +96,8 @@ function outBooks(data) {
         var title = data[i]["params"]["title"];
         var author = data[i]["params"]["author"].replace(/\/.*$/, '');
         var genreId = data[i]["params"]["booksGenreId"];
+        var str = genreId.split('/');
+        genreId = str[str.length-1];
         var imgUrl = data[i]["params"]["largeImageUrl"];
         var cap = data[i]["params"]["itemCaption"];
         var noImg = imgUrl.match(/noimage/);
@@ -152,7 +125,7 @@ function outBooks(data) {
 
 $(document).ready(function(){
     $('#photos_6').click(function(){
-        
+
         var src = event.target.src.replace(/\?.*$/, '');
         var alt = event.target.alt;
         var title = getTitle(alt);
@@ -174,17 +147,34 @@ $(document).ready(function(){
             + ':gr'
             + '">'
             + '</p>';
-        
+
         $('#photos_1').html(null);
         $('#photos_1').html(top);
         var hits = 30;
-        var mode = 0;
+        var mode = 1;
         $('#photos_6').html(null);
-        booksSearch(author, title, hits, mode);
-//        $('#photos_1').append(top);
-//        $("html").animate({scrollTop:0},"500");
+        //        booksSearch(author, title, hits, mode);
+
+        var title = title.slice(0,2);
+        /*
+          genreSearch(genreId, hits).done(function(data){
+          outBooks(data);
+          }).fail(function(data){
+          $('#out').html('<p>Failure</p>');
+          });*/
+        booksSearch(author, title, hits, mode, genreId);
+        //        $('#photos_1').append(top);
+        //        $("html").animate({scrollTop:0},"500");
     });
 })
+
+$(window).on("scroll", function() {
+    var scrollHeight = $(document).height();
+    var scrollPosition = $(window).height() + $(window).scrollTop();
+    if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+
+    }
+});
 
 function getTitle(alt) {
     title = alt.match(/title:.*.:tl/)[0];

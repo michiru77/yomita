@@ -19,10 +19,11 @@ class HomeController < ApplicationController
   end
 
   def genreSearch
-    data = RakutenWebService::Books::Book.search(genre: params[:genre],
+    data = RakutenWebService::Books::Book.search(booksGenreId: params[:booksGenreId],
                                                  hits: params[:hits])
     render json: data
     #binding.pry
   end
+
 
 end
