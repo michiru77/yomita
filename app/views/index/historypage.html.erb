@@ -1,0 +1,31 @@
+<h1>History Page</h1>
+<!--　🔵上段　-->
+<section id="photos_1">
+    <SCRIPT>
+        if( !isFinite(gon.historyList) ){
+            document.write(simg2[gon.historyList[0]].replace( "iconBuyButton" , "iconBuyButtonTop" ));   
+        }else{
+            document.write('<h2>テレビもねえ。ラジオもねえ。</h2>');   
+        }
+    </SCRIPT>
+</section>
+<!--　🔵中段　-->
+<section id="photos_3">
+    <SCRIPT>
+        if( !isFinite(gon.historyList) ){
+            for ( var forNumber1=1 ; forNumber1<4 && forNumber1<gon.historyList.length ; forNumber1++ ) {
+                document.write(simg2[gon.historyList[forNumber1]]);
+            }
+        }
+    </SCRIPT>
+</section>
+<!--　🔵下段　-->
+<section id="photos_6">
+    <SCRIPT>
+        if( !isFinite(gon.historyList) ){
+            for ( var forNumber1=5 ; forNumber1<gon.historyList.length ; forNumber1++ ) {
+                document.write(simg2[gon.historyList[forNumber1]]);
+            }
+        }
+    </SCRIPT>
+</section>
