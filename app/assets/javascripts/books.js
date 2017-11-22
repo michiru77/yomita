@@ -7,14 +7,50 @@
   mode:   作者検索であれば0，タイトル検索であれば1
 */
 
+class booksData {
+    constructor() {
+        this.titles = [];
+        this.authors = [];
+        this.genreIds = [];
+        this.captions = [];
+    }
+
+    getTitle(i) {
+        return this.titles[i];
+    }
+    getAuthor(i) {
+        return this.authors[i];
+    }
+    getGenreId(i) {
+        return this.genreIds[i];
+    }
+    getCaptions(i) {
+        return this.captions[i];
+    }
+
+    setTitle(title) {
+        this.titles.push(title);
+    }
+    setAuthor(author) {
+        this.authors.push(author);
+    }
+    setGenreId(genreId) {
+        this.genreIds.push(genreId);
+    }
+    setCaptions(caption) {
+        this.captions.push(caption);
+    }
+}
+
 $(window).load(function(){
+    var bd = new booksData();
     var author = '西尾維新';
     var title = '恋愛';
-    var genre = 2;
+    var genre = 001004008;
     var hits = 30;
-    var mode = 2;
-    booksSearch(author, title, hits, mode, genre);
-//    booksSearch(author, title, hits, mode);
+    titleSearch(title, hits);
+    toTop(new booksData());
+
 });
 
 // 作者検索関数
@@ -28,6 +64,10 @@ function authorSearch(author, hits) {
             author: author,
             hits: hits
         }
+    }).done(function(data){
+        outBooks(data);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
     });
 }
 
@@ -42,6 +82,10 @@ function titleSearch(title, hits) {
             title: title,
             hits: hits
         }
+    }).done(function(data){
+        outBooks(data);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
     });
 }
 
@@ -52,79 +96,25 @@ function genreSearch(genre, hits) {
         dataType: 'json',
         async: true,
         data: {
-            genreId: genre,
+            size: 0,
+            booksGenreId: genre,
             hits: hits
         }
-    });
-}
-
-
-// mode 値によって作者，タイトル検索を実行する
-//function booksSearch(author, title, hits, mode) {
-function booksSearch(author, title, hits, mode, genre) {
-    switch(mode) {
-    case 0:
-        authorSearch(author, hits).done(function(data){
-            outBooks(data);
-        }).fail(function(data){
-            $('#out').html('<p>Failure</p>');
-        });
-        break;
-    case 1:
-        titleSearch(title, hits).done(function(data){
-            outBooks(data);
-        }).fail(function(data){
-            $('#out').html('<p>Failure</p>');
-        });
-        break;
-    case 2:
-    genreSearch(genre, hits).done(function(data){
+    }).done(function(data){
         outBooks(data);
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
-    break;
-    }
 }
-
-
-/*
-// 取得した書籍データを html に整形して出力
-function outBooks(data) {
-$.each(data, function(i) {
-var author = data[i]["params"]["author"].replace(/\/.*$/, '');
-var url = data[i]["params"]["itemUrl"];
-var genreId = data[i]["params"]["booksGenreId"];
-var imgUrl = data[i]["params"]["largeImageUrl"];
-var cap = data[i]["params"]["itemCaption"];
-var noImg = imgUrl.match(/noimage/);
-
-if (noImg === null) {
-//            imgUrl = imgUrl.replace(/\?.*$/, '');
-var list = '<p><img src="'
-+ imgUrl
-+ '" '
-+ 'author="'
-+ author
-+ '" '
-+ 'genreId="'
-+ genreId
-+ '">'
-+ '</p>'
-$("#photos_6").append(list);
-}
-});
-}
-*/
 
 // 取得した書籍データを html に整形して出力
 function outBooks(data) {
     $.each(data, function(i) {
-        //            imgUrl = imgUrl.replace(/\?.*$/, '');
         var url = data[i]["params"]["itemUrl"];
         var title = data[i]["params"]["title"];
         var author = data[i]["params"]["author"].replace(/\/.*$/, '');
         var genreId = data[i]["params"]["booksGenreId"];
+        genreId = genreId.split('/')[genreId.length-1];
         var imgUrl = data[i]["params"]["largeImageUrl"];
         var cap = data[i]["params"]["itemCaption"];
         var noImg = imgUrl.match(/noimage/);
@@ -150,9 +140,8 @@ function outBooks(data) {
     });
 }
 
-$(document).ready(function(){
+var toTop = function(bd) {
     $('#photos_6').click(function(){
-        
         var src = event.target.src.replace(/\?.*$/, '');
         var alt = event.target.alt;
         var title = getTitle(alt);
@@ -174,17 +163,24 @@ $(document).ready(function(){
             + ':gr'
             + '">'
             + '</p>';
-        
+
         $('#photos_1').html(null);
         $('#photos_1').html(top);
         var hits = 30;
-        var mode = 0;
         $('#photos_6').html(null);
-        booksSearch(author, title, hits, mode);
-//        $('#photos_1').append(top);
-//        $("html").animate({scrollTop:0},"500");
+        var title = title.slice(0,2);
+        titleSearch(title, hits);
+        //        $("html").animate({scrollTop:0},"500");
     });
-})
+}
+
+$(window).on("scroll", function() {
+    var scrollHeight = $(document).height();
+    var scrollPosition = $(window).height() + $(window).scrollTop();
+    if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+
+    }
+});
 
 function getTitle(alt) {
     title = alt.match(/title:.*.:tl/)[0];
