@@ -7,22 +7,6 @@
   mode:   作者検索であれば0，タイトル検索であれば1
 */
 
-$(document).ready(function(){
-    $('#photos_6').click(function(){
-        $('#photos_1').html(null);
-        //var src = $(this).children('img').attr('src');
-        var src = event.target.src;
-        //console.log(src);
-        var foo = '<p>'
-            + '<img src="'
-            + src
-            + '">'
-            + '</p>'
-        $('#photos_1').append(foo);
-        $('.seikou').hide();
-    });
-});
-
 $(window).load(function(){
     var author = '西尾維新';
     var title = '恋愛';
@@ -84,19 +68,44 @@ function outBooks(data) {
     $.each(data, function(i) {
         var author = data[i]["params"]["author"].replace(/\/.*$/, '');
         var url = data[i]["params"]["itemUrl"];
+        var genre = data[i]["params"]["booksGenreId"];
         var imgUrl = data[i]["params"]["largeImageUrl"];
         var cap = data[i]["params"]["itemCaption"];
         var noImg = imgUrl.match(/noimage/);
 
         if (noImg === null) {
-            imgUrl = imgUrl.replace(/\?.*$/, '');
+//            imgUrl = imgUrl.replace(/\?.*$/, '');
             var list = '<p><img src="'
                 + imgUrl
                 + '" '
                 + ' alt="'
-                + author
-                + '"></p>'
+            //                + author
+                + genre
+                + '">'
+                + '</p>'
             $("#photos_6").append(list);
         }
     });
 }
+
+
+
+$(document).ready(function(){
+    $('#photos_6').click(function(){
+        $('#photos_1').html(null);
+        var src = event.target.src;
+        var genre = event.target.alt;
+        var top = '<p>'
+            + '<img src="'
+            + src
+            + '"'
+            + ' alt="'
+            + genre
+            + '">'
+            + '</p>'
+        $('#photos_1').append(top);
+
+        $("html").animate({scrollTop:0},"500");
+//        $("html,body").animate({scrollTop:0},"500");
+    });
+});
