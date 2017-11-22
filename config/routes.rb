@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home_authorSearch' => 'home#authorSearch'
   get 'home_titleSearch' => 'home#titleSearch'
+  get 'home_genreSearch' => 'home#genreSearch'
 end
