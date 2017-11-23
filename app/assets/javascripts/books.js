@@ -37,7 +37,7 @@ class booksData {
     setGenreId(genreId) {
         this.genreIds.push(genreId);
     }
-    setCaptions(caption) {
+    setCaption(caption) {
         this.captions.push(caption);
     }
 }
@@ -46,7 +46,6 @@ $(window).load(function(){
     var bd = new booksData();
     var author = '西尾維新';
     var title = '恋愛';
-    var genre = 001004008;
     var hits = 30;
     titleSearch(title, hits);
     toTop(new booksData());
