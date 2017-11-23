@@ -42,7 +42,6 @@ function genreSearch(genreId, hits) {
         dataType: 'json',
         async: true,
         data: {
-            size: 0,
             booksGenreId: genreId,
             hits: hits
         }
