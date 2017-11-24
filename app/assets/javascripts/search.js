@@ -1,5 +1,5 @@
 // 作者検索関数
-function authorSearch(author, hits) {
+function authorSearch(author) {
     return $.ajax({
         url: '/home_authorSearch',
         type: 'GET',
@@ -7,7 +7,7 @@ function authorSearch(author, hits) {
         async: true,
         data: {
             author: author,
-            hits: hits
+            hits: 30
         }
     }).done(function(data){
         outBooks(data);
@@ -17,7 +17,7 @@ function authorSearch(author, hits) {
 }
 
 // タイトル検索関数
-function titleSearch(title, hits) {
+function titleSearch(title) {
     return $.ajax({
         url: '/home_titleSearch',
         type: 'GET',
@@ -25,7 +25,7 @@ function titleSearch(title, hits) {
         async: true,
         data: {
             title: title,
-            hits: hits
+            hits: 30
         }
     }).done(function(data){
         outBooks(data);
@@ -35,7 +35,7 @@ function titleSearch(title, hits) {
 }
 
 // ジャンル検索関数
-function genreSearch(genreId, hits) {
+function genreSearch(genreId) {
     return $.ajax({
         url: '/home_genreSearch',
         type: 'GET',
@@ -43,7 +43,7 @@ function genreSearch(genreId, hits) {
         async: true,
         data: {
             booksGenreId: genreId,
-            hits: hits
+            hits: 30
         }
     }).done(function(data){
         outBooks(data);

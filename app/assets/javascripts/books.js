@@ -6,18 +6,16 @@
 
   author: 作者名を格納
   title:  タイトルを格納
-  hits:   検索ヒット数を指定。0-30までの整数
 */
 $(window).load(function(){
     bd = new BooksData();
     tb = new TopBook();
     var author = '西尾維新';
     var title = '恋愛';
-    var hits = 30;
-    titleSearch(title, hits);
+    titleSearch(title);
 
-    // authorSearch(author, hits);
-    // genreSearch(genreId, hits);
+    // authorSearch(author);
+    // genreSearch(genreId);
 });
 
 // 取得した書籍データを html に整形して出力する
@@ -65,6 +63,6 @@ $(document).ready(function() {
         $('#photos_6').html(null);
         var hits = 30;
         var title = tb.getTitle().slice(0,2);
-        titleSearch(title, hits);
+        titleSearch(title);
     });
 });
