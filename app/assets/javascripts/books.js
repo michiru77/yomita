@@ -66,6 +66,10 @@ $(document).ready(function() {
         var hits = 30;
         var title = tb.getTitle().slice(0,2);
         titleSearch(title, hits);
+        var title_Perfect = tb.getTitle();
+        $('.title').html(null);
+        $('.title').append(title_Perfect);
+
 
         //履歴情報の保存
         var apple = 'りんご';
