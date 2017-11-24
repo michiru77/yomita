@@ -4,6 +4,15 @@
 <%= submit_tag "Search" %>
 <% end %>
 
+
+<%= session[:Receivefruit].each do |i|%>
+    <img src="<%= i %>" width="50" height="50">
+<% end %>
+<div class="display_history"></div>
+
+<script>
+document.write('<img src="'+ gon.history_list+'">');
+</script>
 <!--
   <label for="title">Title Search</label>
   <input type="text" name="title" id="title" />

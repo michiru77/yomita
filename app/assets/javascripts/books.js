@@ -87,7 +87,7 @@ $(document).ready(function() {
         );
 
         //履歴情報の保存
-        var apple = 'りんご';
+        var apple = src;
         historySearch(apple);
     });
 });
