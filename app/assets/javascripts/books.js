@@ -79,8 +79,13 @@ $(document).ready(function() {
         );
 
         var caption_html = tb.getCaption();
-        $('.red bold').html(null);
-        $('.red bold').append(caption_html);
+        $('#modal-content-innar').html(null);
+        $('#modal-content-innar').append(
+            '<p class="red bold">'
+           + caption_html
+           + '<br /></p>'
+           + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+        );
 
         //履歴情報の保存
         var apple = 'りんご';
