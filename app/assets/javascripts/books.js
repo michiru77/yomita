@@ -67,6 +67,7 @@ $(document).ready(function() {
         titleSearch(title);
         //タイトル,作者,あらすじを取得し,htmlに追加
         var title_html = tb.getTitle();
+        alert(title_html)
         $('.title').html(null);
         $('.title').append(title_html);
 
@@ -91,16 +92,14 @@ $(document).ready(function() {
     });
 });
 
-
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
-        //alert(text);
+        bd.reset();
         $('#photos_6').html(null);
         authorSearch(author);
     })
 });
-
 
 // クリックされた変数をsessionに保存する
 function historySearch(fruit) {
