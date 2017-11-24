@@ -72,7 +72,7 @@ $(document).ready(function() {
 
         var author_html = tb.getAuthor();
         $('.author').html(null);
-        $('.author').append('<a href="#">'
+        $('.author').append('<a href="#" name="'+ author_html +'">'
                             +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
                            );
 
@@ -92,6 +92,16 @@ $(document).ready(function() {
 });
 
 
+$(document).ready(function() {
+    $('.author').click(function() {
+        var author = event.target.name;
+        //alert(text);
+        $('#photos_6').html(null);
+        authorSearch(author);
+    })
+});
+
+
 // クリックされた変数をsessionに保存する
 function historySearch(fruit) {
     historyStorage(fruit).done(function(data){
@@ -99,7 +109,7 @@ function historySearch(fruit) {
         console.log('hoge');
         outFruit(data);
     }).fail(function(data){
-        $('#out').html('<p>Failure</p>');
+        //$('#out').html('<p>Failure</p>');
     });
 }
 
