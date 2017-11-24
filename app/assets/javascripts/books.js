@@ -66,5 +66,39 @@ $(document).ready(function() {
         var hits = 30;
         var title = tb.getTitle().slice(0,2);
         titleSearch(title, hits);
+
+        //履歴情報の保存
+        var apple = 'りんご';
+        historySearch(apple);
     });
 });
+
+
+// クリックされた変数をsessionに保存する
+function historySearch(fruit) {
+    historyStorage(fruit).done(function(data){
+        $('.apple').append('hoge');
+        console.log('hoge');
+        outFruit(data);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
+    });
+}
+
+
+function historyStorage(fruit) {
+    return $.ajax({
+        url: '/home_history',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            fruit: fruit
+        }
+    });
+}
+
+function outFruit(data) {
+    var ringo = 'りんご';
+    $('.apple').append(data);
+}

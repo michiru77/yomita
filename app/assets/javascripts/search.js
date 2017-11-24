@@ -51,3 +51,5 @@ function genreSearch(genreId, hits) {
         $('#out').html('<p>Failure</p>');
     });
 }
+
+
