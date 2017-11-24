@@ -63,6 +63,60 @@ $(document).ready(function() {
         $('#photos_6').html(null);
         var hits = 30;
         var title = tb.getTitle().slice(0,2);
+
         titleSearch(title);
+        //タイトル,作者,あらすじを取得し,htmlに追加
+        var title_html = tb.getTitle();
+        $('.title').html(null);
+        $('.title').append(title_html);
+
+        var author_html = tb.getAuthor();
+        $('.author').html(null);
+        $('.author').append('<a href="#">'
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+                           );
+
+        var caption_html = tb.getCaption();
+        $('#modal-content-innar').html(null);
+        $('#modal-content-innar').append(
+            '<p class="red bold">'
+                + caption_html
+                + '<br /></p>'
+                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+        );
+
+        //履歴情報の保存
+        var apple = 'りんご';
+        historySearch(apple);
     });
 });
+
+
+// クリックされた変数をsessionに保存する
+function historySearch(fruit) {
+    historyStorage(fruit).done(function(data){
+        $('.apple').append('hoge');
+        console.log('hoge');
+        outFruit(data);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
+    });
+}
+
+
+function historyStorage(fruit) {
+    return $.ajax({
+        url: '/home_history',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            fruit: fruit
+        }
+    });
+}
+
+function outFruit(data) {
+    var ringo = 'りんご';
+    $('.apple').append(data);
+}

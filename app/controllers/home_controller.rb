@@ -25,5 +25,23 @@ class HomeController < ApplicationController
     #binding.pry
   end
 
+  def history
+
+    #if session[:Receivefruit].blank?
+    # session[:Receivefruit] = []
+    #else
+    # session[:Receivefruit].push(params[:fruit])
+    #end
+
+    session[:Receivefruit] = []
+    session[:Receivefruit] = params[:fruit]
+    p session[:Receivefruit]
+    data = params[:fruit]
+    p "dataは"+data
+    #p data
+    render json: data
+
+  end
+
 
 end
