@@ -67,7 +67,7 @@ $(document).ready(function() {
         var title = tb.getTitle().slice(0,2);
         titleSearch(title, hits);
 
-
+        //タイトル,作者,あらすじを取得し,htmlに追加
         var title_html = tb.getTitle();
         $('.title').html(null);
         $('.title').append(title_html);
@@ -86,6 +86,7 @@ $(document).ready(function() {
            + '<br /></p>'
            + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
+
 
         //履歴情報の保存
         var apple = 'りんご';
