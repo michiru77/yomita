@@ -70,7 +70,7 @@ class TopBook {
 
 
 $(function(){
-    $("#modal-open").click(function(){
+    $("#photos_1").click(function(){
 //キーボード操作などにより、オーバーレイが多重起動するのを防止する
         $( this ).blur() ;	//ボタンからフォーカスを外す
         if( $( "#modal-overlay" )[0] ) return false ;		//新しくモーダルウィンドウを起動しない (防止策1)

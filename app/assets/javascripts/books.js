@@ -78,6 +78,10 @@ $(document).ready(function() {
             +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
         );
 
+        var caption_html = tb.getCaption();
+        $('.red bold').html(null);
+        $('.red bold').append(caption_html);
+
         //履歴情報の保存
         var apple = 'りんご';
         historySearch(apple);
