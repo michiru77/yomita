@@ -66,10 +66,17 @@ $(document).ready(function() {
         var hits = 30;
         var title = tb.getTitle().slice(0,2);
         titleSearch(title, hits);
-        var title_Perfect = tb.getTitle();
-        $('.title').html(null);
-        $('.title').append(title_Perfect);
 
+
+        var title_html = tb.getTitle();
+        $('.title').html(null);
+        $('.title').append(title_html);
+
+        var author_html = tb.getAuthor();
+        $('.author').html(null);
+        $('.author').append('<a href="#">'
+            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+        );
 
         //履歴情報の保存
         var apple = 'りんご';
