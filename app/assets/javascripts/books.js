@@ -91,16 +91,14 @@ $(document).ready(function() {
     });
 });
 
-
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
-        //alert(text);
+        bd.reset();
         $('#photos_6').html(null);
         authorSearch(author);
     })
 });
-
 
 // クリックされた変数をsessionに保存する
 function historySearch(fruit) {
