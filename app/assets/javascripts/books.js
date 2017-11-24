@@ -1,4 +1,4 @@
-//= require BooksData
+//= require compiled/BooksData
 //= require search
 
 /*
