@@ -51,5 +51,3 @@ function genreSearch(genreId) {
         $('#out').html('<p>Failure</p>');
     });
 }
-
-
