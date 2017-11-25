@@ -51,7 +51,8 @@ img:hover{
 
 #display_history img {
   /* Just in case there are inline attributes */
-  display: inline;
+  display: inline-flex;
+  background-size: contain;
   //margin-left: auto;
   //margin-right: auto;
   //width: 100% !important;
