@@ -1,17 +1,32 @@
-<%= form_tag :home_titleSearch, method: :get do  %>
-<%= label_tag :title, 'Title Search' %>
-<%= text_field_tag 'title', params[:title] %>
-<%= submit_tag "Search" %>
-<% end %>
-
-
-<%= session[:Receivefruit].each do |i|%>
+<!-- セッションによる表示 -->
+<% session[:Receivefruit].each do |i|%>
+    <!--
     <img src="<%= i %>" width="50" height="50">
+    -->
 <% end %>
-<div class="display_history"></div>
+<!-- appendによる表示 -->
+<div id="display_history"></div>
+<div class="line"></div>
+
+
+<% form_tag :home_titleSearch, method: :get do  %>
+<% label_tag :title, 'Title Search' %>
+<% text_field_tag 'title', params[:title] %>
+<% submit_tag "Search" %>
+<% end %>
+
+
+<% session[:Receivefruit].each do |i|%>
+    <!--
+    <img src="<%= i %>" width="50" height="50">
+    -->
+<% end %>
+<!--
+<div id="display_history"></div>
+-->
 
 <script>
-document.write('<img src="'+ gon.history_list+'">');
+document.write('<img src="'+ gon.history_list +'">');
 </script>
 <!--
   <label for="title">Title Search</label>

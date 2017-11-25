@@ -60,23 +60,37 @@ $(document).ready(function() {
             + '</p>';
         $('#photos_1').html(null);
         $('#photos_1').html(top);
+
+
+        //履歴を上に残す
+        $('#display_history').append(
+            '<p>'+
+            '<img src="'+ src +'" width="90px" height="auto">'
+            + '</p>'
+            );
+
+
+
         $('#photos_6').html(null);
         var hits = 30;
         var title = tb.getTitle().slice(0,2);
 
         titleSearch(title);
-        //タイトル,作者,あらすじを取得し,htmlに追加
+
+        //タイトル追加
         var title_html = tb.getTitle();
         alert(title_html)
         $('.title').html(null);
         $('.title').append(title_html);
 
+        //作者追加
         var author_html = tb.getAuthor();
         $('.author').html(null);
         $('.author').append('<a href="#" name="'+ author_html +'">'
                             +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
                            );
 
+        //あらすじ追加
         var caption_html = tb.getCaption();
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(

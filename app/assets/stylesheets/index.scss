@@ -35,6 +35,37 @@ img:hover{
     
 }
 
+#display_history {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 10;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    10;
+  -moz-column-gap:      0px;
+  column-count:         10;
+  column-gap:           0px;
+
+}
+
+
+#display_history img {
+  /* Just in case there are inline attributes */
+  display: inline;
+  //margin-left: auto;
+  //margin-right: auto;
+  //width: 100% !important;
+  width: 90px !important;
+  height: auto !important;
+  //margin: 30px;
+  //margin: 20px;
+  //margin-top: 40px;
+  //margin-bottom: 20px;
+  //margin-top: 40px;
+  //margin-bottom: 40px;
+}
+
+
 
 #photos_1 {
   /* Prevent vertical gaps */
