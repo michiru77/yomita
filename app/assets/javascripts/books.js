@@ -45,9 +45,9 @@ function outBooks(data) {
 
 function tohistory(src) {
     $('#display_history').append(
-        '<p>'+
+        //'<p>'+
         '<img src="'+ src +'" width="90px" height="auto">'
-        + '</p>'
+        //+ '</p>'
     );
 }
 
