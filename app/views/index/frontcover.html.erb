@@ -1,29 +1,3 @@
-<SCRIPT LANGUAGE="JavaScript"></SCRIPT>
-<!--
-<%= if !@location[-1]=="/" then setLocation=(@location+"&reset=1") else  setLocation=(@location+"?reset=1") end %>
-<a href="<% $setLocation %>" style="text-decoration:none; color:#000000;">[履歴を抹消]</a>
--->
-<!--　🔵button　-->
-<!--　🔵session　-->
-<% if session[:history].blank? then session[:history]=[] end %>
-<% if !@bookID.blank? then session[:history].push( @bookID ) end %>
-<% session[:history].uniq! %>
-<% session[:history].slice!(0..(-10-1)) %>
-<!--
-<%= session[:history] %>
-<%= @historyList %>
-<a href="\?reset=1" style="text-decoration:none; color:#000000;">[履歴を抹消]</a>
-<input type="button" value="[履歴を抹消]" onclick=""/>
-<input type="button" value="[履歴を抹消]" onclick="<% session[:history] %>;"/>
--->
-<!--　🔵クリック履歴表示　-->
-<section id="photos_history">
-<SCRIPT>
-    for(i=0;i<gon.historyList.length;i++){　document.write(simg2[gon.historyList[i]]);　}
-</SCRIPT>
-</section>
-<!--
--->
 <SCRIPT>
 // 🔵URL操作
 // URLからパラメータ
