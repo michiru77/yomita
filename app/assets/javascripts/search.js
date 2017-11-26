@@ -53,3 +53,44 @@ function genreSearch(genreId) {
 }
 
 
+// 履歴からの検索
+function titleSearch_history(title) {
+    return $.ajax({
+        url: '/home_titleSearch',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            title: title,
+            hits: 30
+        }
+    }).done(function(data){
+        outBooks_history(data);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
+    });
+}
+
+function outBooks_history(data) {
+    $.each(data, function(i) {
+        var url = data[i]["params"]["itemUrl"];
+        var imgUrl = data[i]["params"]["largeImageUrl"];
+        bd.setTitle(data[i]);
+        bd.setAuthor(data[i]);
+        bd.setGenreId(data[i]);
+        bd.setCaption(data[i]);
+
+        var noImg = imgUrl.match(/noimage/);
+        if (noImg === null) {
+            var list = '<p>'
+                + '<img id="'
+                + i
+                + '" '
+                + 'src="'
+                + imgUrl
+                + '"> '
+                + '</p>'
+            $("#photos_6").append(list);
+        }
+    });
+}

@@ -10,9 +10,10 @@
 $(window).load(function(){
     bd = new BooksData();
     tb = new TopBook();
-    var author = '西尾維新';
-    var title = '恋愛';
+    var author = '池井戸潤';
+    var title = 'ビート';
     titleSearch(title);
+    //authorSearch();
 
     // authorSearch(author);
     // genreSearch(genreId);
@@ -76,7 +77,7 @@ $(document).ready(function() {
         var hits = 30;
         var title = tb.getTitle().slice(0,2);
 
-        titleSearch(title);
+        titleSearch_history(title);
 
         //タイトル追加
         var title_html = tb.getTitle();
