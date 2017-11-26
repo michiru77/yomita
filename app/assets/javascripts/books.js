@@ -51,13 +51,17 @@ function tohistory(src) {
     );
 }
 
+//履歴imgをクリックした時の処理
 $(document).ready(function() {
     $('#display_history').click(function() {
-        var src = event.target.src.replace(/\?.*$/, '');
+        //var src = event.target.src.replace(/\?.*$/, '');
+        var src = event.target.src;
+        /*
         var id = event.target.id;
         tb.setTitle(bd.getTitle(id));
         tb.setAuthor(bd.getAuthor(id));
         tb.setCaption(bd.getCaption(id));
+        */
         bd.reset();
 
         var top = '<p>'

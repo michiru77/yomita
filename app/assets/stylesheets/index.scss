@@ -23,7 +23,7 @@ h1 {
 img {
     backface-visibility: hidden;
     -webkit-backface-visibility:hidden;
-    overflow:hidden
+    overflow:hidden;
 }
 
 img:hover{
@@ -36,6 +36,7 @@ img:hover{
     
 }
 
+//画像がちらつくため,今はただ並べるだけに止める
 #display_history img{
   margin: 5px;
 }
@@ -52,7 +53,7 @@ img:hover{
   column-gap:           30px;
 
 }
-/*
+
 #display_history img {
   /* Just in case there are inline attributes
   //width: 100% !important;
