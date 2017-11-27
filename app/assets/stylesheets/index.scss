@@ -23,6 +23,7 @@ h1 {
 img {
     backface-visibility: hidden;
     -webkit-backface-visibility:hidden;
+    overflow:hidden;
 }
 
 img:hover{
@@ -35,6 +36,32 @@ img:hover{
     
 }
 
+//画像がちらつくため,今はただ並べるだけに止める
+#display_history img{
+  margin: 5px;
+}
+
+/*
+#display_history {
+  /* Prevent vertical gaps
+  line-height: 0;
+  -webkit-column-count: 10;
+  -webkit-column-gap:   30px;
+  -moz-column-count:    10;
+  -moz-column-gap:      30px;
+  column-count:         10;
+  column-gap:           30px;
+
+}
+
+#display_history img {
+  /* Just in case there are inline attributes
+  //width: 100% !important;
+  width: 90px !important;
+  height: auto !important;
+  margin-top: 10px;
+}
+*/
 
 #photos_1 {
   /* Prevent vertical gaps */
@@ -293,7 +320,9 @@ margin: 0px 20px 20px 20px;
 }
 
 .line{
-  padding-top: 10px;
+  //padding-top: 10px;
+  //padding-bottom: 10px;
+  margin: 10px;
   border-bottom: solid 1px gray;
 }
 
