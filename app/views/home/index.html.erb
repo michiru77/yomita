@@ -1,6 +1,8 @@
 <!-- セッションによる表示 -->
 <% if session[:Receivefruit].blank? then session[:Receivefruit]=[] end %>
+<!--
 <% session[:Receivefruit].uniq! %>
+-->
 <div id="display_history">
 <% for num in session[:Receivefruit].length-9..session[:Receivefruit].length-1 do %>
 <% if num>=0 then %>
