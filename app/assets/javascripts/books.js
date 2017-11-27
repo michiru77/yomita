@@ -13,7 +13,6 @@ $(window).load(function(){
     var author = '西尾維新';
     var title = '恋愛';
     titleSearch(title);
-
     // authorSearch(author);
     // genreSearch(genreId);
 });
@@ -21,8 +20,8 @@ $(window).load(function(){
 // 取得した書籍データを html に整形して出力する
 function outBooks(data) {
     $.each(data, function(i) {
-        var url = data[i]["params"]["itemUrl"];
         var imgUrl = data[i]["params"]["largeImageUrl"];
+        bd.setUrl(data[i]);
         bd.setTitle(data[i]);
         bd.setAuthor(data[i]);
         bd.setGenreId(data[i]);
@@ -73,7 +72,6 @@ $(document).ready(function() {
         $('#photos_1').html(top);
 
         $('#photos_6').html(null);
-        var hits = 30;
         var title = tb.getTitle().slice(0,2);
 
         titleSearch(title);
@@ -126,7 +124,6 @@ $(document).ready(function() {
 
 
         $('#photos_6').html(null);
-        var hits = 30;
         var title = tb.getTitle().slice(0,2);
 
         titleSearch(title);
