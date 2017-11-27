@@ -1,5 +1,7 @@
 class BooksData {
+
     constructor() {
+        this.urls = [];
         this.titles = [];
         this.authors = [];
         this.genreIds = [];
@@ -7,7 +9,6 @@ class BooksData {
     }
 
     getTitle(i) {
-        //        alert(this.titles[i]);
         return this.titles[i];
     }
     getAuthor(i) {
@@ -20,8 +21,12 @@ class BooksData {
         return this.captions[i];
     }
 
+    setUrl(data) {
+        var url = data["params"]["itemUrl"];
+        this.urls.push(url);
+    }
     setTitle(data) {
-        var title =  data["params"]["title"];
+        var title = data["params"]["title"];
         this.titles.push(title);
     }
     setAuthor(data) {
@@ -56,7 +61,7 @@ class TopBook {
     getCaption() {
         return this.caption;
     }
-    
+
     setTitle(title) {
         this.title = title;
     }
