@@ -43,6 +43,7 @@ class HomeController < ApplicationController
     gon.history_list = session[:Receivefruit]
     p session[:Receivefruit]
     p '通ります'
+    gon.value = 1
     #session[:Receivefruit] = []
     #session[:Receivefruit] = params[:fruit]
     #p session[:Receivefruit]
@@ -50,7 +51,6 @@ class HomeController < ApplicationController
     #p "dataは"+data
     #p data
     #render json: data
-
   end
 
 
