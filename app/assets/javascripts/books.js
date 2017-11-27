@@ -11,7 +11,7 @@ $(window).load(function(){
     bd = new BooksData();
     tb = new TopBook();
     var author = '池井戸潤';
-    var title = 'ビート';
+    var title = '恋愛';
     titleSearch(title);
     //authorSearch();
 
