@@ -27,19 +27,25 @@ class HomeController < ApplicationController
 
   def history
 
-    #if session[:Receivefruit].blank?
-    # session[:Receivefruit] = []
-    #else
-    # session[:Receivefruit].push(params[:fruit])
-    #end
-
-    session[:Receivefruit] = []
-    session[:Receivefruit] = params[:fruit]
+    if session[:Receivefruit].blank?
+     session[:Receivefruit] = ["tmp"]
+     session[:Receivefruit][0] = params[:fruit]
+      p '成功'
+    else
+      #session[:Receivefruit] = ["a"]
+     session[:Receivefruit][session[:Receivefruit].length]= params[:fruit]
+      p session[:Receivefruit]
+      #session[:Receivefruit] = []
+    end
+    gon.history_list = session[:Receivefruit]
     p session[:Receivefruit]
-    data = params[:fruit]
-    p "dataは"+data
+    #session[:Receivefruit] = []
+    #session[:Receivefruit] = params[:fruit]
+    #p session[:Receivefruit]
+    #data = params[:fruit]
+    #p "dataは"+data
     #p data
-    render json: data
+    #render json: data
 
   end
 

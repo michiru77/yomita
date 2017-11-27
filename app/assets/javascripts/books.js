@@ -67,6 +67,7 @@ $(document).ready(function() {
         titleSearch(title);
         //タイトル,作者,あらすじを取得し,htmlに追加
         var title_html = tb.getTitle();
+        alert(title_html)
         $('.title').html(null);
         $('.title').append(title_html);
 
@@ -86,7 +87,7 @@ $(document).ready(function() {
         );
 
         //履歴情報の保存
-        var apple = 'りんご';
+        var apple = src;
         historySearch(apple);
     });
 });
