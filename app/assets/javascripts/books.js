@@ -31,7 +31,8 @@ function outBooks(data) {
 
         var noImg = imgUrl.match(/noimage/);
         if (noImg === null) {
-            var list = '<p>'
+            var list = '<div class="iconBuyButton">'
+                + '<p>'
                 + '<img id="'
                 + i
                 + '" '
@@ -39,6 +40,8 @@ function outBooks(data) {
                 + imgUrl
                 + '"> '
                 + '</p>'
+                + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+                + '</div>'
             $("#photos_6").append(list);
         }
     });
@@ -103,6 +106,8 @@ $(document).ready(function() {
         );
     });
 });
+
+
 
 
 // クリックした表紙をトップへ移動する
