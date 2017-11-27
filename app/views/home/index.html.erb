@@ -1,4 +1,5 @@
 <!-- セッションによる表示 -->
+<% if session[:Receivefruit].blank? then session[:Receivefruit]=[] end %>
 <% session[:Receivefruit].each do |i|%>
     <!--
     <img src="<%= i %>" width="50" height="50">
