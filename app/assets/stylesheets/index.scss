@@ -28,7 +28,7 @@ img {
 
 img:hover{
   opacity: 0.8;
-  transition: 0.35s;
+  //transition: 0.35s;
   background-color: #000;
 }
 
@@ -38,12 +38,12 @@ img:hover{
 
 //画像がちらつくため,今はただ並べるだけに止める
 #display_history img{
-  margin: 5px;
+  //margin: 5px;
 }
 
-/*
+
 #display_history {
-  /* Prevent vertical gaps
+  //Prevent vertical gaps
   line-height: 0;
   -webkit-column-count: 10;
   -webkit-column-gap:   30px;
@@ -55,13 +55,13 @@ img:hover{
 }
 
 #display_history img {
-  /* Just in case there are inline attributes
+  // Just in case there are inline attributes
   //width: 100% !important;
   width: 90px !important;
   height: auto !important;
   margin-top: 10px;
 }
-*/
+
 
 #photos_1 {
   /* Prevent vertical gaps */
