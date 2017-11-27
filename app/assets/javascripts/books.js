@@ -10,7 +10,7 @@
 $(window).load(function(){
     bd = new BooksData();
     tb = new TopBook();
-    var author = '西尾維新';
+    var author = '池井戸潤';
     var title = '恋愛';
     titleSearch(title, 0);
     // authorSearch(author, 0);
@@ -33,7 +33,8 @@ function outBooks(data, check) {
 
         var noImg = imgUrl.match(/noimage/);
         if (noImg === null) {
-            var list = '<p>'
+            var list = '<div class="iconBuyButton">'
+                + '<p>'
                 + '<img id="'
                 + i
                 + '" '
@@ -41,6 +42,8 @@ function outBooks(data, check) {
                 + imgUrl
                 + '"> '
                 + '</p>'
+                + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+                + '</div>';
             $("#photos_6").append(list);
         }
     });
@@ -66,11 +69,14 @@ $(document).ready(function() {
           tb.setCaption(bd.getCaption(id));
         */
 
-        var top = '<p>'
+        var top =
+            '<p>'
             + '<img src="'
             + src
             + '">'
-            + '</p>';
+            + '</p>'
+
+
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
@@ -112,11 +118,14 @@ $(document).ready(function() {
         tb.setAuthor(bd.getAuthor(id));
         tb.setCaption(bd.getCaption(id));
 
-        var top = '<p>'
+        var top = '<div class="iconBuyButtonTop">'
+            + '<p>'
             + '<img src="'
             + src
             + '">'
-            + '</p>';
+            + '</p>'
+            + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+            + '</div>';
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
