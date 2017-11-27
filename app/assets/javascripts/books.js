@@ -43,6 +43,65 @@ function outBooks(data) {
     });
 }
 
+function tohistory(src) {
+    $('#display_history').append(
+        //'<p>'+
+        '<img src="'+ src +'" width="90px" height="auto">'
+        //+ '</p>'
+    );
+}
+
+//履歴imgをクリックした時の処理
+$(document).ready(function() {
+    $('#display_history').click(function() {
+        //var src = event.target.src.replace(/\?.*$/, '');
+        var src = event.target.src;
+        /*
+          var id = event.target.id;
+          tb.setTitle(bd.getTitle(id));
+          tb.setAuthor(bd.getAuthor(id));
+          tb.setCaption(bd.getCaption(id));
+        */
+        bd.reset();
+
+        var top = '<p>'
+            + '<img src="'
+            + src
+            + '">'
+            + '</p>';
+        $('#photos_1').html(null);
+        $('#photos_1').html(top);
+
+        $('#photos_6').html(null);
+        var hits = 30;
+        var title = tb.getTitle().slice(0,2);
+
+        titleSearch(title);
+
+        //タイトル追加
+        var title_html = tb.getTitle();
+        $('.title').html(null);
+        $('.title').append(title_html);
+
+        //作者追加
+        var author_html = tb.getAuthor();
+        $('.author').html(null);
+        $('.author').append('<a href="#" name="'+ author_html +'">'
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+                           );
+
+        //あらすじ追加
+        var caption_html = tb.getCaption();
+        $('#modal-content-innar').html(null);
+        $('#modal-content-innar').append(
+            '<p class="red bold">'
+                + caption_html
+                + '<br /></p>'
+                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+        );
+    });
+});
+
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
     $('#photos_6').click(function(){
@@ -60,22 +119,31 @@ $(document).ready(function() {
             + '</p>';
         $('#photos_1').html(null);
         $('#photos_1').html(top);
+
+
+        //履歴を上に残す
+        tohistory(src);
+
+
         $('#photos_6').html(null);
         var hits = 30;
         var title = tb.getTitle().slice(0,2);
 
         titleSearch(title);
-        //タイトル,作者,あらすじを取得し,htmlに追加
+
+        //タイトル追加
         var title_html = tb.getTitle();
         $('.title').html(null);
         $('.title').append(title_html);
 
+        //作者追加
         var author_html = tb.getAuthor();
         $('.author').html(null);
         $('.author').append('<a href="#" name="'+ author_html +'">'
                             +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
                            );
 
+        //あらすじ追加
         var caption_html = tb.getCaption();
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
@@ -86,7 +154,7 @@ $(document).ready(function() {
         );
 
         //履歴情報の保存
-        var apple = 'りんご';
+        var apple = src;
         historySearch(apple);
     });
 });
@@ -111,7 +179,6 @@ function historySearch(fruit) {
     });
 }
 
-
 function historyStorage(fruit) {
     return $.ajax({
         url: '/home_history',
@@ -122,11 +189,6 @@ function historyStorage(fruit) {
             fruit: fruit
         }
     });
-}
-
-function outFruit(data) {
-    var ringo = 'りんご';
-    $('.apple').append(data);
 }
 
 $(function(){
