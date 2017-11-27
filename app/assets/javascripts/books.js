@@ -41,7 +41,7 @@ function outBooks(data) {
                 + '"> '
                 + '</p>'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
-                + '</div>'
+                + '</div>';
             $("#photos_6").append(list);
         }
     });
@@ -68,11 +68,14 @@ $(document).ready(function() {
         */
         bd.reset();
 
-        var top = '<p>'
+        var top =
+             '<p>'
             + '<img src="'
             + src
             + '">'
-            + '</p>';
+            + '</p>'
+
+
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
@@ -120,11 +123,14 @@ $(document).ready(function() {
         tb.setCaption(bd.getCaption(id));
         bd.reset();
 
-        var top = '<p>'
+        var top = '<div class="iconBuyButtonTop">'
+            + '<p>'
             + '<img src="'
             + src
             + '">'
-            + '</p>';
+            + '</p>'
+            + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+            + '</div>';
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
