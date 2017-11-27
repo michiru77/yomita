@@ -57,10 +57,10 @@ $(document).ready(function() {
         //var src = event.target.src.replace(/\?.*$/, '');
         var src = event.target.src;
         /*
-        var id = event.target.id;
-        tb.setTitle(bd.getTitle(id));
-        tb.setAuthor(bd.getAuthor(id));
-        tb.setCaption(bd.getCaption(id));
+          var id = event.target.id;
+          tb.setTitle(bd.getTitle(id));
+          tb.setAuthor(bd.getAuthor(id));
+          tb.setCaption(bd.getCaption(id));
         */
         bd.reset();
 
@@ -87,21 +87,20 @@ $(document).ready(function() {
         var author_html = tb.getAuthor();
         $('.author').html(null);
         $('.author').append('<a href="#" name="'+ author_html +'">'
-            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
-        );
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+                           );
 
         //あらすじ追加
         var caption_html = tb.getCaption();
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
             '<p class="red bold">'
-            + caption_html
-            + '<br /></p>'
-            + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+                + caption_html
+                + '<br /></p>'
+                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
     });
 });
-
 
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
@@ -134,7 +133,6 @@ $(document).ready(function() {
 
         //タイトル追加
         var title_html = tb.getTitle();
-        alert(title_html)
         $('.title').html(null);
         $('.title').append(title_html);
 
@@ -182,7 +180,6 @@ function historySearch(fruit) {
     });
 }
 
-
 function historyStorage(fruit) {
     return $.ajax({
         url: '/home_history',
@@ -193,11 +190,6 @@ function historyStorage(fruit) {
             fruit: fruit
         }
     });
-}
-
-function outFruit(data) {
-    var ringo = 'りんご';
-    $('.apple').append(data);
 }
 
 $(function(){
