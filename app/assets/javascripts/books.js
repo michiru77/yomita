@@ -157,7 +157,8 @@ $(document).ready(function() {
 
         //履歴情報の保存
         var apple = src;
-        historySearch(apple);
+        //historySearch(apple);
+        historyStorage(apple);
     });
 });
 
@@ -238,3 +239,41 @@ $(function(){
         $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
     }
 } ) ;
+
+//セッション履歴削除関数
+$(document).ready(function() {
+    $('#rireki').click(function() {
+        history_delete(1);
+        $('#display_history').html(null);
+    });
+});
+
+//履歴削除
+function history_delete(one) {
+    return $.ajax({
+        url: '/home_history',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            number: one
+        }
+    });
+}
+
+$(document).ready(function() {
+    $('#rireki_page').click(function() {
+        $('#photos_1').html(null);
+        $('#photos_6').html(null);
+        $('#display_history').html(null);
+
+        //var component = '<img src="'
+        //+ gon.history_list +'">'
+        //$('body').append(gon.history_list[0]);
+        var michiru = '<div id="display_session"></div>';
+        //$('').append(michiru);
+        $('#photos_6').append('ハロー');
+        $('#photos_6').append(gon.value);
+
+    });
+});
