@@ -26,6 +26,9 @@ class HomeController < ApplicationController
   end
 
   def history
+    if params[:number]
+      session[:Receivefruit] = nil
+    end
 
     if session[:Receivefruit].blank?
      session[:Receivefruit] = ["tmp"]
@@ -39,6 +42,7 @@ class HomeController < ApplicationController
     end
     gon.history_list = session[:Receivefruit]
     p session[:Receivefruit]
+    p '通ります'
     #session[:Receivefruit] = []
     #session[:Receivefruit] = params[:fruit]
     #p session[:Receivefruit]

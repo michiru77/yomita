@@ -1,3 +1,7 @@
+
+<button id="rireki">履歴消しましょう</button>
+<% link_to("履歴消しましょう","/home_history") %>
+
 <!-- セッションによる表示 -->
 <% if session[:Receivefruit].blank? then session[:Receivefruit]=[] end %>
 <% session[:Receivefruit].uniq! %>

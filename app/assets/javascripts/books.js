@@ -157,7 +157,8 @@ $(document).ready(function() {
 
         //履歴情報の保存
         var apple = src;
-        historySearch(apple);
+        //historySearch(apple);
+        historyStorage(apple);
     });
 });
 
@@ -238,3 +239,22 @@ $(function(){
         $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
     }
 } ) ;
+
+
+$(document).ready(function() {
+    $('#rireki').click(function() {
+        history_delete(1);
+    });
+});
+
+function history_delete(one) {
+    return $.ajax({
+        url: '/home_history',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            number: one
+        }
+    });
+}
