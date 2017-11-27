@@ -12,14 +12,18 @@ $(window).load(function(){
     tb = new TopBook();
     var author = '西尾維新';
     var title = '恋愛';
-    titleSearch(title);
-    // authorSearch(author);
-    // genreSearch(genreId);
+    titleSearch(title, 0);
+    // authorSearch(author, 0);
+    // genreSearch(genreId, 0);
 });
 
 // 取得した書籍データを html に整形して出力する
-function outBooks(data) {
+function outBooks(data, check) {
+
+    (check === 0 || check !== 1) && bd.reset();
+
     $.each(data, function(i) {
+
         var imgUrl = data[i]["params"]["largeImageUrl"];
         bd.setUrl(data[i]);
         bd.setTitle(data[i]);
@@ -61,7 +65,6 @@ $(document).ready(function() {
           tb.setAuthor(bd.getAuthor(id));
           tb.setCaption(bd.getCaption(id));
         */
-        bd.reset();
 
         var top = '<p>'
             + '<img src="'
@@ -74,7 +77,7 @@ $(document).ready(function() {
         $('#photos_6').html(null);
         var title = tb.getTitle().slice(0,2);
 
-        titleSearch(title);
+        titleSearch(title, 0);
 
         //タイトル追加
         var title_html = tb.getTitle();
@@ -108,7 +111,6 @@ $(document).ready(function() {
         tb.setTitle(bd.getTitle(id));
         tb.setAuthor(bd.getAuthor(id));
         tb.setCaption(bd.getCaption(id));
-        bd.reset();
 
         var top = '<p>'
             + '<img src="'
@@ -125,8 +127,7 @@ $(document).ready(function() {
 
         $('#photos_6').html(null);
         var title = tb.getTitle().slice(0,2);
-
-        titleSearch(title);
+        titleSearch(title, 0);
 
         //タイトル追加
         var title_html = tb.getTitle();
@@ -159,9 +160,8 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
-        bd.reset();
         $('#photos_6').html(null);
-        authorSearch(author);
+        authorSearch(author, 0);
     })
 });
 
