@@ -1,12 +1,12 @@
 <!-- セッションによる表示 -->
 <% if session[:Receivefruit].blank? then session[:Receivefruit]=[] end %>
-<% session[:Receivefruit].each do |i|%>
-    <!--
-    <img src="<%= i %>" width="50" height="50">
-    -->
+<% session[:Receivefruit].uniq! %>
+<div id="display_history">
+<% session[:Receivefruit].each do |i| %>
+<img src="<%= i %>" width="90px" height="auto">
 <% end %>
+</div>
 <!-- appendによる表示 -->
-<div id="display_history"></div>
 <div class="line"></div>
 
 
