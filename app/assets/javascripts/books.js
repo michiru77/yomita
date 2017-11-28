@@ -57,58 +57,6 @@ function tohistory(src) {
     );
 }
 
-//履歴imgをクリックした時の処理
-$(document).ready(function() {
-    $('#display_history').click(function() {
-        //var src = event.target.src.replace(/\?.*$/, '');
-        var src = event.target.src;
-        /*
-          var id = event.target.id;
-          tb.setTitle(bd.getTitle(id));
-          tb.setAuthor(bd.getAuthor(id));
-          tb.setCaption(bd.getCaption(id));
-        */
-
-        var top =
-            '<p>'
-            + '<img src="'
-            + src
-            + '">'
-            + '</p>'
-
-
-        $('#photos_1').html(null);
-        $('#photos_1').html(top);
-
-        $('#photos_6').html(null);
-        var title = tb.getTitle().slice(0,2);
-
-        titleSearch(title, 0);
-
-        //タイトル追加
-        var title_html = tb.getTitle();
-        $('.title').html(null);
-        $('.title').append(title_html);
-
-        //作者追加
-        var author_html = tb.getAuthor();
-        $('.author').html(null);
-        $('.author').append('<a href="#" name="'+ author_html +'">'
-                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
-                           );
-
-        //あらすじ追加
-        var caption_html = tb.getCaption();
-        $('#modal-content-innar').html(null);
-        $('#modal-content-innar').append(
-            '<p class="red bold">'
-                + caption_html
-                + '<br /></p>'
-                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
-        );
-    });
-});
-
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
     $('#photos_6').click(function(){
@@ -175,17 +123,6 @@ $(document).ready(function() {
     })
 });
 
-// クリックされた変数をsessionに保存する
-function historySearch(fruit) {
-    historyStorage(fruit).done(function(data){
-        $('.apple').append('hoge');
-        console.log('hoge');
-        outFruit(data);
-    }).fail(function(data){
-        //$('#out').html('<p>Failure</p>');
-    });
-}
-
 function historyStorage(fruit) {
     return $.ajax({
         url: '/home_history',
@@ -195,8 +132,108 @@ function historyStorage(fruit) {
         data: {
             fruit: fruit
         }
+    }).done(function(data){
+        $('.apple').append('hoge');
+        console.log('hoge');
+        outFruit(data);
+    }).fail(function(data){
+        //$('#out').html('<p>Failure</p>');
     });
 }
+
+// クリックされた変数をsessionに保存する
+function historySearch(fruit) {
+    historyStorage(fruit);
+}
+
+//セッション履歴削除関数
+$(document).ready(function() {
+    $('#rireki').click(function() {
+        history_delete(1);
+        $('#display_history').html(null);
+    });
+});
+
+//履歴削除
+function history_delete(one) {
+    return $.ajax({
+        url: '/home_history',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            number: one
+        }
+    });
+}
+
+//履歴imgをクリックした時の処理
+$(document).ready(function() {
+    $('#display_history').click(function() {
+        //var src = event.target.src.replace(/\?.*$/, '');
+        var src = event.target.src;
+        /*
+          var id = event.target.id;
+          tb.setTitle(bd.getTitle(id));
+          tb.setAuthor(bd.getAuthor(id));
+          tb.setCaption(bd.getCaption(id));
+        */
+
+        var top =
+            '<p>'
+            + '<img src="'
+            + src
+            + '">'
+            + '</p>'
+
+        $('#photos_1').html(null);
+        $('#photos_1').html(top);
+
+        $('#photos_6').html(null);
+        var title = tb.getTitle().slice(0,2);
+
+        titleSearch(title, 0);
+
+        //タイトル追加
+        var title_html = tb.getTitle();
+        $('.title').html(null);
+        $('.title').append(title_html);
+
+        //作者追加
+        var author_html = tb.getAuthor();
+        $('.author').html(null);
+        $('.author').append('<a href="#" name="'+ author_html +'">'
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+                           );
+
+        //あらすじ追加
+        var caption_html = tb.getCaption();
+        $('#modal-content-innar').html(null);
+        $('#modal-content-innar').append(
+            '<p class="red bold">'
+                + caption_html
+                + '<br /></p>'
+                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+        );
+    });
+});
+
+$(document).ready(function() {
+    $('#rireki_page').click(function() {
+        $('#photos_1').html(null);
+        $('#photos_6').html(null);
+        $('#display_history').html(null);
+
+        //var component = '<img src="'
+        //+ gon.history_list +'">'
+        //$('body').append(gon.history_list[0]);
+        var michiru = '<div id="display_session"></div>';
+        //$('').append(michiru);
+        $('#photos_6').append('ハロー');
+        $('#photos_6').append(gon.value);
+
+    });
+});
 
 $(function(){
     $("#photos_1").click(function(){
@@ -237,41 +274,3 @@ $(function(){
         $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
     }
 } ) ;
-
-//セッション履歴削除関数
-$(document).ready(function() {
-    $('#rireki').click(function() {
-        history_delete(1);
-        $('#display_history').html(null);
-    });
-});
-
-//履歴削除
-function history_delete(one) {
-    return $.ajax({
-        url: '/home_history',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            number: one
-        }
-    });
-}
-
-$(document).ready(function() {
-    $('#rireki_page').click(function() {
-        $('#photos_1').html(null);
-        $('#photos_6').html(null);
-        $('#display_history').html(null);
-
-        //var component = '<img src="'
-        //+ gon.history_list +'">'
-        //$('body').append(gon.history_list[0]);
-        var michiru = '<div id="display_session"></div>';
-        //$('').append(michiru);
-        $('#photos_6').append('ハロー');
-        $('#photos_6').append(gon.value);
-
-    });
-});
