@@ -97,6 +97,16 @@ var TopBook = function () {
     }
 
     _createClass(TopBook, [{
+        key: "getIsbn",
+        value: function getIsbn() {
+            return this.isbn;
+        }
+    }, {
+        key: "setIsbn",
+        value: function setIsbn(isbn) {
+            this.isbn = isbn;
+        }
+    }, {
         key: "getTitle",
         value: function getTitle() {
             return this.title;

@@ -63,6 +63,13 @@ class BooksData {
 }
 
 class TopBook {
+    getIsbn() {
+        return this.isbn;
+    }
+    setIsbn(isbn) {
+        this.isbn = isbn; 
+    }
+
     getTitle() {
         return this.title;
     }
