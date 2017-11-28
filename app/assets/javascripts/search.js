@@ -52,6 +52,24 @@ function genreSearch(genreId, check) {
     });
 }
 
+// ジャンル検索関数
+function isbnSearch(isbn, check) {
+    return $.ajax({
+        url: '/home_isbnSearch',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            isbn: isbn,
+            hits: 30
+        }
+    }).done(function(data){
+        outBooks(data, check);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
+    });
+}
+
 // 取得した書籍データを html に整形して出力する
 function outBooks(data, check) {
 
