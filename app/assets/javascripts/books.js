@@ -12,17 +12,20 @@ $(window).load(function(){
     tb = new TopBook();
     var author = '西尾維新';
     var title = '恋愛';
-    titleSearch(title);
-
-    // authorSearch(author);
-    // genreSearch(genreId);
+    titleSearch(title, 0);
+    // authorSearch(author, 0);
+    // genreSearch(genreId, 0);
 });
 
 // 取得した書籍データを html に整形して出力する
-function outBooks(data) {
+function outBooks(data, check) {
+
+    (check === 0 || check !== 1) && bd.reset();
+
     $.each(data, function(i) {
-        var url = data[i]["params"]["itemUrl"];
+
         var imgUrl = data[i]["params"]["largeImageUrl"];
+        bd.setUrl(data[i]);
         bd.setTitle(data[i]);
         bd.setAuthor(data[i]);
         bd.setGenreId(data[i]);
@@ -57,12 +60,11 @@ $(document).ready(function() {
         //var src = event.target.src.replace(/\?.*$/, '');
         var src = event.target.src;
         /*
-        var id = event.target.id;
-        tb.setTitle(bd.getTitle(id));
-        tb.setAuthor(bd.getAuthor(id));
-        tb.setCaption(bd.getCaption(id));
+          var id = event.target.id;
+          tb.setTitle(bd.getTitle(id));
+          tb.setAuthor(bd.getAuthor(id));
+          tb.setCaption(bd.getCaption(id));
         */
-        bd.reset();
 
         var top = '<p>'
             + '<img src="'
@@ -73,10 +75,9 @@ $(document).ready(function() {
         $('#photos_1').html(top);
 
         $('#photos_6').html(null);
-        var hits = 30;
         var title = tb.getTitle().slice(0,2);
 
-        titleSearch(title);
+        titleSearch(title, 0);
 
         //タイトル追加
         var title_html = tb.getTitle();
@@ -87,21 +88,20 @@ $(document).ready(function() {
         var author_html = tb.getAuthor();
         $('.author').html(null);
         $('.author').append('<a href="#" name="'+ author_html +'">'
-            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
-        );
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+                           );
 
         //あらすじ追加
         var caption_html = tb.getCaption();
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
             '<p class="red bold">'
-            + caption_html
-            + '<br /></p>'
-            + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+                + caption_html
+                + '<br /></p>'
+                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
     });
 });
-
 
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
@@ -111,7 +111,6 @@ $(document).ready(function() {
         tb.setTitle(bd.getTitle(id));
         tb.setAuthor(bd.getAuthor(id));
         tb.setCaption(bd.getCaption(id));
-        bd.reset();
 
         var top = '<p>'
             + '<img src="'
@@ -127,14 +126,11 @@ $(document).ready(function() {
 
 
         $('#photos_6').html(null);
-        var hits = 30;
         var title = tb.getTitle().slice(0,2);
-
-        titleSearch(title);
+        titleSearch(title, 0);
 
         //タイトル追加
         var title_html = tb.getTitle();
-        alert(title_html)
         $('.title').html(null);
         $('.title').append(title_html);
 
@@ -157,16 +153,16 @@ $(document).ready(function() {
 
         //履歴情報の保存
         var apple = src;
-        historySearch(apple);
+        //historySearch(apple);
+        historyStorage(apple);
     });
 });
 
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
-        bd.reset();
         $('#photos_6').html(null);
-        authorSearch(author);
+        authorSearch(author, 0);
     })
 });
 
@@ -181,7 +177,6 @@ function historySearch(fruit) {
     });
 }
 
-
 function historyStorage(fruit) {
     return $.ajax({
         url: '/home_history',
@@ -192,11 +187,6 @@ function historyStorage(fruit) {
             fruit: fruit
         }
     });
-}
-
-function outFruit(data) {
-    var ringo = 'りんご';
-    $('.apple').append(data);
 }
 
 $(function(){
@@ -238,3 +228,41 @@ $(function(){
         $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
     }
 } ) ;
+
+//セッション履歴削除関数
+$(document).ready(function() {
+    $('#rireki').click(function() {
+        history_delete(1);
+        $('#display_history').html(null);
+    });
+});
+
+//履歴削除
+function history_delete(one) {
+    return $.ajax({
+        url: '/home_history',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            number: one
+        }
+    });
+}
+
+$(document).ready(function() {
+    $('#rireki_page').click(function() {
+        $('#photos_1').html(null);
+        $('#photos_6').html(null);
+        $('#display_history').html(null);
+
+        //var component = '<img src="'
+        //+ gon.history_list +'">'
+        //$('body').append(gon.history_list[0]);
+        var michiru = '<div id="display_session"></div>';
+        //$('').append(michiru);
+        $('#photos_6').append('ハロー');
+        $('#photos_6').append(gon.value);
+
+    });
+});

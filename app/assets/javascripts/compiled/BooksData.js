@@ -8,6 +8,7 @@ var BooksData = function () {
     function BooksData() {
         _classCallCheck(this, BooksData);
 
+        this.urls = [];
         this.titles = [];
         this.authors = [];
         this.genreIds = [];
@@ -34,6 +35,12 @@ var BooksData = function () {
         key: "getCaption",
         value: function getCaption(i) {
             return this.captions[i];
+        }
+    }, {
+        key: "setUrl",
+        value: function setUrl(data) {
+            var url = data["params"]["itemUrl"];
+            this.urls.push(url);
         }
     }, {
         key: "setTitle",

@@ -1,12 +1,26 @@
+
+<button id="rireki">履歴削除</button>
+<!--
+<button id="rireki_page">履歴ページ作る</button>
+-->
+
+<% link_to("履歴消しましょう","/home_history") %>
+
 <!-- セッションによる表示 -->
 <% if session[:Receivefruit].blank? then session[:Receivefruit]=[] end %>
-<% session[:Receivefruit].each do |i|%>
-    <!--
-    <img src="<%= i %>" width="50" height="50">
-    -->
+<div id="display_history">
+<% for num in session[:Receivefruit].length-9..session[:Receivefruit].length-1 do %>
+<% if num>=0 then %>
+<img src="<%= session[:Receivefruit][num] %>" width="90px" height="auto">
 <% end %>
+<% end %>
+<!--
+<% session[:Receivefruit].each do |i| %>
+<img src="<%= i %>" width="90px" height="auto">
+<% end %>
+-->
+</div>
 <!-- appendによる表示 -->
-<div id="display_history"></div>
 <div class="line"></div>
 
 
