@@ -51,3 +51,36 @@ function genreSearch(genreId, check) {
         $('#out').html('<p>Failure</p>');
     });
 }
+
+// 取得した書籍データを html に整形して出力する
+function outBooks(data, check) {
+
+    (check === 0 || check !== 1) && bd.reset();
+
+    $.each(data, function(i) {
+
+        var imgUrl = data[i]["params"]["largeImageUrl"];
+        bd.setUrl(data[i]);
+        bd.setTitle(data[i]);
+        bd.setAuthor(data[i]);
+        bd.setGenreId(data[i]);
+        bd.setCaption(data[i]);
+        bd.setIsbn(data[i]);
+
+        var noImg = imgUrl.match(/noimage/);
+        if (noImg === null) {
+            var list = '<div class="iconBuyButton">'
+                + '<p>'
+                + '<img id="'
+                + i
+                + '" '
+                + 'src="'
+                + imgUrl
+                + '"> '
+                + '</p>'
+                + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+                + '</div>';
+            $("#photos_6").append(list);
+        }
+    });
+}

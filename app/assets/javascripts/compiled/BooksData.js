@@ -13,12 +13,23 @@ var BooksData = function () {
         this.authors = [];
         this.genreIds = [];
         this.captions = [];
+        this.isbns = [];
     }
 
     _createClass(BooksData, [{
+        key: "getIsbn",
+        value: function getIsbn(i) {
+            return this.isbns[i];
+        }
+    }, {
+        key: "setIsbn",
+        value: function setIsbn(data) {
+            var isbn = data["params"]["isbn"];
+            this.isbns.push[isbn];
+        }
+    }, {
         key: "getTitle",
         value: function getTitle(i) {
-            //        alert(this.titles[i]);
             return this.titles[i];
         }
     }, {

@@ -6,7 +6,18 @@ class BooksData {
         this.authors = [];
         this.genreIds = [];
         this.captions = [];
+        this.isbns = [];
     }
+
+    getIsbn(i) {
+        return this.isbns[i];
+    }
+    setIsbn(data) {
+        var isbn = data["params"]["isbn"];
+        this.isbns.push[isbn];
+    }
+
+
 
     getTitle(i) {
         return this.titles[i];
