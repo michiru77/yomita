@@ -11,7 +11,7 @@ $(window).load(function(){
     bd = new BooksData();
     tb = new TopBook();
     var author = '池井戸潤';
-    var title = '恋愛';
+    var title = '科学';
     titleSearch(title, 0);
     // authorSearch(author, 0);
     // genreSearch(genreId, 0);
@@ -30,10 +30,10 @@ $(document).ready(function() {
     $('#photos_6').click(function(){
         var src = event.target.src.replace(/\?.*$/, '');
         var id = event.target.id;
-        tb.setTitle(bd.getTitle(id));
-        tb.setAuthor(bd.getAuthor(id));
-        tb.setCaption(bd.getCaption(id));
-        tb.setIsbn(bd.getIsbn(id));
+        var title = bd.getTitle(id);
+        var author = bd.getAuthor(id);
+        var caption = bd.getCaption(id);
+        var isbn = bd.getIsbn(id);
 
         var top = '<div class="iconBuyButtonTop">'
             + '<p>'
@@ -46,32 +46,27 @@ $(document).ready(function() {
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
-
         //履歴を上に残す
         tohistory(src);
 
         $('#photos_6').html(null);
-        var title = tb.getTitle().slice(0,2);
-        titleSearch(title, 0);
+        titleSearch(title.slice(0,2), 0);
 
         //タイトル追加
-        var title_html = tb.getTitle();
         $('.title').html(null);
-        $('.title').append(title_html);
+        $('.title').append(title);
 
         //作者追加
-        var author_html = tb.getAuthor();
         $('.author').html(null);
-        $('.author').append('<a href="#" name="'+ author_html +'">'
-                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+        $('.author').append('<a href="#" name="'+ author +'">'
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
                            );
 
         //あらすじ追加
-        var caption_html = tb.getCaption();
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
             '<p class="red bold">'
-                + caption_html
+                + caption
                 + '<br /></p>'
                 + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
@@ -140,12 +135,6 @@ $(document).ready(function() {
     $('#display_history').click(function() {
         //var src = event.target.src.replace(/\?.*$/, '');
         var src = event.target.src;
-        /*
-          var id = event.target.id;
-          tb.setTitle(bd.getTitle(id));
-          tb.setAuthor(bd.getAuthor(id));
-          tb.setCaption(bd.getCaption(id));
-        */
 
         var top =
             '<p>'

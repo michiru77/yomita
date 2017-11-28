@@ -14,7 +14,7 @@ class BooksData {
     }
     setIsbn(data) {
         var isbn = data["params"]["isbn"];
-        this.isbns.push[isbn];
+        this.isbns.push(isbn);
     }
 
 
@@ -59,6 +59,7 @@ class BooksData {
         this.authors.length = 0;
         this.genreIds.length = 0;
         this.captions.length = 0;
+        this.isbns.length = 0;
     }
 }
 
@@ -69,6 +70,7 @@ class TopBook {
     setIsbn(isbn) {
         this.isbn = isbn; 
     }
+
 
     getTitle() {
         return this.title;

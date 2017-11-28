@@ -25,7 +25,7 @@ var BooksData = function () {
         key: "setIsbn",
         value: function setIsbn(data) {
             var isbn = data["params"]["isbn"];
-            this.isbns.push[isbn];
+            this.isbns.push(isbn);
         }
     }, {
         key: "getTitle",
@@ -85,6 +85,7 @@ var BooksData = function () {
             this.authors.length = 0;
             this.genreIds.length = 0;
             this.captions.length = 0;
+            this.isbns.length = 0;
         }
     }]);
 
