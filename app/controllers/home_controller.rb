@@ -32,11 +32,11 @@ class HomeController < ApplicationController
 
     if session[:Receivefruit].blank?
      session[:Receivefruit] = ["tmp"]
-     session[:Receivefruit][0] = params[:fruit]
+     session[:Receivefruit][0] = params[:img]
      p '🔴  sessionを初期化したよ。'
     else
       #session[:Receivefruit] = ["a"]
-     session[:Receivefruit][session[:Receivefruit].length]= params[:fruit]
+     session[:Receivefruit][session[:Receivefruit].length]= params[:img]
       p '🔴  sessionに追加したよ。'
       p session[:Receivefruit]
       #session[:Receivefruit] = []
@@ -45,14 +45,10 @@ class HomeController < ApplicationController
     p '🔵'
     p session[:Receivefruit]
     p '通ります'
-    gon.value = 1
-    #session[:Receivefruit] = []
-    #session[:Receivefruit] = params[:fruit]
-    #p session[:Receivefruit]
-    #data = params[:fruit]
-    #p "dataは"+data
-    #p data
-    #render json: data
+
+    session[:BookData]
+    session[:BookData] = {title: params[:title],author: params[:author], caption: params[:caption], img: params[:img]}
+    p session[:BookData]
   end
 
 

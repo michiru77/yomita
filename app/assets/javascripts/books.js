@@ -72,9 +72,9 @@ $(document).ready(function() {
         );
 
         //履歴情報の保存
-        var apple = src;
+        var img = src;
         //historySearch(apple);
-        historyStorage(apple);
+        historyStorage(img,title,author,caption);
     });
 });
 
@@ -86,14 +86,17 @@ $(document).ready(function() {
     })
 });
 
-function historyStorage(fruit) {
+function historyStorage(img,title,author,caption) {
     return $.ajax({
         url: '/home_history',
         type: 'GET',
         dataType: 'json',
         async: true,
         data: {
-            fruit: fruit
+            img: img,
+            title: title,
+            author: author,
+            caption: caption
         }
     }).done(function(data){
         $('.apple').append('hoge');
