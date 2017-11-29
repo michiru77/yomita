@@ -8,6 +8,14 @@ body {
   //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
 }
 
+#rireki {
+cursor : pointer;
+margin-right: auto;
+}
+
+#rireki:hover{
+color:#E48E00;
+}
 
 h1 {
   font-size: 40px;
@@ -24,11 +32,12 @@ img {
     backface-visibility: hidden;
     -webkit-backface-visibility:hidden;
     overflow:hidden;
+    cursor : pointer;
 }
 
 img:hover{
   opacity: 0.8;
-  //transition: 0.35s;
+  transition: 0.35s;
   background-color: #000;
 }
 
@@ -56,10 +65,11 @@ img:hover{
 
 #display_history img {
   // Just in case there are inline attributes
-  //width: 100% !important;
-  width: 90px !important;
+  width: 125% !important;
+  //width: 90px !important;
   height: auto !important;
   margin-top: 10px;
+  margin-right: 10px;
 }
 
 
