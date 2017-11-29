@@ -8,6 +8,14 @@ body {
   //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
 }
 
+#rireki {
+cursor : pointer;
+margin-right: auto;
+}
+
+#rireki:hover{
+color:#E48E00;
+}
 
 h1 {
   font-size: 40px;
@@ -24,6 +32,7 @@ img {
     backface-visibility: hidden;
     -webkit-backface-visibility:hidden;
     overflow:hidden;
+    cursor : pointer;
 }
 
 img:hover{
@@ -38,12 +47,12 @@ img:hover{
 
 //画像がちらつくため,今はただ並べるだけに止める
 #display_history img{
-  margin: 5px;
+  //margin: 5px;
 }
 
-/*
+
 #display_history {
-  /* Prevent vertical gaps
+  //Prevent vertical gaps
   line-height: 0;
   -webkit-column-count: 10;
   -webkit-column-gap:   30px;
@@ -55,13 +64,14 @@ img:hover{
 }
 
 #display_history img {
-  /* Just in case there are inline attributes
-  //width: 100% !important;
-  width: 90px !important;
+  // Just in case there are inline attributes
+  width: 120% !important;
+  //width: 90px !important;
   height: auto !important;
   margin-top: 10px;
+  margin-right: 10px;
 }
-*/
+
 
 #photos_1 {
   /* Prevent vertical gaps */
