@@ -8,6 +8,7 @@
   title:  タイトルを格納
 */
 $(window).load(function(){
+
     bd = new BooksData();
     tb = new TopBook();
     var author = '池井戸潤';
@@ -17,10 +18,10 @@ $(window).load(function(){
     // genreSearch(genreId, 0);
 });
 
-function tohistory(src) {
+function tohistory(src,title,author,caption) {
     $('#display_history').append(
         //'<p>'+
-        '<img src="'+ src +'" width="90px" height="auto">'
+        '<img src="'+ src +'" width="90px" height="auto" alt=":title'+ title +':author'+ author +':caption'+ caption +'" >'
         //+ '</p>'
     );
 }
@@ -41,13 +42,15 @@ $(document).ready(function() {
             + src
             + '">'
             + '</p>'
+            + '<a href="">'
             + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+            + '</a>'
             + '</div>';
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
         //履歴を上に残す
-        tohistory(src);
+        tohistory(src,title,author,caption);
 
         $('#photos_6').html(null);
         titleSearch(title.slice(0,2), 0);
@@ -62,6 +65,7 @@ $(document).ready(function() {
                             +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
                            );
 
+
         //あらすじ追加
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
@@ -74,7 +78,7 @@ $(document).ready(function() {
         //履歴情報の保存
         var img = src;
         //historySearch(apple);
-        historyStorage(img,title,author,caption);
+        //historyStorage(img,title,author,caption);
     });
 });
 
@@ -138,43 +142,48 @@ $(document).ready(function() {
     $('#display_history').click(function() {
         //var src = event.target.src.replace(/\?.*$/, '');
         var src = event.target.src;
+        var alt = event.target.alt;
+        var title = alt.replace(/:title(.*):author.*$/,"$1");
+        var author = alt.replace(/:author(.*):caption.*$/,"$1");
+        var caption = alt.replace(/:caption(.*)$/,"$1");
 
         var top =
             '<p>'
             + '<img src="'
             + src
             + '">'
-            + '</p>'
+            + '</p>';
 
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
         $('#photos_6').html(null);
-        var title = tb.getTitle().slice(0,2);
-
-        titleSearch(title, 0);
+        var title_new = title.slice(0,2);
+        //var title = ''
+        titleSearch(title_new, 0);
 
         //タイトル追加
-        var title_html = tb.getTitle();
+        //var title_html = tb.getTitle();
         $('.title').html(null);
-        $('.title').append(title_html);
+        $('.title').append(title);
 
         //作者追加
-        var author_html = tb.getAuthor();
+        //var author_html = tb.getAuthor();
         $('.author').html(null);
-        $('.author').append('<a href="#" name="'+ author_html +'">'
-                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+        $('.author').append('<a href="#" name="'+ author +'">'
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
                            );
 
         //あらすじ追加
-        var caption_html = tb.getCaption();
+        //var caption_html = tb.getCaption();
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
             '<p class="red bold">'
-                + caption_html
+                + caption
                 + '<br /></p>'
                 + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
+        //$('#michiru_sen').append(caption);
     });
 });
 

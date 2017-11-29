@@ -46,9 +46,13 @@ class HomeController < ApplicationController
     p session[:Receivefruit]
     p '通ります'
 
-    session[:BookData]
-    session[:BookData] = {title: params[:title],author: params[:author], caption: params[:caption], img: params[:img]}
-    p session[:BookData]
+    session[:alt] = []
+    session[:alt] = 'alt'
+
+
+    #session[:BookData] = []
+    session[:BookData][1] = {title: params[:title],author: params[:author], caption: params[:caption], img: params[:img]}
+    p session[:BookData][:title]
   end
 
 

@@ -94,9 +94,11 @@ function outBooks(data, check) {
                 + '" '
                 + 'src="'
                 + imgUrl
-                + '"> '
+                + '">'
                 + '</p>'
+                + '<a href="'+ data[i]["params"]["itemUrl"] +'" target="_blank" >'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+                + '</a>'
                 + '</div>';
             $("#photos_6").append(list);
         }

@@ -1,5 +1,6 @@
 
 <button id="rireki">履歴削除</button>
+
 <!--
 <button id="rireki_page">履歴ページ作る</button>
 -->
@@ -10,8 +11,13 @@
 <% if session[:Receivefruit].blank? then session[:Receivefruit]=[] end %>
 <div id="display_history">
 <% for num in session[:Receivefruit].length-9..session[:Receivefruit].length-1 do %>
-<% if num>=0 then %>
-<img src="<%= session[:Receivefruit][num] %>" width="90px" height="auto">
+<% if num>=1 then %>
+          <!--
+<img src="<%= session[:Receivefruit][num] %>" width="90px" height="auto" alt="<%= session[:alt] %>">
+-->
+          <!--
+          <p><%= p session[:alt] %></p>
+          -->
 <% end %>
 <% end %>
 <!--
@@ -19,9 +25,16 @@
 <img src="<%= i %>" width="90px" height="auto">
 <% end %>
 -->
+
+  <% title1 = session[:BookData][0] %>
+  <% p title1  %>
+  <% p session[:BookData]["title"] %>
+
 </div>
 <!-- appendによる表示 -->
+
 <div class="line"></div>
+
 
 
 <% form_tag :home_titleSearch, method: :get do  %>
@@ -105,9 +118,9 @@ document.write('<img src="'+ gon.history_list +'">');
 <!--　Lower Stage　-->
 <section id="photos_1">
 </section>
-
+<!--
 <div class="line"></div>
-
+-->
 
 <section id="photos_2">
 </section>
@@ -126,3 +139,5 @@ document.write('<img src="'+ gon.history_list +'">');
 <button class="submit" value='ミステリー'> ミステリー</button>
 <button class="submit" value='DIVE'>DIVE!</button>
 -->
+
+<div id="michiru_sen"></div>
