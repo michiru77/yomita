@@ -2,12 +2,19 @@ class BooksData {
 
     constructor() {
         this.urls = [];
+        this.imgUrls = [];
         this.titles = [];
         this.authors = [];
         this.genreIds = [];
         this.captions = [];
     }
 
+    getUrl(i) {
+        return this.urls[i];
+    }
+    getImgUrl(i) {
+        return this.imgUrls[i];
+    }
     getTitle(i) {
         return this.titles[i];
     }
@@ -24,6 +31,10 @@ class BooksData {
     setUrl(data) {
         var url = data["params"]["itemUrl"];
         this.urls.push(url);
+    }
+    setImgUrl(data) {
+        var imgUrl = data["params"]["largeImageUrl"];
+        this.imgUrls.push(imgUrl);
     }
     setTitle(data) {
         var title = data["params"]["title"];
@@ -44,6 +55,7 @@ class BooksData {
     }
 
     reset() {
+        this.urls.length = 0;
         this.titles.length = 0;
         this.authors.length = 0;
         this.genreIds.length = 0;
@@ -52,6 +64,12 @@ class BooksData {
 }
 
 class TopBook {
+    getUrl() {
+        return this.url;
+    }
+    getImgUrl() {
+        return this.imgUrl;
+    }
     getTitle() {
         return this.title;
     }
@@ -62,6 +80,12 @@ class TopBook {
         return this.caption;
     }
 
+    setUrl(url) {
+        this.url = url;
+    }
+    setImgUrl(imgUrl) {
+        this.imgUrl = imgUrl;
+    }
     setTitle(title) {
         this.title = title;
     }

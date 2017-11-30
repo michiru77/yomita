@@ -44,12 +44,13 @@ $(document).ready(function() {
             + '">'
             + '</p>'
 
+
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
         $('#photos_6').html(null);
-        // タイトルの頭二文字を抽出
         var title = tb.getTitle().slice(0,2);
+
         titleSearch(title, 0);
 
         //タイトル追加
@@ -81,7 +82,6 @@ $(document).ready(function() {
     $('#photos_6').click(function(){
         var src = event.target.src.replace(/\?.*$/, '');
         var id = event.target.id;
-        tb.setUrl(bd.getUrl(id));
         tb.setTitle(bd.getTitle(id));
         tb.setAuthor(bd.getAuthor(id));
         tb.setCaption(bd.getCaption(id));
@@ -92,18 +92,15 @@ $(document).ready(function() {
             + src
             + '">'
             + '</p>'
-            + '<a href="'
-            + tb.getUrl()
-            + '" '
-            + 'target="_blank">'
             + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
-            + '</a>'
             + '</div>';
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
+
         //履歴を上に残す
         tohistory(src);
+
 
         $('#photos_6').html(null);
         var title = tb.getTitle().slice(0,2);

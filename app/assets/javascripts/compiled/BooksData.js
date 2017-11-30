@@ -9,6 +9,7 @@ var BooksData = function () {
         _classCallCheck(this, BooksData);
 
         this.urls = [];
+        this.imgUrls = [];
         this.titles = [];
         this.authors = [];
         this.genreIds = [];
@@ -16,9 +17,18 @@ var BooksData = function () {
     }
 
     _createClass(BooksData, [{
+        key: "getUrl",
+        value: function getUrl(i) {
+            return this.urls[i];
+        }
+    }, {
+        key: "getImgUrl",
+        value: function getImgUrl(i) {
+            return this.imgUrls[i];
+        }
+    }, {
         key: "getTitle",
         value: function getTitle(i) {
-            //        alert(this.titles[i]);
             return this.titles[i];
         }
     }, {
@@ -41,6 +51,12 @@ var BooksData = function () {
         value: function setUrl(data) {
             var url = data["params"]["itemUrl"];
             this.urls.push(url);
+        }
+    }, {
+        key: "setImgUrl",
+        value: function setImgUrl(data) {
+            var imgUrl = data["params"]["largeImageUrl"];
+            this.imgUrls.push(imgUrl);
         }
     }, {
         key: "setTitle",
@@ -70,6 +86,7 @@ var BooksData = function () {
     }, {
         key: "reset",
         value: function reset() {
+            this.urls.length = 0;
             this.titles.length = 0;
             this.authors.length = 0;
             this.genreIds.length = 0;
@@ -86,6 +103,16 @@ var TopBook = function () {
     }
 
     _createClass(TopBook, [{
+        key: "getUrl",
+        value: function getUrl() {
+            return this.url;
+        }
+    }, {
+        key: "getImgUrl",
+        value: function getImgUrl() {
+            return this.imgUrl;
+        }
+    }, {
         key: "getTitle",
         value: function getTitle() {
             return this.title;
@@ -99,6 +126,16 @@ var TopBook = function () {
         key: "getCaption",
         value: function getCaption() {
             return this.caption;
+        }
+    }, {
+        key: "setUrl",
+        value: function setUrl(url) {
+            this.url = url;
+        }
+    }, {
+        key: "setImgUrl",
+        value: function setImgUrl(imgUrl) {
+            this.imgUrl = imgUrl;
         }
     }, {
         key: "setTitle",
