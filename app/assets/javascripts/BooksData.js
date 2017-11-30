@@ -2,7 +2,7 @@ class BooksData {
 
     constructor() {
         this.urls = [];
-        this.imgUrls = [];
+        this.imgs = [];
         this.titles = [];
         this.authors = [];
         this.genreIds = [];
@@ -56,6 +56,7 @@ class BooksData {
 
     reset() {
         this.urls.length = 0;
+        this.imgUrls.length = 0;
         this.titles.length = 0;
         this.authors.length = 0;
         this.genreIds.length = 0;

@@ -87,6 +87,7 @@ var BooksData = function () {
         key: "reset",
         value: function reset() {
             this.urls.length = 0;
+            this.imgUrls.length = 0;
             this.titles.length = 0;
             this.authors.length = 0;
             this.genreIds.length = 0;
