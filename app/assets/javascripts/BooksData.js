@@ -12,8 +12,8 @@ class BooksData {
     getUrl(i) {
         return this.urls[i];
     }
-    getImgUrl(i) {
-        return this.imgUrls[i];
+    getImg(i) {
+        return this.imgs[i];
     }
     getTitle(i) {
         return this.titles[i];
@@ -28,35 +28,31 @@ class BooksData {
         return this.captions[i];
     }
 
-    setUrl(data) {
+    setBooksData(data){
+
         var url = data["params"]["itemUrl"];
         this.urls.push(url);
-    }
-    setImgUrl(data) {
-        var imgUrl = data["params"]["largeImageUrl"];
-        this.imgUrls.push(imgUrl);
-    }
-    setTitle(data) {
+
+        var img = data["params"]["largeImageUrl"];
+        this.imgs.push(img);
+
         var title = data["params"]["title"];
         this.titles.push(title);
-    }
-    setAuthor(data) {
+
         var author = data["params"]["author"].replace(/\/.*$/, '');
         this.authors.push(author);
-    }
-    setGenreId(data) {
+
         var genreId = data["params"]["booksGenreId"];
         genreId.split('/')[genreId.length-1];
         this.genreIds.push(genreId);
-    }
-    setCaption(data) {
+
         var caption = data["params"]["itemCaption"];
         this.captions.push(caption);
     }
 
     reset() {
         this.urls.length = 0;
-        this.imgUrls.length = 0;
+        this.imgs.length = 0;
         this.titles.length = 0;
         this.authors.length = 0;
         this.genreIds.length = 0;
@@ -68,8 +64,8 @@ class TopBook {
     getUrl() {
         return this.url;
     }
-    getImgUrl() {
-        return this.imgUrl;
+    getImg() {
+        return this.img;
     }
     getTitle() {
         return this.title;
@@ -84,8 +80,8 @@ class TopBook {
     setUrl(url) {
         this.url = url;
     }
-    setImgUrl(imgUrl) {
-        this.imgUrl = imgUrl;
+    setImg(img) {
+        this.img = img;
     }
     setTitle(title) {
         this.title = title;

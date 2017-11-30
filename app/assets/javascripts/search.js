@@ -59,14 +59,11 @@ function outBooks(data, check) {
 
     $.each(data, function(i) {
 
-        var imgUrl = data[i]["params"]["largeImageUrl"];
-        bd.setUrl(data[i]);
-        bd.setTitle(data[i]);
-        bd.setAuthor(data[i]);
-        bd.setGenreId(data[i]);
-        bd.setCaption(data[i]);
+        bd.setBooksData(data[i]);
 
-        var noImg = imgUrl.match(/noimage/);
+        var img = bd.getImg(i);
+
+        var noImg = img.match(/noimage/);
         if (noImg === null) {
             var list = '<div class="iconBuyButton">'
                 + '<p>'
@@ -74,7 +71,7 @@ function outBooks(data, check) {
                 + i
                 + '" '
                 + 'src="'
-                + imgUrl
+                + img
                 + '"> '
                 + '</p>'
                 + '<a href="'

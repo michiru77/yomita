@@ -9,7 +9,7 @@ var BooksData = function () {
         _classCallCheck(this, BooksData);
 
         this.urls = [];
-        this.imgUrls = [];
+        this.imgs = [];
         this.titles = [];
         this.authors = [];
         this.genreIds = [];
@@ -22,9 +22,9 @@ var BooksData = function () {
             return this.urls[i];
         }
     }, {
-        key: "getImgUrl",
-        value: function getImgUrl(i) {
-            return this.imgUrls[i];
+        key: "getImg",
+        value: function getImg(i) {
+            return this.imgs[i];
         }
     }, {
         key: "getTitle",
@@ -47,39 +47,25 @@ var BooksData = function () {
             return this.captions[i];
         }
     }, {
-        key: "setUrl",
-        value: function setUrl(data) {
+        key: "setBooksData",
+        value: function setBooksData(data) {
+
             var url = data["params"]["itemUrl"];
             this.urls.push(url);
-        }
-    }, {
-        key: "setImgUrl",
-        value: function setImgUrl(data) {
-            var imgUrl = data["params"]["largeImageUrl"];
-            this.imgUrls.push(imgUrl);
-        }
-    }, {
-        key: "setTitle",
-        value: function setTitle(data) {
+
+            var img = data["params"]["largeImageUrl"];
+            this.imgs.push(img);
+
             var title = data["params"]["title"];
             this.titles.push(title);
-        }
-    }, {
-        key: "setAuthor",
-        value: function setAuthor(data) {
+
             var author = data["params"]["author"].replace(/\/.*$/, '');
             this.authors.push(author);
-        }
-    }, {
-        key: "setGenreId",
-        value: function setGenreId(data) {
+
             var genreId = data["params"]["booksGenreId"];
             genreId.split('/')[genreId.length - 1];
             this.genreIds.push(genreId);
-        }
-    }, {
-        key: "setCaption",
-        value: function setCaption(data) {
+
             var caption = data["params"]["itemCaption"];
             this.captions.push(caption);
         }
@@ -87,7 +73,7 @@ var BooksData = function () {
         key: "reset",
         value: function reset() {
             this.urls.length = 0;
-            this.imgUrls.length = 0;
+            this.imgs.length = 0;
             this.titles.length = 0;
             this.authors.length = 0;
             this.genreIds.length = 0;
@@ -109,9 +95,9 @@ var TopBook = function () {
             return this.url;
         }
     }, {
-        key: "getImgUrl",
-        value: function getImgUrl() {
-            return this.imgUrl;
+        key: "getImg",
+        value: function getImg() {
+            return this.img;
         }
     }, {
         key: "getTitle",
@@ -134,9 +120,9 @@ var TopBook = function () {
             this.url = url;
         }
     }, {
-        key: "setImgUrl",
-        value: function setImgUrl(imgUrl) {
-            this.imgUrl = imgUrl;
+        key: "setImg",
+        value: function setImg(img) {
+            this.img = img;
         }
     }, {
         key: "setTitle",
