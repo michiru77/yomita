@@ -19,24 +19,15 @@ $(window).load(function(){
 
 function tohistory(src) {
     $('#display_history').append(
-        //'<p>'+
         '<img src="'+ src +'" width="90px" height="auto">'
-        //+ '</p>'
     );
 }
 
 //履歴imgをクリックした時の処理
 $(document).ready(function() {
     $('#display_history').click(function() {
-        //var src = event.target.src.replace(/\?.*$/, '');
         var src = event.target.src;
-        /*
-          var id = event.target.id;
-          tb.setTitle(bd.getTitle(id));
-          tb.setAuthor(bd.getAuthor(id));
-          tb.setCaption(bd.getCaption(id));
-        */
-
+        
         var top =
             '<p>'
             + '<img src="'
