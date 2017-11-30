@@ -2,6 +2,19 @@
 class HomeController < ApplicationController
 
   def index
+    if params[:number]
+      session[:Receivefruit] = nil
+    end
+    cookies[:image]=[]
+    cookies[:image] = params[:img]
+    p '-------------------------------------------------------------------------------------------------------------'
+    p 'cookies[:image]を表示します'
+    p cookies[:image]
+    p '-------------------------------------------------------------------------------------------------------------'
+    gon.ItemUrl = cookies[:image]
+
+    #render json: gon.image
+
   end
 
   def authorSearch
@@ -26,6 +39,8 @@ class HomeController < ApplicationController
   end
 
   def history
+
+    #セッション初期化処理
     if params[:number]
       session[:Receivefruit] = nil
     end

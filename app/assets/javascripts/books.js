@@ -79,6 +79,7 @@ $(document).ready(function() {
         var img = src;
         //historySearch(apple);
         //historyStorage(img,title,author,caption);
+        historyStorageIndex(img);
     });
 });
 
@@ -89,6 +90,35 @@ $(document).ready(function() {
         authorSearch(author, 0);
     })
 });
+
+//画像imgデータをルートに送信
+function historyStorageIndex(img) {
+    return $.ajax({
+        url: '/',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            img: img
+            //title: title,
+            //author: author,
+            //caption: caption
+        }
+    }).done(function(data){
+        $('#photos_1').html(null);
+        $('#photos_6').html(null);
+        $('#display_history').html(null);
+        //$('.apple').append('hoge');
+        //console.log('hoge');
+        //outFruit(data);
+        //$('#photos_6').append(gon.ItemUrl);
+    }).fail(function(data){
+        $('#out').html('<p>Session failure</p>');
+    });
+}
+
+
+
 
 function historyStorage(img,title,author,caption) {
     return $.ajax({
@@ -187,22 +217,27 @@ $(document).ready(function() {
     });
 });
 
+
+
+
+
+
+//履歴ページを動的に作る関数
 $(document).ready(function() {
     $('#rireki_page').click(function() {
         $('#photos_1').html(null);
         $('#photos_6').html(null);
         $('#display_history').html(null);
-
-        //var component = '<img src="'
-        //+ gon.history_list +'">'
-        //$('body').append(gon.history_list[0]);
-        var michiru = '<div id="display_session"></div>';
-        //$('').append(michiru);
-        $('#photos_6').append('ハロー');
-        $('#photos_6').append(gon.value);
-
+        $('#photos_6').append('gon.imageを載せます');
+        $('#photos_6').append(gon.ItemUrl);
     });
 });
+
+
+
+
+
+
 
 $(function(){
     $("#photos_1").click(function(){
