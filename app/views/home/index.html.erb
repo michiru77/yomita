@@ -1,7 +1,10 @@
 <div id="history_page">
-<% for listEL in cookies[:image].split('&') do %>
-    <img src="<%= listEL %>" width="90px" height="auto" >
-<% end %>
+  <% cookies[:isbn]=cookies[:isbn].split('&') %>
+  <% listnumber=0 %>
+  <% for listEL in cookies[:image].split('&') do %>
+    <img src="<%= listEL %>" width="90px" height="auto" alt="<%= cookies[:isbn][listnumber] %>">
+      <% listnumber=listnumber+1 %>
+  <% end %>
 </div>
 
 <% session[:image]%>

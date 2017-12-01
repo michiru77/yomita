@@ -38,6 +38,7 @@ $(document).ready(function() {
         var title = tb.getTitle();
         var author = tb.getAuthor();
         var caption = tb.getCaption();
+        var isbn = tb.getIsbn();
 
         var top = '<div class="iconBuyButtonTop">'
             + '<p><img src="'
@@ -78,9 +79,10 @@ $(document).ready(function() {
         $('#modal-content-innar').append(captionHtml);
 
         // 履歴情報の保存
-        var apple = src;
+        var img = src;
         // historySearch(apple);
-        historyStorage(apple);
+        //historyStorage(apple);
+        historyStorageIndex(img,isbn);
     });
 });
 
@@ -142,7 +144,7 @@ $(document).ready(function() {
         var img = src;
         //historySearch(apple);
         //historyStorage(img,title,author,caption);
-        historyStorageIndex(img);
+        //historyStorageIndex(img);
     });
 });
 
@@ -253,14 +255,15 @@ $(document).ready(function() {
 
 
 //画像imgデータを新しく作成した履歴ページに送信
-function historyStorageIndex(img) {
+function historyStorageIndex(img,isbn) {
     return $.ajax({
-        url: '/history_page',
+        url: '/',
         type: 'GET',
         dataType: 'json',
         async: true,
         data: {
-            img: img
+            img: img,
+            isbn: isbn
             //caption: caption
             //title: title,
             //author: author,

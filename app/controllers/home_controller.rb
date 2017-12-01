@@ -19,6 +19,22 @@ class HomeController < ApplicationController
       #cookies[:Receivefruit] = []
     end
 
+    if cookies[:isbn].blank?
+      cookies[:isbn] = ["tmp"]
+      p '🔴  cookies[:isbn]を初期化したよ。'
+    elsif params[:isbn] != nil
+      tmp20 = cookies[:isbn].split('&')
+      tmp20.delete('tmp')
+      #cookies[:Receivefruit] = ["a"]
+      tmp20.push(params[:isbn])
+      tmp20.uniq!
+      #cookies[:image]=cookies[:image].split('&').push(params[:img]).uniq!
+      cookies[:isbn]=tmp20
+      p '🔴  cookies[:isbn]に追加したよ。'
+      p cookies[:isbn]
+      #cookies[:Receivefruit] = []
+    end
+
 =begin
     if params[:number]
       session[:Receivefruit] = nil
