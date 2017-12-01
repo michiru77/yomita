@@ -10,25 +10,12 @@ class BooksData {
         this.isbns = [];
     }
 
-<<<<<<< HEAD
     getUrl(i) {
         return this.urls[i];
     }
     getImg(i) {
         return this.imgs[i];
     }
-=======
-    getIsbn(i) {
-        return this.isbns[i];
-    }
-    setIsbn(data) {
-        var isbn = data["params"]["isbn"];
-        this.isbns.push(isbn);
-    }
-
-
-
->>>>>>> Hiroya
     getTitle(i) {
         return this.titles[i];
     }
@@ -82,23 +69,12 @@ class BooksData {
 }
 
 class TopBook {
-<<<<<<< HEAD
     getUrl() {
         return this.url;
     }
     getImg() {
         return this.img;
     }
-=======
-    getIsbn() {
-        return this.isbn;
-    }
-    setIsbn(isbn) {
-        this.isbn = isbn; 
-    }
-
-
->>>>>>> Hiroya
     getTitle() {
         return this.title;
     }

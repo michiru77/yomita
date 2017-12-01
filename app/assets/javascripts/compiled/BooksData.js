@@ -18,7 +18,6 @@ var BooksData = function () {
     }
 
     _createClass(BooksData, [{
-<<<<<<< HEAD
         key: "getUrl",
         value: function getUrl(i) {
             return this.urls[i];
@@ -27,17 +26,6 @@ var BooksData = function () {
         key: "getImg",
         value: function getImg(i) {
             return this.imgs[i];
-=======
-        key: "getIsbn",
-        value: function getIsbn(i) {
-            return this.isbns[i];
-        }
-    }, {
-        key: "setIsbn",
-        value: function setIsbn(data) {
-            var isbn = data["params"]["isbn"];
-            this.isbns.push(isbn);
->>>>>>> Hiroya
         }
     }, {
         key: "getTitle",
@@ -112,7 +100,6 @@ var TopBook = function () {
     }
 
     _createClass(TopBook, [{
-<<<<<<< HEAD
         key: "getUrl",
         value: function getUrl() {
             return this.url;
@@ -121,16 +108,6 @@ var TopBook = function () {
         key: "getImg",
         value: function getImg() {
             return this.img;
-=======
-        key: "getIsbn",
-        value: function getIsbn() {
-            return this.isbn;
-        }
-    }, {
-        key: "setIsbn",
-        value: function setIsbn(isbn) {
-            this.isbn = isbn;
->>>>>>> Hiroya
         }
     }, {
         key: "getTitle",
