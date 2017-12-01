@@ -79,7 +79,7 @@ $(document).ready(function() {
         var img = src;
         //historySearch(apple);
         //historyStorage(img,title,author,caption);
-        historyStorageIndex(img,caption);
+        historyStorageIndex(img);
     });
 });
 
@@ -192,24 +192,24 @@ $(document).ready(function() {
 });
 
 
-//画像imgデータをルートに送信
-function historyStorageIndex(img,caption) {
+//画像imgデータを新しく作成した履歴ページに送信
+function historyStorageIndex(img) {
     return $.ajax({
-        url: '/',
+        url: '/history_page',
         type: 'GET',
         dataType: 'json',
         async: true,
         data: {
-            img: img,
-            caption: caption
+            img: img
+            //caption: caption
             //title: title,
             //author: author,
             //caption: caption
         }
     }).done(function(data){
-        $('#photos_1').html(null);
-        $('#photos_6').html(null);
-        $('#display_history').html(null);
+        //$('#photos_1').html(null);
+        //$('#photos_6').html(null);
+        //$('#display_history').html(null);
         //$('.apple').append('hoge');
         //console.log('hoge');
         //outFruit(data);
@@ -284,6 +284,11 @@ $(function(){
 //履歴ページを見るボタンをクリック
 $(function(){
     $("#rireki_page_show").click(function() {
+/*
+        $(window).load(function(){
+           location.reload();
+        });
+*/
         $('#display_history').fadeOut(1);
         $('.line').fadeOut(1);
         $('.title').fadeOut(1);
@@ -299,6 +304,7 @@ $(function(){
         $('#photos_1').html(null);
 
         $('#history_page').fadeIn(500);
+
     });
 });
 
