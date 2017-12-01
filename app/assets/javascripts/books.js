@@ -8,18 +8,24 @@
   title:  タイトルを格納
 */
 $(window).load(function(){
+
     bd = new BooksData();
     tb = new TopBook();
 
     var author = '池井戸潤';
+<<<<<<< HEAD
     var title = '恋愛';
     var isbn = '9784863367012';
+=======
+    var title = '科学';
+>>>>>>> Hiroya
     titleSearch(title, 0);
     // authorSearch(author, 0);
     // genreSearch(genreId, 0);
     // isbnSearch(isbn, 0);
 });
 
+<<<<<<< HEAD
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
     $('#photos_6').click(function(){
@@ -95,10 +101,33 @@ $(document).ready(function() {
 
         var top =
             '<p>'
+=======
+function tohistory(src,title,author,caption) {
+    $('#display_history').append(
+        //'<p>'+
+        '<img src="'+ src +'" width="90px" height="auto" alt=":title'+ title +':author'+ author +':caption'+ caption +'" >'
+        //+ '</p>'
+    );
+}
+
+// クリックした表紙をトップへ移動する
+$(document).ready(function() {
+    $('#photos_6').click(function(){
+        var src = event.target.src.replace(/\?.*$/, '');
+        var id = event.target.id;
+        var title = bd.getTitle(id);
+        var author = bd.getAuthor(id);
+        var caption = bd.getCaption(id);
+        var isbn = bd.getIsbn(id);
+
+        var top = '<div class="iconBuyButtonTop">'
+            + '<p>'
+>>>>>>> Hiroya
             + '<img src="'
             + src
             + '">'
             + '</p>'
+<<<<<<< HEAD
 
         $('#photos_1').html(null);
         $('#photos_1').html(top);
@@ -107,28 +136,49 @@ $(document).ready(function() {
         // タイトルの頭二文字を抽出
         var title = tb.getTitle().slice(0,2);
         titleSearch(title, 0);
+=======
+            + '<a href="">'
+            + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+            + '</a>'
+            + '</div>';
+        $('#photos_1').html(null);
+        $('#photos_1').html(top);
+
+        //履歴を上に残す
+        tohistory(src,title,author,caption);
+
+        $('#photos_6').html(null);
+        titleSearch(title.slice(0,2), 0);
+>>>>>>> Hiroya
 
         //タイトル追加
-        var title_html = tb.getTitle();
         $('.title').html(null);
-        $('.title').append(title_html);
+        $('.title').append(title);
 
         //作者追加
-        var author_html = tb.getAuthor();
         $('.author').html(null);
-        $('.author').append('<a href="#" name="'+ author_html +'">'
-                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
+        $('.author').append('<a href="#" name="'+ author +'">'
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
                            );
 
+
         //あらすじ追加
-        var caption_html = tb.getCaption();
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
             '<p class="red bold">'
-                + caption_html
+                + caption
                 + '<br /></p>'
                 + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
+<<<<<<< HEAD
+=======
+
+        //履歴情報の保存
+        var img = src;
+        //historySearch(apple);
+        //historyStorage(img,title,author,caption);
+        historyStorageIndex(img);
+>>>>>>> Hiroya
     });
 });
 
@@ -140,28 +190,155 @@ $(document).ready(function() {
     })
 });
 
-// クリックされた変数をsessionに保存する
-function historySearch(fruit) {
-    historyStorage(fruit).done(function(data){
-        $('.apple').append('hoge');
-        console.log('hoge');
-        outFruit(data);
-    }).fail(function(data){
-        //$('#out').html('<p>Failure</p>');
-    });
-}
 
-function historyStorage(fruit) {
+
+
+function historyStorage(img,title,author,caption) {
     return $.ajax({
         url: '/home_history',
         type: 'GET',
         dataType: 'json',
         async: true,
         data: {
-            fruit: fruit
+            img: img,
+            title: title,
+            author: author,
+            caption: caption
+        }
+    }).done(function(data){
+        $('.apple').append('hoge');
+        console.log('hoge');
+        outFruit(data);
+    }).fail(function(data){
+        $('#out').html('<p>Session failure</p>');
+    });
+}
+
+// クリックされた変数をsessionに保存する
+function historySearch(fruit) {
+    historyStorage(fruit);
+}
+
+//セッション履歴削除関数
+$(document).ready(function() {
+    $('#rireki').click(function() {
+        history_delete(1);
+        $('#display_history').html(null);
+    });
+});
+
+//履歴削除
+function history_delete(one) {
+    return $.ajax({
+        url: '/home_history',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            number: one
         }
     });
 }
+
+//履歴imgをクリックした時の処理
+$(document).ready(function() {
+    $('#display_history').click(function() {
+        //var src = event.target.src.replace(/\?.*$/, '');
+        var src = event.target.src;
+        var alt = event.target.alt;
+        var title = alt.replace(/:title(.*):author.*$/,"$1");
+        var author = alt.replace(/:author(.*):caption.*$/,"$1");
+        var caption = alt.replace(/:caption(.*)$/,"$1");
+
+        var top =
+            '<p>'
+            + '<img src="'
+            + src
+            + '">'
+            + '</p>';
+
+        $('#photos_1').html(null);
+        $('#photos_1').html(top);
+
+        $('#photos_6').html(null);
+        var title_new = title.slice(0,2);
+        //var title = ''
+        titleSearch(title_new, 0);
+
+        //タイトル追加
+        //var title_html = tb.getTitle();
+        $('.title').html(null);
+        $('.title').append(title);
+
+        //作者追加
+        //var author_html = tb.getAuthor();
+        $('.author').html(null);
+        $('.author').append('<a href="#" name="'+ author +'">'
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
+                           );
+
+        //あらすじ追加
+        //var caption_html = tb.getCaption();
+        $('#modal-content-innar').html(null);
+        $('#modal-content-innar').append(
+            '<p class="red bold">'
+                + caption
+                + '<br /></p>'
+                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+        );
+        //$('#michiru_sen').append(caption);
+    });
+});
+
+
+//画像imgデータを新しく作成した履歴ページに送信
+function historyStorageIndex(img) {
+    return $.ajax({
+        url: '/history_page',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            img: img
+            //caption: caption
+            //title: title,
+            //author: author,
+            //caption: caption
+        }
+    }).done(function(data){
+        //$('#photos_1').html(null);
+        //$('#photos_6').html(null);
+        //$('#display_history').html(null);
+        //$('.apple').append('hoge');
+        //console.log('hoge');
+        //outFruit(data);
+        //$('#photos_6').append(gon.ItemUrl);
+    }).fail(function(data){
+        $('#out').html('<p>Session failure</p>');
+    });
+}
+
+
+//履歴ページを動的に作る関数
+$(document).ready(function() {
+    $('#rireki_page').click(function() {
+        $('#photos_1').html(null);
+        $('#photos_6').html(null);
+        $('#display_history').html(null);
+        $('#photos_6').append('gon.imageを載せます');
+        $('#photos_6').append('<p></p>');
+        $('#michiru_sen').append('<img src="'+ gon.clorets +'">');
+        $('#michiru_sen').append(gon.hiroya);
+        $('#michiru_sen').append(gon.gazou);
+        $('#michiru_sen').append('<%='+ gon.clorets +'%>');
+    });
+});
+
+
+
+
+
+
 
 $(function(){
     $("#photos_1").click(function(){
@@ -203,40 +380,48 @@ $(function(){
     }
 } ) ;
 
-//セッション履歴削除関数
-$(document).ready(function() {
-    $('#rireki').click(function() {
-        history_delete(1);
+//履歴ページを見るボタンをクリック
+$(function(){
+    $("#rireki_page_show").click(function() {
+/*
+        $(window).load(function(){
+           location.reload();
+        });
+*/
+        $('#display_history').fadeOut(1);
+        $('.line').fadeOut(1);
+        $('.title').fadeOut(1);
+        $('.author').fadeOut(1);
+        $('#photos_6').fadeOut(1);
+        $('#photos_1').fadeOut(1);
+
         $('#display_history').html(null);
+        $('.line').html(null);
+        $('.title').html(null);
+        $('.author').html(null);
+        $('#photos_6').html(null);
+        $('#photos_1').html(null);
+
+        $('#history_page').fadeIn(500);
+
     });
 });
 
-//履歴削除
-function history_delete(one) {
-    return $.ajax({
-        url: '/home_history',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            number: one
-        }
+//トップへ戻るボタンをクリック
+$(function(){
+    $("#to_Top_page").click(function() {
+        location.reload();
     });
-}
+});
 
-$(document).ready(function() {
-    $('#rireki_page').click(function() {
-        $('#photos_1').html(null);
-        $('#photos_6').html(null);
-        $('#display_history').html(null);
-
-        //var component = '<img src="'
-        //+ gon.history_list +'">'
-        //$('body').append(gon.history_list[0]);
-        var michiru = '<div id="display_session"></div>';
-        //$('').append(michiru);
-        $('#photos_6').append('ハロー');
-        $('#photos_6').append(gon.value);
-
+//履歴ページのimgをクリックしたときの処理
+$(function(){
+    $("#history_page").click(function() {
+        $('#history_page').fadeOut(1);
+        var src = event.target.src.replace(/\?.*$/, '');
+        $('#photos_1').append(
+            '<img src="'+ src +'" alt="">'
+        )
+        $('#photos_1').fadeIn(500);
     });
 });

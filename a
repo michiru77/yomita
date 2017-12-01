@@ -1,0 +1,16 @@
+Auto-merging config/routes.rb
+CONFLICT (content): Merge conflict in config/routes.rb
+Auto-merging app/views/home/index.html.erb
+CONFLICT (content): Merge conflict in app/views/home/index.html.erb
+Auto-merging app/controllers/home_controller.rb
+Auto-merging app/assets/stylesheets/index.scss
+CONFLICT (content): Merge conflict in app/assets/stylesheets/index.scss
+Auto-merging app/assets/javascripts/search.js
+CONFLICT (content): Merge conflict in app/assets/javascripts/search.js
+Auto-merging app/assets/javascripts/compiled/BooksData.js
+CONFLICT (content): Merge conflict in app/assets/javascripts/compiled/BooksData.js
+Auto-merging app/assets/javascripts/books.js
+CONFLICT (content): Merge conflict in app/assets/javascripts/books.js
+Auto-merging app/assets/javascripts/BooksData.js
+CONFLICT (content): Merge conflict in app/assets/javascripts/BooksData.js
+Automatic merge failed; fix conflicts and then commit the result.

@@ -52,7 +52,11 @@ function genreSearch(genreId, check) {
     });
 }
 
+<<<<<<< HEAD
 // タイトル検索関数
+=======
+// ジャンル検索関数
+>>>>>>> Hiroya
 function isbnSearch(isbn, check) {
     return $.ajax({
         url: '/home_isbnSearch',
@@ -77,11 +81,23 @@ function outBooks(data, check) {
 
     $.each(data, function(i) {
 
+<<<<<<< HEAD
         bd.setBooksData(data[i]);
 
         var img = bd.getImg(i);
 
         var noImg = img.match(/noimage/);
+=======
+        var imgUrl = data[i]["params"]["largeImageUrl"];
+        bd.setUrl(data[i]);
+        bd.setTitle(data[i]);
+        bd.setAuthor(data[i]);
+        bd.setGenreId(data[i]);
+        bd.setCaption(data[i]);
+        bd.setIsbn(data[i]);
+
+        var noImg = imgUrl.match(/noimage/);
+>>>>>>> Hiroya
         if (noImg === null) {
             var list = '<div class="iconBuyButton">'
                 + '<p>'
@@ -89,6 +105,7 @@ function outBooks(data, check) {
                 + i
                 + '" '
                 + 'src="'
+<<<<<<< HEAD
                 + img
                 + '"> '
                 + '</p>'
@@ -96,6 +113,12 @@ function outBooks(data, check) {
                 + bd.getUrl(i)
                 + '" '
                 + 'target="_blank">'
+=======
+                + imgUrl
+                + '">'
+                + '</p>'
+                + '<a href="'+ data[i]["params"]["itemUrl"] +'" target="_blank" >'
+>>>>>>> Hiroya
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
                 + '</a>'
                 + '</div>';

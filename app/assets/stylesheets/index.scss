@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  margin: 60px 160px 160px 160px;
+  margin: 60px 100px 100px 100px;
   //background-color: #fafad2;
   //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
 }
@@ -188,7 +188,7 @@ img:hover{
 #photos_6 img {
   /* Just in case there are inline attributes */
   //width: 100% !important;
-  width: 130px !important;
+  width: 150px !important;
   height: auto !important;
   //margin: 15px;
     margin-top: 30px;
@@ -372,3 +372,11 @@ margin: 0px 20px 20px 20px;
   cursor: pointer ;
   color: #f00 ;
 }
+<<<<<<< HEAD
+=======
+
+//初期状態では上にある前回までの履歴は非表示にしてある
+#history_page {
+  display: none;
+}
+>>>>>>> Hiroya

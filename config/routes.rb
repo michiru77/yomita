@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'home_titleSearch' => 'home#titleSearch'
   get 'home_genreSearch' => 'home#genreSearch'
   get 'home_isbnSearch' => 'home#isbnSearch'
+  get 'history_page' => 'home#historyPage'
 end

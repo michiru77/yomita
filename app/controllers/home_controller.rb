@@ -2,6 +2,67 @@
 class HomeController < ApplicationController
 
   def index
+
+    if cookies[:image].blank?
+      cookies[:image] = ["tmp"]
+      p '🔴  cookiesを初期化したよ。'
+    elsif params[:img] != nil
+      tmp20 = cookies[:image].split('&')
+      tmp20.delete('tmp')
+      #cookies[:Receivefruit] = ["a"]
+      tmp20.push(params[:img])
+      tmp20.uniq!
+      #cookies[:image]=cookies[:image].split('&').push(params[:img]).uniq!
+      cookies[:image]=tmp20
+      p '🔴  cookiesに追加したよ。'
+      p cookies[:image]
+      #cookies[:Receivefruit] = []
+    end
+
+=begin
+    if params[:number]
+      session[:Receivefruit] = nil
+    end
+    #cookies[:image]=[]
+    if cookies[:image].blank?
+      cookies[:image] = ["tmp"]
+      cookies[:image][0] = params[:img]
+    else
+      cookies[:image][cookies[:image].length] = params[:img]
+    end
+=end
+
+=begin
+    if session[:sumikko].blank?
+      session[:sumikko] = ["tmp"]
+      session[:sumikko][0] = params[:img]
+    else
+      session[:sumikko][session[:sumikko].length] = params[:img]
+    end
+=end
+
+    #cookies[:image][cookies[:image].length] = params[:img]
+    #session[:sumikko][session[:sumikko].length] = params[:img]
+    p '-------------------------------------------------------------------------------------------------------------'
+    p 'cookies[:image]を表示します'
+    p cookies[:image]
+=begin
+    p '-------------------------------------------------------------------------------------------------------------'
+    p '-------------------------------------------------------------------------------------------------------------'
+    p 'cookies[:sumikko]を表示します'
+    p session[:sumikko]
+    p '-------------------------------------------------------------------------------------------------------------'
+=end
+    #gon.ItemUrl = cookies[:image]
+    gon.clorets = session[:sumikko]
+    p '-------------------------------------------------------------------------------------------------------------'
+    p 'gon.cloretsを表示します'
+    p gon.clorets
+    p '-------------------------------------------------------------------------------------------------------------'
+    gon.hiroya = 'ひろや'
+    gon.gazou = params[:img]
+    #render json: gon.image
+
   end
 
   def authorSearch
@@ -33,17 +94,19 @@ class HomeController < ApplicationController
   end
 
   def history
+
+    #セッション初期化処理
     if params[:number]
       session[:Receivefruit] = nil
     end
 
     if session[:Receivefruit].blank?
      session[:Receivefruit] = ["tmp"]
-     session[:Receivefruit][0] = params[:fruit]
+     session[:Receivefruit][0] = params[:img]
      p '🔴  sessionを初期化したよ。'
     else
       #session[:Receivefruit] = ["a"]
-     session[:Receivefruit][session[:Receivefruit].length]= params[:fruit]
+     session[:Receivefruit][session[:Receivefruit].length]= params[:img]
       p '🔴  sessionに追加したよ。'
       p session[:Receivefruit]
       #session[:Receivefruit] = []
@@ -52,15 +115,21 @@ class HomeController < ApplicationController
     p '🔵'
     p session[:Receivefruit]
     p '通ります'
-    gon.value = 1
-    #session[:Receivefruit] = []
-    #session[:Receivefruit] = params[:fruit]
-    #p session[:Receivefruit]
-    #data = params[:fruit]
-    #p "dataは"+data
-    #p data
-    #render json: data
+
+    session[:alt] = []
+    session[:alt] = 'alt'
+
+
+    #session[:BookData] = []
+    session[:BookData][1] = {title: params[:title],author: params[:author], caption: params[:caption], img: params[:img]}
+    p session[:BookData][:title]
   end
 
+  def historyPage
+    p '============================='
+    p '新しいhistoryPageのparams[:img]を表示します'
+    p params[:img]
+    p '============================='
+  end
 
 end
