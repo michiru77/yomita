@@ -284,11 +284,11 @@ $(function(){
 //履歴ページを見るボタンをクリック
 $(function(){
     $("#rireki_page_show").click(function() {
-        $('.line').hide();
-        $('.title').hide();
-        $('.author').hide();
-        $('#photos_6').hide();
-        $('#history_page').show();
+        $('.line').hide(1000);
+        $('.title').hide(1000);
+        $('.author').hide(1000);
+        $('#photos_6').hide(1000);
+        $('#history_page').show(1000);
     });
 });
 
