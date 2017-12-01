@@ -58,7 +58,7 @@ function isbnSearch(isbn, check) {
         url: '/home_isbnSearch',
         type: 'GET',
         dataType: 'json',
-        async: true,
+        async: false,
         data: {
             isbn: isbn,
             hits: 1
@@ -72,6 +72,7 @@ function isbnSearch(isbn, check) {
 
 function historyToTop(data){
     var i = 0;
+    bd.reset();
     bd.setBooksData(data[i]);
     tb.setUrl(bd.getUrl(i));
     tb.setImg(bd.getImg(i));

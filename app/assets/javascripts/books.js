@@ -432,6 +432,10 @@ $(function(){
 $(function(){
     $("#history_page").click(function() {
 
+        var img = event.target.src;
+        var isbn = event.target.alt;
+
+        //全てのhtmlの中身を削除
         $('#display_history').html(null);
         $('.line').html(null);
         $('.title').html(null);
@@ -439,12 +443,64 @@ $(function(){
         $('#photos_6').html(null);
         $('#photos_1').html(null);
 
+        isbnSearch(isbn, 0);
+
+        //タイトル取得
+        var title = tb.getTitle();
+
+        //タイトル上2文字検索
+        search_title = title.slice(0,2);
+        titleSearch(search_title);
+
+
+
+        //タイトル追加
+        //var title_html = tb.getTitle();
+        //$('.title').html(null);
+        $('.title').show();
+        $('.title').append(title);
+
+        //作者追加
+        //var author_html = tb.getAuthor();
+        //$('.author').html(null);
+        $('.author').show();
+        var author = tb.getAuthor();
+        $('.author').append('<a href="#" name="'+ author +'">'
+            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
+        );
+
+        //あらすじ追加
+        //var caption_html = tb.getCaption();
+        var caption = tb.getCaption();
+        $('#modal-content-innar').html(null);
+        $('#modal-content-innar').append(
+            '<p class="red bold">'
+            + caption
+            + '<br /></p>'
+            + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+        );
+
+        //履歴ページを隠す
         $('#history_page').hide(1000);
+
+        //img画像を整形する
         var src = event.target.src.replace(/\?.*$/, '');
+
+        //画像を表示する
         $('#photos_1').append(
-            '<img src="'+ src +'" alt="">'
-        )
+            '<img src="'+ src +'">'
+        );
+
         $('#photos_1').show(1000);
+        $('#photos_6').show();
+
+        //戻るボタンを隠す
         $('#Modoru').hide();
+
+        //「履歴ページをみる」ボタンを表示する
+        $('#rireki_page_show').show();
+
+        //履歴のミチシルベを表示する
+        $('#display_history').show();
     });
 });
