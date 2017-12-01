@@ -53,7 +53,7 @@ $(document).ready(function() {
         $('#photos_1').html(top);
 
         // 履歴を上に残す
-        tohistory(src);
+        tohistory(src,title,author,caption,isbn);
 
         // タイトル検索
         $('#photos_6').html(null);
@@ -86,10 +86,16 @@ $(document).ready(function() {
     });
 });
 
-function tohistory(src,title,author,caption) {
+function tohistory(src,title,author,caption,isbn) {
     $('#display_history').append(
         //'<p>'+
         '<img src="'+ src +'" width="90px" height="auto" alt=":title'+ title +':author'+ author +':caption'+ caption +'" >'
+        //+ '</p>'
+    );
+
+    $('#history_page').append(
+        //'<p>'+
+        '<img src="'+ src +'" width="90px" height="auto" alt="'+ isbn +'" >'
         //+ '</p>'
     );
 }
@@ -98,7 +104,7 @@ function tohistory(src,title,author,caption) {
 $(document).ready(function() {
     $('#display_history').click(function() {
         var src = event.target.src;
-
+        var isbn = tb.getIsbn();
         var top =
             '<p>'
             + '<img src="'
@@ -115,7 +121,7 @@ $(document).ready(function() {
         titleSearch(title, 0);
 
         //履歴を上に残す
-        tohistory(src,title,author,caption);
+        tohistory(src,title,author,caption,isbn);
 
         $('#photos_6').html(null);
         titleSearch(title.slice(0,2), 0);
@@ -263,7 +269,7 @@ function historyStorageIndex(img,isbn) {
         async: true,
         data: {
             img: img,
-            isbn: isbn
+            ISBN1: isbn
             //caption: caption
             //title: title,
             //author: author,
