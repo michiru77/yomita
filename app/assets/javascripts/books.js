@@ -486,9 +486,19 @@ $(function(){
         //img画像を整形する
         var src = event.target.src.replace(/\?.*$/, '');
 
+        var url = tb.getUrl();
+
         //画像を表示する
         $('#photos_1').append(
-            '<img src="'+ src +'">'
+            '<div class="iconBuyButtonTop">'
+            + '<p><img src="'
+            + src
+            + '"></p>'
+            + '<a href="'
+            + url
+            + '" target="_blank">'
+            + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+            + '</a></div>'
         );
 
         $('#photos_1').show(1000);
