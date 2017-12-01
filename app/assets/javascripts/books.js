@@ -79,7 +79,7 @@ $(document).ready(function() {
         var img = src;
         //historySearch(apple);
         //historyStorage(img,title,author,caption);
-        historyStorageIndex(img);
+        historyStorageIndex(img,caption);
     });
 });
 
@@ -90,32 +90,6 @@ $(document).ready(function() {
         authorSearch(author, 0);
     })
 });
-
-//画像imgデータをルートに送信
-function historyStorageIndex(img) {
-    return $.ajax({
-        url: '/',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            img: img
-            //title: title,
-            //author: author,
-            //caption: caption
-        }
-    }).done(function(data){
-        $('#photos_1').html(null);
-        $('#photos_6').html(null);
-        $('#display_history').html(null);
-        //$('.apple').append('hoge');
-        //console.log('hoge');
-        //outFruit(data);
-        //$('#photos_6').append(gon.ItemUrl);
-    }).fail(function(data){
-        $('#out').html('<p>Session failure</p>');
-    });
-}
 
 
 
@@ -218,8 +192,32 @@ $(document).ready(function() {
 });
 
 
-
-
+//画像imgデータをルートに送信
+function historyStorageIndex(img,caption) {
+    return $.ajax({
+        url: '/',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            img: img,
+            caption: caption
+            //title: title,
+            //author: author,
+            //caption: caption
+        }
+    }).done(function(data){
+        $('#photos_1').html(null);
+        $('#photos_6').html(null);
+        $('#display_history').html(null);
+        //$('.apple').append('hoge');
+        //console.log('hoge');
+        //outFruit(data);
+        //$('#photos_6').append(gon.ItemUrl);
+    }).fail(function(data){
+        $('#out').html('<p>Session failure</p>');
+    });
+}
 
 
 //履歴ページを動的に作る関数
@@ -229,7 +227,11 @@ $(document).ready(function() {
         $('#photos_6').html(null);
         $('#display_history').html(null);
         $('#photos_6').append('gon.imageを載せます');
-        $('#photos_6').append(gon.ItemUrl);
+        $('#photos_6').append('<p></p>');
+        $('#michiru_sen').append('<img src="'+ gon.clorets +'">');
+        $('#michiru_sen').append(gon.hiroya);
+        $('#michiru_sen').append(gon.gazou);
+        $('#michiru_sen').append('<%='+ gon.clorets +'%>');
     });
 });
 
@@ -278,3 +280,22 @@ $(function(){
         $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
     }
 } ) ;
+
+//履歴ページを見るボタンをクリック
+$(function(){
+    $("#rireki_page_show").click(function() {
+        $('.line').hide();
+        $('.title').hide();
+        $('.author').hide();
+        $('#photos_6').hide();
+        $('#history_page').show();
+    });
+});
+
+//トップへ戻るボタンをクリック
+$(function(){
+    $("#to_Top_page").click(function() {
+        location.reload();
+    });
+});
+

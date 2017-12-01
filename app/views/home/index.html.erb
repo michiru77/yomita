@@ -1,7 +1,14 @@
+<div id="history_page">
+<% for listEL in cookies[:image].split('&') do %>
+    <img src="<%= listEL %>" width="90px" height="auto" >
+<% end %>
+</div>
+
+<% session[:image]%>
 
 <button id="rireki">履歴削除</button>
-
-<button id="rireki_page">履歴ページ作る</button>
+<button id="rireki_page_show">履歴ページを見る</button>
+<button id="to_Top_page">トップページへ戻る</button>
 
 
 
@@ -81,9 +88,10 @@
 </section>
 <section id="photos_6">
 </section>
-
+<!--
 <section id="out">
 </section>
+-->
 
 
 <div id="michiru_sen"></div>
