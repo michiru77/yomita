@@ -289,6 +289,7 @@ $(function(){
            location.reload();
         });
 */
+/*
         $('#display_history').fadeOut(1);
         $('.line').fadeOut(1);
         $('.title').fadeOut(1);
@@ -304,9 +305,54 @@ $(function(){
         $('#photos_1').html(null);
 
         $('#history_page').fadeIn(500);
+*/
 
+        $('#display_history').hide(1000);
+        $('.line').hide(1000);
+        $('.title').hide(1000);
+        $('.author').hide(1000);
+        $('#photos_6').hide(1000);
+        $('#photos_1').hide(1000);
+
+        /*
+        $('#display_history').html(null);
+        $('.line').html(null);
+        $('.title').html(null);
+        $('.author').html(null);
+        $('#photos_6').html(null);
+        $('#photos_1').html(null);
+        */
+
+        /*
+        $('#display_history').hide();
+        $('.line').hide();
+        $('.title').hide();
+        $('.author').hide();
+        $('#photos_6').hide();
+        $('#photos_1').hide();
+        */
+
+        $('#history_page').show(1000);
+        $('#Modoru').show();
     });
 });
+
+//戻るボタンを押した時の処理
+$(function(){
+    $("#Modoru").click(function() {
+
+        $('#history_page').hide(1000);
+
+        $('#display_history').show(1000);
+        $('.line').show(1000);
+        $('.title').show(1000);
+        $('.author').show(1000);
+        $('#photos_6').show(1000);
+        $('#photos_1').show(1000);
+        $('#Modoru').hide();
+    });
+});
+
 
 //トップへ戻るボタンをクリック
 $(function(){
@@ -318,11 +364,20 @@ $(function(){
 //履歴ページのimgをクリックしたときの処理
 $(function(){
     $("#history_page").click(function() {
-        $('#history_page').fadeOut(1);
+
+        $('#display_history').html(null);
+        $('.line').html(null);
+        $('.title').html(null);
+        $('.author').html(null);
+        $('#photos_6').html(null);
+        $('#photos_1').html(null);
+
+        $('#history_page').hide(1000);
         var src = event.target.src.replace(/\?.*$/, '');
         $('#photos_1').append(
             '<img src="'+ src +'" alt="">'
         )
-        $('#photos_1').fadeIn(500);
+        $('#photos_1').show(1000);
+        $('#Modoru').hide();
     });
 });
