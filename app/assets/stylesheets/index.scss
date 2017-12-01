@@ -1,8 +1,10 @@
+/*
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*/
 
-                                     body {
+body {
     margin: 60px 100px 100px 100px;
     //background-color: #fafad2;
     //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
@@ -32,7 +34,7 @@ h1 {
     backface-visibility: hidden;
     -webkit-backface-visibility:hidden;
     overflow:hidden;
-    cursor : pointer;
+    //box-shadow: 0px 5px 15px -5px rgba(0, 0, 0, 0.8);
 }
 
 img:hover{
@@ -375,5 +377,9 @@ img:hover{
 
 //初期状態では上にある前回までの履歴は非表示にしてある
 #history_page {
+    display: none;
+}
+
+#Modoru{
     display: none;
 }
