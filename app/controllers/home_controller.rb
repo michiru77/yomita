@@ -25,6 +25,13 @@ class HomeController < ApplicationController
     #binding.pry
   end
 
+  def isbnSearch
+    data = RakutenWebService::Books::Book.search(isbn: params[:isbn],
+                                                 hits: params[:hits])
+    render json: data
+    #binding.pry
+  end
+
   def history
     if params[:number]
       session[:Receivefruit] = nil

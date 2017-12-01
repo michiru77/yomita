@@ -7,6 +7,7 @@ class BooksData {
         this.authors = [];
         this.genreIds = [];
         this.captions = [];
+        this.isbns = [];
     }
 
     getUrl(i) {
@@ -26,6 +27,9 @@ class BooksData {
     }
     getCaption(i) {
         return this.captions[i];
+    }
+    getIsbn(i) {
+        return this.isbns[i];
     }
 
     setBooksData(data){
@@ -48,6 +52,9 @@ class BooksData {
 
         var caption = data["params"]["itemCaption"];
         this.captions.push(caption);
+
+        var isbn = data["params"]["isbn"];
+        this.isbns.push(isbn);
     }
 
     reset() {
@@ -57,6 +64,7 @@ class BooksData {
         this.authors.length = 0;
         this.genreIds.length = 0;
         this.captions.length = 0;
+        this.isbns.length = 0;
     }
 }
 
@@ -76,6 +84,9 @@ class TopBook {
     getCaption() {
         return this.caption;
     }
+    getIsbn() {
+        return this.isbn;
+    }
 
     setUrl(url) {
         this.url = url;
@@ -91,6 +102,9 @@ class TopBook {
     }
     setCaption(caption) {
         this.caption = caption;
+    }
+    setIsbn(isbn) {
+        this.isbn = isbn;
     }
 }
 

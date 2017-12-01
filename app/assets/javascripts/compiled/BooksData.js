@@ -14,6 +14,7 @@ var BooksData = function () {
         this.authors = [];
         this.genreIds = [];
         this.captions = [];
+        this.isbns = [];
     }
 
     _createClass(BooksData, [{
@@ -47,6 +48,11 @@ var BooksData = function () {
             return this.captions[i];
         }
     }, {
+        key: "getIsbn",
+        value: function getIsbn(i) {
+            return this.isbns[i];
+        }
+    }, {
         key: "setBooksData",
         value: function setBooksData(data) {
 
@@ -68,6 +74,9 @@ var BooksData = function () {
 
             var caption = data["params"]["itemCaption"];
             this.captions.push(caption);
+
+            var isbn = data["params"]["isbn"];
+            this.isbns.push(isbn);
         }
     }, {
         key: "reset",
@@ -78,6 +87,7 @@ var BooksData = function () {
             this.authors.length = 0;
             this.genreIds.length = 0;
             this.captions.length = 0;
+            this.isbns.length = 0;
         }
     }]);
 
@@ -115,6 +125,11 @@ var TopBook = function () {
             return this.caption;
         }
     }, {
+        key: "getIsbn",
+        value: function getIsbn() {
+            return this.isbn;
+        }
+    }, {
         key: "setUrl",
         value: function setUrl(url) {
             this.url = url;
@@ -138,6 +153,11 @@ var TopBook = function () {
         key: "setCaption",
         value: function setCaption(caption) {
             this.caption = caption;
+        }
+    }, {
+        key: "setIsbn",
+        value: function setIsbn(isbn) {
+            this.isbn = isbn;
         }
     }]);
 
