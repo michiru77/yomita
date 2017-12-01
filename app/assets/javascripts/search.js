@@ -61,13 +61,24 @@ function isbnSearch(isbn, check) {
         async: true,
         data: {
             isbn: isbn,
-            hits: 30
+            hits: 1
         }
     }).done(function(data){
-        outBooks(data, check);
+        historyToTop(data);
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
+}
+
+function historyToTop(data){
+    var i = 0;
+    bd.setBooksData(data[i]);
+    tb.setUrl(bd.getUrl(i));
+    tb.setImg(bd.getImg(i));
+    tb.setTitle(bd.getTitle(i));
+    tb.setAuthor(bd.getAuthor(i));
+    tb.setCaption(bd.getCaption(i));
+    tb.setIsbn(bd.getIsbn(i));
 }
 
 // 取得した書籍データを html に整形して出力する
