@@ -284,12 +284,21 @@ $(function(){
 //履歴ページを見るボタンをクリック
 $(function(){
     $("#rireki_page_show").click(function() {
-        $('.line').hide(1000);
-        $('.title').hide(1000);
-        $('.author').hide(1000);
-        $('#photos_6').hide(1000);
-        $('#photos_1').hide(1000);
-        $('#history_page').show(1000);
+        $('#display_history').fadeOut(1);
+        $('.line').fadeOut(1);
+        $('.title').fadeOut(1);
+        $('.author').fadeOut(1);
+        $('#photos_6').fadeOut(1);
+        $('#photos_1').fadeOut(1);
+
+        $('#display_history').html(null);
+        $('.line').html(null);
+        $('.title').html(null);
+        $('.author').html(null);
+        $('#photos_6').html(null);
+        $('#photos_1').html(null);
+
+        $('#history_page').fadeIn(500);
     });
 });
 
@@ -303,11 +312,11 @@ $(function(){
 //履歴ページのimgをクリックしたときの処理
 $(function(){
     $("#history_page").click(function() {
-        $('#history_page').hide(1000);
+        $('#history_page').fadeOut(1);
         var src = event.target.src.replace(/\?.*$/, '');
         $('#photos_1').append(
             '<img src="'+ src +'" alt="">'
         )
-        $('#photos_1').show(1000);
+        $('#photos_1').fadeIn(500);
     });
 });
