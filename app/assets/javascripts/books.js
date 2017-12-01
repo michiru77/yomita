@@ -400,7 +400,7 @@ $(function(){
           $('#photos_6').hide();
           $('#photos_1').hide();
         */
-
+        $('#rireki_page_show').hide();
         $('#history_page').show(1000);
         $('#Modoru').show();
     });
@@ -418,6 +418,9 @@ $(function(){
         $('.author').show(1000);
         $('#photos_6').show(1000);
         $('#photos_1').show(1000);
+
+        $('#rireki_page_show').show();
+
         $('#Modoru').hide();
     });
 });
