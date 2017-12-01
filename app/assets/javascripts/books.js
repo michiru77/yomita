@@ -13,19 +13,14 @@ $(window).load(function(){
     tb = new TopBook();
 
     var author = '池井戸潤';
-<<<<<<< HEAD
     var title = '恋愛';
     var isbn = '9784863367012';
-=======
-    var title = '科学';
->>>>>>> Hiroya
     titleSearch(title, 0);
     // authorSearch(author, 0);
     // genreSearch(genreId, 0);
     // isbnSearch(isbn, 0);
 });
 
-<<<<<<< HEAD
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
     $('#photos_6').click(function(){
@@ -88,9 +83,11 @@ $(document).ready(function() {
     });
 });
 
-function tohistory(src) {
+function tohistory(src,title,author,caption) {
     $('#display_history').append(
-        '<img src="'+ src +'" width="90px" height="auto">'
+        //'<p>'+
+        '<img src="'+ src +'" width="90px" height="auto" alt=":title'+ title +':author'+ author +':caption'+ caption +'" >'
+        //+ '</p>'
     );
 }
 
@@ -101,33 +98,10 @@ $(document).ready(function() {
 
         var top =
             '<p>'
-=======
-function tohistory(src,title,author,caption) {
-    $('#display_history').append(
-        //'<p>'+
-        '<img src="'+ src +'" width="90px" height="auto" alt=":title'+ title +':author'+ author +':caption'+ caption +'" >'
-        //+ '</p>'
-    );
-}
-
-// クリックした表紙をトップへ移動する
-$(document).ready(function() {
-    $('#photos_6').click(function(){
-        var src = event.target.src.replace(/\?.*$/, '');
-        var id = event.target.id;
-        var title = bd.getTitle(id);
-        var author = bd.getAuthor(id);
-        var caption = bd.getCaption(id);
-        var isbn = bd.getIsbn(id);
-
-        var top = '<div class="iconBuyButtonTop">'
-            + '<p>'
->>>>>>> Hiroya
             + '<img src="'
             + src
             + '">'
             + '</p>'
-<<<<<<< HEAD
 
         $('#photos_1').html(null);
         $('#photos_1').html(top);
@@ -136,20 +110,12 @@ $(document).ready(function() {
         // タイトルの頭二文字を抽出
         var title = tb.getTitle().slice(0,2);
         titleSearch(title, 0);
-=======
-            + '<a href="">'
-            + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
-            + '</a>'
-            + '</div>';
-        $('#photos_1').html(null);
-        $('#photos_1').html(top);
 
         //履歴を上に残す
         tohistory(src,title,author,caption);
 
         $('#photos_6').html(null);
         titleSearch(title.slice(0,2), 0);
->>>>>>> Hiroya
 
         //タイトル追加
         $('.title').html(null);
@@ -170,15 +136,12 @@ $(document).ready(function() {
                 + '<br /></p>'
                 + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
-<<<<<<< HEAD
-=======
 
         //履歴情報の保存
         var img = src;
         //historySearch(apple);
         //historyStorage(img,title,author,caption);
         historyStorageIndex(img);
->>>>>>> Hiroya
     });
 });
 
@@ -189,9 +152,6 @@ $(document).ready(function() {
         authorSearch(author, 0);
     })
 });
-
-
-
 
 function historyStorage(img,title,author,caption) {
     return $.ajax({
@@ -383,11 +343,11 @@ $(function(){
 //履歴ページを見るボタンをクリック
 $(function(){
     $("#rireki_page_show").click(function() {
-/*
-        $(window).load(function(){
-           location.reload();
-        });
-*/
+        /*
+          $(window).load(function(){
+          location.reload();
+          });
+        */
         $('#display_history').fadeOut(1);
         $('.line').fadeOut(1);
         $('.title').fadeOut(1);
