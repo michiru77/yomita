@@ -94,7 +94,7 @@ function outBooks(data, check) {
 
         bd.setBooksData(data[i]);
         var img = bd.getImg(i);
-        var url = bd.getUrl();
+        var url = bd.getUrl(i);
 
         var noImg = img.match(/noimage/);
         if (noImg === null) {
