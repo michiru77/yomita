@@ -142,11 +142,5 @@ class HomeController < ApplicationController
     p session[:BookData][:title]
   end
 
-  def historyPage
-    p '============================='
-    p '新しいhistoryPageのparams[:img]を表示します'
-    p params[:img]
-    p '============================='
-  end
 
 end
