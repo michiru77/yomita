@@ -10,6 +10,7 @@
 $(window).load(function(){
     bd = new BooksData();
     tb = new TopBook();
+
     var author = '池井戸潤';
     var title = '恋愛';
     titleSearch(title, 0);
@@ -27,7 +28,7 @@ function tohistory(src) {
 $(document).ready(function() {
     $('#display_history').click(function() {
         var src = event.target.src;
-        
+
         var top =
             '<p>'
             + '<img src="'

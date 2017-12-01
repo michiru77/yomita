@@ -143,3 +143,26 @@ var TopBook = function () {
 
     return TopBook;
 }();
+
+var BooksCounter = function () {
+    function BooksCounter() {
+        _classCallCheck(this, BooksCounter);
+
+        this.count = 0;
+    }
+
+    _createClass(BooksCounter, [{
+        key: "getCount",
+        value: function getCount() {
+            this.count += 1;
+            return this.count;
+        }
+    }, {
+        key: "resetCount",
+        value: function resetCount() {
+            this.count = 0;
+        }
+    }]);
+
+    return BooksCounter;
+}();

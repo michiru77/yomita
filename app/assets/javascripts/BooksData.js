@@ -93,3 +93,16 @@ class TopBook {
         this.caption = caption;
     }
 }
+
+class BooksCounter {
+    constructor() {
+        this.count = 0;
+    }
+    getCount() {
+        this.count += 1;
+        return this.count;
+    }
+    resetCount() {
+        this.count = 0;
+    }
+}
