@@ -288,6 +288,7 @@ $(function(){
         $('.title').hide(1000);
         $('.author').hide(1000);
         $('#photos_6').hide(1000);
+        $('#photos_1').hide(1000);
         $('#history_page').show(1000);
     });
 });
@@ -299,3 +300,14 @@ $(function(){
     });
 });
 
+//履歴ページのimgをクリックしたときの処理
+$(function(){
+    $("#history_page").click(function() {
+        $('#history_page').hide(1000);
+        var src = event.target.src.replace(/\?.*$/, '');
+        $('#photos_1').append(
+            '<img src="'+ src +'" alt="">'
+        )
+        $('#photos_1').show(1000);
+    });
+});
