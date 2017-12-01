@@ -74,6 +74,9 @@ function isbnSearch(isbn, check) {
 function outBooks(data, check) {
 
     (check === 0 || check !== 1) && bd.reset();
+    if(check === 0) {
+        $('#photos_6').html(null);
+    }
 
     $.each(data, function(i) {
 

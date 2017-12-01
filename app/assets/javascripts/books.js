@@ -56,7 +56,6 @@ $(document).ready(function() {
         tohistory(src,title,author,caption,isbn);
 
         // タイトル検索
-        $('#photos_6').html(null);
         var searchTitle = title.slice(0,2);
         titleSearch(searchTitle, 0);
 
@@ -115,7 +114,6 @@ $(document).ready(function() {
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
-        $('#photos_6').html(null);
         // タイトルの頭二文字を抽出
         var title = tb.getTitle().slice(0,2);
         titleSearch(title, 0);
@@ -123,7 +121,6 @@ $(document).ready(function() {
         //履歴を上に残す
         tohistory(src,title,author,caption,isbn);
 
-        $('#photos_6').html(null);
         titleSearch(title.slice(0,2), 0);
 
         //タイトル追加
@@ -157,7 +154,6 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
-        $('#photos_6').html(null);
         authorSearch(author, 0);
     })
 });
@@ -229,7 +225,6 @@ $(document).ready(function() {
         $('#photos_1').html(null);
         $('#photos_1').html(top);
 
-        $('#photos_6').html(null);
         var title_new = title.slice(0,2);
         //var title = ''
         titleSearch(title_new, 0);
