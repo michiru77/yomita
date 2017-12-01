@@ -20,6 +20,68 @@ $(window).load(function(){
     // isbnSearch(isbn, 0);
 });
 
+// クリックした表紙をトップへ移動する
+$(document).ready(function() {
+    $('#photos_6').click(function(){
+
+        var id = event.target.id;
+        tb.setUrl(bd.getUrl(id));
+        tb.setImg(bd.getImg(id));
+        tb.setTitle(bd.getTitle(id));
+        tb.setAuthor(bd.getAuthor(id));
+        tb.setCaption(bd.getCaption(id));
+
+        var url = tb.getUrl();
+        var src = tb.getImg().replace(/\?.*$/, '');
+        var title = tb.getTitle();
+        var author = tb.getAuthor();
+        var caption = tb.getCaption();
+
+        var top = '<div class="iconBuyButtonTop">'
+            + '<p><img src="'
+            + src
+            + '"></p>'
+            + '<a href="'
+            + url
+            + '" target="_blank">'
+            + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+            + '</a></div>';
+        $('#photos_1').html(null);
+        $('#photos_1').html(top);
+
+        // 履歴を上に残す
+        tohistory(src);
+
+        // タイトル検索
+        $('#photos_6').html(null);
+        var searchTitle = title.slice(0,2);
+        titleSearch(searchTitle, 0);
+
+        // タイトル追加
+        $('.title').html(null);
+        $('.title').append(title);
+
+        // 作者追加
+        var authorHtml = '<a href="#" name="' + author + '">'
+            + '<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>';
+        $('.author').html(null);
+        $('.author').append(authorHtml);
+
+        // あらすじ追加
+        var captionHtml = '<p class="red bold">'
+            + caption
+            + '<br /></p>'
+            + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+        $('#modal-content-innar').html(null);
+        $('#modal-content-innar').append(captionHtml);
+
+        // 履歴情報の保存
+        var apple = src;
+        // historySearch(apple);
+        historyStorage(apple);
+    });
+});
+
 function tohistory(src) {
     $('#display_history').append(
         '<img src="'+ src +'" width="90px" height="auto">'
@@ -67,68 +129,6 @@ $(document).ready(function() {
                 + '<br /></p>'
                 + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
-    });
-});
-
-// クリックした表紙をトップへ移動する
-$(document).ready(function() {
-    $('#photos_6').click(function(){
-        var src = event.target.src.replace(/\?.*$/, '');
-        var id = event.target.id;
-        tb.setUrl(bd.getUrl(id));
-        tb.setTitle(bd.getTitle(id));
-        tb.setAuthor(bd.getAuthor(id));
-        tb.setCaption(bd.getCaption(id));
-
-        var top = '<div class="iconBuyButtonTop">'
-            + '<p>'
-            + '<img src="'
-            + src
-            + '">'
-            + '</p>'
-            + '<a href="'
-            + tb.getUrl()
-            + '" '
-            + 'target="_blank">'
-            + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
-            + '</a>'
-            + '</div>';
-        $('#photos_1').html(null);
-        $('#photos_1').html(top);
-
-        //履歴を上に残す
-        tohistory(src);
-
-        $('#photos_6').html(null);
-        var title = tb.getTitle().slice(0,2);
-        titleSearch(title, 0);
-
-        //タイトル追加
-        var title_html = tb.getTitle();
-        $('.title').html(null);
-        $('.title').append(title_html);
-
-        //作者追加
-        var author_html = tb.getAuthor();
-        $('.author').html(null);
-        $('.author').append('<a href="#" name="'+ author_html +'">'
-                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author_html + '</a>'
-                           );
-
-        //あらすじ追加
-        var caption_html = tb.getCaption();
-        $('#modal-content-innar').html(null);
-        $('#modal-content-innar').append(
-            '<p class="red bold">'
-                + caption_html
-                + '<br /></p>'
-                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
-        );
-
-        //履歴情報の保存
-        var apple = src;
-        //historySearch(apple);
-        historyStorage(apple);
     });
 });
 
