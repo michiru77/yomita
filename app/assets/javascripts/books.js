@@ -31,6 +31,7 @@ $(document).ready(function() {
         tb.setTitle(bd.getTitle(id));
         tb.setAuthor(bd.getAuthor(id));
         tb.setCaption(bd.getCaption(id));
+        tb.setIsbn(bd.getIsbn(id));
 
         var url = tb.getUrl();
         var src = tb.getImg().replace(/\?.*$/, '');
