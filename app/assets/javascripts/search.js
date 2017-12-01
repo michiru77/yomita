@@ -78,23 +78,17 @@ function outBooks(data, check) {
     $.each(data, function(i) {
 
         bd.setBooksData(data[i]);
-
         var img = bd.getImg(i);
+        var url = bd.getUrl();
 
         var noImg = img.match(/noimage/);
         if (noImg === null) {
             var list = '<div class="iconBuyButton">'
                 + '<p>'
-                + '<img id="'
-                + i
-                + '" '
-                + 'src="'
-                + img
-                + '"> '
+                + '<img id="' + i +'" '
+                + 'src="' + img + '"> '
                 + '</p>'
-                + '<a href="'
-                + bd.getUrl(i)
-                + '" '
+                + '<a href="'+ url + '" '
                 + 'target="_blank">'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
                 + '</a>'
