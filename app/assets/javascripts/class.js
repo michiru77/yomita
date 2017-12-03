@@ -108,15 +108,16 @@ class TopBook {
     }
 }
 
-class BooksCounter {
+class IdGen {
     constructor() {
-        this.count = 0;
+        this.id = 0;
     }
-    getCount() {
-        this.count += 1;
-        return this.count;
+    getId() {
+        var id = this.id;
+        this.id += 1;
+        return id;
     }
-    resetCount() {
-        this.count = 0;
+    reset() {
+        this.id = 0;
     }
 }

@@ -164,25 +164,26 @@ var TopBook = function () {
     return TopBook;
 }();
 
-var BooksCounter = function () {
-    function BooksCounter() {
-        _classCallCheck(this, BooksCounter);
+var IdGen = function () {
+    function IdGen() {
+        _classCallCheck(this, IdGen);
 
-        this.count = 0;
+        this.id = 0;
     }
 
-    _createClass(BooksCounter, [{
-        key: "getCount",
-        value: function getCount() {
-            this.count += 1;
-            return this.count;
+    _createClass(IdGen, [{
+        key: "getId",
+        value: function getId() {
+            var id = this.id;
+            this.id += 1;
+            return id;
         }
     }, {
-        key: "resetCount",
-        value: function resetCount() {
-            this.count = 0;
+        key: "reset",
+        value: function reset() {
+            this.id = 0;
         }
     }]);
 
-    return BooksCounter;
+    return IdGen;
 }();

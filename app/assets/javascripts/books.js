@@ -6,6 +6,7 @@ $(window).load(function(){
 
     bd = new BooksData();
     tb = new TopBook();
+    ig = new IdGen();
 
     var author = '池井戸潤';
     var title = '恋愛';

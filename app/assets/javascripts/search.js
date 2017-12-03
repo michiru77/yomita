@@ -1,3 +1,5 @@
+
+
 // 作者検索関数
 function authorSearch(author, check) {
     return $.ajax({
@@ -88,10 +90,12 @@ function outBooks(data, check) {
     if(check === 0 || check !== 1) {
         $('#photos_6').html(null);
         bd.reset();
+        ig.reset();
     }
 
     $.each(data, function(i) {
 
+        var id = ig.getId();
         bd.setBooksData(data[i]);
         var img = bd.getImg(i);
         var url = bd.getUrl(i);
@@ -100,7 +104,7 @@ function outBooks(data, check) {
         if (noImg === null) {
             var list = '<div class="iconBuyButton">'
                 + '<p>'
-                + '<img id="' + i +'" '
+                + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
                 + '</p>'
                 + '<a href="'+ url + '" '
