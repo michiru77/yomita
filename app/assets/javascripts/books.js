@@ -1,12 +1,6 @@
 //= require compiled/BooksData
 //= require search
 
-/*
-  ページが読み込まれた後に，titleSearch() に二つの引数を渡して実行する。
-
-  author: 作者名を格納
-  title:  タイトルを格納
-*/
 $(window).load(function(){
 
     bd = new BooksData();
@@ -208,7 +202,6 @@ function history_delete(one) {
 //履歴imgをクリックした時の処理
 $(document).ready(function() {
     $('#display_history').click(function() {
-        //var src = event.target.src.replace(/\?.*$/, '');
         var src = event.target.src;
         var alt = event.target.alt;
         var title = alt.replace(/:title(.*):author.*$/,"$1");
@@ -226,23 +219,19 @@ $(document).ready(function() {
         $('#photos_1').html(top);
 
         var title_new = title.slice(0,2);
-        //var title = ''
         titleSearch(title_new, 0);
 
         //タイトル追加
-        //var title_html = tb.getTitle();
         $('.title').html(null);
         $('.title').append(title);
 
         //作者追加
-        //var author_html = tb.getAuthor();
         $('.author').html(null);
         $('.author').append('<a href="#" name="'+ author +'">'
                             +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
                            );
 
         //あらすじ追加
-        //var caption_html = tb.getCaption();
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
             '<p class="red bold">'
@@ -432,8 +421,8 @@ $(function(){
         $('.author').show();
         var author = tb.getAuthor();
         $('.author').append('<a href="#" name="'+ author +'">'
-            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
-        );
+                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
+                           );
 
         //あらすじ追加
         //var caption_html = tb.getCaption();
@@ -441,9 +430,9 @@ $(function(){
         $('#modal-content-innar').html(null);
         $('#modal-content-innar').append(
             '<p class="red bold">'
-            + caption
-            + '<br /></p>'
-            + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
+                + caption
+                + '<br /></p>'
+                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
         );
 
         //履歴ページを隠す
@@ -457,14 +446,14 @@ $(function(){
         //画像を表示する
         $('#photos_1').append(
             '<div class="iconBuyButtonTop">'
-            + '<p><img src="'
-            + src
-            + '"></p>'
-            + '<a href="'
-            + url
-            + '" target="_blank">'
-            + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
-            + '</a></div>'
+                + '<p><img src="'
+                + src
+                + '"></p>'
+                + '<a href="'
+                + url
+                + '" target="_blank">'
+                + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+                + '</a></div>'
         );
 
         $('#photos_1').show(1000);
