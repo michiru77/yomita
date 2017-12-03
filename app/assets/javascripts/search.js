@@ -85,9 +85,9 @@ function historyToTop(data){
 // 取得した書籍データを html に整形して出力する
 function outBooks(data, check) {
 
-    (check === 0 || check !== 1) && bd.reset();
-    if(check === 0) {
+    if(check === 0 || check !== 1) {
         $('#photos_6').html(null);
+        bd.reset();
     }
 
     $.each(data, function(i) {

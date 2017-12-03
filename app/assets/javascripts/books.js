@@ -1,5 +1,6 @@
 //= require compiled/BooksData
 //= require search
+//= require getAndPut
 
 $(window).load(function(){
 
@@ -35,13 +36,13 @@ $(document).ready(function() {
         var isbn = tb.getIsbn();
 
         // 履歴を上に残す
-        tohistory(src,title,author,caption,isbn);
+        tohistory(url,src,title,author,caption,isbn);
 
         // タイトル検索
         var searchTitle = title.slice(0,2);
         titleSearch(searchTitle, 0);
 
-        // トップの表紙データを整形して出力
+        // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
 
         // 履歴情報の保存
@@ -52,9 +53,14 @@ $(document).ready(function() {
     });
 });
 
-function tohistory(src,title,author,caption,isbn) {
+function tohistory(url,src,title,author,caption,isbn) {
     $('#display_history').append(
-        '<img src="'+ src +'" width="90px" height="auto" alt=":title'+ title +':author'+ author +':caption'+ caption +'" >'
+        '<img src="' + src + '" width="90px" height="auto" alt="'
+            + 'url:' + url + ':url '
+            + 'title:'+ title + ':title '
+            + 'author:' + author + ':author '
+            + 'caption:' + caption + ':caption'
+            + '" >'
     );
 
     $('#history_page').append(
@@ -65,46 +71,20 @@ function tohistory(src,title,author,caption,isbn) {
 //履歴imgをクリックした時の処理
 $(document).ready(function() {
     $('#display_history').click(function() {
-        var src = event.target.src;
-        var isbn = tb.getIsbn();
-        var top =
-            '<p>'
-            + '<img src="'
-            + src
-            + '">'
-            + '</p>'
 
-        $('#photos_1').html(null);
-        $('#photos_1').html(top);
+        var src = event.target.src;
+        var alt = event.target.alt;
+        var url = getUrl(alt);
+        var title = getTitle(alt);
+        var author = getAuthor(alt);
+        var caption = getCaption(alt);
+
+        // トップに表紙を配置
+        putTopBook(url,src,title,author,caption);
 
         // タイトルの頭二文字を抽出
-        var title = tb.getTitle().slice(0,2);
-        titleSearch(title, 0);
-
-        //履歴を上に残す
-        tohistory(src,title,author,caption,isbn);
-
-        titleSearch(title.slice(0,2), 0);
-
-        //タイトル追加
-        $('.title').html(null);
-        $('.title').append(title);
-
-        //作者追加
-        $('.author').html(null);
-        $('.author').append('<a href="#" name="'+ author +'">'
-                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
-                           );
-
-
-        //あらすじ追加
-        $('#modal-content-innar').html(null);
-        $('#modal-content-innar').append(
-            '<p class="red bold">'
-                + caption
-                + '<br /></p>'
-                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
-        );
+        var searchTitle = title.slice(0,2);
+        titleSearch(searchTitle,0);
 
         //履歴情報の保存
         var img = src;
@@ -168,51 +148,6 @@ function history_delete(one) {
     });
 }
 
-//履歴imgをクリックした時の処理
-$(document).ready(function() {
-    $('#display_history').click(function() {
-        var src = event.target.src;
-        var alt = event.target.alt;
-        var title = alt.replace(/:title(.*):author.*$/,"$1");
-        var author = alt.replace(/:author(.*):caption.*$/,"$1");
-        var caption = alt.replace(/:caption(.*)$/,"$1");
-
-        var top =
-            '<p>'
-            + '<img src="'
-            + src
-            + '">'
-            + '</p>';
-
-        $('#photos_1').html(null);
-        $('#photos_1').html(top);
-
-        var title_new = title.slice(0,2);
-        titleSearch(title_new, 0);
-
-        //タイトル追加
-        $('.title').html(null);
-        $('.title').append(title);
-
-        //作者追加
-        $('.author').html(null);
-        $('.author').append('<a href="#" name="'+ author +'">'
-                            +'<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>'
-                           );
-
-        //あらすじ追加
-        $('#modal-content-innar').html(null);
-        $('#modal-content-innar').append(
-            '<p class="red bold">'
-                + caption
-                + '<br /></p>'
-                + '<p><a id="modal-close" class="button-link">閉じる</a></p>'
-        );
-        //$('#michiru_sen').append(caption);
-    });
-});
-
-
 //画像imgデータを新しく作成した履歴ページに送信
 function historyStorageIndex(img,isbn) {
     return $.ajax({
@@ -240,7 +175,6 @@ function historyStorageIndex(img,isbn) {
         $('#out').html('<p>Session failure</p>');
     });
 }
-
 
 //履歴ページを動的に作る関数
 $(document).ready(function() {
@@ -333,7 +267,6 @@ $(function(){
     });
 });
 
-
 //トップへ戻るボタンをクリック
 $(function(){
     $("#to_Top_page").click(function() {
@@ -354,8 +287,8 @@ $(function(){
         $('#photos_6').html(null);
         $('#photos_1').html(null);
 
+        // ISBN検索によりTopの本のデータを取得
         isbnSearch(isbn, 0);
-
 
         /************************スリープ処理を行います***************************/
 
@@ -375,16 +308,16 @@ $(function(){
         $('.title').show();
         $('.author').show();
 
-        // トップ，ボトムの表紙を表示
+        // photos_1，photos_6の表紙を表示
         $('#photos_1').show(1000);
         $('#photos_6').show();
-
-        //履歴ページを隠す
-        $('#history_page').hide(1000);
 
         //タイトル上2文字検索
         search_title = title.slice(0,2);
         titleSearch(search_title);
+
+        //履歴ページを隠す
+        $('#history_page').hide(1000);
 
         //戻るボタンを隠す
         $('#Modoru').hide();
@@ -396,38 +329,3 @@ $(function(){
         $('#display_history').show();
     });
 });
-
-function putTopBook(url,src,title,author,caption) {
-
-    // トップの表紙，URLを追加
-    var top = '<div class="iconBuyButtonTop">'
-        + '<p><img src="'
-        + src
-        + '"></p>'
-        + '<a href="'
-        + url
-        + '" target="_blank">'
-        + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
-        + '</a></div>';
-    $('#photos_1').html(null);
-    $('#photos_1').html(top);
-
-    // タイトル追加
-    $('.title').html(null);
-    $('.title').append(title);
-
-    // 作者追加
-    $('.author').html(null);
-    var authorHtml = '<a href="#" name="' + author + '">'
-        + '<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>';
-    $('.author').html(null);
-    $('.author').append(authorHtml);
-
-    // あらすじ追加
-    var captionHtml = '<p class="red bold">'
-        + caption
-        + '<br /></p>'
-        + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
-    $('#modal-content-innar').html(null);
-    $('#modal-content-innar').append(captionHtml);
-}
