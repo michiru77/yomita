@@ -187,3 +187,30 @@ var IdGen = function () {
 
     return IdGen;
 }();
+
+var Test = function () {
+    function Test() {
+        _classCallCheck(this, Test);
+
+        this.test = {};
+    }
+
+    _createClass(Test, [{
+        key: "setData",
+        value: function setData(url, img, title, author, caption, isbn) {
+            this.test['url'] = url;
+            this.test['img'] = img;
+            this.test['title'] = title;
+            this.test['author'] = author;
+            this.test['caption'] = caption;
+            this.test['isbn'] = isbn;
+        }
+    }, {
+        key: "getData",
+        value: function getData(tmp) {
+            Object.assign(tmp, this.test);
+        }
+    }]);
+
+    return Test;
+}();

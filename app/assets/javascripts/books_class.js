@@ -121,3 +121,21 @@ class IdGen {
         this.id = 0;
     }
 }
+
+class Test {
+    constructor() {
+        this.test = {};
+    }
+    setData(url,img,title,author,caption,isbn) {
+        this.test['url'] = url;
+        this.test['img'] = img;
+        this.test['title'] = title;
+        this.test['author'] = author;
+        this.test['caption'] = caption;
+        this.test['isbn'] = isbn;
+    }
+    getData(tmp) {
+        Object.assign(tmp, this.test);
+    }
+}
+    
