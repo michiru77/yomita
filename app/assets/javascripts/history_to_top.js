@@ -1,3 +1,4 @@
+// photos_1 に表紙を配置
 function putTopBook(url,src,title,author,caption) {
 
     // トップの表紙，URLを追加
@@ -33,6 +34,7 @@ function putTopBook(url,src,title,author,caption) {
     $('#modal-content-innar').append(captionHtml);
 }
 
+// alt から URL を取得
 function getUrl(alt) {
     var url = alt.match(/url:.*:url/).toString();
     url = url.replace(/url:/,'');
@@ -40,6 +42,7 @@ function getUrl(alt) {
     return url;
 }
 
+// alt から Title を取得
 function getTitle(alt) {
     var title = alt.match(/title:.*:title/).toString();
     title = title.replace(/title:/,'');
@@ -47,6 +50,7 @@ function getTitle(alt) {
     return title;
 }
 
+// alt から Author を取得
 function getAuthor(alt) {
     var author = alt.match(/author:.*:author/).toString();
     author = author.replace(/author:/,'');
@@ -54,6 +58,7 @@ function getAuthor(alt) {
     return author;
 }
 
+// alt から Caption を取得
 function getCaption(alt) {
     var caption = alt.match(/caption:.*:caption/).toString();
     caption = caption.replace(/caption:/,'');

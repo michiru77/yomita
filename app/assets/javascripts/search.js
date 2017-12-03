@@ -1,5 +1,3 @@
-
-
 // 作者検索関数
 function authorSearch(author, check) {
     return $.ajax({
@@ -114,5 +112,13 @@ function outBooks(data, check) {
                 + '</div>';
             $("#photos_6").append(list);
         }
+    });
+}
+
+// スクロールダウン
+function scrollDown() {
+    var position = $("#photos_6").offset().top;
+    $("html,body").animate({
+        scrollTop : position
     });
 }

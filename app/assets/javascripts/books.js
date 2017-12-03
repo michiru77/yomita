@@ -1,6 +1,6 @@
 //= require compiled/class
 //= require search
-//= require getAndPut
+//= require history_to_top
 //= require history
 
 $(window).load(function(){
@@ -57,7 +57,7 @@ $(document).ready(function() {
 //履歴imgをクリックした時の処理
 $(document).ready(function() {
     $('#display_history').click(function() {
-        
+
         var src = event.target.src;
         var alt = event.target.alt;
         var url = getUrl(alt);
@@ -83,33 +83,6 @@ $(document).ready(function() {
     });
 });
 
-// 作者名をクリックすると作者検索を実行
-$(document).ready(function() {
-    $('.author').click(function() {
-        var author = event.target.name;
-        authorSearch(author, 0);
-        // photos_6 までスクロールダウン
-        scrollDown();
-    })
-});
-
-// スクロールダウン
-function scrollDown() {
-    var position = $("#photos_6").offset().top;
-    $("html,body").animate({
-        scrollTop : position
-    });
-}
-
-//セッション履歴削除関数
-$(document).ready(function() {
-    $('#rireki').click(function() {
-        history_delete(1);
-        $('#display_history').html(null);
-    });
-});
-
-
 //履歴ページを動的に作る関数
 $(document).ready(function() {
     $('#rireki_page').click(function() {
@@ -125,47 +98,15 @@ $(document).ready(function() {
     });
 });
 
-$(function(){
-    $("#photos_1").click(function(){
-        //キーボード操作などにより、オーバーレイが多重起動するのを防止する
-        $( this ).blur() ;	//ボタンからフォーカスを外す
-        if( $( "#modal-overlay" )[0] ) return false ;		//新しくモーダルウィンドウを起動しない (防止策1)
-        //if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
-        //オーバーレイを出現させる
-        $( "body" ).append( '<div id="modal-overlay"></div>' ) ;
-        $( "#modal-overlay" ).fadeIn( "slow" ) ;
-        //コンテンツをセンタリングする
-        centeringModalSyncer() ;
-        //コンテンツをフェードインする
-        $( "#modal-content" ).fadeIn( "slow" ) ;
-        //[#modal-overlay]、または[#modal-close]をクリックしたら…
-        $( "#modal-overlay,#modal-close" ).unbind().click( function(){
-            //[#modal-content]と[#modal-overlay]をフェードアウトした後に…
-            $( "#modal-content,#modal-overlay" ).fadeOut( "slow" , function(){
-                //[#modal-overlay]を削除する
-                $('#modal-overlay').remove() ;
-            } ) ;
-        } ) ;
-    } ) ;
-    //リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
-    $( window ).resize( centeringModalSyncer ) ;
-    //センタリングを実行する関数
-    function centeringModalSyncer() {
-        //画面(ウィンドウ)の幅、高さを取得
-        var w = $( window ).width() ;
-        var h = $( window ).height() ;
-        // コンテンツ(#modal-content)の幅、高さを取得
-        // jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
-        var cw = $( "#modal-content" ).outerWidth( {margin:true} );
-        var ch = $( "#modal-content" ).outerHeight( {margin:true} );
-        var cw = $( "#modal-content" ).outerWidth();
-        var ch = $( "#modal-content" ).outerHeight();
-        //センタリングを実行する
-        $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
-    }
-} ) ;
+// 履歴削除ボタンをクリックした時の処理
+$(document).ready(function() {
+    $('#rireki').click(function() {
+        history_delete(1);
+        $('#display_history').html(null);
+    });
+});
 
-//履歴ページを見るボタンをクリック
+//履歴ページを見るボタンをクリックした時の処理
 $(function(){
     $("#rireki_page_show").click(function() {
 
@@ -201,7 +142,7 @@ $(function(){
     });
 });
 
-//トップへ戻るボタンをクリック
+// トップへ戻るボタンをクリックした時の処理
 $(function(){
     $("#to_Top_page").click(function() {
         location.reload();
@@ -221,7 +162,7 @@ $(function(){
         $('#photos_6').html(null);
         $('#photos_1').html(null);
 
-        // ISBN検索によりTopの本のデータを取得
+        // ISBN検索により photos_1 の書籍データを取得
         isbnSearch(isbn, 0);
 
         /************************スリープ処理を行います***************************/
@@ -262,4 +203,55 @@ $(function(){
         //履歴のミチシルベを表示する
         $('#display_history').show();
     });
+});
+
+// 作者名をクリックすると作者検索を実行
+$(document).ready(function() {
+    $('.author').click(function() {
+        var author = event.target.name;
+        authorSearch(author, 0);
+        // photos_6 までスクロールダウン
+        scrollDown();
+    })
+});
+
+// photos_1 の表紙をクリックするとキャプションを表示する
+$(function(){
+    $("#photos_1").click(function(){
+        //キーボード操作などにより、オーバーレイが多重起動するのを防止する
+        $( this ).blur();	//ボタンからフォーカスを外す
+        if( $( "#modal-overlay" )[0] ) return false;		//新しくモーダルウィンドウを起動しない (防止策1)
+        //if($("#modal-overlay")[0]) $("#modal-overlay").remove();		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
+        //オーバーレイを出現させる
+        $( "body" ).append( '<div id="modal-overlay"></div>' );
+        $( "#modal-overlay" ).fadeIn( "slow" );
+        //コンテンツをセンタリングする
+        centeringModalSyncer();
+        //コンテンツをフェードインする
+        $( "#modal-content" ).fadeIn( "slow" );
+        //[#modal-overlay]、または[#modal-close]をクリックしたら…
+        $( "#modal-overlay,#modal-close" ).unbind().click( function(){
+            //[#modal-content]と[#modal-overlay]をフェードアウトした後に…
+            $( "#modal-content,#modal-overlay" ).fadeOut( "slow" , function(){
+                //[#modal-overlay]を削除する
+                $('#modal-overlay').remove();
+            });
+        });
+    });
+    //リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
+    $( window ).resize( centeringModalSyncer );
+    //センタリングを実行する関数
+    function centeringModalSyncer() {
+        //画面(ウィンドウ)の幅、高さを取得
+        var w = $( window ).width();
+        var h = $( window ).height();
+        // コンテンツ(#modal-content)の幅、高さを取得
+        // jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
+        var cw = $( "#modal-content" ).outerWidth( {margin:true} );
+        var ch = $( "#modal-content" ).outerHeight( {margin:true} );
+        var cw = $( "#modal-content" ).outerWidth();
+        var ch = $( "#modal-content" ).outerHeight();
+        //センタリングを実行する
+        $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} );
+    }
 });
