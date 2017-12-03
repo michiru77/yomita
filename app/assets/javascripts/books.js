@@ -35,7 +35,7 @@ $(document).ready(function() {
         var author = tb.getAuthor();
         var caption = tb.getCaption();
         var isbn = tb.getIsbn();
-
+        
         // 履歴を上に残す
         tohistory(url,src,title,author,caption,isbn);
 
@@ -45,6 +45,9 @@ $(document).ready(function() {
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
+
+        // photos_1 へスクロールアップ
+        scrollUp();
 
         // 履歴情報の保存
         var img = src;
