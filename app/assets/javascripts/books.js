@@ -1,9 +1,9 @@
 //= require compiled/class
 //= require search
 //= require getAndPut
+//= require history
 
 $(window).load(function(){
-
     bd = new BooksData();
     tb = new TopBook();
     ig = new IdGen();
@@ -54,25 +54,10 @@ $(document).ready(function() {
     });
 });
 
-function tohistory(url,src,title,author,caption,isbn) {
-    $('#display_history').append(
-        '<img src="' + src + '" width="90px" height="auto" alt="'
-            + 'url:' + url + ':url '
-            + 'title:'+ title + ':title '
-            + 'author:' + author + ':author '
-            + 'caption:' + caption + ':caption'
-            + '" >'
-    );
-
-    $('#history_page').append(
-        '<img src="'+ src +'" width="90px" height="auto" alt="'+ isbn +'" >'
-    );
-}
-
 //履歴imgをクリックした時の処理
 $(document).ready(function() {
     $('#display_history').click(function() {
-
+        
         var src = event.target.src;
         var alt = event.target.alt;
         var url = getUrl(alt);
@@ -87,6 +72,9 @@ $(document).ready(function() {
         var searchTitle = title.slice(0,2);
         titleSearch(searchTitle,0);
 
+        // photos_6 までスクロールダウン
+        scrollDown();
+
         //履歴情報の保存
         var img = src;
         //historySearch(apple);
@@ -100,6 +88,7 @@ $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
         authorSearch(author, 0);
+        // photos_6 までスクロールダウン
         scrollDown();
     })
 });
@@ -112,32 +101,6 @@ function scrollDown() {
     });
 }
 
-function historyStorage(img,title,author,caption) {
-    return $.ajax({
-        url: '/home_history',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            img: img,
-            title: title,
-            author: author,
-            caption: caption
-        }
-    }).done(function(data){
-        $('.apple').append('hoge');
-        console.log('hoge');
-        outFruit(data);
-    }).fail(function(data){
-        $('#out').html('<p>Session failure</p>');
-    });
-}
-
-// クリックされた変数をsessionに保存する
-function historySearch(fruit) {
-    historyStorage(fruit);
-}
-
 //セッション履歴削除関数
 $(document).ready(function() {
     $('#rireki').click(function() {
@@ -146,46 +109,6 @@ $(document).ready(function() {
     });
 });
 
-//履歴削除
-function history_delete(one) {
-    return $.ajax({
-        url: '/home_history',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            number: one
-        }
-    });
-}
-
-//画像imgデータを新しく作成した履歴ページに送信
-function historyStorageIndex(img,isbn) {
-    return $.ajax({
-        url: '/',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            img: img,
-            ISBN1: isbn
-            //caption: caption
-            //title: title,
-            //author: author,
-            //caption: caption
-        }
-    }).done(function(data){
-        //$('#photos_1').html(null);
-        //$('#photos_6').html(null);
-        //$('#display_history').html(null);
-        //$('.apple').append('hoge');
-        //console.log('hoge');
-        //outFruit(data);
-        //$('#photos_6').append(gon.ItemUrl);
-    }).fail(function(data){
-        $('#out').html('<p>Session failure</p>');
-    });
-}
 
 //履歴ページを動的に作る関数
 $(document).ready(function() {
