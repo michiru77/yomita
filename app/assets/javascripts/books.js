@@ -1,4 +1,4 @@
-//= require compiled/BooksData
+//= require compiled/class
 //= require search
 //= require getAndPut
 
