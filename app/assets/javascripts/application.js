@@ -13,4 +13,4 @@
 //= require jquery
 //= require rails-ujs
 //= require_tree .
-//= stub class
+//= stub books_class

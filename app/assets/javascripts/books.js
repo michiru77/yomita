@@ -1,7 +1,7 @@
-//= require compiled/class
+//= require compiled/books_class
 //= require search
-//= require history_to_top
 //= require history
+//= require history_to_top
 
 $(window).load(function(){
     bd = new BooksData();

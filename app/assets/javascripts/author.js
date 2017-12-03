@@ -1,4 +1,3 @@
-
 var authorList = [];
 authorList.push('前野ウルド浩太郎');
 authorList.push('村上春樹');
