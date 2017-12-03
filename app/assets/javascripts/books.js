@@ -348,28 +348,6 @@ $(function(){
 //履歴ページを見るボタンをクリック
 $(function(){
     $("#rireki_page_show").click(function() {
-        /*
-          $(window).load(function(){
-          location.reload();
-          });
-        */
-        /*
-          $('#display_history').fadeOut(1);
-          $('.line').fadeOut(1);
-          $('.title').fadeOut(1);
-          $('.author').fadeOut(1);
-          $('#photos_6').fadeOut(1);
-          $('#photos_1').fadeOut(1);
-
-          $('#display_history').html(null);
-          $('.line').html(null);
-          $('.title').html(null);
-          $('.author').html(null);
-          $('#photos_6').html(null);
-          $('#photos_1').html(null);
-
-          $('#history_page').fadeIn(500);
-        */
 
         $('#display_history').hide(1000);
         $('.line').hide(1000);
@@ -378,23 +356,6 @@ $(function(){
         $('#photos_6').hide(1000);
         $('#photos_1').hide(1000);
 
-        /*
-          $('#display_history').html(null);
-          $('.line').html(null);
-          $('.title').html(null);
-          $('.author').html(null);
-          $('#photos_6').html(null);
-          $('#photos_1').html(null);
-        */
-
-        /*
-          $('#display_history').hide();
-          $('.line').hide();
-          $('.title').hide();
-          $('.author').hide();
-          $('#photos_6').hide();
-          $('#photos_1').hide();
-        */
         $('#rireki_page_show').hide();
         $('#history_page').show(1000);
         $('#Modoru').show();

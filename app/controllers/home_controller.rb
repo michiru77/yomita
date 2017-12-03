@@ -36,49 +36,15 @@ class HomeController < ApplicationController
       #cookies[:Receivefruit] = []
     end
 
-=begin
-    if params[:number]
-      session[:Receivefruit] = nil
-    end
-    #cookies[:image]=[]
-    if cookies[:image].blank?
-      cookies[:image] = ["tmp"]
-      cookies[:image][0] = params[:img]
-    else
-      cookies[:image][cookies[:image].length] = params[:img]
-    end
-=end
-
-=begin
-    if session[:sumikko].blank?
-      session[:sumikko] = ["tmp"]
-      session[:sumikko][0] = params[:img]
-    else
-      session[:sumikko][session[:sumikko].length] = params[:img]
-    end
-=end
-
-    #cookies[:image][cookies[:image].length] = params[:img]
-    #session[:sumikko][session[:sumikko].length] = params[:img]
     p '-------------------------------------------------------------------------------------------------------------'
     p 'cookies[:image]を表示します'
     p cookies[:image]
-=begin
-    p '-------------------------------------------------------------------------------------------------------------'
-    p '-------------------------------------------------------------------------------------------------------------'
-    p 'cookies[:sumikko]を表示します'
-    p session[:sumikko]
-    p '-------------------------------------------------------------------------------------------------------------'
-=end
-    #gon.ItemUrl = cookies[:image]
+
     gon.clorets = session[:sumikko]
     p '-------------------------------------------------------------------------------------------------------------'
     p 'gon.cloretsを表示します'
     p gon.clorets
     p '-------------------------------------------------------------------------------------------------------------'
-    gon.hiroya = 'ひろや'
-    gon.gazou = params[:img]
-    #render json: gon.image
 
   end
 
