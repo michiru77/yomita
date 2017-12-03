@@ -95,12 +95,22 @@ $(document).ready(function() {
     });
 });
 
+// 作者名をクリックすると作者検索を実行
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
         authorSearch(author, 0);
+        scrollDown();
     })
 });
+
+// スクロールダウン
+function scrollDown() {
+    var position = $("#photos_6").offset().top;
+    $("html,body").animate({
+        scrollTop : position
+    });
+}
 
 function historyStorage(img,title,author,caption) {
     return $.ajax({
