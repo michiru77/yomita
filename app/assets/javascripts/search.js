@@ -100,16 +100,16 @@ function outBooks(data, check) {
 
         var noImg = img.match(/noimage/);
         if (noImg === null) {
-            var list = '<div class="iconBuyButton">'
-                + '<p>'
-                + '<img id="' + id + '" '
+            var list =// '<div class="iconBuyButton">'
+                //+ '<p>'
+                 '<img id="' + id + '" '
                 + 'src="' + img + '"> '
-                + '</p>'
+                //+ '</p>'
                 + '<a href="'+ url + '" '
                 + 'target="_blank">'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
-                + '</a>'
-                + '</div>';
+                + '</a>';
+                //+ '</div>';
             $("#photos_6").append(list);
         }
     });
