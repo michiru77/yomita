@@ -296,6 +296,7 @@ function putTopBook(url,src,title,author,caption) {
     $('#modal-content-innar').append(captionHtml);
 }
 
+/*
 $(function() {
     $(window).scroll(function(ev) {
         var $window = $(ev.currentTarget),
@@ -308,3 +309,4 @@ $(function() {
         }
     });
 });
+*/
