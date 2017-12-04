@@ -2,11 +2,11 @@
 //= require search
 //= require history
 
-let bd = new BooksData();
-let tb = new TopBook();
-let ig = new IdGen();
-
 $(window).load(function(){
+
+    bd = new BooksData();
+    tb = new TopBook();
+    ig = new IdGen();
 
     var author = '池井戸潤';
     var title = '恋愛';
