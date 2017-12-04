@@ -10,11 +10,15 @@ gem 'jquery-rails', '4.3.1'
 gem "gon"
 
 gem 'jbuilder',     '2.7.0'
+gem 'rakuten_web_service'
 
 group :development, :test do
   gem 'sqlite3',            '1.3.13'
   gem 'byebug',             '9.0.6', platform: :mri
   gem 'minitest-reporters', '1.1.14'
+  gem 'pry-rails' 
+  gem 'pry-doc'   
+  gem 'pry-byebug'
 end
 
 group :development do

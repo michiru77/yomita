@@ -9,15 +9,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!--　script指定　-->
     <SCRIPT LANGUAGE="JavaScript"></SCRIPT>
-    <!--　履歴表示と削除　-->
-    <a href="/" style="text-decoration:none; color:#000000;">[Top]</a><a href="/historypage" style="text-decoration:none; color:#000000;">[履歴を見る]</a><a href='<%= @resetUrl %>' style="text-decoration:none; color:#000000;">[履歴を抹消]</a><br>
-    <% if session[:history].blank? then session[:history]=[] end %>
-    <% if !@historyReset.blank? then session[:history]=[]  end %>
-    <% if !@bookID.blank? && @historyReset.blank? then session[:history].push( @bookID ) end %>
-    <% session[:history].uniq! %><!--　<% session[:history].slice!(0..(-10-2)) %>　-->
-    <section id="photos_history"><SCRIPT>
-    for(i=gon.historyList.length-1;i>(gon.historyList.length-4)  ;i--){if(i>=0){document.write(simg2[gon.historyList[i]]);}}
-    </SCRIPT></section>
   </head>
   <body>
     <%= yield %>
