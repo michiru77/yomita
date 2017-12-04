@@ -80,3 +80,35 @@ function historyStorage(img,title,author,caption) {
         $('#out').html('<p>Session failure</p>');
     });
 }
+
+// alt から URL を取得
+function getUrl(alt) {
+    var url = alt.match(/url:.*:url/).toString();
+    url = url.replace(/url:/,'');
+    url = url.replace(/:url/,'');
+    return url;
+}
+
+// alt から Title を取得
+function getTitle(alt) {
+    var title = alt.match(/title:.*:title/).toString();
+    title = title.replace(/title:/,'');
+    title = title.replace(/:title/,'');
+    return title;
+}
+
+// alt から Author を取得
+function getAuthor(alt) {
+    var author = alt.match(/author:.*:author/).toString();
+    author = author.replace(/author:/,'');
+    author = author.replace(/:author/,'');
+    return author;
+}
+
+// alt から Caption を取得
+function getCaption(alt) {
+    var caption = alt.match(/caption:.*:caption/).toString();
+    caption = caption.replace(/caption:/,'');
+    caption = caption.replace(/:caption/,'');
+    return caption;
+}

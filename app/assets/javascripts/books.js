@@ -1,7 +1,6 @@
 //= require compiled/books_class
 //= require search
 //= require history
-//= require history_to_top
 
 let bd = new BooksData();
 let tb = new TopBook();
@@ -259,3 +258,39 @@ $(function(){
         location.reload();
     });
 });
+
+// photos_1 に表紙を配置
+function putTopBook(url,src,title,author,caption) {
+
+    // トップの表紙，URLを追加
+    var top = '<div class="iconBuyButtonTop">'
+        + '<p><img src="'
+        + src
+        + '"></p>'
+        + '<a href="'
+        + url
+        + '" target="_blank">'
+        + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+        + '</a></div>';
+    $('#photos_1').html(null);
+    $('#photos_1').html(top);
+
+    // タイトル追加
+    $('.title').html(null);
+    $('.title').append(title);
+
+    // 作者追加
+    $('.author').html(null);
+    var authorHtml = '<a href="#" name="' + author + '">'
+        + '<i class="fa fa-user-circle-o" aria-hidden="true"></i>' + author + '</a>';
+    $('.author').html(null);
+    $('.author').append(authorHtml);
+
+    // あらすじ追加
+    var captionHtml = '<p class="red bold">'
+        + caption
+        + '<br /></p>'
+        + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+    $('#modal-content-innar').html(null);
+    $('#modal-content-innar').append(captionHtml);
+}
