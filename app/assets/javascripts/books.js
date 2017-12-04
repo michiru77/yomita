@@ -275,3 +275,18 @@ $(document).ready(function() {
 
     });
 });
+
+
+$(function() {
+  
+  $(window).scroll(function(ev) {
+                   var $window = $(ev.currentTarget),
+                   height = $window.height(),
+                   scrollTop = $window.scrollTop(),
+                   documentHeight = $(document).height();
+                   if (documentHeight === height + scrollTop) {
+                   // 一番下だよ
+                   alert('一番下だよ');
+                   }
+                   });
+  });
