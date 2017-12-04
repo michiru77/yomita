@@ -22,7 +22,7 @@ function tohistory(url,src,title,author,caption,isbn) {
 //履歴削除
 function history_delete(one) {
     return $.ajax({
-        url: '/home_history',
+        url: '/home_index',
         type: 'GET',
         dataType: 'json',
         async: true,
