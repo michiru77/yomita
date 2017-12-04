@@ -213,6 +213,7 @@ $(document).ready(function() {
     $('#rireki').click(function() {
         history_delete(1);
         $('#display_history').html(null);
+        $('#history_page').html(null);
     });
 });
 

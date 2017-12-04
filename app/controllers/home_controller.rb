@@ -46,6 +46,15 @@ class HomeController < ApplicationController
     p gon.clorets
     p '-------------------------------------------------------------------------------------------------------------'
 
+    #セッション初期化処理
+    if params[:number]
+      p '🔴 cookiesを初期化したよ'
+      cookies[:ISBN] = ["tmp"]
+      cookies[:image]=["tmp"]
+      p cookies[:ISBN]
+      p cookies[:image]
+    end
+
   end
 
   def authorSearch
