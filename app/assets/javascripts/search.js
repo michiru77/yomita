@@ -102,13 +102,15 @@ function outBooks(data, check) {
         if (noImg === null) {
             var list =// '<div class="iconBuyButton">'
                 //+ '<p>'
-                 '<img id="' + id + '" '
+                '<span class="iconBuyButton">'
+                + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
                 //+ '</p>'
                 + '<a href="'+ url + '" '
                 + 'target="_blank">'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
-                + '</a>';
+                + '</a>'
+                + '</span>';
                 //+ '</div>';
             $("#photos_6").append(list);
         }
