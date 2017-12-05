@@ -52,25 +52,6 @@ function genreSearch(genreId, check) {
     });
 }
 
-// ソート検索関数
-function sortSearch(sort, check) {
-    return $.ajax({
-        url: '/home_sortSearch',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            sort: sort,
-            hits: 30,
-            page: 1
-        }
-    }).done(function(data){
-        outBooks(data, check);
-    }).fail(function(data){
-        $('#out').html('<p>Failure</p>');
-    });
-}
-
 // ISBN 検索関数
 function isbnSearch(isbn, check) {
     return $.ajax({
@@ -133,5 +114,24 @@ function outBooks(data, check) {
                 //+ '</div>';
             $("#photos_6").append(list);
         }
+    });
+}
+
+// ソート検索関数
+function sortSearch(sort, page, check) {
+    return $.ajax({
+        url: '/home_sortSearch',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            sort: sort,
+            hits: 30,
+            page: page
+        }
+    }).done(function(data){
+        outBooks(data, check);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
     });
 }

@@ -9,9 +9,10 @@ $(window).load(function(){
     ig = new IdGen();
 
     var sort = 'sales';
+    var page = Math.floor(Math.random()*100);
     // titleSearch(title, 0);
     // authorSearch(author, 0);
-    sortSearch(sort, 0);
+    sortSearch(sort,page,0);
     // genreSearch(genreId, 0);
     // isbnSearch(isbn, 0);
 });
@@ -312,16 +313,16 @@ function scrollDown() {
 }
 
 /*
-  $(function() {
-  $(window).scroll(function(ev) {
-  var $window = $(ev.currentTarget),
-  height = $window.height(),
-  scrollTop = $window.scrollTop(),
-  documentHeight = $(document).height();
-  if (documentHeight === height + scrollTop) {
-  // 一番下だよ
-  alert('一番下だよ');
-  }
-  });
-  });
+// ページ下部検知
+$(function() {
+    $(window).scroll(function(ev) {
+        var $window = $(ev.currentTarget),
+            height = $window.height(),
+            scrollTop = $window.scrollTop(),
+            documentHeight = $(document).height();
+        if (documentHeight === height + scrollTop) {
+            
+        }
+    });
+});
 */
