@@ -10,12 +10,12 @@ $(window).load(function(){
 
     var sort = 'sales';
     var page = Math.floor(Math.random()*100);
-    // titleSearch(title, 0);
-    // authorSearch(author, 0);
     setTimeout(function(){
         // ここに検索関数を放り込む
         sortSearch(sort,page,0);
     },1000);
+    // titleSearch(title, 0);
+    // authorSearch(author, 0);
     //sortSearch(sort,page,0);
     // genreSearch(genreId, 0);
     // isbnSearch(isbn, 0);
@@ -336,7 +336,6 @@ function scrollDown() {
     });
 }
 
-/*
 // ページ下部検知
 $(function() {
     $(window).scroll(function(ev) {
@@ -345,12 +344,11 @@ $(function() {
             scrollTop = $window.scrollTop(),
             documentHeight = $(document).height();
         if (documentHeight === height + scrollTop) {
-            
+            //ここにサーチ関数を記述
+            setTimeout(function(){
+                // ここに検索関数を放り込む
+                titleSearch(tb.getTitle().slice(0,2),1);
+            },1000);
         }
     });
 });
-*/
-
-//画面幅取得
-var window_widht = $(window).width();
-
