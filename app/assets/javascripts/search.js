@@ -95,38 +95,43 @@ function outBooks(data, check) {
 
         var id = ig.getId();
         bd.setBooksData(data[i]);
-        var img = bd.getImg(i);
-        var url = bd.getUrl(i);
+        var img = bd.getImg(id);
+        var url = bd.getUrl(id);
 
         var noImg = img.match(/noimage/);
         if (noImg === null) {
-            var list = '<div class="iconBuyButton">'
-                + '<p>'
+            var list =// '<div class="iconBuyButton">'
+                //+ '<p>'
+                '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
-                + '</p>'
+            //+ '</p>'
                 + '<a href="'+ url + '" '
                 + 'target="_blank">'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
                 + '</a>'
-                + '</div>';
+                + '</span>';
+            //+ '</div>';
             $("#photos_6").append(list);
         }
     });
 }
 
-// スクロールアップ
-function scrollUp() {
-    var position = $("#photos_1").offset().top;
-    $("html,body").animate({
-        scrollTop : position
-    });
-}
-
-// スクロールダウン
-function scrollDown() {
-    var position = $("#photos_6").offset().top;
-    $("html,body").animate({
-        scrollTop : position
+// ソート検索関数
+function sortSearch(sort, page, check) {
+    return $.ajax({
+        url: '/home_sortSearch',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            sort: sort,
+            hits: 30,
+            page: page
+        }
+    }).done(function(data){
+        outBooks(data, check);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
     });
 }

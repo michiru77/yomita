@@ -8,11 +8,11 @@ $(window).load(function(){
     tb = new TopBook();
     ig = new IdGen();
 
-    var author = '池井戸潤';
-    var title = '恋愛';
-    var isbn = '9784863367012';
-    titleSearch(title, 0);
+    var sort = 'sales';
+    var page = Math.floor(Math.random()*100);
+    // titleSearch(title, 0);
     // authorSearch(author, 0);
+    sortSearch(sort,page,0);
     // genreSearch(genreId, 0);
     // isbnSearch(isbn, 0);
 });
@@ -295,3 +295,34 @@ function putTopBook(url,src,title,author,caption) {
     $('#modal-content-innar').html(null);
     $('#modal-content-innar').append(captionHtml);
 }
+
+// スクロールアップ
+function scrollUp() {
+    var position = $("#photos_1").offset().top;
+    $("html,body").animate({
+        scrollTop : position
+    });
+}
+
+// スクロールダウン
+function scrollDown() {
+    var position = $("#photos_6").offset().top;
+    $("html,body").animate({
+        scrollTop : position
+    });
+}
+
+/*
+// ページ下部検知
+$(function() {
+    $(window).scroll(function(ev) {
+        var $window = $(ev.currentTarget),
+            height = $window.height(),
+            scrollTop = $window.scrollTop(),
+            documentHeight = $(document).height();
+        if (documentHeight === height + scrollTop) {
+            
+        }
+    });
+});
+*/
