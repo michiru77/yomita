@@ -135,19 +135,3 @@ function outBooks(data, check) {
         }
     });
 }
-
-// スクロールアップ
-function scrollUp() {
-    var position = $("#photos_1").offset().top;
-    $("html,body").animate({
-        scrollTop : position
-    });
-}
-
-// スクロールダウン
-function scrollDown() {
-    var position = $("#photos_6").offset().top;
-    $("html,body").animate({
-        scrollTop : position
-    });
-}
