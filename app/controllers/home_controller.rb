@@ -1,6 +1,42 @@
 # coding: utf-8
 class HomeController < ApplicationController
 
+  def authorSearch
+    data = RakutenWebService::Books::Book.search(author: params[:author],
+                                                 hits: params[:hits])
+    render json: data
+    #binding.pry
+  end
+
+  def titleSearch
+    data = RakutenWebService::Books::Book.search(title: params[:title],
+                                                 hits: params[:hits])
+    render json: data
+    #binding.pry
+  end
+
+  def genreSearch
+    data = RakutenWebService::Books::Book.search(booksGenreId: params[:booksGenreId],
+                                                 hits: params[:hits])
+    render json: data
+    #binding.pry
+  end
+
+  def sortSearch
+    data = RakutenWebService::Books::Book.search(sort: params[:sort],
+                                                 page: params[:page],
+                                                 hits: params[:hits])
+    render json: data
+    #binding.pry
+  end
+
+  def isbnSearch
+    data = RakutenWebService::Books::Book.search(isbn: params[:isbn],
+                                                 hits: params[:hits])
+    render json: data
+    #binding.pry
+  end
+
   def index
 
     if cookies[:image].blank?
@@ -57,34 +93,6 @@ class HomeController < ApplicationController
 
   end
 
-  def authorSearch
-    data = RakutenWebService::Books::Book.search(author: params[:author],
-                                                 hits: params[:hits])
-    render json: data
-    #binding.pry
-  end
-
-  def titleSearch
-    data = RakutenWebService::Books::Book.search(title: params[:title],
-                                                 hits: params[:hits])
-    render json: data
-    #binding.pry
-  end
-
-  def genreSearch
-    data = RakutenWebService::Books::Book.search(booksGenreId: params[:booksGenreId],
-                                                 hits: params[:hits])
-    render json: data
-    #binding.pry
-  end
-
-  def isbnSearch
-    data = RakutenWebService::Books::Book.search(isbn: params[:isbn],
-                                                 hits: params[:hits])
-    render json: data
-    #binding.pry
-  end
-
   def history
 
     #セッション初期化処理
@@ -93,12 +101,12 @@ class HomeController < ApplicationController
     end
 
     if session[:Receivefruit].blank?
-     session[:Receivefruit] = ["tmp"]
-     session[:Receivefruit][0] = params[:img]
-     p '🔴  sessionを初期化したよ。'
+      session[:Receivefruit] = ["tmp"]
+      session[:Receivefruit][0] = params[:img]
+      p '🔴  sessionを初期化したよ。'
     else
       #session[:Receivefruit] = ["a"]
-     session[:Receivefruit][session[:Receivefruit].length]= params[:img]
+      session[:Receivefruit][session[:Receivefruit].length]= params[:img]
       p '🔴  sessionに追加したよ。'
       p session[:Receivefruit]
       #session[:Receivefruit] = []

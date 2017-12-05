@@ -11,8 +11,10 @@ $(window).load(function(){
     var author = '池井戸潤';
     var title = '恋愛';
     var isbn = '9784863367012';
-    titleSearch(title, 0);
+    var sort = 'sales';
+    // titleSearch(title, 0);
     // authorSearch(author, 0);
+    sortSearch(sort, 0);
     // genreSearch(genreId, 0);
     // isbnSearch(isbn, 0);
 });
