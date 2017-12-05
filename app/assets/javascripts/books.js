@@ -12,7 +12,11 @@ $(window).load(function(){
     var page = Math.floor(Math.random()*100);
     // titleSearch(title, 0);
     // authorSearch(author, 0);
-    sortSearch(sort,page,0);
+    setTimeout(function(){
+        // ここに検索関数を放り込む
+        sortSearch(sort,page,0);
+    },1000);
+    //sortSearch(sort,page,0);
     // genreSearch(genreId, 0);
     // isbnSearch(isbn, 0);
 });
@@ -39,9 +43,16 @@ $(document).ready(function() {
         // 履歴を上に残す
         tohistory(url,src,title,author,caption,isbn);
 
+        $('#photos_6').html(null);
+
         // タイトル検索
         var searchTitle = title.slice(0,2);
-        titleSearch(searchTitle, 0);
+
+        setTimeout(function(){
+            // ここに検索関数を放り込む
+            titleSearch(searchTitle, 0);
+        },1000);
+        //titleSearch(searchTitle, 0);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
@@ -124,7 +135,12 @@ $(document).ready(function() {
 
         // タイトルの頭二文字を抽出
         var searchTitle = title.slice(0,2);
-        titleSearch(searchTitle,0);
+
+        setTimeout(function(){
+            // ここに検索関数を放り込む
+            titleSearch(searchTitle,0);
+        },1000);
+        //titleSearch(searchTitle,0);
 
         // photos_6 までスクロールダウン
         scrollDown();
@@ -151,7 +167,11 @@ $(function(){
         $('#photos_1').html(null);
 
         // ISBN検索により photos_1 の書籍データを取得
-        isbnSearch(isbn, 0);
+        setTimeout(function(){
+            // ここに検索関数を放り込む
+            isbnSearch(isbn, 0);
+        },1000);
+        //isbnSearch(isbn, 0);
 
         /************************スリープ処理を行います***************************/
 
@@ -177,7 +197,11 @@ $(function(){
 
         //タイトル上2文字検索
         search_title = title.slice(0,2);
-        titleSearch(search_title);
+        setTimeout(function(){
+            // ここに検索関数を放り込む
+            titleSearch(search_title);
+        },1000);
+        //titleSearch(search_title);
 
         //履歴ページを隠す
         $('#history_page').hide(1000);
@@ -263,7 +287,7 @@ $(function(){
 // photos_1 に表紙を配置
 function putTopBook(url,src,title,author,caption) {
 
-    // トップの表紙，URLを追加
+    // トップの表紙，URLを追加ra
     var top = '<div class="iconBuyButtonTop">'
         + '<p><img src="'
         + src
@@ -326,3 +350,7 @@ $(function() {
     });
 });
 */
+
+//画面幅取得
+var window_widht = $(window).width();
+
