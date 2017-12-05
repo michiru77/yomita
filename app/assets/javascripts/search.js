@@ -95,8 +95,8 @@ function outBooks(data, check) {
 
         var id = ig.getId();
         bd.setBooksData(data[i]);
-        var img = bd.getImg(i);
-        var url = bd.getUrl(i);
+        var img = bd.getImg(id);
+        var url = bd.getUrl(id);
 
         var noImg = img.match(/noimage/);
         if (noImg === null) {
@@ -105,13 +105,13 @@ function outBooks(data, check) {
                 '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
-                //+ '</p>'
+            //+ '</p>'
                 + '<a href="'+ url + '" '
                 + 'target="_blank">'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
                 + '</a>'
                 + '</span>';
-                //+ '</div>';
+            //+ '</div>';
             $("#photos_6").append(list);
         }
     });
