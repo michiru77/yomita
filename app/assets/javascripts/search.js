@@ -73,7 +73,8 @@ function isbnSearch(isbn, check) {
 function historyToTop(data){
     var i = 0;
     bd.reset();
-    bd.setBooksData(data[i]);
+    ig.reset();
+    bd.setBooksData(data[i],i);
     tb.setUrl(bd.getUrl(i));
     tb.setImg(bd.getImg(i));
     tb.setTitle(bd.getTitle(i));
@@ -94,7 +95,7 @@ function outBooks(data, check) {
     $.each(data, function(i) {
 
         var id = ig.getId();
-        bd.setBooksData(data[i]);
+        bd.setBooksData(data[i],id);
         var url = bd.getUrl(id);
         var img = bd.getImg(id);
 

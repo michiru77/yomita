@@ -1,68 +1,53 @@
 function BooksData() {
 
-    var _urls = [];
-    var _imgs = [];
-    var _titles = [];
-    var _authors = [];
-    var _genreIds = [];
-    var _captions = [];
-    var _isbns = [];
+    var _books = [];
 
     this.getUrl = function(i) {
-        return _urls[i];
+        return _books[i].url;
     };
     this.getImg = function(i) {
-        return _imgs[i];
+        return _books[i].img;
     };
     this.getTitle = function(i) {
-        return _titles[i];
+        return _books[i].title;
     };
     this.getAuthor = function(i) {
-        return _authors[i];
+        return _books[i].author;
     };
     this.getGenreId = function(i) {
-        return _genreIds[i];
+        return _books[i].genreId;
     };
     this.getCaption = function(i) {
-        return _captions[i];
+        return _books[i].caption;
     };
     this.getIsbn = function(i) {
-        return _isbns[i];
+        return _books[i].isbn;
     };
 
-    this.setBooksData = function(data) {
+    this.setBooksData = function(data,id) {
 
         var url = data["params"]["itemUrl"];
-        _urls.push(url);
-
         var img = data["params"]["largeImageUrl"];
-        _imgs.push(img);
-
         var title = data["params"]["title"];
-        _titles.push(title);
-
         var author = data["params"]["author"].replace(/\/.*$/, '');
-        _authors.push(author);
-
         var genreId = data["params"]["booksGenreId"];
         genreId.split('/')[genreId.length-1];
-        _genreIds.push(genreId);
-
         var caption = data["params"]["itemCaption"];
-        _captions.push(caption);
-
         var isbn = data["params"]["isbn"];
-        _isbns.push(isbn);
+
+        _books[id] = {
+            url: url,
+            img: img,
+            title: title,
+            author: author,
+            genreId: genreId,
+            caption: caption,
+            isbn: isbn
+        };
     };
 
     this.reset = function() {
-        _urls.length = 0;
-        _imgs.length = 0;
-        _titles.length = 0;
-        _authors.length = 0;
-        _genreIds.length = 0;
-        _captions.length = 0;
-        _isbns.length = 0;
+        _books.length = 0;
     };
 
 };
@@ -126,22 +111,3 @@ function IdGen() {
     };
 
 };
-
-/*
-  class Test {
-  constructor() {
-  this.test = {};
-  }
-  setData(url,img,title,author,caption,isbn) {
-  this.test['url'] = url;
-  this.test['img'] = img;
-  this.test['title'] = title;
-  this.test['author'] = author;
-  this.test['caption'] = caption;
-  this.test['isbn'] = isbn;
-  }
-  getData(tmp) {
-  Object.assign(tmp, this.test);
-  }
-  }
-*/

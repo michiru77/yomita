@@ -167,11 +167,8 @@ $(function(){
         $('#photos_1').html(null);
 
         // ISBN検索により photos_1 の書籍データを取得
-        setTimeout(function(){
-            // ここに検索関数を放り込む
-            isbnSearch(isbn, 0);
-        },1000);
-        //isbnSearch(isbn, 0);
+        // 処理の同期の關係で一旦スリープ処理を除外
+        isbnSearch(isbn, 0);
 
         /************************スリープ処理を行います***************************/
 
