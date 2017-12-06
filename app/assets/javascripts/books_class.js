@@ -69,49 +69,44 @@ function BooksData() {
 
 function TopBook() {
 
-    var _url;
-    var _img;
-    var _title;
-    var _author;
-    var _caption;
-    var _isbn;
+    var _topBook = {};
 
     this.getUrl = function() {
-        return _url;
+        return _topBook.url;
     };
     this.getImg = function() {
-        return _img;
+        return _topBook.img;
     };
     this.getTitle = function() {
-        return _title;
+        return _topBook.title;
     };
     this.getAuthor = function() {
-        return _author;
+        return _topBook.author;
     };
     this.getCaption = function () {
-        return _caption;
+        return _topBook.caption;
     };
     this.getIsbn = function() {
-        return _isbn;
+        return _topBook.isbn;
     };
 
     this.setUrl = function(url) {
-        _url = url;
+        _topBook.url = url;
     };
     this.setImg = function(img) {
-        _img = img;
+        _topBook.img = img;
     };
     this.setTitle = function(title) {
-        _title = title;
+        _topBook.title = title;
     };
     this.setAuthor = function(author) {
-        _author = author;
+        _topBook.author = author;
     };
     this.setCaption = function(caption) {
-        _caption = caption;
+        _topBook.caption = caption;
     };
     this.setIsbn = function(isbn) {
-        _isbn = isbn;
+        _topBook.isbn = isbn;
     };
 
 };
