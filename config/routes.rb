@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   # root 'index#frontcover'
-  # root 'rakuten#search'
-  # get 'rakuten_search' => 'rakuten#search'
   # get '/historypage' => 'index#historypage'
   get 'home_history' => 'home#history'
   get 'home_index' => 'home#index'
