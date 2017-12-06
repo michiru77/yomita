@@ -11,14 +11,8 @@ $(window).load(function(){
     var sort = 'sales';
     var page = Math.floor(Math.random()*100);
     setTimeout(function(){
-        // ここに検索関数を放り込む
         sortSearch(sort,page,0);
     },1000);
-    // titleSearch(title, 0);
-    // authorSearch(author, 0);
-    //sortSearch(sort,page,0);
-    // genreSearch(genreId, 0);
-    // isbnSearch(isbn, 0);
 });
 
 // クリックした表紙をトップへ移動する
@@ -26,12 +20,7 @@ $(document).ready(function() {
     $('#photos_6').click(function(){
 
         var id = event.target.id;
-        tb.setUrl(bd.getUrl(id));
-        tb.setImg(bd.getImg(id));
-        tb.setTitle(bd.getTitle(id));
-        tb.setAuthor(bd.getAuthor(id));
-        tb.setCaption(bd.getCaption(id));
-        tb.setIsbn(bd.getIsbn(id));
+        tb.setTopBook(bd.getBooks(id));
 
         var url = tb.getUrl();
         var src = tb.getImg().replace(/\?.*$/, '');
@@ -161,7 +150,6 @@ $(function(){
         var isbn = event.target.alt;
 
         //全てのhtmlの中身を削除
-        // $('#display_history').html(null);
         $('.line').html(null);
         $('#photos_6').html(null);
         $('#photos_1').html(null);
@@ -169,10 +157,6 @@ $(function(){
         // ISBN検索により photos_1 の書籍データを取得
         // 処理の同期の關係で一旦スリープ処理を除外
         isbnSearch(isbn, 0);
-
-        /************************スリープ処理を行います***************************/
-
-        /************************スリープ処理を行います***************************/
 
         //タイトル取得
         var url = tb.getUrl();

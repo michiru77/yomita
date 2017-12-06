@@ -74,14 +74,9 @@ function historyToTop(data){
     var i = 0;
     bd.reset();
     ig.reset();
-    bd.setBooksData(data[i],i);
-    tb.setUrl(bd.getUrl(i));
-    tb.setImg(bd.getImg(i));
-    tb.setTitle(bd.getTitle(i));
-    tb.setAuthor(bd.getAuthor(i));
-    tb.setCaption(bd.getCaption(i));
-    tb.setIsbn(bd.getIsbn(i));
-}
+    bd.setBooks(data[i],i);
+    tb.setTopBook(bd.getBooks(i));
+};
 
 // 取得した書籍データを html に整形して出力する
 function outBooks(data, check) {
@@ -95,7 +90,7 @@ function outBooks(data, check) {
     $.each(data, function(i) {
 
         var id = ig.getId();
-        bd.setBooksData(data[i],id);
+        bd.setBooks(data[i],id);
         var url = bd.getUrl(id);
         var img = bd.getImg(id);
 
