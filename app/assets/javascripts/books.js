@@ -2,11 +2,11 @@
 //= require search
 //= require history
 
-$(window).load(function(){
+const bd = new BooksData();
+const tb = new TopBook();
+const ig = new IdGen();
 
-    bd = new BooksData();
-    tb = new TopBook();
-    ig = new IdGen();
+$(window).load(function(){
 
     var sort = 'sales';
     var page = Math.floor(Math.random()*100);
