@@ -1,4 +1,4 @@
-//= require compiled/books_class
+//= require books_class
 //= require search
 //= require history
 

@@ -95,8 +95,8 @@ function outBooks(data, check) {
 
         var id = ig.getId();
         bd.setBooksData(data[i]);
-        var img = bd.getImg(id);
         var url = bd.getUrl(id);
+        var img = bd.getImg(id);
 
         var noImg = img.match(/noimage/);
         if (noImg === null) {
