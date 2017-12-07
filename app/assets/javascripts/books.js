@@ -324,11 +324,22 @@ $(function() {
             height = $window.height(),
             scrollTop = $window.scrollTop(),
             documentHeight = $(document).height();
+
         if (documentHeight === height + scrollTop) {
+
+            //サーチ切り替えナンバー取得
+            var number = sw.get();
+
             //ここにサーチ関数を記述
             setTimeout(function(){
                 // ここに検索関数を放り込む
-                titleSearch(tb.getTitle().slice(0,2),1);
+                if (number == 0) {
+                    sortSearch('sales', 1, 1);
+                }else if(number == 1){
+                    authorSearch(tb.getAuthor(),1);
+                } else {
+                    titleSearch(tb.getTitle().slice(0,2),1);
+                }
             },1000);
         }
     });
