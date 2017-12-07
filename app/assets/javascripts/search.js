@@ -15,7 +15,7 @@ function sortSearch(sort, page, check) {
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
-}
+};
 
 // 作者検索関数
 function authorSearch(author, page, check) {
@@ -34,7 +34,7 @@ function authorSearch(author, page, check) {
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
-}
+};
 
 // タイトル検索関数
 function titleSearch(title, page, check) {
@@ -72,7 +72,7 @@ function genreSearch(genreId, page, check) {
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
-}
+};
 
 // ISBN 検索関数
 function isbnSearch(isbn, check) {
@@ -91,7 +91,7 @@ function isbnSearch(isbn, check) {
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
-}
+};
 
 function historyToTop(data){
     var i = 0;
@@ -108,7 +108,7 @@ function outBooks(data, check) {
         $('#photos_6').html(null);
         bd.reset();
         ig.reset();
-    }
+    };
 
     $.each(data, function(i) {
 
@@ -132,6 +132,6 @@ function outBooks(data, check) {
                 + '</span>';
             //+ '</div>';
             $("#photos_6").append(list);
-        }
+        };
     });
-}
+};

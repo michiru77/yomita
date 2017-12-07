@@ -52,7 +52,6 @@ $(document).ready(function() {
             // ここに検索関数を放り込む
             titleSearch(searchTitle, pg.getPage(), 0);
         },1000);
-        //titleSearch(searchTitle, 0);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
@@ -62,8 +61,6 @@ $(document).ready(function() {
 
         // 履歴情報の保存
         var img = src;
-        // historySearch(apple);
-        //historyStorage(apple);
         historyStorageIndex(img,isbn);
     });
 });
@@ -151,16 +148,12 @@ $(document).ready(function() {
             // ここに検索関数を放り込む
             titleSearch(searchTitle, pg.getPage(), 0);
         },1000);
-        //titleSearch(searchTitle,0);
 
         // photos_6 までスクロールダウン
         scrollDown();
 
         //履歴情報の保存
         var img = src;
-        //historySearch(apple);
-        //historyStorage(img,title,author,caption);
-        //historyStorageIndex(img);
     });
 });
 
@@ -208,7 +201,6 @@ $(function(){
             // ここに検索関数を放り込む
             titleSearch(search_title, pg.getPage(), 0);
         },1000);
-        //titleSearch(search_title);
 
         //履歴ページを隠す
         $('#history_page').hide(1000);
@@ -331,7 +323,7 @@ function putTopBook(url,src,title,author,caption) {
 function scrollUp() {
     var position = $("#photos_1").offset().top;
     $("html,body").animate({
-        scrollTop : position
+        scrollTop: position
     });
 }
 
@@ -339,7 +331,7 @@ function scrollUp() {
 function scrollDown() {
     var position = $("#photos_6").offset().top;
     $("html,body").animate({
-        scrollTop : position
+        scrollTop: position
     });
 }
 
