@@ -118,15 +118,19 @@ function outBooks(data, check) {
         var genre = bd.getGenreId(id);
 
         var ex = genre.toString();
-        // トップの親ジャンルが写真集
+        // 写真集
         var ex1 = ex.match(/001013/);
         // 漫画/青年
         var ex2 = ex.match(/001001003/);
         // 文庫/写真集
         var ex3 = ex.match(/001019014/);
+        // エンタメ/フィギュア
+        var ex4 = ex.match(/001011010/);
+        // 電子ブック
+        var ex5 = ex.match(/001024/);
 
         var noImg = img.match(/noimage/);;
-        if (noImg === null && ex1 === null && ex2 === null && ex3 === null) {
+        if (noImg === null && ex1 === null && ex2 === null && ex3 === null && ex4 === null && ex5 === null) {
             var list =// '<div class="iconBuyButton">'
                 //+ '<p>'
                 '<span class="iconBuyButton">'
