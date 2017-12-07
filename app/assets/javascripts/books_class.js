@@ -1,3 +1,26 @@
+function Switch() {
+
+    var _f = 0;
+
+    this.getFunc = function() {
+        return _f;
+    };
+
+    this.setFunc = function(f) {
+        alert('a')
+        if (f === "sort") {
+            _f = 0;
+        } else if (f === "title") {
+            _f = 1;
+        } else if (f === "author") {
+            _f = 2;
+        } else {
+            alert("miss");
+        };
+    };
+
+};
+
 function BooksData() {
 
     var _books = [];
