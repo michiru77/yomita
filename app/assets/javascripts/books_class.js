@@ -1,3 +1,19 @@
+function Page() {
+
+    var _p = 0;
+    var _rp = Math.floor(Math.random()*100);
+
+    this.getPage = function() {
+        _p += 1;
+        return _p;
+    };
+
+    this.getRandPage = function() {
+        return _rp;
+    };
+
+};
+
 function Switch() {
 
     var _f = 0;

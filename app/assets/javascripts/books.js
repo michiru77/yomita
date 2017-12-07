@@ -6,11 +6,12 @@ const bd = new BooksData();
 const tb = new TopBook();
 const ig = new IdGen();
 const sw = new Switch();
+const pg = new Page();
 
 $(window).load(function(){
 
     var sort = 'sales';
-    var page = Math.floor(Math.random()*100);
+    var page = pg.getRandPage();
     setTimeout(function(){
         sortSearch(sort,page,0);
     },1000);
