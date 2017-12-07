@@ -1,7 +1,6 @@
 function Page() {
 
     var _p = 0;
-    var _rp = Math.floor(Math.random()*100);
 
     this.getPage = function() {
         _p += 1;
@@ -9,7 +8,7 @@ function Page() {
     };
 
     this.getRandPage = function() {
-        return _rp;
+        return  Math.floor(Math.random()*100);
     };
 
 };

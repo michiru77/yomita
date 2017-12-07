@@ -355,7 +355,7 @@ $(function() {
             setTimeout(function(){
                 // ここに検索関数を放り込む
                 if (number == 0) {
-                    sortSearch('sales', 1, 1);
+                    sortSearch('sales', pg.getRandPage(), 1);
                 }else if(number == 1){
                     titleSearch(tb.getTitle().slice(0,2),1);
                 } else {
