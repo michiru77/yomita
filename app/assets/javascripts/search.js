@@ -116,9 +116,18 @@ function outBooks(data, check) {
         bd.setBooks(data[i],id);
         var url = bd.getUrl(id);
         var img = bd.getImg(id);
+        var genre = bd.getGenreId(id);
 
-        var noImg = img.match(/noimage/);
-        if (noImg === null) {
+        var ex = genre.toString();
+        // トップの親ジャンルが写真集
+        var ex1 = ex.match(/001013/);
+        // 漫画/青年
+        var ex2 = ex.match(/001001003/);
+        // 文庫/写真集
+        var ex3 = ex.match(/001019014/);
+
+        var noImg = img.match(/noimage/);;
+        if (noImg === null && ex1 === null && ex2 === null && ex3 === null) {
             var list =// '<div class="iconBuyButton">'
                 //+ '<p>'
                 '<span class="iconBuyButton">'

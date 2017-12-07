@@ -74,8 +74,7 @@ function BooksData() {
         var img = data["params"]["largeImageUrl"];
         var title = data["params"]["title"];
         var author = data["params"]["author"].replace(/\/.*$/, '');
-        var genreId = data["params"]["booksGenreId"];
-        genreId.split('/')[genreId.length-1];
+        var genreId = data["params"]["booksGenreId"].split('/', 1);
         var caption = data["params"]["itemCaption"];
         var isbn = data["params"]["isbn"];
 

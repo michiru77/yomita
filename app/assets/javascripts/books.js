@@ -161,7 +161,7 @@ $(document).ready(function() {
 $(function(){
     $("#history_page").click(function() {
 
-        //スクロールサーチイベント変数値セット
+        // スクロールサーチイベント変数値セット
         sw.setFunc('title');
         pg.reset();
 
