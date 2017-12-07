@@ -148,4 +148,5 @@ function outBooks(data, check) {
     });
     // ローディング画像削除
     $('#top_loading').html(null);
+    $('#end_loading').html(null);
 };
