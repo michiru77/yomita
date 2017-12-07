@@ -372,9 +372,11 @@ $(function() {
             //サーチ切り替えナンバー取得
             var number = sw.getFunc();
 
-            //ここにサーチ関数を記述
-            setTimeout(function(){
-                // ここに検索関数を放り込む
+            sleep(1000);
+
+
+
+
                 if (number == 0) {
                     sortSearch('sales', pg.getRandPage(), 1);
                 }else if(number == 1){
@@ -382,7 +384,16 @@ $(function() {
                 } else {
                     authorSearch(tb.getAuthor(), pg.getPage(), 1);
                 }
-            },1000);
         }
     });
 });
+
+
+function sleep(waitMsec) {
+
+    var startMsec = new Date();
+
+    // 指定ミリ秒間、空ループ。CPUは常にビジー。
+    while (new Date() - startMsec < waitMsec);
+
+}
