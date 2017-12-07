@@ -23,7 +23,6 @@ function Switch() {
     };
 
     this.setFunc = function(f) {
-        alert('a')
         if (f === "sort") {
             _f = 0;
         } else if (f === "title") {
