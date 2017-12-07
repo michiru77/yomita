@@ -9,6 +9,9 @@ const sw = new Switch();
 
 $(window).load(function(){
 
+    //スクロールサーチイベント切り替え変数をセット
+    sw.setFunc('sort');
+
     var sort = 'sales';
     var page = Math.floor(Math.random()*100);
     setTimeout(function(){
@@ -20,6 +23,9 @@ $(window).load(function(){
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
     $('#photos_6').click(function(){
+
+        //スクロールサーチイベント切り替え変数をセット
+        sw.setFunc('title');
 
         var id = event.target.id;
         tb.setTopBook(bd.getBooks(id));
@@ -66,6 +72,9 @@ $(document).ready(function() {
         authorSearch(author, 0);
         // photos_6 までスクロールダウン
         scrollDown();
+
+        //スクロールサーチイベント切り替え変数セット
+        sw.setFunc('author');
     })
 });
 
@@ -110,9 +119,12 @@ $(function(){
     }
 });
 
-//履歴imgをクリックした時の処理
+//本の道筋imgをクリックした時の処理
 $(document).ready(function() {
     $('#display_history').click(function() {
+
+        //スクロールサーチイベント変数値set
+        sw.setFunc('title');
 
         var src = event.target.src;
         var alt = event.target.alt;
@@ -126,6 +138,9 @@ $(document).ready(function() {
 
         // タイトルの頭二文字を抽出
         var searchTitle = title.slice(0,2);
+
+        //htmlをnull
+        $('#photos_6').html(null);
 
         setTimeout(function(){
             // ここに検索関数を放り込む
@@ -147,6 +162,9 @@ $(document).ready(function() {
 //履歴ページのimgをクリックしたときの処理
 $(function(){
     $("#history_page").click(function() {
+
+        //スクロールサーチイベント変数値セット
+        sw.setFunc('title');
 
         var img = event.target.src;
         var isbn = event.target.alt;
@@ -330,7 +348,7 @@ $(function() {
         if (documentHeight === height + scrollTop) {
 
             //サーチ切り替えナンバー取得
-            var number = sw.get();
+            var number = sw.getFunc();
 
             //ここにサーチ関数を記述
             setTimeout(function(){
@@ -338,9 +356,9 @@ $(function() {
                 if (number == 0) {
                     sortSearch('sales', 1, 1);
                 }else if(number == 1){
-                    authorSearch(tb.getAuthor(),1);
-                } else {
                     titleSearch(tb.getTitle().slice(0,2),1);
+                } else {
+                    authorSearch(tb.getAuthor(),1);
                 }
             },1000);
         }
