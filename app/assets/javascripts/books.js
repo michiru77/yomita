@@ -22,7 +22,10 @@ $(window).load(function(){
 
     //スクロールサーチイベント切り替え変数をセット
     sw.setFunc('sort');
-    //$('#add_loading').html('<div id="loading"><img src="/gif-load.gif"></div>');
+
+    //トップページリロード時のローディング画像セット
+    $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
+
     var sort = 'sales';
     var page = pg.getRandPage();
     setTimeout(function(){
@@ -367,7 +370,7 @@ $(function() {
         if (documentHeight === height + scrollTop) {
 
             //ローディング画像追加
-            $('#add_loading').html('<div id="loading"><img src="/gif-load.gif"></div>');
+            $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
 
             //サーチ切り替えナンバー取得
             var number = sw.getFunc();
@@ -382,8 +385,6 @@ $(function() {
                 } else {
                     authorSearch(tb.getAuthor(),1);
                 }
-                //ローディング画像削除
-                $('#add_loading').html(null);
             },1000);
         }
     });

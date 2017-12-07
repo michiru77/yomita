@@ -418,8 +418,15 @@ img:hover{
   text-align: right;
   //display: none;
 }
+
+//トップ読み込み時のローディング画像場所指定
+#top_loading{
+  //margin-top: 50%;
+  text-align: center;
+}
+
 //テキスト
-#add_loading{
+#end_loading{
   //margin: 0 auto;
   text-align: center;
 }
@@ -435,7 +442,14 @@ img:hover{
   //font-size: 400px;
 }
 
-#loading img {
+#loading_1 img {
+  margin-top: 30px;
+  width: 40px;
+  //height: auto;
+  //font-size: 10px;
+}
+
+#loading_2 img {
   margin-top: 30px;
   width: 40px;
   //height: auto;

@@ -111,6 +111,8 @@ function outBooks(data, check) {
             $("#photos_6").append(list);
         }
     });
+    //ローディング画像削除
+    $('#top_loading').html(null);
 }
 
 // ソート検索関数
@@ -130,4 +132,5 @@ function sortSearch(sort, page, check) {
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
+
 }
