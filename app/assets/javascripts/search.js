@@ -84,7 +84,6 @@ function isbnSearch(isbn, check) {
         data: {
             isbn: isbn,
             hits: 1,
-            page: page
         }
     }).done(function(data){
         historyToTop(data);
