@@ -83,7 +83,7 @@ function isbnSearch(isbn, check) {
         async: false,
         data: {
             isbn: isbn,
-            hits: 1,
+            hits: 1
         }
     }).done(function(data){
         historyToTop(data);
@@ -146,4 +146,6 @@ function outBooks(data, check) {
             $("#photos_6").append(list);
         };
     });
+    // ローディング画像削除
+    $('#top_loading').html(null);
 };

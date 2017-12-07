@@ -8,11 +8,24 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
+//ローディング表示
+/*
+window.onload = function(){
+    $(function() {
+        //$("#loading").fadeOut();
+        //$("#photos_6").fadeIn();
+    });
+}
+*/
+
 $(window).load(function(){
 
     //スクロールサーチイベント切り替え変数をセット
     sw.setFunc('sort');
     pg.reset();
+
+    //トップページリロード時のローディング画像セット
+    $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
 
     var sort = 'sales';
     var page = pg.getRandPage();
@@ -310,11 +323,19 @@ function putTopBook(url,src,title,author,caption) {
     $('.author').html(null);
     $('.author').append(authorHtml);
 
+    if(caption){
     // あらすじ追加
     var captionHtml = '<p class="red bold">'
         + caption
         + '<br /></p>'
         + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+    }else{
+        var captionHtml = '<p class="red bold">'
+            + 'あらすじはありません'
+            + '<br /></p>'
+            + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+    }
+
     $('#modal-content-innar').html(null);
     $('#modal-content-innar').append(captionHtml);
 }
@@ -344,6 +365,9 @@ $(function() {
             documentHeight = $(document).height();
 
         if (documentHeight === height + scrollTop) {
+
+            //ローディング画像追加
+            $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
 
             //サーチ切り替えナンバー取得
             var number = sw.getFunc();

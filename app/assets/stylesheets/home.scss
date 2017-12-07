@@ -20,21 +20,21 @@ body {
 }
 
 #rireki_page_show {
-    cursor : pointer;
-    margin-right: auto;
+cursor : pointer;
+margin-right: auto;
 }
 
 #rireki_page_show:hover{
-    color:#E48E00;
+color:#E48E00;
 }
 
 #to_Top_page {
-    cursor : pointer;
-    margin-right: auto;
+cursor : pointer;
+margin-right: auto;
 }
 
 #to_Top_page:hover{
-    color:#E48E00;
+color:#E48E00;
 }
 
 h1 {
@@ -193,7 +193,7 @@ img:hover{
 
 /*
 #photos_6 {
-/* Prevent vertical gaps
+    /* Prevent vertical gaps
     line-height: 0;
 
     -webkit-column-count: 6;
@@ -214,9 +214,13 @@ img:hover{
     margin-top: 30px;
 }
 */
+/*
+#photos_6{
+  display: none;
+}*/
 
 #photos_6 img {
-    margin: 10px;
+  margin: 10px;
 }
 
 #photos_history {
@@ -405,4 +409,49 @@ img:hover{
 
 #Modoru{
     display: none;
+}
+
+#modal-content-innar{
+  //text-align: center;
+}
+#modal-close{
+  text-align: right;
+  //display: none;
+}
+
+//トップ読み込み時のローディング画像場所指定
+#top_loading{
+  //margin-top: 50%;
+  text-align: center;
+}
+
+//テキスト
+#end_loading{
+  //margin: 0 auto;
+  text-align: center;
+}
+
+#loading{
+  //left: 50%;
+  //position:absolute;
+  //left:50%;
+  //top:50%;
+  //margin-left:-30px;
+  //width: 200%;
+  //height: 200%;
+  //font-size: 400px;
+}
+
+#loading_1 img {
+  margin-top: 30px;
+  width: 40px;
+  //height: auto;
+  //font-size: 10px;
+}
+
+#loading_2 img {
+  margin-top: 30px;
+  width: 40px;
+  //height: auto;
+  //font-size: 10px;
 }
