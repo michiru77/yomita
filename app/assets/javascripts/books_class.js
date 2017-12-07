@@ -11,6 +11,10 @@ function Page() {
         return  Math.floor(Math.random()*100);
     };
 
+    this.reset = function() {
+        _p = 0;
+    };
+
 };
 
 function Switch() {

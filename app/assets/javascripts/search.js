@@ -1,5 +1,24 @@
+// ソート検索関数
+function sortSearch(sort, page, check) {
+    return $.ajax({
+        url: '/home_sortSearch',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            sort: sort,
+            hits: 30,
+            page: page
+        }
+    }).done(function(data){
+        outBooks(data, check);
+    }).fail(function(data){
+        $('#out').html('<p>Failure</p>');
+    });
+}
+
 // 作者検索関数
-function authorSearch(author, check) {
+function authorSearch(author, page, check) {
     return $.ajax({
         url: '/home_authorSearch',
         type: 'GET',
@@ -7,7 +26,8 @@ function authorSearch(author, check) {
         async: true,
         data: {
             author: author,
-            hits: 30
+            hits: 30,
+            page: page
         }
     }).done(function(data){
         outBooks(data, check);
@@ -17,7 +37,7 @@ function authorSearch(author, check) {
 }
 
 // タイトル検索関数
-function titleSearch(title, check) {
+function titleSearch(title, page, check) {
     return $.ajax({
         url: '/home_titleSearch',
         type: 'GET',
@@ -25,7 +45,8 @@ function titleSearch(title, check) {
         async: true,
         data: {
             title: title,
-            hits: 30
+            hits: 30,
+            page: page
         }
     }).done(function(data){
         outBooks(data, check);
@@ -35,7 +56,7 @@ function titleSearch(title, check) {
 }
 
 // ジャンル検索関数
-function genreSearch(genreId, check) {
+function genreSearch(genreId, page, check) {
     return $.ajax({
         url: '/home_genreSearch',
         type: 'GET',
@@ -43,7 +64,8 @@ function genreSearch(genreId, check) {
         async: true,
         data: {
             booksGenreId: genreId,
-            hits: 30
+            hits: 30,
+            page: page
         }
     }).done(function(data){
         outBooks(data, check);
@@ -61,7 +83,8 @@ function isbnSearch(isbn, check) {
         async: false,
         data: {
             isbn: isbn,
-            hits: 1
+            hits: 1,
+            page: page
         }
     }).done(function(data){
         historyToTop(data);
@@ -110,24 +133,5 @@ function outBooks(data, check) {
             //+ '</div>';
             $("#photos_6").append(list);
         }
-    });
-}
-
-// ソート検索関数
-function sortSearch(sort, page, check) {
-    return $.ajax({
-        url: '/home_sortSearch',
-        type: 'GET',
-        dataType: 'json',
-        async: true,
-        data: {
-            sort: sort,
-            hits: 30,
-            page: page
-        }
-    }).done(function(data){
-        outBooks(data, check);
-    }).fail(function(data){
-        $('#out').html('<p>Failure</p>');
     });
 }

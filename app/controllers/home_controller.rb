@@ -1,8 +1,9 @@
 # coding: utf-8
 class HomeController < ApplicationController
 
-  def authorSearch
-    data = RakutenWebService::Books::Book.search(author: params[:author],
+  def sortSearch
+    data = RakutenWebService::Books::Book.search(sort: params[:sort],
+                                                 page: params[:page],
                                                  hits: params[:hits])
     render json: data
     #binding.pry
@@ -10,6 +11,15 @@ class HomeController < ApplicationController
 
   def titleSearch
     data = RakutenWebService::Books::Book.search(title: params[:title],
+                                                 page: params[:page],
+                                                 hits: params[:hits])
+    render json: data
+    #binding.pry
+  end
+
+  def authorSearch
+    data = RakutenWebService::Books::Book.search(author: params[:author],
+                                                 page: params[:page],
                                                  hits: params[:hits])
     render json: data
     #binding.pry
@@ -17,13 +27,6 @@ class HomeController < ApplicationController
 
   def genreSearch
     data = RakutenWebService::Books::Book.search(booksGenreId: params[:booksGenreId],
-                                                 hits: params[:hits])
-    render json: data
-    #binding.pry
-  end
-
-  def sortSearch
-    data = RakutenWebService::Books::Book.search(sort: params[:sort],
                                                  page: params[:page],
                                                  hits: params[:hits])
     render json: data

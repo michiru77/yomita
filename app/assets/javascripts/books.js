@@ -12,6 +12,7 @@ $(window).load(function(){
 
     //スクロールサーチイベント切り替え変数をセット
     sw.setFunc('sort');
+    pg.reset();
 
     var sort = 'sales';
     var page = pg.getRandPage();
@@ -27,6 +28,7 @@ $(document).ready(function() {
 
         //スクロールサーチイベント切り替え変数をセット
         sw.setFunc('title');
+        pg.reset();
 
         var id = event.target.id;
         tb.setTopBook(bd.getBooks(id));
@@ -48,7 +50,7 @@ $(document).ready(function() {
 
         setTimeout(function(){
             // ここに検索関数を放り込む
-            titleSearch(searchTitle, 0);
+            titleSearch(searchTitle, pg.getPage(), 0);
         },1000);
         //titleSearch(searchTitle, 0);
 
@@ -76,6 +78,7 @@ $(document).ready(function() {
 
         //スクロールサーチイベント切り替え変数セット
         sw.setFunc('author');
+        pg.reset();
     })
 });
 
@@ -126,6 +129,7 @@ $(document).ready(function() {
 
         //スクロールサーチイベント変数値set
         sw.setFunc('title');
+        pg.reset();
 
         var src = event.target.src;
         var alt = event.target.alt;
@@ -145,7 +149,7 @@ $(document).ready(function() {
 
         setTimeout(function(){
             // ここに検索関数を放り込む
-            titleSearch(searchTitle,0);
+            titleSearch(searchTitle, pg.getPage(), 0);
         },1000);
         //titleSearch(searchTitle,0);
 
@@ -166,6 +170,7 @@ $(function(){
 
         //スクロールサーチイベント変数値セット
         sw.setFunc('title');
+        pg.reset();
 
         var img = event.target.src;
         var isbn = event.target.alt;
@@ -201,7 +206,7 @@ $(function(){
         search_title = title.slice(0,2);
         setTimeout(function(){
             // ここに検索関数を放り込む
-            titleSearch(search_title);
+            titleSearch(search_title, pg.getPage(), 0);
         },1000);
         //titleSearch(search_title);
 
@@ -357,9 +362,9 @@ $(function() {
                 if (number == 0) {
                     sortSearch('sales', pg.getRandPage(), 1);
                 }else if(number == 1){
-                    titleSearch(tb.getTitle().slice(0,2),1);
+                    titleSearch(tb.getTitle().slice(0,2), pg.getPage(), 1);
                 } else {
-                    authorSearch(tb.getAuthor(),1);
+                    authorSearch(tb.getAuthor(), pg.getPage(), 1);
                 }
             },1000);
         }
