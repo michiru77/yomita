@@ -214,6 +214,10 @@ img:hover{
     margin-top: 30px;
 }
 */
+/*
+#photos_6{
+  display: none;
+}*/
 
 #photos_6 img {
   margin: 10px;
@@ -414,3 +418,29 @@ img:hover{
   text-align: right;
   //display: none;
 }
+//テキスト
+#add_loading{
+  //margin: 0 auto;
+  text-align: center;
+}
+
+#loading{
+  //left: 50%;
+  //position:absolute;
+  //left:50%;
+  //top:50%;
+  //margin-left:-30px;
+  //width: 200%;
+  //height: 200%;
+  //font-size: 400px;
+}
+
+#loading img {
+  margin-top: 30px;
+  width: 40px;
+  //height: auto;
+  //font-size: 10px;
+}
+
+
+

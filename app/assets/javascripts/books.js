@@ -8,11 +8,21 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
+//ローディング表示
+/*
+window.onload = function(){
+    $(function() {
+        //$("#loading").fadeOut();
+        //$("#photos_6").fadeIn();
+    });
+}
+*/
+
 $(window).load(function(){
 
     //スクロールサーチイベント切り替え変数をセット
     sw.setFunc('sort');
-
+    //$('#add_loading').html('<div id="loading"><img src="/gif-load.gif"></div>');
     var sort = 'sales';
     var page = pg.getRandPage();
     setTimeout(function(){
@@ -356,6 +366,9 @@ $(function() {
 
         if (documentHeight === height + scrollTop) {
 
+            //ローディング画像追加
+            $('#add_loading').html('<div id="loading"><img src="/gif-load.gif"></div>');
+
             //サーチ切り替えナンバー取得
             var number = sw.getFunc();
 
@@ -369,6 +382,8 @@ $(function() {
                 } else {
                     authorSearch(tb.getAuthor(),1);
                 }
+                //ローディング画像削除
+                $('#add_loading').html(null);
             },1000);
         }
     });
