@@ -313,11 +313,19 @@ function putTopBook(url,src,title,author,caption) {
     $('.author').html(null);
     $('.author').append(authorHtml);
 
+    if(caption){
     // あらすじ追加
     var captionHtml = '<p class="red bold">'
         + caption
         + '<br /></p>'
         + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+    }else{
+        var captionHtml = '<p class="red bold">'
+            + 'あらすじはありません'
+            + '<br /></p>'
+            + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+    }
+
     $('#modal-content-innar').html(null);
     $('#modal-content-innar').append(captionHtml);
 }
