@@ -5,6 +5,7 @@
 const bd = new BooksData();
 const tb = new TopBook();
 const ig = new IdGen();
+const sw = new Switch();
 
 $(window).load(function(){
 
@@ -13,6 +14,7 @@ $(window).load(function(){
     setTimeout(function(){
         sortSearch(sort,page,0);
     },1000);
+
 });
 
 // クリックした表紙をトップへ移動する
