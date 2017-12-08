@@ -1,3 +1,12 @@
+<body>
+<!-- headerだよ -->
+<header>
+<div id="header_layout">
+<h1 id="title">読み太。</h1>
+
+</header>
+
+<!-- 履歴表示だよ -->
 <div id="history_page">
   <% listnumber=0 %>
   <% for listEL in cookies[:image].split('&') do %>
@@ -9,11 +18,13 @@
 </div>
 
 <% session[:image]%>
+<div id="button">
 <button id="rireki">履歴削除</button>
 <button id="rireki_page_show">履歴ページを見る</button>
 <button id="to_Top_page">トップページへ戻る</button>
 <button id="Modoru">戻る</button>
-
+</div>
+</div>
 <% link_to("履歴消しましょう","/home_history") %>
 
 <!-- セッションによる表示 -->
@@ -87,3 +98,5 @@
 
 
 <div id="michiru_sen"></div>
+
+</body>
