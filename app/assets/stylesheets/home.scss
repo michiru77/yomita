@@ -8,7 +8,25 @@ body {
     margin: 60px 100px 100px 100px;
     //background-color: #fafad2;
     //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
+    background-color: rgb(245,245,245);
 }
+
+/*
+#header_layout {
+background-color: rgb(250,220,233);
+position:fixed;
+}
+#title {
+text-align: center;
+}
+*/
+
+/*
+#button {
+text-align: left;
+float: left;
+}
+*/
 
 #rireki {
     cursor : pointer;
@@ -20,21 +38,21 @@ body {
 }
 
 #rireki_page_show {
-cursor : pointer;
-margin-right: auto;
+    cursor : pointer;
+    margin-right: auto;
 }
 
 #rireki_page_show:hover{
-color:#E48E00;
+    color:#E48E00;
 }
 
 #to_Top_page {
-cursor : pointer;
-margin-right: auto;
+    cursor : pointer;
+    margin-right: auto;
 }
 
 #to_Top_page:hover{
-color:#E48E00;
+    color:#E48E00;
 }
 
 h1 {
@@ -193,7 +211,7 @@ img:hover{
 
 /*
 #photos_6 {
-    /* Prevent vertical gaps
+/* Prevent vertical gaps
     line-height: 0;
 
     -webkit-column-count: 6;
@@ -220,7 +238,7 @@ img:hover{
 }*/
 
 #photos_6 img {
-  margin: 10px;
+    margin: 10px;
 }
 
 #photos_history {
@@ -412,46 +430,46 @@ img:hover{
 }
 
 #modal-content-innar{
-  //text-align: center;
+    //text-align: center;
 }
 #modal-close{
-  text-align: right;
-  //display: none;
+    text-align: right;
+    //display: none;
 }
 
 //トップ読み込み時のローディング画像場所指定
 #top_loading{
-  //margin-top: 50%;
-  text-align: center;
+    //margin-top: 50%;
+    text-align: center;
 }
 
 //テキスト
 #end_loading{
-  //margin: 0 auto;
-  text-align: center;
+    //margin: 0 auto;
+    text-align: center;
 }
 
 #loading{
-  //left: 50%;
-  //position:absolute;
-  //left:50%;
-  //top:50%;
-  //margin-left:-30px;
-  //width: 200%;
-  //height: 200%;
-  //font-size: 400px;
+    //left: 50%;
+    //position:absolute;
+    //left:50%;
+    //top:50%;
+    //margin-left:-30px;
+    //width: 200%;
+    //height: 200%;
+    //font-size: 400px;
 }
 
 #loading_1 img {
-  margin-top: 30px;
-  width: 40px;
-  //height: auto;
-  //font-size: 10px;
+    margin-top: 30px;
+    width: 40px;
+    //height: auto;
+    //font-size: 10px;
 }
 
 #loading_2 img {
-  margin-top: 30px;
-  width: 40px;
-  //height: auto;
-  //font-size: 10px;
+    margin-top: 30px;
+    width: 40px;
+    //height: auto;
+    //font-size: 10px;
 }
