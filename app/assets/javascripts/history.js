@@ -31,6 +31,19 @@ function history_delete(one) {
         }
     });
 }
+//個別履歴削除
+function history_cDelete(isbn) {
+    return $.ajax({
+        url: '/home_defcDelete',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            cDeleteN: isbn
+        }
+    });
+}
+
 
 //画像imgデータを新しく作成した履歴ページに送信
 function historyStorageIndex(img,isbn) {

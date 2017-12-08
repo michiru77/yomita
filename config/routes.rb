@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # get '/historypage' => 'index#historypage'
   get 'home_history' => 'home#history'
   get 'home_index' => 'home#index'
+  get 'home_defcDelete' => 'home#defcDelete'
   root 'home#index'
   get 'home_authorSearch' => 'home#authorSearch'
   get 'home_titleSearch' => 'home#titleSearch'

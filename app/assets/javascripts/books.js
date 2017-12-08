@@ -143,53 +143,61 @@ $(function(){
 
         var img = event.target.src;
         var isbn = event.target.alt;
-
-        //全てのhtmlの中身を削除
-        // $('#display_history').html(null);
-        $('.line').html(null);
-        $('#photos_6').html(null);
-        $('#photos_1').html(null);
-
-        // ISBN検索により photos_1 の書籍データを取得
-        isbnSearch(isbn, 0);
-
-        /************************スリープ処理を行います***************************/
-
-        /************************スリープ処理を行います***************************/
-
-        //タイトル取得
-        var url = tb.getUrl();
-        var src = event.target.src.replace(/\?.*$/, '');
-        var title = tb.getTitle();
-        var author = tb.getAuthor();
-        var caption = tb.getCaption();
-
-        // トップに表紙を配置
-        putTopBook(url,src,title,author,caption);
-
-        // タイトル，作者要素を表示
-        $('.title').show();
-        $('.author').show();
-
-        // photos_1，photos_6の表紙を表示
-        $('#photos_1').show(1000);
-        $('#photos_6').show();
-
-        //タイトル上2文字検索
-        search_title = title.slice(0,2);
-        titleSearch(search_title);
-
-        //履歴ページを隠す
-        $('#history_page').hide(1000);
-
-        //戻るボタンを隠す
-        $('#Modoru').hide();
-
-        //「履歴ページをみる」ボタンを表示する
-        $('#rireki_page_show').show();
-
-        //履歴のミチシルベを表示する
-        $('#display_history').show();
+        
+        if( $("[name=choice_delete]:checked").val()==1 ){
+            history_cDelete(isbn);
+            //$('#history_page').html(null);
+            event.target.remove();
+            //$('#history_page').append();
+        }else{
+            //全てのhtmlの中身を削除
+            // $('#display_history').html(null);
+            $('.line').html(null);
+            $('#photos_6').html(null);
+            $('#photos_1').html(null);
+    
+            // ISBN検索により photos_1 の書籍データを取得
+            isbnSearch(isbn, 0);
+    
+            /************************スリープ処理を行います***************************/
+    
+            /************************スリープ処理を行います***************************/
+    
+            //タイトル取得
+            var url = tb.getUrl();
+            var src = event.target.src.replace(/\?.*$/, '');
+            var title = tb.getTitle();
+            var author = tb.getAuthor();
+            var caption = tb.getCaption();
+    
+            // トップに表紙を配置
+            putTopBook(url,src,title,author,caption);
+    
+            // タイトル，作者要素を表示
+            $('.title').show();
+            $('.author').show();
+    
+            // photos_1，photos_6の表紙を表示
+            $('#photos_1').show(1000);
+            $('#photos_6').show();
+    
+            //タイトル上2文字検索
+            search_title = title.slice(0,2);
+            titleSearch(search_title);
+    
+            //履歴ページを隠す
+            $('#history_page').hide(1000);
+    
+            //戻るボタンを隠す
+            $('#Modoru').hide();
+    
+            //「履歴ページをみる」ボタンを表示する
+            $('#rireki_page_show').show();
+    
+            //履歴のミチシルベを表示する
+            $('#display_history').show();
+        }
+        
     });
 });
 
@@ -231,6 +239,8 @@ $(function(){
         $('#rireki_page_show').hide();
         $('#history_page').show(1000);
         $('#Modoru').show();
+        //$("#choice_delete").show();
+        $("#choice_hide").show();
     });
 });
 
@@ -250,6 +260,8 @@ $(function(){
         $('#rireki_page_show').show();
 
         $('#Modoru').hide();
+        //$("#choice_delete").hide();
+        $("#choice_hide").hide();
     });
 });
 

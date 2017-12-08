@@ -398,11 +398,61 @@ img:hover{
     color: #f00 ;
 }
 
+//個別削除ボタン用
+.onoff {
+	display: none;
+}
+.onoff + label {
+}
+.onoff + label:before,
+.onoff + label:after {
+  display: inline-block;
+  padding: .0em .0em;
+  width: 8em;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+}
+.onoff + label:before {
+  content: "個別削除OFF";
+  background: #DEDEDE;
+  color: #000000;
+  border-top-left-radius: .3em;
+  border-bottom-left-radius: .3em;
+}
+.onoff + label:after {
+  content: "個別削除ON";
+  background: #ABABAB;
+  color: #ABABAB;
+  border-top-right-radius: .3em;
+  border-bottom-right-radius: .3em;
+}
+.onoff:checked + label:before {
+  background: #459ACA;
+  color: #459ACA;
+}
+.onoff:checked + label:after {
+  background: #73CAFF;
+  color: #FFFFFF;
+}
+
 //初期状態では上にある前回までの履歴は非表示にしてある
 #history_page {
     display: none;
 }
 
 #Modoru{
+    display: none;
+}
+
+#choice_delete{
+    display: none;
+}
+
+input {
+    display: none;
+}
+
+#choice_hide{
     display: none;
 }
