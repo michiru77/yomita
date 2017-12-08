@@ -18,13 +18,19 @@
   </div>
 
   <% session[:image]%>
-  <div id="button">
-    <button id="rireki">履歴削除</button>
-    <button id="rireki_page_show">履歴ページを見る</button>
-    <button id="to_Top_page">トップページへ戻る</button>
-    <button id="Modoru">戻る</button>
+  <button id="rireki">履歴全削除</button>
+  <button id="rireki_page_show">履歴ページを見る</button>
+  <button id="to_Top_page">トップページへ戻る</button>
+  <button id="Modoru">戻る</button>
+  <div id="choice_hide">
+    <input type="checkbox" name="choice_delete" value="1" id="choice_delete" class="onoff">
+    <label for="choice_delete"></label>
   </div>
-  </div>
+  <!--
+      <input type="checkbox" name="choice_delete" value="1" id="choice_delete" class="onoff">
+      <label for="choice_delete"></label>
+      -->
+
   <% link_to("履歴消しましょう","/home_history") %>
 
   <!-- セッションによる表示 -->

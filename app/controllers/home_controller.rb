@@ -95,6 +95,27 @@ class HomeController < ApplicationController
     end
 
   end
+  
+  def defcDelete
+    tmp31 = cookies[:ISBN].split('&')
+    tmp32 = cookies[:image].split('&')
+    p '🔴 元々の配列'
+    p tmp31
+    p tmp32
+    p '🔴 探すISBN'
+    p params[:cDeleteN]
+    indexN = tmp31.index(params[:cDeleteN])
+    p '🔴 指定した番地'
+    p indexN
+    tmp31.delete_at(indexN)
+    tmp32.delete_at(indexN)
+    cookies[:ISBN]=tmp31
+    cookies[:image]=tmp32
+    p '🔴 個別削除したよ'
+    p cookies[:ISBN]
+    p cookies[:image]
+  end
+  
 
   def history
 
