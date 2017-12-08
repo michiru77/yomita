@@ -35,6 +35,14 @@ $(window).load(function(){
 
 });
 
+// #photos_1にmouse pointerを置いた際の処理。
+$(document).ready(function() {
+    $('#photos_1').mouseover(function(e){
+    $(this).css("cursor","pointer");
+     console.log('mouseover:' + e.target.id);
+    });
+});
+
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
     $('#photos_6').click(function(){
@@ -78,7 +86,7 @@ $(document).ready(function() {
     });
 });
 
-// 作者名をクリックすると作者検索を実行
+//作者名をクリックすると作者検索を実行
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
