@@ -110,7 +110,6 @@ function outBooks(data, check) {
     };
 
     $.each(data, function(i) {
-
         var id = ig.getId();
         bd.setBooks(data[i],id);
         var url = bd.getUrl(id);

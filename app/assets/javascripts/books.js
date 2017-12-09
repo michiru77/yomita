@@ -228,6 +228,9 @@ $(function(){
             //戻るボタンを隠す
             $('#Modoru').hide();
 
+            //個別削除ボタンを隠す
+            $('#choice_hide').hide();
+
             //「履歴ページをみる」ボタンを表示する
             $('#rireki_page_show').show();
 
@@ -386,27 +389,21 @@ $(function() {
             var number = sw.getFunc();
 
             sleep(1000);
-
-
-
-
             if (number == 0) {
                 sortSearch('sales', pg.getRandPage(), 1);
             }else if(number == 1){
                 titleSearch(tb.getTitle().slice(0,2), pg.getPage(), 1);
             } else {
                 authorSearch(tb.getAuthor(), pg.getPage(), 1);
-            }
-        }
+            };
+        };
     });
 });
 
-
+//スリープ処理関数
 function sleep(waitMsec) {
 
     var startMsec = new Date();
-
     // 指定ミリ秒間、空ループ。CPUは常にビジー。
     while (new Date() - startMsec < waitMsec);
-
-}
+};
