@@ -1,7 +1,6 @@
 function excepGenre() {
 
     var _genres = [];
-    var _excep = 0;
 
     this.setGenre = function(genre) {
         _genres.push(genre);
@@ -9,19 +8,16 @@ function excepGenre() {
 
     this.checkGenre = function(genre) {
 
-        genre = genre.toString();
+        var excep1 = _genres.indexOf(genre);
+        var excep2 = _genres.indexOf(genre.slice(0,6));
 
-        for (var g of _genres) {
-            var excep = genre.match(g);
-            if (excep !== null) {
-                _excep = 1;
-                break;
-            } else {
-                _excep = 0;
-            };
+        if (excep1 >= 0) {
+            return 1;
+        } else if (excep2 >= 0) {
+            return 1;
+        } else {
+            return 0;
         };
-
-        return _excep;
     };
 
 };
