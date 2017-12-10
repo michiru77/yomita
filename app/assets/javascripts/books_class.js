@@ -8,12 +8,12 @@ function excepGenre() {
 
     this.checkGenre = function(genre) {
 
-        var excep1 = _genres.indexOf(genre);
-        var excep2 = _genres.indexOf(genre.slice(0,6));
+        var parentGenre = _genres.indexOf(genre);
+        var genre = _genres.indexOf(genre.slice(0,6));
 
-        if (excep1 >= 0) {
+        if (parentGenre >= 0) {
             return 1;
-        } else if (excep2 >= 0) {
+        } else if (genre >= 0) {
             return 1;
         } else {
             return 0;
