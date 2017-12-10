@@ -1,3 +1,27 @@
+function excepGenre() {
+
+    var _genres = [];
+
+    this.setGenre = function(genre) {
+        _genres.push(genre);
+    };
+
+    this.checkGenre = function(genre) {
+
+        var excep1 = _genres.indexOf(genre);
+        var excep2 = _genres.indexOf(genre.slice(0,6));
+
+        if (excep1 >= 0) {
+            return 1;
+        } else if (excep2 >= 0) {
+            return 1;
+        } else {
+            return 0;
+        };
+    };
+
+};
+
 function Page() {
 
     var _p = 0;
