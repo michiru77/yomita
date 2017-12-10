@@ -1,3 +1,23 @@
+const eg = new excepGenre();
+// 写真集
+eg.setGenre('001013');
+// 漫画/青年
+eg.setGenre('001001003');
+// 文庫/写真集
+eg.setGenre('001019014');
+// エンタメ/フィギュア
+eg.setGenre('001011010');
+// 電子ブック
+eg.setGenre('001024');
+// 旅行・留学・アウトドア
+eg.setGenre('001007');
+// パソコン・システム開発
+eg.setGenre('001005');
+// 資格・検定
+eg.setGenre('001016');
+// エンタメ・ゲーム/タレント関連本
+eg.setGenre('001011013');
+
 // ソート検索関数
 function sortSearch(sort, page, check) {
     return $.ajax({
@@ -116,20 +136,9 @@ function outBooks(data, check) {
         var img = bd.getImg(id);
         var genre = bd.getGenreId(id);
 
-        var ex = genre.toString();
-        // 写真集
-        var ex1 = ex.match(/001013/);
-        // 漫画/青年
-        var ex2 = ex.match(/001001003/);
-        // 文庫/写真集
-        var ex3 = ex.match(/001019014/);
-        // エンタメ/フィギュア
-        var ex4 = ex.match(/001011010/);
-        // 電子ブック
-        var ex5 = ex.match(/001024/);
-
-        var noImg = img.match(/noimage/);;
-        if (noImg === null && ex1 === null && ex2 === null && ex3 === null && ex4 === null && ex5 === null) {
+        var exep = eg.checkGenre(genre);
+        var noImg = img.match(/noimage/);
+        if (noImg === null && exep !== 1) {
             var list =// '<div class="iconBuyButton">'
                 //+ '<p>'
                 '<span class="iconBuyButton">'

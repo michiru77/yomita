@@ -1,3 +1,31 @@
+function excepGenre() {
+
+    var _genres = [];
+    var _excep = 0;
+
+    this.setGenre = function(genre) {
+        _genres.push(genre);
+    };
+
+    this.checkGenre = function(genre) {
+
+        genre = genre.toString();
+
+        for (var g of _genres) {
+            var excep = genre.match(g);
+            if (excep !== null) {
+                _excep = 1;
+                break;
+            } else {
+                _excep = 0;
+            };
+        };
+
+        return _excep;
+    };
+
+};
+
 function Page() {
 
     var _p = 0;
