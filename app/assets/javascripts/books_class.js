@@ -8,8 +8,9 @@ function excepGenre() {
 
     this.checkGenre = function(genre) {
 
-        var parentGenre = _genres.indexOf(genre);
-        var genre = _genres.indexOf(genre.slice(0,6));
+        genre = genre.toString();
+        var parentGenre = _genres.indexOf(genre.slice(0,6));
+        var genre = _genres.indexOf(genre);
 
         if (parentGenre >= 0) {
             return 1;
