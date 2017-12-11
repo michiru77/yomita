@@ -135,18 +135,14 @@ function outBooks(data, check) {
         var exep = eg.checkGenre(genre);
         var noImg = img.match(/noimage/);
         if (noImg === null && exep !== 1) {
-            var list =// '<div class="iconBuyButton">'
-                //+ '<p>'
-                '<span class="iconBuyButton">'
+            var list = '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
-            //+ '</p>'
                 + '<a href="'+ url + '" '
                 + 'target="_blank">'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
                 + '</a>'
                 + '</span>';
-            //+ '</div>';
             $("#photos_6").append(list);
         };
     });
