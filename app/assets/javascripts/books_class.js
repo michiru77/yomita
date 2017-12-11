@@ -12,12 +12,10 @@ function excepGenre() {
         var parentGenre = _genres.indexOf(genre.slice(0,6));
         var genre = _genres.indexOf(genre);
 
-        if (parentGenre >= 0) {
-            return 1;
-        } else if (genre >= 0) {
-            return 1;
-        } else {
+        if (parentGenre === -1 || genre === -1) {
             return 0;
+        } else {
+            return 1;
         };
     };
 
