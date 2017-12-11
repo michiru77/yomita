@@ -47,8 +47,17 @@ text-align: left;
 float: left;
 }
 */
-img{
-box-shadow: 2px 2px 4px gray;
+#photos_6 img{
+  box-shadow: 2px 2px 4px gray;
+}
+#photos_1 img{
+  box-shadow: 2px 2px 4px gray;
+}
+#history_page img{
+  box-shadow: 2px 2px 4px gray;
+}
+#display_history img{
+  box-shadow: 2px 2px 4px gray;
 }
 
 #rireki {
@@ -251,22 +260,22 @@ img:hover{
 
 }
 */
-/*
+
 #photos_6 img {
       //width: 100% !important;
-    width: 150px !important;
+    width: 120px !important;
     height: auto !important;
     //margin: 15px;
-    margin-top: 30px;
+    //margin-top: 30px;
 }
-*/
+
 /*
 #photos_6{
   display: none;
 }*/
 
 #photos_6 img {
-    margin: 10px;
+    margin: 5px;
 }
 
 #photos_history {
@@ -531,6 +540,7 @@ img:hover{
     width: 40px;
     //height: auto;
     //font-size: 10px;
+
 }
 
 #loading_2 img {
