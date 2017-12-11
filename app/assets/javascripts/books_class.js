@@ -23,11 +23,11 @@ function excepGenre() {
 
 function Page() {
 
-    var _p = 0;
+    var _page = 0;
 
     this.getPage = function() {
-        _p += 1;
-        return _p;
+        _page += 1;
+        return _page;
     };
 
     this.getRandPage = function() {
@@ -35,26 +35,26 @@ function Page() {
     };
 
     this.reset = function() {
-        _p = 0;
+        _page = 0;
     };
 
 };
 
 function Switch() {
 
-    var _f = 0;
+    var _select = 0;
 
     this.getFunc = function() {
-        return _f;
+        return _select;
     };
 
-    this.setFunc = function(f) {
-        if (f === "sort") {
-            _f = 0;
-        } else if (f === "title") {
-            _f = 1;
-        } else if (f === "author") {
-            _f = 2;
+    this.setFunc = function(select) {
+        if (select === "sort") {
+            _select = 0;
+        } else if (select === "title") {
+            _select = 1;
+        } else if (select === "author") {
+            _select = 2;
         } else {
             alert("miss");
         };
