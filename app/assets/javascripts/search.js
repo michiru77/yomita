@@ -106,18 +106,14 @@ function isbnSearch(isbn, check) {
             hits: 1
         }
     }).done(function(data){
-        historyToTop(data);
+        var i = 0;
+        bd.reset();
+        ig.reset();
+        bd.setBooks(data[i],i);
+        tb.setTopBook(bd.getBooks(i));
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
-};
-
-function historyToTop(data){
-    var i = 0;
-    bd.reset();
-    ig.reset();
-    bd.setBooks(data[i],i);
-    tb.setTopBook(bd.getBooks(i));
 };
 
 // 取得した書籍データを html に整形して出力する

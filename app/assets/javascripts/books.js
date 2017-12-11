@@ -38,8 +38,8 @@ $(window).load(function(){
 // #photos_1にmouse pointerを置いた際の処理。
 $(document).ready(function() {
     $('#photos_1 img').mouseover(function(e){
-    $(this).css("cursor","pointer");
-     console.log('mouseover:' + e.target.id);
+        $(this).css("cursor","pointer");
+        console.log('mouseover:' + e.target.id);
     });
 });
 
