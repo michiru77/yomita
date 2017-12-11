@@ -1,10 +1,23 @@
 <body>
   <!-- headerだよ -->
-  <header>
-    <div id="header_layout">
-      <h1 id="title">読み太。</h1>
 
-  </header>
+<!--ヘッダーを幅いっぱいにする為のボックス -->
+<div id="headerbg">
+<!--ヘッダー -->
+<div id="header">
+<h1>読み太。</h1>
+<button id="rireki">履歴全削除</button>
+<button id="rireki_page_show">履歴ページを見る</button>
+<button id="to_Top_page">トップページへ戻る</button>
+<button id="Modoru">戻る</button>
+<div id="choice_hide">
+<input type="checkbox" name="choice_delete" value="1" id="choice_delete" class="onoff">
+<label for="choice_delete"></label>
+</div>
+</div>
+<!--ヘッダー終わり -->
+</div>
+<!--ヘッダーを幅いっぱいにする為のボックス終わり -->
 
   <!-- 履歴表示だよ -->
   <div id="history_page">
@@ -20,14 +33,7 @@
   </div>
 
   <% session[:image]%>
-  <button id="rireki">履歴全削除</button>
-  <button id="rireki_page_show">履歴ページを見る</button>
-  <button id="to_Top_page">トップページへ戻る</button>
-  <button id="Modoru">戻る</button>
-  <div id="choice_hide">
-    <input type="checkbox" name="choice_delete" value="1" id="choice_delete" class="onoff">
-    <label for="choice_delete"></label>
-  </div>
+
   <!--
       <input type="checkbox" name="choice_delete" value="1" id="choice_delete" class="onoff">
       <label for="choice_delete"></label>
