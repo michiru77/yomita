@@ -92,7 +92,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
-        authorSearch(author, 0);
+        authorSearch(author,1,0);
         // photos_6 までスクロールダウン
         scrollDown();
 
