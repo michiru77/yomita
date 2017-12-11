@@ -41,6 +41,13 @@ class HomeController < ApplicationController
   end
 
   def index
+  
+      tmp21 = cookies[:ISBN].split('&')
+      tmp21.delete('tmp')
+      tmp21.push(params[:ISBN1])
+      tmp21.uniq!
+      cookies[:ISBN]=tmp21
+      gon.isbn=tmp21
 
     if cookies[:image].blank?
       cookies[:image] = ["tmp"]
@@ -53,6 +60,7 @@ class HomeController < ApplicationController
       tmp20.uniq!
       #cookies[:image]=cookies[:image].split('&').push(params[:img]).uniq!
       cookies[:image]=tmp20
+      gon.image=tmp20
       p '🔴  cookiesに追加したよ。'
       p cookies[:image]
       #cookies[:Receivefruit] = []
@@ -63,16 +71,8 @@ class HomeController < ApplicationController
       p '🔴  cookies[:isbn]を初期化したよ。'
       p cookies[:ISBN]
     elsif params[:ISBN1] != nil
-      tmp21 = cookies[:ISBN].split('&')
-      tmp21.delete('tmp')
-      #cookies[:Receivefruit] = ["a"]
-      tmp21.push(params[:ISBN1])
-      tmp21.uniq!
-      #cookies[:image]=cookies[:image].split('&').push(params[:img]).uniq!
-      cookies[:ISBN]=tmp21
-      p '🔴  cookies[:isbn]に追加したよ。'
+      p '🔵  cookies[:isbn]に追加したよ。'
       p cookies[:ISBN]
-      #cookies[:Receivefruit] = []
     end
 
     p '-------------------------------------------------------------------------------------------------------------'

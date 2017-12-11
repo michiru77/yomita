@@ -32,6 +32,9 @@ $(window).load(function(){
     setTimeout(function(){
         sortSearch(sort,page,0);
     },1000);
+    
+    // appendList[]の初期化
+    appendList = new Array();
 
 });
 
