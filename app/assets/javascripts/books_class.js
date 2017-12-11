@@ -144,24 +144,6 @@ function TopBook() {
     this.setTopBook = function(book) {
         Object.assign(_topBook,book);
     };
-    this.setUrl = function(url) {
-        _topBook.url = url;
-    };
-    this.setImg = function(img) {
-        _topBook.img = img;
-    };
-    this.setTitle = function(title) {
-        _topBook.title = title;
-    };
-    this.setAuthor = function(author) {
-        _topBook.author = author;
-    };
-    this.setCaption = function(caption) {
-        _topBook.caption = caption;
-    };
-    this.setIsbn = function(isbn) {
-        _topBook.isbn = isbn;
-    };
 
 };
 
