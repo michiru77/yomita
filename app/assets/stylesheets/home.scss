@@ -131,15 +131,15 @@ img:hover{
 
 #photos_1 img {
     /* Just in case there are inline attributes */
-    text-align: center;
+    //text-align: center;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    //margin-left: auto;
+    //margin-right: auto;
     //width: 100% !important;
     width: 350px  !important;
     height: auto !important;
     //margin: 30px;
-
+    margin: 0 auto;
 }
 
 
