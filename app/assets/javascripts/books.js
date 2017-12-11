@@ -8,16 +8,6 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
-//ローディング表示
-/*
-  window.onload = function(){
-  $(function() {
-  //$("#loading").fadeOut();
-  //$("#photos_6").fadeIn();
-  });
-  }
-*/
-
 $(window).load(function(){
 
     //スクロールサーチイベント切り替え変数をセット
@@ -207,10 +197,6 @@ $(function(){
 
             // ISBN検索により photos_1 の書籍データを取得
             isbnSearch(isbn, 0);
-
-            /************************スリープ処理を行います***************************/
-
-            /************************スリープ処理を行います***************************/
 
             //タイトル取得
             var url = tb.getUrl();
