@@ -5,17 +5,37 @@
 */
 
 body {
-    margin: 60px 100px 100px 100px;
+    margin: 150px 100px 100px 100px;
     //background-color: #fafad2;
     //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
     background-color: rgb(245,245,245);
 }
 
+/* ヘッダーを幅いっぱいにする為のボックス*/
+#headerbg {
+background-image: url(画像ファイルのurl);
+width:100%;
+min-width:1000px;
+}
+/* ヘッダー*/
+#header       {
+width: 100%;
+top: 0px;
+margin-right: auto;
+margin-left: auto;
+position:fixed;
+z-index: 9999;
+background-color: rgba(245,245,245,0.95);
+}
+
+
 /*
 #header_layout {
-background-color: rgb(250,220,233);
+background-color: rgb(250,250,250);
 position:fixed;
 }
+*/
+/*
 #title {
 text-align: center;
 }
