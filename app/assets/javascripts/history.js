@@ -5,6 +5,7 @@ function historySearch(fruit) {
 
 // クリックした表紙を履歴に追加
 function tohistory(url,src,title,author,caption,isbn) {
+
     $('#display_history').append(
         '<img src="' + src + '" width="90px" height="auto" alt="'
             + 'url:' + url + ':url '

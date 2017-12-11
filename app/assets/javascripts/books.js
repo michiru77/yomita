@@ -72,6 +72,8 @@ $(document).ready(function() {
 
         // 履歴情報の保存
         var img = src;
+
+        //ruby controllerにimgURLとisbnを渡す
         historyStorageIndex(img,isbn);
     });
 });
