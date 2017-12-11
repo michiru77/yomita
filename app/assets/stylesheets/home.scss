@@ -110,9 +110,9 @@ img:hover{
     margin-right: 10px;
 }
 
-
+/*
 #photos_1 {
-    /* Prevent vertical gaps */
+    /* Prevent vertical gaps
     line-height: 1;
 
     -webkit-column-count: 1;
@@ -123,10 +123,15 @@ img:hover{
     column-gap:           0px;
 
 }
+*/
 
+#photos_1 img:hover {
+  cursor: pointer;
+}
 
 #photos_1 img {
     /* Just in case there are inline attributes */
+    text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
