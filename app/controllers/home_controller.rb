@@ -42,11 +42,12 @@ class HomeController < ApplicationController
 
   def index
   
+      if cookies[:ISBN].blank?
+        cookies[:ISBN]="tmp"
+      end
       tmp21 = cookies[:ISBN].split('&')
       tmp21.delete('tmp')
-      tmp21.push(params[:ISBN1])
       tmp21.uniq!
-      cookies[:ISBN]=tmp21
       gon.isbn=tmp21
 
     if cookies[:image].blank?
@@ -71,6 +72,12 @@ class HomeController < ApplicationController
       p '🔴  cookies[:isbn]を初期化したよ。'
       p cookies[:ISBN]
     elsif params[:ISBN1] != nil
+      tmp21 = cookies[:ISBN].split('&')
+      tmp21.delete('tmp')
+      tmp21.push(params[:ISBN1])
+      tmp21.uniq!
+      cookies[:ISBN]=tmp21
+      gon.isbn=tmp21
       p '🔵  cookies[:isbn]に追加したよ。'
       p cookies[:ISBN]
     end

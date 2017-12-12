@@ -9,16 +9,18 @@ function tohistory(url,src,title,author,caption,isbn) {
     //alert("gon.isbn\t"+gon.isbn.indexOf(isbn));
     //alert("appendList\t"+appendList.indexOf(isbn));
     if( (gon.isbn.indexOf(isbn)==-1) && (appendList.indexOf(isbn)==-1) ){
-        $('#display_history').append(
+         $('#history_page').append(
+            '<img src="'+ src +'" width="90px" height="auto" alt="'+ isbn +'" >'
+        );
+    }
+    if((appendList.indexOf(isbn)==-1)){
+         $('#display_history').append(
             '<img src="' + src + '" width="90px" height="auto" alt="'
                     + 'url:' + url + ':url '
                     + 'title:'+ title + ':title '
                     + 'author:' + author + ':author '
                     + 'caption:' + caption + ':caption'
                     + '" >'
-        );
-        $('#history_page').append(
-            '<img src="'+ src +'" width="90px" height="auto" alt="'+ isbn +'" >'
         );
         appendList.push(isbn);
     }

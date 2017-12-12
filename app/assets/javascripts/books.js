@@ -35,6 +35,7 @@ $(window).load(function(){
     
     // appendList[]の初期化
     appendList = new Array();
+    appendList.push("tmp");
 
 });
 
