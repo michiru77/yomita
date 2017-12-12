@@ -1,8 +1,9 @@
 # coding: utf-8
 class HomeController < ApplicationController
 
-  def authorSearch
-    data = RakutenWebService::Books::Book.search(author: params[:author],
+  def sortSearch
+    data = RakutenWebService::Books::Book.search(sort: params[:sort],
+                                                 page: params[:page],
                                                  hits: params[:hits])
     render json: data
     #binding.pry
@@ -10,6 +11,15 @@ class HomeController < ApplicationController
 
   def titleSearch
     data = RakutenWebService::Books::Book.search(title: params[:title],
+                                                 page: params[:page],
+                                                 hits: params[:hits])
+    render json: data
+    #binding.pry
+  end
+
+  def authorSearch
+    data = RakutenWebService::Books::Book.search(author: params[:author],
+                                                 page: params[:page],
                                                  hits: params[:hits])
     render json: data
     #binding.pry
@@ -17,13 +27,6 @@ class HomeController < ApplicationController
 
   def genreSearch
     data = RakutenWebService::Books::Book.search(booksGenreId: params[:booksGenreId],
-                                                 hits: params[:hits])
-    render json: data
-    #binding.pry
-  end
-
-  def sortSearch
-    data = RakutenWebService::Books::Book.search(sort: params[:sort],
                                                  page: params[:page],
                                                  hits: params[:hits])
     render json: data
@@ -38,6 +41,14 @@ class HomeController < ApplicationController
   end
 
   def index
+  
+      if cookies[:ISBN].blank?
+        cookies[:ISBN]="tmp"
+      end
+      tmp21 = cookies[:ISBN].split('&')
+      tmp21.delete('tmp')
+      tmp21.uniq!
+      gon.isbn=tmp21
 
     if cookies[:image].blank?
       cookies[:image] = ["tmp"]
@@ -50,6 +61,7 @@ class HomeController < ApplicationController
       tmp20.uniq!
       #cookies[:image]=cookies[:image].split('&').push(params[:img]).uniq!
       cookies[:image]=tmp20
+      gon.image=tmp20
       p '🔴  cookiesに追加したよ。'
       p cookies[:image]
       #cookies[:Receivefruit] = []
@@ -62,14 +74,12 @@ class HomeController < ApplicationController
     elsif params[:ISBN1] != nil
       tmp21 = cookies[:ISBN].split('&')
       tmp21.delete('tmp')
-      #cookies[:Receivefruit] = ["a"]
       tmp21.push(params[:ISBN1])
       tmp21.uniq!
-      #cookies[:image]=cookies[:image].split('&').push(params[:img]).uniq!
       cookies[:ISBN]=tmp21
-      p '🔴  cookies[:isbn]に追加したよ。'
+      gon.isbn=tmp21
+      p '🔵  cookies[:isbn]に追加したよ。'
       p cookies[:ISBN]
-      #cookies[:Receivefruit] = []
     end
 
     p '-------------------------------------------------------------------------------------------------------------'
@@ -92,6 +102,27 @@ class HomeController < ApplicationController
     end
 
   end
+  
+  def defcDelete
+    tmp31 = cookies[:ISBN].split('&')
+    tmp32 = cookies[:image].split('&')
+    p '🔴 元々の配列'
+    p tmp31
+    p tmp32
+    p '🔴 探すISBN'
+    p params[:cDeleteN]
+    indexN = tmp31.index(params[:cDeleteN])
+    p '🔴 指定した番地'
+    p indexN
+    tmp31.delete_at(indexN)
+    tmp32.delete_at(indexN)
+    cookies[:ISBN]=tmp31
+    cookies[:image]=tmp32
+    p '🔴 個別削除したよ'
+    p cookies[:ISBN]
+    p cookies[:image]
+  end
+  
 
   def history
 

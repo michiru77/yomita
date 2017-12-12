@@ -5,18 +5,25 @@ function historySearch(fruit) {
 
 // クリックした表紙を履歴に追加
 function tohistory(url,src,title,author,caption,isbn) {
-    $('#display_history').append(
-        '<img src="' + src + '" width="90px" height="auto" alt="'
-            + 'url:' + url + ':url '
-            + 'title:'+ title + ':title '
-            + 'author:' + author + ':author '
-            + 'caption:' + caption + ':caption'
-            + '" >'
-    );
-
-    $('#history_page').append(
-        '<img src="'+ src +'" width="90px" height="auto" alt="'+ isbn +'" >'
-    );
+    //alert("isbn\t"+isbn);
+    //alert("gon.isbn\t"+gon.isbn.indexOf(isbn));
+    //alert("appendList\t"+appendList.indexOf(isbn));
+    if( (gon.isbn.indexOf(isbn)==-1) && (appendList.indexOf(isbn)==-1) ){
+        $('#history_page').append(
+            '<img src="'+ src +'" width="90px" height="auto" alt="'+ isbn +'" >'
+        );
+    }
+    if((appendList.indexOf(isbn)==-1)){
+        $('#display_history').append(
+            '<img src="' + src + '" width="90px" height="auto" alt="'
+                + 'url:' + url + ':url '
+                + 'title:'+ title + ':title '
+                + 'author:' + author + ':author '
+                + 'caption:' + caption + ':caption'
+                + '" >'
+        );
+        appendList.push(isbn);
+    }
 }
 
 //履歴削除
@@ -31,6 +38,19 @@ function history_delete(one) {
         }
     });
 }
+//個別履歴削除
+function history_cDelete(isbn) {
+    return $.ajax({
+        url: '/home_defcDelete',
+        type: 'GET',
+        dataType: 'json',
+        async: true,
+        data: {
+            cDeleteN: isbn
+        }
+    });
+}
+
 
 //画像imgデータを新しく作成した履歴ページに送信
 function historyStorageIndex(img,isbn) {

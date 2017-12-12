@@ -1,33 +1,52 @@
-//= require compiled/books_class
+//= require books_class
 //= require search
 //= require history
 
+const bd = new BooksData();
+const tb = new TopBook();
+const ig = new IdGen();
+const sw = new Switch();
+const pg = new Page();
+
 $(window).load(function(){
 
-    bd = new BooksData();
-    tb = new TopBook();
-    ig = new IdGen();
+    //スクロールサーチイベント切り替え変数をセット
+    sw.setFunc('sort');
+    pg.reset();
+
+    //トップページリロード時のローディング画像セット
+    $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
 
     var sort = 'sales';
-    var page = Math.floor(Math.random()*100);
-    // titleSearch(title, 0);
-    // authorSearch(author, 0);
-    sortSearch(sort,page,0);
-    // genreSearch(genreId, 0);
-    // isbnSearch(isbn, 0);
+    var page = pg.getRandPage();
+    setTimeout(function(){
+        sortSearch(sort,page,0);
+    },1000);
+    
+    // appendList[]の初期化
+    appendList = new Array();
+    appendList.push("tmp");
+
+});
+
+// #photos_1にmouse pointerを置いた際の処理。
+$(document).ready(function() {
+    $('#photos_1 img').mouseover(function(e){
+        $(this).css("cursor","pointer");
+        console.log('mouseover:' + e.target.id);
+    });
 });
 
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
     $('#photos_6').click(function(){
 
+        //スクロールサーチイベント切り替え変数をセット
+        sw.setFunc('title');
+        pg.reset();
+
         var id = event.target.id;
-        tb.setUrl(bd.getUrl(id));
-        tb.setImg(bd.getImg(id));
-        tb.setTitle(bd.getTitle(id));
-        tb.setAuthor(bd.getAuthor(id));
-        tb.setCaption(bd.getCaption(id));
-        tb.setIsbn(bd.getIsbn(id));
+        tb.setTopBook(bd.getBooks(id));
 
         var url = tb.getUrl();
         var src = tb.getImg().replace(/\?.*$/, '');
@@ -39,9 +58,15 @@ $(document).ready(function() {
         // 履歴を上に残す
         tohistory(url,src,title,author,caption,isbn);
 
+        $('#photos_6').html(null);
+
         // タイトル検索
         var searchTitle = title.slice(0,2);
-        titleSearch(searchTitle, 0);
+
+        setTimeout(function(){
+            // ここに検索関数を放り込む
+            titleSearch(searchTitle, pg.getPage(), 0);
+        },1000);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
@@ -51,66 +76,78 @@ $(document).ready(function() {
 
         // 履歴情報の保存
         var img = src;
-        // historySearch(apple);
-        //historyStorage(apple);
+
+        //ruby controllerにimgURLとisbnを渡す
         historyStorageIndex(img,isbn);
     });
 });
 
-// 作者名をクリックすると作者検索を実行
+//作者名をクリックすると作者検索を実行
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
-        authorSearch(author, 0);
+        authorSearch(author,1,0);
         // photos_6 までスクロールダウン
         scrollDown();
+
+        //スクロールサーチイベント切り替え変数セット
+        sw.setFunc('author');
+        pg.reset();
     })
 });
 
 // photos_1 の表紙をクリックするとキャプションを表示する
-$(function(){
-    $("#photos_1").click(function(){
-        //キーボード操作などにより、オーバーレイが多重起動するのを防止する
-        $( this ).blur();	//ボタンからフォーカスを外す
-        if( $( "#modal-overlay" )[0] ) return false;		//新しくモーダルウィンドウを起動しない (防止策1)
-        //if($("#modal-overlay")[0]) $("#modal-overlay").remove();		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
-        //オーバーレイを出現させる
-        $( "body" ).append( '<div id="modal-overlay"></div>' );
-        $( "#modal-overlay" ).fadeIn( "slow" );
-        //コンテンツをセンタリングする
-        centeringModalSyncer();
-        //コンテンツをフェードインする
-        $( "#modal-content" ).fadeIn( "slow" );
-        //[#modal-overlay]、または[#modal-close]をクリックしたら…
-        $( "#modal-overlay,#modal-close" ).unbind().click( function(){
-            //[#modal-content]と[#modal-overlay]をフェードアウトした後に…
-            $( "#modal-content,#modal-overlay" ).fadeOut( "slow" , function(){
-                //[#modal-overlay]を削除する
-                $('#modal-overlay').remove();
+$(document).ready(function() {
+
+    $(function () {
+        $('#photos_1').click(function () {
+            //キーボード操作などにより、オーバーレイが多重起動するのを防止する
+            $(this).blur();	//ボタンからフォーカスを外す
+            if ($("#modal-overlay")[0]) return false;		//新しくモーダルウィンドウを起動しない (防止策1)
+            //if($("#modal-overlay")[0]) $("#modal-overlay").remove();		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
+            //オーバーレイを出現させる
+            $("body").append('<div id="modal-overlay"></div>');
+            $("#modal-overlay").fadeIn("slow");
+            //コンテンツをセンタリングする
+            centeringModalSyncer();
+            //コンテンツをフェードインする
+            $("#modal-content").fadeIn("slow");
+            //[#modal-overlay]、または[#modal-close]をクリックしたら…
+            $("#modal-overlay,#modal-close").unbind().click(function () {
+                //[#modal-content]と[#modal-overlay]をフェードアウトした後に…
+                $("#modal-content,#modal-overlay").fadeOut("slow", function () {
+                    //[#modal-overlay]を削除する
+                    $('#modal-overlay').remove();
+                });
             });
         });
+        //リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
+        $(window).resize(centeringModalSyncer);
+
+        //センタリングを実行する関数
+        function centeringModalSyncer() {
+            //画面(ウィンドウ)の幅、高さを取得
+            var w = $(window).width();
+            var h = $(window).height();
+            // コンテンツ(#modal-content)の幅、高さを取得
+            // jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
+            var cw = $("#modal-content").outerWidth({margin: true});
+            var ch = $("#modal-content").outerHeight({margin: true});
+            var cw = $("#modal-content").outerWidth();
+            var ch = $("#modal-content").outerHeight();
+            //センタリングを実行する
+            $("#modal-content").css({"left": ((w - cw) / 2) + "px", "top": ((h - ch) / 2) + "px"});
+        }
     });
-    //リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
-    $( window ).resize( centeringModalSyncer );
-    //センタリングを実行する関数
-    function centeringModalSyncer() {
-        //画面(ウィンドウ)の幅、高さを取得
-        var w = $( window ).width();
-        var h = $( window ).height();
-        // コンテンツ(#modal-content)の幅、高さを取得
-        // jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
-        var cw = $( "#modal-content" ).outerWidth( {margin:true} );
-        var ch = $( "#modal-content" ).outerHeight( {margin:true} );
-        var cw = $( "#modal-content" ).outerWidth();
-        var ch = $( "#modal-content" ).outerHeight();
-        //センタリングを実行する
-        $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} );
-    }
 });
 
-//履歴imgをクリックした時の処理
+//本の道筋imgをクリックした時の処理
 $(document).ready(function() {
     $('#display_history').click(function() {
+
+        //スクロールサーチイベント変数値set
+        sw.setFunc('title');
+        pg.reset();
 
         var src = event.target.src;
         var alt = event.target.alt;
@@ -124,16 +161,20 @@ $(document).ready(function() {
 
         // タイトルの頭二文字を抽出
         var searchTitle = title.slice(0,2);
-        titleSearch(searchTitle,0);
+
+        //htmlをnull
+        $('#photos_6').html(null);
+
+        setTimeout(function(){
+            // ここに検索関数を放り込む
+            titleSearch(searchTitle, pg.getPage(), 0);
+        },1000);
 
         // photos_6 までスクロールダウン
         scrollDown();
 
         //履歴情報の保存
         var img = src;
-        //historySearch(apple);
-        //historyStorage(img,title,author,caption);
-        //historyStorageIndex(img);
     });
 });
 
@@ -141,55 +182,66 @@ $(document).ready(function() {
 $(function(){
     $("#history_page").click(function() {
 
+        // スクロールサーチイベント変数値セット
+        sw.setFunc('title');
+        pg.reset();
+
         var img = event.target.src;
         var isbn = event.target.alt;
 
-        //全てのhtmlの中身を削除
-        // $('#display_history').html(null);
-        $('.line').html(null);
-        $('#photos_6').html(null);
-        $('#photos_1').html(null);
+        if( $("[name=choice_delete]:checked").val()==1 ){
+            history_cDelete(isbn);
+            //$('#history_page').html(null);
+            event.target.remove();
+            //$('#history_page').append();
+        }else{
+            //全てのhtmlの中身を削除
+            // $('#display_history').html(null);
+            $('.line').html(null);
+            $('#photos_6').html(null);
+            $('#photos_1').html(null);
 
-        // ISBN検索により photos_1 の書籍データを取得
-        isbnSearch(isbn, 0);
+            // ISBN検索により photos_1 の書籍データを取得
+            isbnSearch(isbn, 0);
 
-        /************************スリープ処理を行います***************************/
+            //タイトル取得
+            var url = tb.getUrl();
+            var src = event.target.src.replace(/\?.*$/, '');
+            var title = tb.getTitle();
+            var author = tb.getAuthor();
+            var caption = tb.getCaption();
 
-        /************************スリープ処理を行います***************************/
+            // トップに表紙を配置
+            putTopBook(url,src,title,author,caption);
 
-        //タイトル取得
-        var url = tb.getUrl();
-        var src = event.target.src.replace(/\?.*$/, '');
-        var title = tb.getTitle();
-        var author = tb.getAuthor();
-        var caption = tb.getCaption();
+            // タイトル，作者要素を表示
+            $('.title').show();
+            $('.author').show();
 
-        // トップに表紙を配置
-        putTopBook(url,src,title,author,caption);
+            // photos_1，photos_6の表紙を表示
+            $('#photos_1').show(1000);
+            $('#photos_6').show();
 
-        // タイトル，作者要素を表示
-        $('.title').show();
-        $('.author').show();
+            //タイトル上2文字検索
+            search_title = title.slice(0,2);
+            titleSearch(search_title);
 
-        // photos_1，photos_6の表紙を表示
-        $('#photos_1').show(1000);
-        $('#photos_6').show();
+            //履歴ページを隠す
+            $('#history_page').hide(1000);
 
-        //タイトル上2文字検索
-        search_title = title.slice(0,2);
-        titleSearch(search_title);
+            //戻るボタンを隠す
+            $('#Modoru').hide();
 
-        //履歴ページを隠す
-        $('#history_page').hide(1000);
+            //個別削除ボタンを隠す
+            $('#choice_hide').hide();
 
-        //戻るボタンを隠す
-        $('#Modoru').hide();
+            //「履歴ページをみる」ボタンを表示する
+            $('#rireki_page_show').show();
 
-        //「履歴ページをみる」ボタンを表示する
-        $('#rireki_page_show').show();
+            //履歴のミチシルベを表示する
+            $('#display_history').show();
+        }
 
-        //履歴のミチシルベを表示する
-        $('#display_history').show();
     });
 });
 
@@ -231,6 +283,8 @@ $(function(){
         $('#rireki_page_show').hide();
         $('#history_page').show(1000);
         $('#Modoru').show();
+        //$("#choice_delete").show();
+        $("#choice_hide").show();
     });
 });
 
@@ -250,6 +304,8 @@ $(function(){
         $('#rireki_page_show').show();
 
         $('#Modoru').hide();
+        //$("#choice_delete").hide();
+        $("#choice_hide").hide();
     });
 });
 
@@ -263,8 +319,8 @@ $(function(){
 // photos_1 に表紙を配置
 function putTopBook(url,src,title,author,caption) {
 
-    // トップの表紙，URLを追加
-    var top = '<div class="iconBuyButtonTop">'
+    // トップの表紙，URLを追加ra
+    var top = '<div id="hiroya" class="iconBuyButtonTop">'
         + '<p><img src="'
         + src
         + '"></p>'
@@ -287,11 +343,19 @@ function putTopBook(url,src,title,author,caption) {
     $('.author').html(null);
     $('.author').append(authorHtml);
 
-    // あらすじ追加
-    var captionHtml = '<p class="red bold">'
-        + caption
-        + '<br /></p>'
-        + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+    if(caption){
+        // あらすじ追加
+        var captionHtml = '<p class="red bold">'
+            + caption
+            + '<br /></p>'
+            + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+    }else{
+        var captionHtml = '<p class="red bold">'
+            + 'あらすじはありません'
+            + '<br /></p>'
+            + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
+    }
+
     $('#modal-content-innar').html(null);
     $('#modal-content-innar').append(captionHtml);
 }
@@ -300,7 +364,7 @@ function putTopBook(url,src,title,author,caption) {
 function scrollUp() {
     var position = $("#photos_1").offset().top;
     $("html,body").animate({
-        scrollTop : position
+        scrollTop: position
     });
 }
 
@@ -308,11 +372,10 @@ function scrollUp() {
 function scrollDown() {
     var position = $("#photos_6").offset().top;
     $("html,body").animate({
-        scrollTop : position
+        scrollTop: position
     });
 }
 
-/*
 // ページ下部検知
 $(function() {
     $(window).scroll(function(ev) {
@@ -320,9 +383,31 @@ $(function() {
             height = $window.height(),
             scrollTop = $window.scrollTop(),
             documentHeight = $(document).height();
+
         if (documentHeight === height + scrollTop) {
-            
-        }
+
+            //ローディング画像追加
+            $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
+
+            //サーチ切り替えナンバー取得
+            var number = sw.getFunc();
+
+            sleep(1000);
+            if (number == 0) {
+                sortSearch('sales', pg.getRandPage(), 1);
+            }else if(number == 1){
+                titleSearch(tb.getTitle().slice(0,2), pg.getPage(), 1);
+            } else {
+                authorSearch(tb.getAuthor(), pg.getPage(), 1);
+            };
+        };
     });
 });
-*/
+
+//スリープ処理関数
+function sleep(waitMsec) {
+
+    var startMsec = new Date();
+    // 指定ミリ秒間、空ループ。CPUは常にビジー。
+    while (new Date() - startMsec < waitMsec);
+};
