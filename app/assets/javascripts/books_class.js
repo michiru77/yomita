@@ -70,6 +70,7 @@ function Switch() {
 function BooksData() {
 
     var _books = [];
+    var _book = {};
 
     this.getBooks = function(i) {
         return _books[i];
@@ -96,7 +97,7 @@ function BooksData() {
         return _books[i].isbn;
     };
 
-    this.setBooks = function(data,i) {
+    this.setBooks = function(data) {
 
         var url = data["params"]["itemUrl"];
         var img = data["params"]["largeImageUrl"];
@@ -106,7 +107,7 @@ function BooksData() {
         var caption = data["params"]["itemCaption"];
         var isbn = data["params"]["isbn"];
 
-        _books[i] = {
+        _book = {
             url: url,
             img: img,
             title: title,
@@ -115,6 +116,8 @@ function BooksData() {
             caption: caption,
             isbn: isbn
         };
+
+        _books.push(_book);
     };
 
     this.reset = function() {
@@ -147,7 +150,7 @@ function TopBook() {
     };
 
     this.setTopBook = function(book) {
-        Object.assign(_topBook,book);
+        Object.assign(_topBook, book);
     };
 
 };
