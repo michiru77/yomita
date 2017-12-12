@@ -58,6 +58,18 @@ text-align: left;
 float: left;
 }
 */
+#photos_6 img{
+  box-shadow: 2px 2px 4px gray;
+}
+#photos_1 img{
+  box-shadow: 2px 2px 4px gray;
+}
+#history_page img{
+  box-shadow: 2px 2px 4px gray;
+}
+#display_history img{
+  box-shadow: 2px 2px 4px gray;
+}
 
 #rireki {
     cursor : pointer;
@@ -144,9 +156,9 @@ img:hover{
     margin-right: 10px;
 }
 
-
+/*
 #photos_1 {
-    /* Prevent vertical gaps */
+    /* Prevent vertical gaps
     line-height: 1;
 
     -webkit-column-count: 1;
@@ -157,18 +169,23 @@ img:hover{
     column-gap:           0px;
 
 }
+*/
 
+#photos_1 img:hover {
+  cursor: pointer;
+}
 
 #photos_1 img {
     /* Just in case there are inline attributes */
+    //text-align: center;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    //margin-left: auto;
+    //margin-right: auto;
     //width: 100% !important;
     width: 350px  !important;
     height: auto !important;
     //margin: 30px;
-
+    margin: 0 auto;
 }
 
 
@@ -257,22 +274,22 @@ img:hover{
 
 }
 */
-/*
+
 #photos_6 img {
       //width: 100% !important;
-    width: 150px !important;
+    width: 120px !important;
     height: auto !important;
     //margin: 15px;
-    margin-top: 30px;
+    //margin-top: 30px;
 }
-*/
+
 /*
 #photos_6{
   display: none;
 }*/
 
 #photos_6 img {
-    margin: 10px;
+    margin: 5px;
 }
 
 #photos_history {
@@ -537,6 +554,7 @@ img:hover{
     width: 40px;
     //height: auto;
     //font-size: 10px;
+
 }
 
 #loading_2 img {

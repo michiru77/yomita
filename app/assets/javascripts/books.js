@@ -8,16 +8,6 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
-//ローディング表示
-/*
-  window.onload = function(){
-  $(function() {
-  //$("#loading").fadeOut();
-  //$("#photos_6").fadeIn();
-  });
-  }
-*/
-
 $(window).load(function(){
 
     //スクロールサーチイベント切り替え変数をセット
@@ -32,14 +22,18 @@ $(window).load(function(){
     setTimeout(function(){
         sortSearch(sort,page,0);
     },1000);
+    
+    // appendList[]の初期化
+    appendList = new Array();
+    appendList.push("tmp");
 
 });
 
 // #photos_1にmouse pointerを置いた際の処理。
 $(document).ready(function() {
-    $('#photos_1').mouseover(function(e){
-    $(this).css("cursor","pointer");
-     console.log('mouseover:' + e.target.id);
+    $('#photos_1 img').mouseover(function(e){
+        $(this).css("cursor","pointer");
+        console.log('mouseover:' + e.target.id);
     });
 });
 
@@ -82,6 +76,8 @@ $(document).ready(function() {
 
         // 履歴情報の保存
         var img = src;
+
+        //ruby controllerにimgURLとisbnを渡す
         historyStorageIndex(img,isbn);
     });
 });
@@ -90,7 +86,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.author').click(function() {
         var author = event.target.name;
-        authorSearch(author, 0);
+        authorSearch(author,1,0);
         // photos_6 までスクロールダウン
         scrollDown();
 
@@ -101,44 +97,48 @@ $(document).ready(function() {
 });
 
 // photos_1 の表紙をクリックするとキャプションを表示する
-$(function(){
-    $("#photos_1").click(function(){
-        //キーボード操作などにより、オーバーレイが多重起動するのを防止する
-        $( this ).blur();	//ボタンからフォーカスを外す
-        if( $( "#modal-overlay" )[0] ) return false;		//新しくモーダルウィンドウを起動しない (防止策1)
-        //if($("#modal-overlay")[0]) $("#modal-overlay").remove();		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
-        //オーバーレイを出現させる
-        $( "body" ).append( '<div id="modal-overlay"></div>' );
-        $( "#modal-overlay" ).fadeIn( "slow" );
-        //コンテンツをセンタリングする
-        centeringModalSyncer();
-        //コンテンツをフェードインする
-        $( "#modal-content" ).fadeIn( "slow" );
-        //[#modal-overlay]、または[#modal-close]をクリックしたら…
-        $( "#modal-overlay,#modal-close" ).unbind().click( function(){
-            //[#modal-content]と[#modal-overlay]をフェードアウトした後に…
-            $( "#modal-content,#modal-overlay" ).fadeOut( "slow" , function(){
-                //[#modal-overlay]を削除する
-                $('#modal-overlay').remove();
+$(document).ready(function() {
+
+    $(function () {
+        $('#photos_1').click(function () {
+            //キーボード操作などにより、オーバーレイが多重起動するのを防止する
+            $(this).blur();	//ボタンからフォーカスを外す
+            if ($("#modal-overlay")[0]) return false;		//新しくモーダルウィンドウを起動しない (防止策1)
+            //if($("#modal-overlay")[0]) $("#modal-overlay").remove();		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
+            //オーバーレイを出現させる
+            $("body").append('<div id="modal-overlay"></div>');
+            $("#modal-overlay").fadeIn("slow");
+            //コンテンツをセンタリングする
+            centeringModalSyncer();
+            //コンテンツをフェードインする
+            $("#modal-content").fadeIn("slow");
+            //[#modal-overlay]、または[#modal-close]をクリックしたら…
+            $("#modal-overlay,#modal-close").unbind().click(function () {
+                //[#modal-content]と[#modal-overlay]をフェードアウトした後に…
+                $("#modal-content,#modal-overlay").fadeOut("slow", function () {
+                    //[#modal-overlay]を削除する
+                    $('#modal-overlay').remove();
+                });
             });
         });
+        //リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
+        $(window).resize(centeringModalSyncer);
+
+        //センタリングを実行する関数
+        function centeringModalSyncer() {
+            //画面(ウィンドウ)の幅、高さを取得
+            var w = $(window).width();
+            var h = $(window).height();
+            // コンテンツ(#modal-content)の幅、高さを取得
+            // jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
+            var cw = $("#modal-content").outerWidth({margin: true});
+            var ch = $("#modal-content").outerHeight({margin: true});
+            var cw = $("#modal-content").outerWidth();
+            var ch = $("#modal-content").outerHeight();
+            //センタリングを実行する
+            $("#modal-content").css({"left": ((w - cw) / 2) + "px", "top": ((h - ch) / 2) + "px"});
+        }
     });
-    //リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
-    $( window ).resize( centeringModalSyncer );
-    //センタリングを実行する関数
-    function centeringModalSyncer() {
-        //画面(ウィンドウ)の幅、高さを取得
-        var w = $( window ).width();
-        var h = $( window ).height();
-        // コンテンツ(#modal-content)の幅、高さを取得
-        // jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
-        var cw = $( "#modal-content" ).outerWidth( {margin:true} );
-        var ch = $( "#modal-content" ).outerHeight( {margin:true} );
-        var cw = $( "#modal-content" ).outerWidth();
-        var ch = $( "#modal-content" ).outerHeight();
-        //センタリングを実行する
-        $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} );
-    }
 });
 
 //本の道筋imgをクリックした時の処理
@@ -203,10 +203,6 @@ $(function(){
 
             // ISBN検索により photos_1 の書籍データを取得
             isbnSearch(isbn, 0);
-
-            /************************スリープ処理を行います***************************/
-
-            /************************スリープ処理を行います***************************/
 
             //タイトル取得
             var url = tb.getUrl();
@@ -324,7 +320,7 @@ $(function(){
 function putTopBook(url,src,title,author,caption) {
 
     // トップの表紙，URLを追加ra
-    var top = '<div class="iconBuyButtonTop">'
+    var top = '<div id="hiroya" class="iconBuyButtonTop">'
         + '<p><img src="'
         + src
         + '"></p>'
