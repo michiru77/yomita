@@ -6,13 +6,15 @@
 <!--ヘッダー -->
 <div id="header">
     <div class="header-logo">
-        <a href="/"> 読み太。</a>
+      <a href="/"> 読み太。<span class="header-subtitle">表紙で巡る、本の旅</span></a>
     </div>
+  <div class="small-img" id="display_history"></div>
 
 <button id="rireki">履歴全削除</button>
 <button id="rireki_page_show">履歴ページを見る</button>
 <button id="to_Top_page">トップページへ戻る</button>
 <button id="Modoru">戻る</button>
+
 <div id="choice_hide">
 <input type="checkbox" name="choice_delete" value="1" id="choice_delete" class="onoff">
 <label for="choice_delete"></label>
@@ -46,7 +48,9 @@
 
   <!-- セッションによる表示 -->
   <% if session[:Receivefruit].blank? then session[:Receivefruit]=[] end %>
+  <!--
   <div id="display_history">
+  -->
     <% for num in session[:Receivefruit].length-9..session[:Receivefruit].length-1 do %>
     <% if num>=1 then %>
     <!--
@@ -62,10 +66,13 @@
         <img src="<%= i %>" width="90px" height="auto">
         <% end %>
         -->
+<!--
   </div>
+  -->
   <!-- appendによる表示 -->
-
+<!--
   <div class="line"></div>
+  -->
 
 
 
