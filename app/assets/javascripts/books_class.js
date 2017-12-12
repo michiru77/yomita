@@ -145,7 +145,7 @@ function TopBook() {
     };
 
     this.setTopBook = function(book) {
-        Object.assign(_topBook,book);
+        Object.assign(_topBook, book);
     };
 
 };
