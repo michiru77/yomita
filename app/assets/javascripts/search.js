@@ -126,8 +126,9 @@ function outBooks(data, check) {
     };
 
     $.each(data, function(i) {
+
+        bd.setBooks(data[i]);
         var id = ig.getId();
-        bd.setBooks(data[i],id);
         var url = bd.getUrl(id);
         var img = bd.getImg(id);
         var genre = bd.getGenreId(id);
