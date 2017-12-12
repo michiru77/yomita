@@ -10,12 +10,13 @@ function excepGenre() {
 
         genre = genre.toString();
 
+        var _excep = 0;
         _genres.forEach(function(g) {
             if (genre.match(g) !== null) {
-                return 1;
+                _excep = 1;
             };
         });
-        return 0;
+        return _excep;
     };
 
 };
