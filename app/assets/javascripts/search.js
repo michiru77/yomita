@@ -133,9 +133,9 @@ function outBooks(data, check) {
         var img = bd.getImg(id);
         var genre = bd.getGenreId(id);
 
-        var exep = eg.checkGenre(genre);
+        var excep = eg.checkGenre(genre);
         var noImg = img.match(/noimage/);
-        if (noImg === null && exep !== 1) {
+        if (noImg === null && excep !== 1) {
             var list = '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
