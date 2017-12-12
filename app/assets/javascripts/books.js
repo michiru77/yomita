@@ -8,16 +8,6 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
-//ローディング表示
-/*
-  window.onload = function(){
-  $(function() {
-  //$("#loading").fadeOut();
-  //$("#photos_6").fadeIn();
-  });
-  }
-*/
-
 $(window).load(function(){
 
     //スクロールサーチイベント切り替え変数をセット
@@ -42,8 +32,8 @@ $(window).load(function(){
 // #photos_1にmouse pointerを置いた際の処理。
 $(document).ready(function() {
     $('#photos_1 img').mouseover(function(e){
-    $(this).css("cursor","pointer");
-     console.log('mouseover:' + e.target.id);
+        $(this).css("cursor","pointer");
+        console.log('mouseover:' + e.target.id);
     });
 });
 
@@ -213,10 +203,6 @@ $(function(){
 
             // ISBN検索により photos_1 の書籍データを取得
             isbnSearch(isbn, 0);
-
-            /************************スリープ処理を行います***************************/
-
-            /************************スリープ処理を行います***************************/
 
             //タイトル取得
             var url = tb.getUrl();

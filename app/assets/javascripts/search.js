@@ -106,18 +106,14 @@ function isbnSearch(isbn, check) {
             hits: 1
         }
     }).done(function(data){
-        historyToTop(data);
+        var i = 0;
+        bd.reset();
+        ig.reset();
+        bd.setBooks(data[i],i);
+        tb.setTopBook(bd.getBooks(i));
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
-};
-
-function historyToTop(data){
-    var i = 0;
-    bd.reset();
-    ig.reset();
-    bd.setBooks(data[i],i);
-    tb.setTopBook(bd.getBooks(i));
 };
 
 // 取得した書籍データを html に整形して出力する
@@ -139,18 +135,14 @@ function outBooks(data, check) {
         var exep = eg.checkGenre(genre);
         var noImg = img.match(/noimage/);
         if (noImg === null && exep !== 1) {
-            var list =// '<div class="iconBuyButton">'
-                //+ '<p>'
-                '<span class="iconBuyButton">'
+            var list = '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
-            //+ '</p>'
                 + '<a href="'+ url + '" '
                 + 'target="_blank">'
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
                 + '</a>'
                 + '</span>';
-            //+ '</div>';
             $("#photos_6").append(list);
         };
     });
