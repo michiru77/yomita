@@ -1,6 +1,7 @@
 <body>
-  <!-- headerだよ -->
 
+
+  <!-- headerだよ -->
 <!--ヘッダーを幅いっぱいにする為のボックス -->
 <div id="headerbg">
 <!--ヘッダー -->
@@ -39,18 +40,11 @@
 
   <% session[:image]%>
 
-  <!--
-      <input type="checkbox" name="choice_delete" value="1" id="choice_delete" class="onoff">
-      <label for="choice_delete"></label>
-      -->
-
   <% link_to("履歴消しましょう","/home_history") %>
 
   <!-- セッションによる表示 -->
   <% if session[:Receivefruit].blank? then session[:Receivefruit]=[] end %>
-  <!--
-  <div id="display_history">
-  -->
+
     <% for num in session[:Receivefruit].length-9..session[:Receivefruit].length-1 do %>
     <% if num>=1 then %>
     <!--
@@ -66,16 +60,8 @@
         <img src="<%= i %>" width="90px" height="auto">
         <% end %>
         -->
-<!--
-  </div>
-  -->
-  <!-- appendによる表示 -->
-<!--
-  <div class="line"></div>
-  -->
 
-
-
+  /*検索フォーム(未使用)*/
   <% form_tag :home_titleSearch, method: :get do  %>
   <% label_tag :title, 'Title Search' %>
   <% text_field_tag 'title', params[:title] %>
@@ -113,13 +99,11 @@
 
   <div id="photos_1"></div>
 
-
-
-  <section id="photos_2">
-  </section>
   <section id="photos_6">
   </section>
 
+  <!--トップページ読み込み時に使用-->
   <div id="top_loading"></div>
+
   <!--下スクロールイベント時に使用-->
   <div id="end_loading"></div>
