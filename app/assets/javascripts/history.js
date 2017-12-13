@@ -27,6 +27,7 @@ function tohistory(url,src,title,author,caption,isbn) {
         );
         */
 
+        /* ヘッダーに並べる本のimg */
          small_img_list.push('<img src="' + src + '" width="20px" height="auto" alt="'
              + 'url:' + url + ':url '
              + 'title:'+ title + ':title '

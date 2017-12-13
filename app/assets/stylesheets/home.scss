@@ -12,15 +12,30 @@ body {
     background-color: rgb(245,245,245);
 }
 
+
+/* ヘッダーに並べるimg */
 .small-img{
   text-align: center;
-  //margin: 20px 10px 10px 10px;
   float: left;
   margin-left: 120px;
 }
 
 .small-img img{
   margin: 5px 0px 5px 5px;
+}
+
+/* ヘッダーに並べるimg */
+#display_history {
+  /*
+    line-height: 0;
+    -webkit-column-count: 10;
+    -webkit-column-gap:   30px;
+    -moz-column-count:    10;
+    -moz-column-gap:      30px;
+    column-count:         10;
+    column-gap:           30px;
+    */
+  float: left;
 }
 
 /* ヘッダーを幅いっぱいにする為のボックス*/
@@ -30,6 +45,7 @@ width:100%;
 min-width:1000px;
   //border-bottom: solid 1px #B00100;
 }
+
 /* ヘッダー*/
 #header       {
 width: 100%;
@@ -46,14 +62,14 @@ background-color: rgba(245,245,245,0.96);
   float: left;
   text-align: center;
   padding: 2px;
-//border-bottom: solid 2px blue;
-  //text-shadow: 1px 1px ;
 }
 
+//「表紙で巡る、本と出会う」
 .header-subtitle{
   font-size: 13px;
 }
 
+//タイトル「読み太。」
 .header-logo a{
 text-decoration: none;
 color: black;
@@ -80,8 +96,9 @@ float: left;
 */
 
 #photos_6{
-  margin-right: 40px;
-  margin-left: 50px;
+  //margin-right: 40px;
+  //margin-left: 50px;
+  text-align: center;
 }
 #display_history{
   margin-right: 40px;
@@ -165,32 +182,6 @@ img:hover{
 //画像がちらつくため,今はただ並べるだけに止める
                          #display_history img{
     //margin: 5px;
-}
-
-
-#display_history {
-    //Prevent vertical gaps
-  /*
-    line-height: 0;
-    -webkit-column-count: 10;
-    -webkit-column-gap:   30px;
-    -moz-column-count:    10;
-    -moz-column-gap:      30px;
-    column-count:         10;
-    column-gap:           30px;
-    */
-    float: left;
-}
-
-#display_history img {
-    // Just in case there are inline attributes
-    //width: 120% !important;
-    //width: 90px !important;
-    //height: auto !important;
-    //width: 10px;
-
-    //margin-top: 10px;
-    //margin-right: 10px;
 }
 
 /*
