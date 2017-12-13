@@ -8,7 +8,7 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
-$(window).load(function(){
+$(window).load(function() {
 
     //スクロールサーチイベント切り替え変数をセット
     sw.setFunc('sort');
@@ -22,7 +22,7 @@ $(window).load(function(){
     setTimeout(function(){
         sortSearch(sort,page,0);
     },1000);
-    
+
     // appendList[]の初期化
     appendList = new Array();
     appendList.push("tmp");
@@ -179,7 +179,7 @@ $(document).ready(function() {
 });
 
 //履歴ページのimgをクリックしたときの処理
-$(function(){
+$(function() {
     $("#history_page").click(function() {
 
         // スクロールサーチイベント変数値セット
@@ -194,7 +194,7 @@ $(function(){
             //$('#history_page').html(null);
             event.target.remove();
             //$('#history_page').append();
-        }else{
+        } else {
             //全てのhtmlの中身を削除
             // $('#display_history').html(null);
             $('.line').html(null);
@@ -270,7 +270,7 @@ $(document).ready(function() {
 });
 
 //履歴ページを見るボタンをクリックした時の処理
-$(function(){
+$(function() {
     $("#rireki_page_show").click(function() {
 
         $('#display_history').hide(1000);
@@ -289,7 +289,7 @@ $(function(){
 });
 
 //戻るボタンを押した時の処理
-$(function(){
+$(function() {
     $("#Modoru").click(function() {
 
         $('#history_page').hide(1000);
@@ -310,7 +310,7 @@ $(function(){
 });
 
 // トップへ戻るボタンをクリックした時の処理
-$(function(){
+$(function() {
     $("#to_Top_page").click(function() {
         location.reload();
     });
@@ -343,13 +343,13 @@ function putTopBook(url,src,title,author,caption) {
     $('.author').html(null);
     $('.author').append(authorHtml);
 
-    if(caption){
+    if (caption) {
         // あらすじ追加
         var captionHtml = '<p class="red bold">'
             + caption
             + '<br /></p>'
             + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
-    }else{
+    } else {
         var captionHtml = '<p class="red bold">'
             + 'あらすじはありません'
             + '<br /></p>'
@@ -389,18 +389,18 @@ $(function() {
             //ローディング画像追加
             $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
 
-            //サーチ切り替えナンバー取得
-            var number = sw.getFunc();
-
             sleep(1000);
-            if (number == 0) {
+            switch (sw.getFunc()) {
+            case 0:
                 sortSearch('sales', pg.getRandPage(), 1);
-            }else if(number == 1){
+                break;
+            case 1:
                 titleSearch(tb.getTitle().slice(0,2), pg.getPage(), 1);
-            } else {
+                break;
+            case 2:
                 authorSearch(tb.getAuthor(), pg.getPage(), 1);
-            };
-        };
+            }
+        }
     });
 });
 
@@ -410,4 +410,4 @@ function sleep(waitMsec) {
     var startMsec = new Date();
     // 指定ミリ秒間、空ループ。CPUは常にビジー。
     while (new Date() - startMsec < waitMsec);
-};
+}

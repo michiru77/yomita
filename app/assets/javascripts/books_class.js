@@ -14,12 +14,12 @@ function excepGenre() {
         _genres.forEach(function(g) {
             if (genre.match(g) !== null) {
                 _excep = 1;
-            };
+            }
         });
         return _excep;
     };
 
-};
+}
 
 function Page() {
 
@@ -38,7 +38,7 @@ function Page() {
         _page = 0;
     };
 
-};
+}
 
 function Switch() {
 
@@ -57,10 +57,10 @@ function Switch() {
             _select = 2;
         } else {
             alert("miss");
-        };
+        }
     };
 
-};
+}
 
 function BooksData() {
 
@@ -119,7 +119,7 @@ function BooksData() {
         _books.length = 0;
     };
 
-};
+}
 
 function TopBook() {
 
@@ -148,7 +148,7 @@ function TopBook() {
         Object.assign(_topBook, book);
     };
 
-};
+}
 
 function IdGen() {
 
@@ -164,4 +164,4 @@ function IdGen() {
         _id = 0;
     };
 
-};
+}
