@@ -118,35 +118,44 @@ float: left;
   box-shadow: 2px 2px 4px gray;
 }
 
+//履歴を全削除するボタン
 #rireki {
     cursor : pointer;
-    margin-right: 20px;
-    margin-top: 10px;
+    //margin: 10px 0px 20px 20px;
+  margin-top: 15px;
+  margin-right: 80px;
+  margin-left: 30px;
     float: right;
+  font-size: 10px;
 }
-
 #rireki:hover{
     color:#E48E00;
 }
 
+//履歴ページを見るボタン
 #rireki_page_show {
     cursor : pointer;
-    margin-right: 20px;
+    //margin-right: 20px;
+  //margin: 10px 0px 20px 20px;
+  margin-top: 15px;
+  margin-left: 30px;
+  //margin: 15px 0px 30px 30px;
     float: right;
-  margin-top: 10px;
+  //margin-top: 10px;
+  font-size: 10px;
 }
-
 #rireki_page_show:hover{
     color:#E48E00;
 }
 
+//トップページへ戻るボタン
 #to_Top_page {
     cursor : pointer;
-    margin-right: 5px;
+  //margin: 10px 0px 20px 20px;
+  margin-top: 15px;
     float: right;
-  margin-top: 10px;
+  font-size: 10px;
 }
-
 #to_Top_page:hover{
     color:#E48E00;
 }
