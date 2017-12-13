@@ -3,6 +3,8 @@ function historySearch(fruit) {
     historyStorage(fruit);
 }
 
+var small_img_list = new Array();
+
 // クリックした表紙を履歴に追加
 function tohistory(url,src,title,author,caption,isbn) {
     //alert("isbn\t"+isbn);
@@ -14,14 +16,53 @@ function tohistory(url,src,title,author,caption,isbn) {
         );
     }
     if((appendList.indexOf(isbn)==-1)){
+        /*
         $('#display_history').append(
-            '<img src="' + src + '" width="90px" height="auto" alt="'
+            '<img src="' + src + '" alt="'
                 + 'url:' + url + ':url '
                 + 'title:'+ title + ':title '
                 + 'author:' + author + ':author '
                 + 'caption:' + caption + ':caption'
                 + '" >'
         );
+        */
+
+        /* ヘッダーに並べる本のimg */
+         small_img_list.push('<img src="' + src + '" width="20px" height="auto" alt="'
+             + 'url:' + url + ':url '
+             + 'title:'+ title + ':title '
+             + 'author:' + author + ':author '
+             + 'caption:' + caption + ':caption'
+             + '" >');
+
+        if(small_img_list.length>20){
+            small_img_list.shift();
+        } //else {
+        /*
+            $('.small-img').append('<img src="' + src + '" width="20px" height="auto" alt="'
+                + 'url:' + url + ':url '
+                + 'title:'+ title + ':title '
+                + 'author:' + author + ':author '
+                + 'caption:' + caption + ':caption'
+                + '" >');
+        }
+        */
+        $('.small-img').html(null);
+        for(var i=0;i<small_img_list.length;i++){
+          $('.small-img').append(small_img_list[i]);
+        }
+
+
+        //$('.small-img').append(small_img_list);
+
+        /*
+            '<img src="' + src + '" width="20px" height="auto" alt="'
+            + 'url:' + url + ':url '
+            + 'title:'+ title + ':title '
+            + 'author:' + author + ':author '
+            + 'caption:' + caption + ':caption'
+            + '" >'
+            */
         appendList.push(isbn);
     }
 }

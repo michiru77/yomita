@@ -240,6 +240,9 @@ $(function(){
 
             //履歴のミチシルベを表示する
             $('#display_history').show();
+
+            //個別履歴削除ボタンを隠す
+            $('.Individual_delete').hide();
         }
 
     });
@@ -285,6 +288,12 @@ $(function(){
         $('#Modoru').show();
         //$("#choice_delete").show();
         $("#choice_hide").show();
+        //$("#choice_delete").hide();
+
+        $('.Individual_delete').show();
+        //$('#delete_1_button').show();
+        //$('#hiroya').show();
+        //$('input').hide();
     });
 });
 
@@ -306,6 +315,8 @@ $(function(){
         $('#Modoru').hide();
         //$("#choice_delete").hide();
         $("#choice_hide").hide();
+
+        $('.Individual_delete').hide();
     });
 });
 
@@ -411,3 +422,17 @@ function sleep(waitMsec) {
     // 指定ミリ秒間、空ループ。CPUは常にビジー。
     while (new Date() - startMsec < waitMsec);
 };
+
+//履歴削除切り替えボタンの変更
+$(function(){
+    $("#choice_delete1").click(function() {
+        //$('#choice_delete1').remove();
+        if($('#choice_delete1:checked').val()){
+            $('#delete_1_button').text("削除します");
+            $('#delete_1_button').css('color','red');
+        }else{
+            $('#delete_1_button').text("履歴削除");
+            $('#delete_1_button').css('color','black');
+        }
+    });
+});

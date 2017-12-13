@@ -11,6 +11,48 @@
     <SCRIPT LANGUAGE="JavaScript"></SCRIPT>
   </head>
   <body>
-    <%= yield %>
+
+  <!-- headerだよ -->
+  <!--ヘッダーを幅いっぱいにする為のボックス -->
+  <div id="headerbg">
+    <!--ヘッダー -->
+    <div id="header">
+      <div class="header-logo">
+        <a href="/"> 読み太。<span class="header-subtitle">表紙で巡る、本の旅</span></a>
+      </div>
+      <div class="small-img" id="display_history"></div>
+<div class="header-list">
+      <a id="rireki">履歴全削除</a>
+      <a id="rireki_page_show">履歴ページ</a>
+      <a id="Modoru">戻る</a>
+      <a id="to_Top_page">トップ</a>
+
+  <!--
+      <div id="choice_hide">
+      -->
+<span class="Individual_delete">
+  <!--
+  <a id="rireki_1_delete" name="choice_delete" value="1">履歴削除</a>
+  -->
+
+  <input type="checkbox" name="choice_delete" id="choice_delete1" value="1">
+        <label for="choice_delete1" id="delete_1_button">履歴削除</label>
+
+  <!--
+        <input type="checkbox" name="choice_delete" value="1" id="choice_delete"> <!--class="onoff"-->
+
+</span>
+  <!--
+      </div>
+      -->
+
+</div>
+    </div>
+    <!--ヘッダー終わり -->
+  </div>
+  <!--ヘッダーを幅いっぱいにする為のボックス終わり -->
+
+  <%= yield %>
+
   </body>
 </html>
