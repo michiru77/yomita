@@ -34,6 +34,8 @@ function tohistory(url,src,title,author,caption,isbn) {
             author: tb.getAuthor(),
             caption: tb.getCaption()
         };
+        Object.assign(book, book)
+
         tmpBd.setBooks(book);
         var id = tmpIg.getId() + 3000;
         /* ヘッダーに並べる本のimg */
