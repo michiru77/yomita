@@ -7,16 +7,14 @@ function excepGenre() {
     };
 
     this.checkGenre = function(genre) {
-
         genre = genre.toString();
-
-        var _excep = 0;
-        _genres.forEach(function(g) {
-            if (genre.match(g) !== null) {
-                _excep = 1;
+        for (var i=0; i<_genres.length; i++) {
+            var excep = genre.match(_genres[i]);
+            if (excep !== null ) {
+                return 1;
             }
-        });
-        return _excep;
+        }
+        return 0;
     };
 
 }
