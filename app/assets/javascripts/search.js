@@ -10,8 +10,8 @@ eg.setGenre('001024');
 eg.setGenre('001007');
 // パソコン・システム開発
 eg.setGenre('001005');
-// 資格・検定
 
+// 資格・検定
 eg.setGenre('001016');
 // エンタメ・ゲーム/タレント関連本
 eg.setGenre('001011013');
@@ -160,7 +160,7 @@ function outBooks(data, check) {
 
     $.each(data, function(i) {
 
-        bd.setBooks(data[i]);
+        bd.setBooks(getBook(data[i]));
         var id = ig.getId();
         var url = bd.getUrl(id);
         var img = bd.getImg(id);
@@ -184,3 +184,29 @@ function outBooks(data, check) {
     $('#top_loading').html(null);
     $('#end_loading').html(null);
 };
+
+function getBook(data) {
+
+    var book = {};
+
+    var url = data["params"]["itemUrl"];
+    var img = data["params"]["largeImageUrl"];
+    var title = data["params"]["title"];
+    var author = data["params"]["author"].replace(/\/.*$/, '');
+    var genreId = data["params"]["booksGenreId"].split('/', 1);
+    var caption = data["params"]["itemCaption"];
+    var isbn = data["params"]["isbn"];
+
+    book = {
+        url: url,
+        img: img,
+        title: title,
+        author: author,
+        genreId: genreId,
+        caption: caption,
+        isbn: isbn
+    };
+
+    return book;
+
+}

@@ -65,7 +65,6 @@ function Switch() {
 function BooksData() {
 
     var _books = [];
-    var _book = {};
 
     this.getBooks = function(i) {
         return _books[i];
@@ -93,26 +92,7 @@ function BooksData() {
     };
 
     this.setBooks = function(data) {
-
-        var url = data["params"]["itemUrl"];
-        var img = data["params"]["largeImageUrl"];
-        var title = data["params"]["title"];
-        var author = data["params"]["author"].replace(/\/.*$/, '');
-        var genreId = data["params"]["booksGenreId"].split('/', 1);
-        var caption = data["params"]["itemCaption"];
-        var isbn = data["params"]["isbn"];
-
-        _book = {
-            url: url,
-            img: img,
-            title: title,
-            author: author,
-            genreId: genreId,
-            caption: caption,
-            isbn: isbn
-        };
-
-        _books.push(_book);
+        _books.push(data);
     };
 
     this.reset = function() {
