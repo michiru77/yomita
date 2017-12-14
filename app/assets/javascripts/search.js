@@ -147,7 +147,7 @@ function isbnSearch(isbn, check) {
         var i = 0;
         bd.reset();
         ig.reset();
-        bd.setBooks(data[i],i);
+        bd.setBooks(getBook(data[i]));
         tb.setTopBook(bd.getBooks(i));
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
