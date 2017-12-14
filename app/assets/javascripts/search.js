@@ -194,22 +194,14 @@ function getBook(data) {
 
     var book = {};
 
-    var url = data["params"]["itemUrl"];
-    var img = data["params"]["largeImageUrl"];
-    var title = data["params"]["title"];
-    var author = data["params"]["author"].replace(/\/.*$/, '');
-    var genreId = data["params"]["booksGenreId"].split('/', 1);
-    var caption = data["params"]["itemCaption"];
-    var isbn = data["params"]["isbn"];
-
     book = {
-        url: url,
-        img: img,
-        title: title,
-        author: author,
-        genreId: genreId,
-        caption: caption,
-        isbn: isbn
+        url: data["params"]["itemUrl"],
+        img: data["params"]["largeImageUrl"],
+        title: data["params"]["title"],
+        author: data["params"]["author"].split('/', 1),
+        genreId: data["params"]["booksGenreId"].split('/', 1),
+        caption: data["params"]["itemCaption"],
+        isbn: data["params"]["isbn"]
     };
 
     return book;
