@@ -51,6 +51,11 @@ eg.setGenre('001020014');
 // ボーイズラブ/その他
 eg.setGenre('001021003');
 
+// 本 > カレンダー・手帳・家計簿 > 手帳
+eg.setGenre('001026002');
+// 本 > ビジネス・経済・就職 > 自己啓発 > 情報管理・手帳
+eg.setGenre('001006009004');
+
 // ソート検索関数
 function sortSearch(sort, page, check) {
     return $.ajax({
