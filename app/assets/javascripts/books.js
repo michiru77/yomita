@@ -8,6 +8,9 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
+const tmpBd = new BooksData();
+const tmpIg = new IdGen();
+
 $(window).load(function() {
 
     //スクロールサーチイベント切り替え変数をセット
@@ -150,11 +153,11 @@ $(document).ready(function() {
         pg.reset();
 
         var src = event.target.src;
-        var alt = event.target.alt;
-        var url = getUrl(alt);
-        var title = getTitle(alt);
-        var author = getAuthor(alt);
-        var caption = getCaption(alt);
+        var id = event.target.id - 3000;
+        var url = tmpBd.getUrl(id);
+        var title = tmpBd.getTitle(id);
+        var author = tmpBd.getAuthor(id);
+        var caption = tmpBd.getCaption(id);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
@@ -165,10 +168,8 @@ $(document).ready(function() {
         //htmlをnull
         $('#photos_6').html(null);
 
-        setTimeout(function(){
-            // ここに検索関数を放り込む
-            titleSearch(searchTitle, pg.getPage(), 0);
-        },1000);
+        sleep(1000);
+        titleSearch(searchTitle, pg.getPage(), 0);
 
         // photos_6 までスクロールダウン
         scrollDown();

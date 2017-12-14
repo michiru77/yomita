@@ -17,52 +17,58 @@ function tohistory(url,src,title,author,caption,isbn) {
     }
     if((appendList.indexOf(isbn)==-1)){
         /*
-        $('#display_history').append(
-            '<img src="' + src + '" alt="'
-                + 'url:' + url + ':url '
-                + 'title:'+ title + ':title '
-                + 'author:' + author + ':author '
-                + 'caption:' + caption + ':caption'
-                + '" >'
-        );
+          $('#display_history').append(
+          '<img src="' + src + '" alt="'
+          + 'url:' + url + ':url '
+          + 'title:'+ title + ':title '
+          + 'author:' + author + ':author '
+          + 'caption:' + caption + ':caption'
+          + '" >'
+          );
         */
 
+        var book = {
+            src: tb.getImg(),
+            url: tb.getUrl(),
+            title: tb.getTitle(),
+            author: tb.getAuthor(),
+            caption: tb.getCaption()
+        };
+        tmpBd.setBooks(book);
+        var id = tmpIg.getId() + 3000;
         /* ヘッダーに並べる本のimg */
-         small_img_list.push('<img src="' + src + '" width="20px" height="auto" alt="'
-             + 'url:' + url + ':url '
-             + 'title:'+ title + ':title '
-             + 'author:' + author + ':author '
-             + 'caption:' + caption + ':caption'
-             + '" >');
+        small_img_list.push('<img ' + 'id="' + id + '" '
+                            + 'src="' + src + '" width="20px" height="auto"'
+                            + '>');
 
         if(small_img_list.length>20){
             small_img_list.shift();
         } //else {
         /*
-            $('.small-img').append('<img src="' + src + '" width="20px" height="auto" alt="'
-                + 'url:' + url + ':url '
-                + 'title:'+ title + ':title '
-                + 'author:' + author + ':author '
-                + 'caption:' + caption + ':caption'
-                + '" >');
-        }
+          $('.small-img').append('<img src="' + src + '" width="20px" height="auto" alt="'
+          + 'url:' + url + ':url '
+          + 'title:'+ title + ':title '
+          + 'author:' + author + ':author '
+          + 'caption:' + caption + ':caption'
+          + '" >');
+          }
         */
         $('.small-img').html(null);
         for(var i=0;i<small_img_list.length;i++){
-          $('.small-img').append(small_img_list[i]);
+            $('.small-img').append(small_img_list[i]);
         }
 
 
         //$('.small-img').append(small_img_list);
 
         /*
-            '<img src="' + src + '" width="20px" height="auto" alt="'
-            + 'url:' + url + ':url '
-            + 'title:'+ title + ':title '
-            + 'author:' + author + ':author '
-            + 'caption:' + caption + ':caption'
-            + '" >'
-            */
+          '<img src="' + src + '" width="20px" height="auto" alt="'
+          + 'url:' + url + ':url '
+          + 'title:'+ title + ':title '
+          + 'author:' + author + ':author '
+          + 'caption:' + caption + ':caption'
+          + '" >'
+        */
         appendList.push(isbn);
     }
 }
