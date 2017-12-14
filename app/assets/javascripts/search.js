@@ -1,57 +1,55 @@
-/*
-  const eg = new excepGenre();
+const eg = new excepGenre();
 
-  // 写真集
-  eg.setGenre('001013');
-  // エンタメ/フィギュア
-  eg.setGenre('001011010');
-  // 電子ブック
-  eg.setGenre('001024');
-  // 旅行・留学・アウトドア
-  eg.setGenre('001007');
-  // パソコン・システム開発
-  eg.setGenre('001005');
-  // 資格・検定
+// 写真集
+eg.setGenre('001013');
+// エンタメ/フィギュア
+eg.setGenre('001011010');
+// 電子ブック
+eg.setGenre('001024');
+// 旅行・留学・アウトドア
+eg.setGenre('001007');
+// パソコン・システム開発
+eg.setGenre('001005');
+// 資格・検定
 
-  eg.setGenre('001016');
-  // エンタメ・ゲーム/タレント関連本
-  eg.setGenre('001011013');
-  // 漫画/青年
-  eg.setGenre('001001003');
-  // 文庫/写真集
-  eg.setGenre('001019014');
+eg.setGenre('001016');
+// エンタメ・ゲーム/タレント関連本
+eg.setGenre('001011013');
+// 漫画/青年
+eg.setGenre('001001003');
+// 文庫/写真集
+eg.setGenre('001019014');
 
-  // その他
-  eg.setGenre('001015');
-  // 漫画/その他
-  eg.setGenre('001001012');
-  // 語学・学習参考書/その他
-  eg.setGenre('001002007');
-  // 絵本・児童書・図鑑/その他
-  eg.setGenre('001003007');
-  // 小説・エッセイ/その他
-  eg.setGenre('001004015');
-  // ビジネス・経済・就職/その他
-  eg.setGenre('001006021');
-  // 人文・思想・社会/その他
-  eg.setGenre('001008027');
-  // ホビー・スポーツ・美術/その他
-  eg.setGenre('001009014');
-  // 美容・暮らし・健康・料理/その他
-  eg.setGenre('001010015');
-  // エンタメ・ゲーム/その他
-  eg.setGenre('001011012');
-  // 科学・医学・技術/その他
-  eg.setGenre('001012016');
-  // ライトノベル/その他
-  eg.setGenre('001017004');
-  // 文庫/その他
-  eg.setGenre('001019015');
-  // 新書/その他
-  eg.setGenre('001020014');
-  // ボーイズラブ/その他
-  eg.setGenre('001021003');
-*/
+// その他
+eg.setGenre('001015');
+// 漫画/その他
+eg.setGenre('001001012');
+// 語学・学習参考書/その他
+eg.setGenre('001002007');
+// 絵本・児童書・図鑑/その他
+eg.setGenre('001003007');
+// 小説・エッセイ/その他
+eg.setGenre('001004015');
+// ビジネス・経済・就職/その他
+eg.setGenre('001006021');
+// 人文・思想・社会/その他
+eg.setGenre('001008027');
+// ホビー・スポーツ・美術/その他
+eg.setGenre('001009014');
+// 美容・暮らし・健康・料理/その他
+eg.setGenre('001010015');
+// エンタメ・ゲーム/その他
+eg.setGenre('001011012');
+// 科学・医学・技術/その他
+eg.setGenre('001012016');
+// ライトノベル/その他
+eg.setGenre('001017004');
+// 文庫/その他
+eg.setGenre('001019015');
+// 新書/その他
+eg.setGenre('001020014');
+// ボーイズラブ/その他
+eg.setGenre('001021003');
 
 // ソート検索関数
 function sortSearch(sort, page, check) {
@@ -168,8 +166,9 @@ function outBooks(data, check) {
         var img = bd.getImg(id);
         var genre = bd.getGenreId(id);
 
+        var excep = eg.checkGenre(genre);
         var noImg = img.match(/noimage/);
-        if (noImg === null) {
+        if (noImg === null && excep !== 1) {
             var list = '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
                 + 'src="' + img + '"> '

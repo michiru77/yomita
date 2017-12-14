@@ -1,4 +1,3 @@
-/*
 function excepGenre() {
 
     var _genres = [];
@@ -21,7 +20,6 @@ function excepGenre() {
     };
 
 }
-*/
 
 function Page() {
 
