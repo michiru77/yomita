@@ -155,14 +155,7 @@ $(document).ready(function(event) {
         var author = histBd.getAuthor(id);
         var caption = histBd.getCaption(id);
 
-        var topBook = {
-            url: url,
-            img: src,
-            title: title,
-            author: author,
-            caption: caption
-        };
-        tb.setTopBook(topBook);
+        tb.setTopBook(histBd.getBooks(id));
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
