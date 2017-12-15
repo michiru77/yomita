@@ -11,7 +11,7 @@ const pg = new Page();
 const histBd = new BooksData();
 const histIg = new IdGen();
 
-$(window).load(function(event){
+$(window).load(function(){
     //スクロールサーチイベント切り替え変数をセット
     sw.setFunc('sort');
     pg.reset();
@@ -31,16 +31,16 @@ $(window).load(function(event){
 });
 
 // #photos_1にmouse pointerを置いた際の処理。
-$(document).ready(function(event) {
-    $('#photos_1 img').mouseover(function(e){
+$(document).ready(function() {
+    $('#photos_1 img').mouseover(function(event){
         $(this).css("cursor","pointer");
-        console.log('mouseover:' + e.target.id);
+        console.log('mouseover:' + event.target.id);
     });
 });
 
 // クリックした表紙をトップへ移動する
-$(document).ready(function(event) {
-    $('#photos_6').click(function(event){
+$(document).ready(function() {
+    $('#photos_6').click(function(event) {
 
         //スクロールサーチイベント切り替え変数をセット
         sw.setFunc('title');
@@ -271,8 +271,8 @@ $(function(event){
 });
 
 //履歴ページを動的に作る関数
-$(document).ready(function(event) {
-    $('#rireki_page').click(function(event) {
+$(document).ready(function() {
+    $('#rireki_page').click(function() {
         $('#photos_1').html(null);
         $('#photos_6').html(null);
         $('#display_history').html(null);
@@ -286,8 +286,8 @@ $(document).ready(function(event) {
 });
 
 // 履歴削除ボタンをクリックした時の処理
-$(document).ready(function(event) {
-    $('#rireki').click(function(event) {
+$(document).ready(function() {
+    $('#rireki').click(function() {
         history_delete(1);
         $('#display_history').html(null);
         $('#history_page').html(null);
@@ -295,8 +295,8 @@ $(document).ready(function(event) {
 });
 
 //履歴ページを見るボタンをクリックした時の処理
-$(function(event){
-    $("#rireki_page_show").click(function(event) {
+$(function(){
+    $("#rireki_page_show").click(function() {
 
         $('#display_history').hide(1000);
         $('.line').hide(1000);
@@ -324,8 +324,8 @@ $(function(event){
 });
 
 //戻るボタンを押した時の処理
-$(function(event){
-    $("#Modoru").click(function(event) {
+$(function(){
+    $("#Modoru").click(function() {
 
         $('.header-list').css('margin-right','25px');
 
@@ -350,8 +350,8 @@ $(function(event){
 });
 
 // トップへ戻るボタンをクリックした時の処理
-$(function(event){
-    $("#to_Top_page").click(function(event) {
+$(function(){
+    $("#to_Top_page").click(function() {
         location.reload();
     });
 });
@@ -417,7 +417,7 @@ function scrollDown() {
 }
 
 // ページ下部検知
-$(function(event) {
+$(function() {
     $(window).scroll(function(ev) {
         var $window = $(ev.currentTarget),
             height = $window.height(),
