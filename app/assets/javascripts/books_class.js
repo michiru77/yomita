@@ -103,6 +103,9 @@ function TopBook() {
 
     var _topBook = {};
 
+    this.getTopBook = function() {
+        return _topBook;
+    };
     this.getUrl = function() {
         return _topBook.url;
     };

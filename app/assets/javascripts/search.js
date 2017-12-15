@@ -192,9 +192,7 @@ function outBooks(data, check) {
 
 function getBook(data) {
 
-    var book = {};
-
-    book = {
+    var book = {
         url: data["params"]["itemUrl"],
         img: data["params"]["largeImageUrl"],
         title: data["params"]["title"],

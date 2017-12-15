@@ -8,6 +8,9 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
+const histBd = new BooksData();
+const histIg = new IdGen();
+
 $(window).load(function() {
 
     //スクロールサーチイベント切り替え変数をセット
@@ -19,9 +22,8 @@ $(window).load(function() {
 
     var sort = 'sales';
     var page = pg.getRandPage();
-    setTimeout(function(){
-        sortSearch(sort,page,0);
-    },1000);
+    sleep(1000);
+    sortSearch(sort,page,0);
 
     // appendList[]の初期化
     appendList = new Array();
@@ -63,10 +65,8 @@ $(document).ready(function() {
         // タイトル検索
         var searchTitle = title.slice(0,2);
 
-        setTimeout(function(){
-            // ここに検索関数を放り込む
-            titleSearch(searchTitle, pg.getPage(), 0);
-        },1000);
+        sleep(1000);
+        titleSearch(searchTitle, 1, 0);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
@@ -149,32 +149,36 @@ $(document).ready(function() {
         sw.setFunc('title');
         pg.reset();
 
-        var src = event.target.src;
-        var alt = event.target.alt;
-        var url = getUrl(alt);
-        var title = getTitle(alt);
-        var author = getAuthor(alt);
-        var caption = getCaption(alt);
+        var id = event.target.id - 3000;
+        var src = histBd.getImg(id);
+        var url = histBd.getUrl(id);
+        var title = histBd.getTitle(id);
+        var author = histBd.getAuthor(id);
+        var caption = histBd.getCaption(id);
+
+        var topBook = {
+            url: url,
+            img: src,
+            title: title,
+            author: author,
+            caption: caption
+        };
+        tb.setTopBook(topBook);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
 
-        // タイトルの頭二文字を抽出
-        var searchTitle = title.slice(0,2);
-
         //htmlをnull
         $('#photos_6').html(null);
 
-        setTimeout(function(){
-            // ここに検索関数を放り込む
-            titleSearch(searchTitle, pg.getPage(), 0);
-        },1000);
+        // タイトルの頭二文字を抽出
+        var searchTitle = title.slice(0,2);
+        sleep(1000);
+        titleSearch(searchTitle, pg.getPage(), 0);
 
         // photos_6 までスクロールダウン
         scrollDown();
 
-        //履歴情報の保存
-        var img = src;
     });
 });
 
@@ -224,6 +228,7 @@ $(function() {
 
             //タイトル上2文字検索
             var search_title = title.slice(0,2);
+            sleep(1000);
             titleSearch(search_title, pg.getPage(), 0);
 
             //履歴ページを隠す
