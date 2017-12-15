@@ -180,7 +180,7 @@ $(document).ready(function() {
 
 //履歴ページのimgをクリックしたときの処理
 $(function(){
-    $("#history_page").click(function() {
+    $("#history_page img").click(function() {
 
         // スクロールサーチイベント変数値セット
         sw.setFunc('title');

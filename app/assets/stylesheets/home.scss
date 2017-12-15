@@ -121,6 +121,19 @@ float: left;
   box-shadow: 2px 2px 4px gray;
 }
 
+//ジャンルボタン
+#Genre_button{
+  cursor: pointer;
+  float: right;
+  margin-top: 15px;
+  font-size: 10px;
+  margin-right: 40px;
+}
+#Genre_button:hover{
+  color:#E48E00;
+}
+
+
 //履歴を全削除するボタン
 #rireki {
   display: none;
