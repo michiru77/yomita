@@ -28,8 +28,8 @@ function tohistory(url,src,title,author,caption,isbn) {
         */
 
         var book = {
-            src: tb.getImg(),
             url: tb.getUrl(),
+            img: tb.getImg(),
             title: tb.getTitle(),
             author: tb.getAuthor(),
             caption: tb.getCaption()
