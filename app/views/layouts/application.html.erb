@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>読み太。</title>
     <%= csrf_meta_tags %>
     <%= include_gon %>
@@ -12,57 +13,57 @@
   </head>
   <body>
 
-  <!-- headerだよ -->
-  <!--ヘッダーを幅いっぱいにする為のボックス -->
-  <div id="headerbg">
-    <!--ヘッダー -->
-    <div id="header">
-      <div class="header-logo">
-        <a href="/"> 読み太。<span class="header-subtitle">表紙で巡る、本の旅</span></a>
-      </div>
-      <div class="small-img" id="display_history"></div>
-<div class="header-list">
-  <a id="rireki">履歴ページリセット</a>
-  <span class="Individual_delete">
-  <input type="checkbox" name="choice_delete" id="choice_delete1" value="1">
-  <label for="choice_delete1" id="delete_1_button">クリックした本を消去します</label>
-  </span>
-      <a id="rireki_page_show">履歴ページ</a>
-      <a id="Modoru">戻る</a>
-      <a id="Genre_button" >ジャンル</a>
-      <a id="to_Top_page">トップ</a>
+    <!-- headerだよ -->
+    <!--ヘッダーを幅いっぱいにする為のボックス -->
+    <div id="headerbg">
+      <!--ヘッダー -->
+      <div id="header">
+        <div class="header-logo">
+          <a href="/"> 読み太。<span class="header-subtitle">表紙で巡る、本の旅</span></a>
+        </div>
+        <div class="small-img" id="display_history"></div>
+        <div class="header-list">
+          <a id="rireki">履歴ページリセット</a>
+          <span class="Individual_delete">
+            <input type="checkbox" name="choice_delete" id="choice_delete1" value="1">
+            <label for="choice_delete1" id="delete_1_button">クリックした本を消去します</label>
+          </span>
+          <a id="rireki_page_show">履歴ページ</a>
+          <a id="Modoru">戻る</a>
+          <a id="Genre_button" >ジャンル</a>
+          <a id="to_Top_page">トップ</a>
 
-  <!--
-      <div id="choice_hide">
-      -->
-  <!--
-<span class="Individual_delete">
+          <!--
+              <div id="choice_hide">
+                -->
+          <!--
+              <span class="Individual_delete">
+                -->
+          <!--
+              <a id="rireki_1_delete" name="choice_delete" value="1">履歴削除</a>
+              -->
+
+          <!--
+              <input type="checkbox" name="choice_delete" id="choice_delete1" value="1">
+              <label for="choice_delete1" id="delete_1_button">クリックした本を消去します</label>
+              -->
+
+          <!--
+              <input type="checkbox" name="choice_delete" value="1" id="choice_delete"> <!--class="onoff"-->
+              <!--
+                  </span>
 -->
-  <!--
-  <a id="rireki_1_delete" name="choice_delete" value="1">履歴削除</a>
-  -->
-
-<!--
-  <input type="checkbox" name="choice_delete" id="choice_delete1" value="1">
-        <label for="choice_delete1" id="delete_1_button">クリックした本を消去します</label>
+              <!--
+                  </div>
         -->
 
-  <!--
-        <input type="checkbox" name="choice_delete" value="1" id="choice_delete"> <!--class="onoff"-->
-<!--
-</span>
--->
-  <!--
+        </div>
       </div>
-      -->
-
-</div>
+      <!--ヘッダー終わり -->
     </div>
-    <!--ヘッダー終わり -->
-  </div>
-  <!--ヘッダーを幅いっぱいにする為のボックス終わり -->
+    <!--ヘッダーを幅いっぱいにする為のボックス終わり -->
 
-  <%= yield %>
+    <%= yield %>
 
   </body>
 </html>

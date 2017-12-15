@@ -23,16 +23,16 @@ function Page() {
 
     var _page = 0;
 
-    this.getPage = function() {
+    this.getPage = function(event) {
         _page += 1;
         return _page;
     };
 
-    this.getRandPage = function() {
+    this.getRandPage = function(event) {
         return  Math.floor(Math.random()*100);
     };
 
-    this.reset = function() {
+    this.reset = function(event) {
         _page = 0;
     };
 
@@ -42,7 +42,7 @@ function Switch() {
 
     var _select = 0;
 
-    this.getFunc = function() {
+    this.getFunc = function(event) {
         return _select;
     };
 
@@ -93,7 +93,7 @@ function BooksData() {
         _books.push(data);
     };
 
-    this.reset = function() {
+    this.reset = function(event) {
         _books.length = 0;
     };
 
@@ -109,19 +109,19 @@ function TopBook() {
     this.getUrl = function() {
         return _topBook.url;
     };
-    this.getImg = function() {
+    this.getImg = function(event) {
         return _topBook.img;
     };
-    this.getTitle = function() {
+    this.getTitle = function(event) {
         return _topBook.title;
     };
-    this.getAuthor = function() {
+    this.getAuthor = function(event) {
         return _topBook.author;
     };
     this.getCaption = function () {
         return _topBook.caption;
     };
-    this.getIsbn = function() {
+    this.getIsbn = function(event) {
         return _topBook.isbn;
     };
 
@@ -135,13 +135,13 @@ function IdGen() {
 
     var _id = 0;
 
-    this.getId = function() {
+    this.getId = function(event) {
         var id = _id;
         _id += 1;
         return id;
     };
 
-    this.reset = function() {
+    this.reset = function(event) {
         _id = 0;
     };
 

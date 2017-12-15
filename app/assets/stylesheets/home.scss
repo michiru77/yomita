@@ -15,18 +15,18 @@ body {
 
 /* ヘッダーに並べるimg */
 .small-img{
-  text-align: center;
-  float: left;
-  margin-left: 120px;
+    text-align: center;
+    float: left;
+    margin-left: 120px;
 }
 
 .small-img img{
-  margin: 5px 0px 5px 5px;
+    margin: 5px 0px 5px 5px;
 }
 
 /* ヘッダーに並べるimg */
 #display_history {
-  /*
+    /*
     line-height: 0;
     -webkit-column-count: 10;
     -webkit-column-gap:   30px;
@@ -34,46 +34,46 @@ body {
     -moz-column-gap:      30px;
     column-count:         10;
     column-gap:           30px;
-    */
-  float: left;
+   */
+    float: left;
 }
 
 /* ヘッダーを幅いっぱいにする為のボックス*/
 #headerbg {
-background-image: url(画像ファイルのurl);
-width:100%;
-min-width:1000px;
-  //border-bottom: solid 1px #B00100;
+    background-image: url(画像ファイルのurl);
+    width:100%;
+    min-width:1000px;
+    //border-bottom: solid 1px #B00100;
 }
 
 /* ヘッダー*/
 #header       {
-width: 100%;
-top: 0px;
-//margin-right: auto;
-//margin-left: auto;
-position:fixed;
-z-index: 9999;
-background-color: rgba(245,245,245,0.96);
-  border-bottom: solid 1px darkgray;
+    width: 100%;
+    top: 0px;
+    //margin-right: auto;
+    //margin-left: auto;
+    position:fixed;
+    z-index: 9999;
+    background-color: rgba(245,245,245,0.96);
+    border-bottom: solid 1px darkgray;
 }
 
 .header-logo {
-  float: left;
-  text-align: center;
-  padding: 2px;
+    float: left;
+    text-align: center;
+    padding: 2px;
 }
 
 //「表紙で巡る、本と出会う」
 .header-subtitle{
-  font-size: 13px;
+    font-size: 13px;
 }
 
 //タイトル「読み太。」
 .header-logo a{
-text-decoration: none;
-color: black;
-font-size: 25px;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
 }
 
 /*
@@ -96,53 +96,53 @@ float: left;
 */
 
 #photos_6{
-  //margin-right: 40px;
-  //margin-left: 50px;
-  text-align: center;
+    //margin-right: 40px;
+    //margin-left: 50px;
+    text-align: center;
 }
 #display_history{
-  margin-right: 40px;
-  margin-left: 50px;
+    margin-right: 40px;
+    margin-left: 50px;
 }
 
 #photos_6 img{
-  box-shadow: 2px 2px 4px gray;
+    box-shadow: 2px 2px 4px gray;
 }
 #photos_1 img{
-  box-shadow: 2px 2px 4px gray;
+    box-shadow: 2px 2px 4px gray;
 }
 #history_page img{
-  box-shadow: 2px 2px 4px gray;
+    box-shadow: 2px 2px 4px gray;
 
 }
 
 
 #display_history img{
-  box-shadow: 2px 2px 4px gray;
+    box-shadow: 2px 2px 4px gray;
 }
 
 //ジャンルボタン
 #Genre_button{
-  cursor: pointer;
-  float: right;
-  margin-top: 15px;
-  font-size: 10px;
-  margin-right: 40px;
+    cursor: pointer;
+    float: right;
+    margin-top: 15px;
+    font-size: 10px;
+    margin-right: 40px;
 }
 #Genre_button:hover{
-  color:#E48E00;
+    color:#E48E00;
 }
 
 
 //履歴を全削除するボタン
 #rireki {
-  display: none;
-  cursor : pointer;
-  margin-top: 15px;
-  margin-right: 40px;
-  //margin-left: 30px;
-  float: right;
-  font-size: 10px;
+    display: none;
+    cursor : pointer;
+    margin-top: 15px;
+    margin-right: 40px;
+    //margin-left: 30px;
+    float: right;
+    font-size: 10px;
 }
 #rireki:hover{
     color:#E48E00;
@@ -150,17 +150,17 @@ float: left;
 
 //ヘッダーリストを囲む要素
 .header-list{
-  margin-right: 25px;
+    margin-right: 25px;
 }
 
 //履歴ページを見るボタン
 #rireki_page_show {
     cursor : pointer;
-  margin-top: 15px;
-  //margin-left: 30px;
-  //margin-right: auto;
+    margin-top: 15px;
+    //margin-left: 30px;
+    //margin-right: auto;
     float: right;
-  font-size: 10px;
+    font-size: 10px;
 }
 #rireki_page_show:hover{
     color:#E48E00;
@@ -170,7 +170,7 @@ float: left;
 #to_Top_page {
     cursor : pointer;
     margin-top: 15px;
-  margin-right: 40px;
+    margin-right: 40px;
     float: right;
     font-size: 10px;
 }
@@ -180,47 +180,47 @@ float: left;
 
 //戻るボタン
 #Modoru{
-  display: none;
-  cursor : pointer;
-  float: right;
-  font-size: 10px;
-  margin-top: 15px;
+    display: none;
+    cursor : pointer;
+    float: right;
+    font-size: 10px;
+    margin-top: 15px;
 }
 #Modoru:hover{
-  color:#E48E00;
+    color:#E48E00;
 }
 
 //個別削除チェックボックス
 #choice_delete{
-  display: none;
+    display: none;
 }
 //履歴削除ボタン(1つずつ)
 #rireki_1_delete{
-  cursor : pointer;
+    cursor : pointer;
 }
 #rireki_1_delete:hover{
-  color:#E48E00;
+    color:#E48E00;
 }
 //個別削除ボタンを見えなくする
 input {
-  display: none;
+    display: none;
 }
 #choice_hide{
-  display: none;
-  float: right;
+    display: none;
+    float: right;
 }
 .Individual_delete{
-  display: none;
+    display: none;
 }
 #delete_1_button{
-  cursor : pointer;
-  font-size: 10px;
-  margin-top: 15px;
-  margin-right: 40px;
-  float: right;
+    cursor : pointer;
+    font-size: 10px;
+    margin-top: 15px;
+    margin-right: 40px;
+    float: right;
 }
 #delete_1_button:hover{
-  color:#E48E00;
+    color:#E48E00;
 }
 
 h1 {
@@ -234,7 +234,7 @@ h1 {
 
 // 2017/10/25バグ解決
 // 参考:https://yumeirodesign.jp/blog/201312/csstransforms_fixed.html
-img {
+             img {
     backface-visibility: hidden;
     -webkit-backface-visibility:hidden;
     overflow:hidden;
@@ -252,15 +252,15 @@ img:hover{
 }
 
 //画像がちらつくため,今はただ並べるだけに止める
-#display_history img{
-  //margin: 5px;
-  cursor: pointer;
-  margin-right: 2px;
+                         #display_history img{
+    //margin: 5px;
+    cursor: pointer;
+    margin-right: 2px;
 }
 
 /*
 #photos_1 {
-    /* Prevent vertical gaps
+/* Prevent vertical gaps
     line-height: 1;
 
     -webkit-column-count: 1;
@@ -274,7 +274,7 @@ img:hover{
 */
 
 #photos_1 img:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #photos_1 img {
@@ -335,7 +335,7 @@ img:hover{
 */
 
 #photos_6 img {
-      //width: 100% !important;
+    //width: 100% !important;
     width: 120px !important;
     height: auto !important;
     //margin: 15px;
@@ -573,7 +573,7 @@ img:hover{
 //初期状態では上にある前回までの履歴は非表示にしてある
 #history_page {
     display: none;
-  cursor : pointer;
+    cursor : pointer;
 }
 
 
@@ -622,4 +622,3 @@ img:hover{
     //height: auto;
     //font-size: 10px;
 }
-
