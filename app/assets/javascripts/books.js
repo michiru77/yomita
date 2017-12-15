@@ -182,6 +182,14 @@ $(document).ready(function() {
     });
 });
 
+//var clickElement = document.getElementById("#history_page img");
+/*
+  clickElement.addEventListener("click", function(event) {
+  var img = event.target.src;
+  alert(img);
+  },false);
+*/
+
 //履歴ページのimgをクリックしたときの処理
 $(function() {
     $("#history_page").click(function() {
@@ -196,9 +204,13 @@ $(function() {
         if( $("[name=choice_delete]:checked").val()==1 ){
             history_cDelete(isbn);
             //$('#history_page').html(null);
-            event.target.remove();
-            //$('#history_page').append();
-        } else {
+            //event.target.remove();
+            // event.target.img;
+            if(event.target.src){
+                event.target.remove();
+            }
+
+        }else{
             //全てのhtmlの中身を削除
             // $('#display_history').html(null);
             $('.line').html(null);
@@ -248,6 +260,12 @@ $(function() {
 
             //個別履歴削除ボタンを隠す
             $('.Individual_delete').hide();
+
+            //ヘッダー右側にマージンをとります
+            $('.header-list').css('margin-right','25px');
+
+            //rireki全削除ボタンを隠す
+            $('#rireki').hide();
         }
 
     });
@@ -293,12 +311,16 @@ $(function() {
         $('#Modoru').show();
         //$("#choice_delete").show();
         $("#choice_hide").show();
+        $('#rireki').show();
         //$("#choice_delete").hide();
 
         $('.Individual_delete').show();
         //$('#delete_1_button').show();
         //$('#hiroya').show();
         //$('input').hide();
+        $('#Modoru').css('margin-right','40px');
+        // $('#rireki').css('margin-right','1px');
+        $('.header-list').css('margin-right','0px');
     });
 });
 
@@ -306,6 +328,9 @@ $(function() {
 $(function() {
     $("#Modoru").click(function() {
 
+        $('.header-list').css('margin-right','25px');
+
+        $('#rireki').hide();
         $('#history_page').hide(1000);
 
         $('#display_history').show(1000);
@@ -433,10 +458,10 @@ $(function(){
     $("#choice_delete1").click(function() {
         //$('#choice_delete1').remove();
         if($('#choice_delete1:checked').val()){
-            $('#delete_1_button').text("削除します");
+            $('#delete_1_button').text("消去したい本を選択してください");
             $('#delete_1_button').css('color','red');
         }else{
-            $('#delete_1_button').text("履歴削除");
+            $('#delete_1_button').text("クリックした本を消去します");
             $('#delete_1_button').css('color','black');
         }
     });

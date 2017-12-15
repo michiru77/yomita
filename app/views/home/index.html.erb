@@ -1,7 +1,7 @@
 
 
   <!-- 履歴ページの表示 -->
-  <div id="history_page">
+  <span id="history_page">
     <% listnumber=0 %>
     <% for listEL in cookies[:image].split('&') do %>
     <% if listEL!=["tmp"] then%>
@@ -11,7 +11,7 @@
     <% end %>
     <% end %>
     <% end %>
-  </div>
+  </span>
 
   <% session[:image]%>
 

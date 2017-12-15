@@ -121,13 +121,26 @@ float: left;
   box-shadow: 2px 2px 4px gray;
 }
 
+//ジャンルボタン
+#Genre_button{
+  cursor: pointer;
+  float: right;
+  margin-top: 15px;
+  font-size: 10px;
+  margin-right: 40px;
+}
+#Genre_button:hover{
+  color:#E48E00;
+}
+
+
 //履歴を全削除するボタン
 #rireki {
   display: none;
   cursor : pointer;
   margin-top: 15px;
-  margin-right: 80px;
-  margin-left: 30px;
+  margin-right: 40px;
+  //margin-left: 30px;
   float: right;
   font-size: 10px;
 }
@@ -137,7 +150,7 @@ float: left;
 
 //ヘッダーリストを囲む要素
 .header-list{
-  margin-right: 50px;
+  margin-right: 25px;
 }
 
 //履歴ページを見るボタン
@@ -241,6 +254,8 @@ img:hover{
 //画像がちらつくため,今はただ並べるだけに止める
 #display_history img{
   //margin: 5px;
+  cursor: pointer;
+  margin-right: 2px;
 }
 
 /*
