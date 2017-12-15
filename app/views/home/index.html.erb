@@ -6,7 +6,7 @@
     <% for listEL in cookies[:image].split('&') do %>
     <% if listEL!=["tmp"] then%>
     <% if listEL!="tmp" then%>
-    <img src="<%= listEL %>" width="90px" height="auto" alt="<%= cookies[:ISBN].split('&')[listnumber] %>">
+    <img src="<%= listEL %>" width="90px" height="110px" alt="<%= cookies[:ISBN].split('&')[listnumber] %>">
     <% listnumber=listnumber+1 %>
     <% end %>
     <% end %>
