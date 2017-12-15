@@ -8,8 +8,8 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
-const tmpBd = new BooksData();
-const tmpIg = new IdGen();
+const histBd = new BooksData();
+const histIg = new IdGen();
 
 $(window).load(function() {
 
@@ -22,9 +22,8 @@ $(window).load(function() {
 
     var sort = 'sales';
     var page = pg.getRandPage();
-    setTimeout(function(){
-        sortSearch(sort,page,0);
-    },1000);
+    sleep(1000);
+    sortSearch(sort,page,0);
 
     // appendList[]の初期化
     appendList = new Array();
@@ -66,10 +65,8 @@ $(document).ready(function() {
         // タイトル検索
         var searchTitle = title.slice(0,2);
 
-        setTimeout(function(){
-            // ここに検索関数を放り込む
-            titleSearch(searchTitle, pg.getPage(), 0);
-        },1000);
+        sleep(1000);
+        titleSearch(searchTitle, pg.getPage(), 0);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
@@ -168,8 +165,9 @@ $(document).ready(function() {
         //htmlをnull
         $('#photos_6').html(null);
 
-        sleep(1000);
-        titleSearch(searchTitle, pg.getPage(), 0);
+        setTimeout(function(){
+            titleSearch(searchTitle, pg.getPage(), 0);
+        },1000);
 
         // photos_6 までスクロールダウン
         scrollDown();
@@ -224,8 +222,9 @@ $(function() {
             $('#photos_6').show();
 
             //タイトル上2文字検索
-            search_title = title.slice(0,2);
-            titleSearch(search_title);
+            var search_title = title.slice(0,2);
+            sleep(1000);
+            titleSearch(search_title, pg.getPage(), 0);
 
             //履歴ページを隠す
             $('#history_page').hide(1000);
