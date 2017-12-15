@@ -223,8 +223,8 @@ $(function() {
             $('#photos_6').show();
 
             //タイトル上2文字検索
-            search_title = title.slice(0,2);
-            titleSearch(search_title);
+            var search_title = title.slice(0,2);
+            titleSearch(search_title, pg.getPage(), 0);
 
             //履歴ページを隠す
             $('#history_page').hide(1000);
