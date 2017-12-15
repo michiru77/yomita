@@ -139,8 +139,8 @@ float: left;
   display: none;
   cursor : pointer;
   margin-top: 15px;
-  margin-right: 80px;
-  margin-left: 30px;
+  margin-right: 40px;
+  //margin-left: 30px;
   float: right;
   font-size: 10px;
 }
@@ -150,7 +150,7 @@ float: left;
 
 //ヘッダーリストを囲む要素
 .header-list{
-  margin-right: 50px;
+  margin-right: 25px;
 }
 
 //履歴ページを見るボタン
@@ -255,6 +255,7 @@ img:hover{
 #display_history img{
   //margin: 5px;
   cursor: pointer;
+  margin-right: 2px;
 }
 
 /*
