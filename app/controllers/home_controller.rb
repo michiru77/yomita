@@ -4,7 +4,8 @@ class HomeController < ApplicationController
   def sortSearch
     data = RakutenWebService::Books::Book.search(sort: params[:sort],
                                                  page: params[:page],
-                                                 hits: params[:hits])
+                                                 hits: params[:hits],
+                                                 availability:1,)
     render json: data
     #binding.pry
   end
@@ -12,7 +13,8 @@ class HomeController < ApplicationController
   def titleSearch
     data = RakutenWebService::Books::Book.search(title: params[:title],
                                                  page: params[:page],
-                                                 hits: params[:hits])
+                                                 hits: params[:hits],
+                                                 availability:1,)
     render json: data
     #binding.pry
   end

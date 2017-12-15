@@ -35,7 +35,10 @@ function sortSearch(sort, page, check) {
     }).fail(function(data){
         $('#out').html('<p>Failure</p>');
     });
+
 };
+
+
 
 // 作者検索関数
 function authorSearch(author, page, check) {
@@ -118,7 +121,7 @@ function isbnSearch(isbn, check) {
 
 // 取得した書籍データを html に整形して出力する
 function outBooks(data, check) {
-
+    console.log(data);
     if(check === 0 || check !== 1) {
         $('#photos_6').html(null);
         bd.reset();
