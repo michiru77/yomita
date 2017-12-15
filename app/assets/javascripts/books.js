@@ -165,9 +165,8 @@ $(document).ready(function() {
         //htmlをnull
         $('#photos_6').html(null);
 
-        setTimeout(function(){
-            titleSearch(searchTitle, pg.getPage(), 0);
-        },1000);
+        sleep(1000);
+        titleSearch(searchTitle, pg.getPage(), 0);
 
         // photos_6 までスクロールダウン
         scrollDown();
