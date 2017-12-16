@@ -65,7 +65,7 @@ $(document).ready(function() {
         var searchTitle = title.slice(0,2);
 
         sleep(1000);
-        titleSearch(searchTitle, 1, 0);
+        titleSearch(searchTitle, pg.getPage(), 0);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
