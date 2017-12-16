@@ -13,22 +13,13 @@ function tohistory(url,src,title,author,caption,isbn) {
     if( (gon.isbn.indexOf(isbn)==-1) && (appendList.indexOf(isbn)==-1) ){
         $('#history_page').append(
             '<img src="'+ src +'" width="90px" height="auto" alt="'+ isbn +'" >'
-        );
+        )
     }
+
     if((appendList.indexOf(isbn)==-1)){
-        /*
-        $('#display_history').append(
-            '<img src="' + src + '" alt="'
-                + 'url:' + url + ':url '
-                + 'title:'+ title + ':title '
-                + 'author:' + author + ':author '
-                + 'caption:' + caption + ':caption'
-                + '" >'
-        );
-        */
 
         /* ヘッダーに並べる本のimg */
-         small_img_list.push('<img src="' + src + '" width="20px" height="auto" alt="'
+         small_img_list.push('<img class="Hello" src="' + src + '" width="20px" height="auto" alt="'
              + 'url:' + url + ':url '
              + 'title:'+ title + ':title '
              + 'author:' + author + ':author '
@@ -37,32 +28,25 @@ function tohistory(url,src,title,author,caption,isbn) {
 
         if(small_img_list.length>20){
             small_img_list.shift();
-        } //else {
-        /*
-            $('.small-img').append('<img src="' + src + '" width="20px" height="auto" alt="'
-                + 'url:' + url + ':url '
-                + 'title:'+ title + ':title '
-                + 'author:' + author + ':author '
-                + 'caption:' + caption + ':caption'
-                + '" >');
         }
-        */
+
         $('.small-img').html(null);
+
+        /* 本の道筋(img)をヘッダーにappendする処理 */
+        /* ちょっとしたバグ:追加するごとに関数が呼ばれる*/
         for(var i=0;i<small_img_list.length;i++){
-          $('.small-img').append(small_img_list[i]);
+          $('.small-img').append(small_img_list[i])
+              .find('img')
+              .mouseover(function () {
+              var src = $(this).attr('src');
+              //var title =
+              showImg(src);
+          })
+              .mouseout(function() {
+                  hideImg();
+              });
         }
 
-
-        //$('.small-img').append(small_img_list);
-
-        /*
-            '<img src="' + src + '" width="20px" height="auto" alt="'
-            + 'url:' + url + ':url '
-            + 'title:'+ title + ':title '
-            + 'author:' + author + ':author '
-            + 'caption:' + caption + ':caption'
-            + '" >'
-            */
         appendList.push(isbn);
     }
 }
@@ -109,13 +93,7 @@ function historyStorageIndex(img,isbn) {
             //caption: caption
         }
     }).done(function(data){
-        //$('#photos_1').html(null);
-        //$('#photos_6').html(null);
-        //$('#display_history').html(null);
-        //$('.apple').append('hoge');
-        //console.log('hoge');
-        //outFruit(data);
-        //$('#photos_6').append(gon.ItemUrl);
+
     }).fail(function(data){
         $('#out').html('<p>Session failure</p>');
     });
