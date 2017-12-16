@@ -6,7 +6,7 @@
 
 body {
     //margin: 150px 100px 100px 100px;
-    margin-top: 60px;
+    margin-top: 70px;
     //background-color: #fafad2;
     //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
     background-color: rgb(245,245,245);
@@ -256,6 +256,12 @@ img:hover{
     //margin: 5px;
     cursor: pointer;
     margin-right: 2px;
+    //transform: scale(2.0,2.0);
+}
+#display_history img:hover{
+    //margin-top: 40px;
+    //transform: scale(4.0,4.0);
+    //zoom: 400%;
 }
 
 /*
@@ -621,4 +627,8 @@ img:hover{
     width: 40px;
     //height: auto;
     //font-size: 10px;
+}
+
+#display_history_img{
+    text-align: center;
 }
