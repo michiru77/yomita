@@ -513,6 +513,8 @@ $(function() {
         $('#photos_6').css('display','none');
         $('.title').css('display','none');
         $('.author').css('display','none');
+        $('#top_loading').css('display','none');
+        $('#end_loading').css('display','none');
 
     })
         .mouseout(function () {
@@ -520,6 +522,8 @@ $(function() {
             $('#photos_6').css('display','block');
             $('.title').css('display','block');
             $('.author').css('display','block');
+            $('#top_loading').css('display','block');
+            $('#end_loading').css('display','block');
         })
 
 
