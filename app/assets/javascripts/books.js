@@ -562,7 +562,7 @@ $(function() {
     })
 });
 
-//imgにmouseoutした時の処理
+//imgをmouseoutした時の処理
 $(function() {
     $("#display_history").on("mouseout", "img", function () {
         $('#display_history_img').html(null);
