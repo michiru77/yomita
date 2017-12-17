@@ -6,7 +6,7 @@ function historySearch(fruit) {
 var small_img_list = new Array();
 
 // クリックした表紙を履歴に追加
-function tohistory(url,src,title,author,caption,isbn) {
+function toHistory(src,isbn) {
     //alert("isbn\t"+isbn);
     //alert("gon.isbn\t"+gon.isbn.indexOf(isbn));
     //alert("appendList\t"+appendList.indexOf(isbn));
