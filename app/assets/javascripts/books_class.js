@@ -101,40 +101,32 @@ function BooksData() {
 
 function TopBook() {
 
-    var _topBook = {};
-
-    this.getUrl = function() {
-        return _topBook.url;
-    };
-    this.getImg = function() {
-        return _topBook.img;
-    };
-    this.getTitle = function() {
-        return _topBook.title;
-    };
-    this.getAuthor = function() {
-        return _topBook.author;
-    };
-    this.getCaption = function () {
-        return _topBook.caption;
-    };
-    this.getIsbn = function() {
-        return _topBook.isbn;
-    };
+    var _topBook = [];
 
     this.getTopBook = function() {
-        var book = {
-            url: _topBook.url,
-            img: _topBook.img,
-            title: _topBook.title,
-            author: _topBook.author,
-            caption: _topBook.caption,
-            isbn: _topBook.isbn
-        };
-        return book;
+        return _topBook[0];
     };
+    this.getUrl = function() {
+        return _topBook[0].url;
+    };
+    this.getImg = function() {
+        return _topBook[0].img;
+    };
+    this.getTitle = function() {
+        return _topBook[0].title;
+    };
+    this.getAuthor = function() {
+        return _topBook[0].author;
+    };
+    this.getCaption = function () {
+        return _topBook[0].caption;
+    };
+    this.getIsbn = function() {
+        return _topBook[0].isbn;
+    };
+
     this.setTopBook = function(book) {
-        Object.assign(_topBook, book);
+        _topBook[0] = book;
     };
 
 }
