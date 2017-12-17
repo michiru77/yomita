@@ -161,7 +161,7 @@ $(document).ready(function(event) {
         pg.reset();
 
         var id = event.target.id - 3000;
-        var src = histBd.getImg(id);
+        var src = histBd.getImg(id).replace(/\?.*$/, '');
         var url = histBd.getUrl(id);
         var title = histBd.getTitle(id);
         var author = histBd.getAuthor(id);
