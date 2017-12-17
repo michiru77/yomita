@@ -145,6 +145,18 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#display_history').click(function() {
 
+
+        $('#display_history_img').html(null);
+        $('#display_history_img').css('display','none');
+
+        $('#photos_1').css('display','block');
+        $('#photos_6').css('display','block');
+        $('.title').css('display','block');
+        $('.author').css('display','block');
+        $('#top_loading').css('display','block');
+        $('#end_loading').css('display','block');
+
+
         //スクロールサーチイベント変数値set
         sw.setFunc('title');
         pg.reset();
@@ -506,6 +518,7 @@ function hideImg(){
     $('#display_history_img').html(null);
 }
 
+
 $(function() {
     $('#display_history').mouseover(function() {
 
@@ -532,6 +545,7 @@ $(function() {
 
 });
 
+//imgにmouseoverした時の処理
 $(function() {
     $("#display_history").on("mouseover", "img", function () {
         var src = $(this).attr("src");
@@ -548,6 +562,7 @@ $(function() {
     })
 });
 
+//imgにmouseoutした時の処理
 $(function() {
     $("#display_history").on("mouseout", "img", function () {
         $('#display_history_img').html(null);
