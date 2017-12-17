@@ -57,7 +57,7 @@ $(document).ready(function() {
         var isbn = tb.getIsbn();
 
         // 履歴を上に残す
-        tohistory(url,src,title,author,caption,isbn);
+        toHistory(src,isbn);
 
         $('#photos_6').html(null);
 
