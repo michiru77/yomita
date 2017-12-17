@@ -195,14 +195,16 @@ function outBooks(data, check) {
 
 function getBook(data) {
 
+    var params = data.params;
+
     var book = {
-        url: data["params"]["itemUrl"],
-        img: data["params"]["largeImageUrl"],
-        title: data["params"]["title"],
-        author: data["params"]["author"].split('/', 1),
-        genreId: data["params"]["booksGenreId"].split('/', 1),
-        caption: data["params"]["itemCaption"],
-        isbn: data["params"]["isbn"]
+        url: params.itemUrl,
+        img: params.largeImageUrl,
+        title: params.title,
+        author: params.author.split('/', 1),
+        genreId: params.booksGenreId.split('/', 1),
+        caption: params.itemCaption,
+        isbn: params.isbn
     };
 
     return book;
