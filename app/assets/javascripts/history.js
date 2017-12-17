@@ -18,14 +18,7 @@ function toHistory(src,isbn) {
 
     if((appendList.indexOf(isbn)==-1)){
 
-        var book = {
-            url: tb.getUrl(),
-            img: tb.getImg(),
-            title: tb.getTitle(),
-            author: tb.getAuthor(),
-            caption: tb.getCaption()
-        };
-        histBd.setBooks(book);
+        histBd.setBooks(tb.getTopBook());
         var id = histIg.getId() + 3000;
         /* ヘッダーに並べる本のimg */
         small_img_list.push('<img ' + 'id="' + id + '" '
