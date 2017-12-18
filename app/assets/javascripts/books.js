@@ -298,9 +298,14 @@ $(document).ready(function() {
 // 履歴削除ボタンをクリックした時の処理
 $(document).ready(function() {
     $('#rireki').click(function() {
-        history_delete(1);
-        $('#display_history').html(null);
-        $('#history_page').html(null);
+
+        var res = confirm("全ての履歴をリセットしますか？");
+        if(res == true){
+            $('#display_history').html(null);
+            $('#history_page').html(null);
+            history_delete(1);
+        }
+
     });
 });
 

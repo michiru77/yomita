@@ -2,6 +2,7 @@
 <html>
   <head>
 
+    
     <title>読み太。</title>
     <%= csrf_meta_tags %>
     <%= include_gon %>
@@ -19,7 +20,12 @@
       <!--ヘッダー -->
       <div id="header">
         <div class="header-logo">
+          <span class="header-logo-img">
+            <a href="/"><img src="<%= "/yomita_logo7.png"%>" width="210px" height="auto"></a>
+          </span>
+<!--
           <a href="/"> 読み太。<span class="header-subtitle">表紙で巡る、本の旅</span></a>
+          -->
         </div>
         <div class="small-img" id="display_history"></div>
         <div class="header-list">
@@ -30,7 +36,9 @@
           </span>
           <a id="rireki_page_show">履歴ページ</a>
           <a id="Modoru">戻る</a>
+          <!--
           <a id="Genre_button" >ジャンル</a>
+          -->
           <a id="to_Top_page">トップ</a>
 
           <!--
