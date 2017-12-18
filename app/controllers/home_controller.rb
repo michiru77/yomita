@@ -7,50 +7,47 @@ class HomeController < ApplicationController
                                                  hits: params[:hits],
                                                  availability:1,)
     render json: data
-    #binding.pry
   end
 
   def titleSearch
     data = RakutenWebService::Books::Book.search(title: params[:title],
                                                  page: params[:page],
                                                  hits: params[:hits],
-                                                 availability:1,)
+                                                 availability:1)
     render json: data
-    #binding.pry
   end
 
   def authorSearch
     data = RakutenWebService::Books::Book.search(author: params[:author],
                                                  page: params[:page],
-                                                 hits: params[:hits])
+                                                 hits: params[:hits],
+                                                 availability:1)
     render json: data
-    #binding.pry
   end
 
   def genreSearch
     data = RakutenWebService::Books::Book.search(booksGenreId: params[:booksGenreId],
                                                  page: params[:page],
-                                                 hits: params[:hits])
+                                                 hits: params[:hits],
+                                                 availability:1)
     render json: data
-    #binding.pry
   end
 
   def isbnSearch
     data = RakutenWebService::Books::Book.search(isbn: params[:isbn],
                                                  hits: params[:hits])
     render json: data
-    #binding.pry
   end
 
   def index
-  
-      if cookies[:ISBN].blank?
-        cookies[:ISBN]="tmp"
-      end
-      tmp21 = cookies[:ISBN].split('&')
-      tmp21.delete('tmp')
-      tmp21.uniq!
-      gon.isbn=tmp21
+
+    if cookies[:ISBN].blank?
+      cookies[:ISBN]="tmp"
+    end
+    tmp21 = cookies[:ISBN].split('&')
+    tmp21.delete('tmp')
+    tmp21.uniq!
+    gon.isbn=tmp21
 
     if cookies[:image].blank?
       cookies[:image] = ["tmp"]
@@ -104,7 +101,7 @@ class HomeController < ApplicationController
     end
 
   end
-  
+
   def defcDelete
     tmp31 = cookies[:ISBN].split('&')
     tmp32 = cookies[:image].split('&')
@@ -124,7 +121,7 @@ class HomeController < ApplicationController
     p cookies[:ISBN]
     p cookies[:image]
   end
-  
+
 
   def history
 
