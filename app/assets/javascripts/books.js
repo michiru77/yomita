@@ -20,10 +20,15 @@ $(window).load(function(){
     $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
 
     var sort = 'sales';
-    var page = pg.getRandPage();
+
 
     sleep(1000);
-    sortSearch(sort,page,0);
+    sortSearch(sort,pg.getRandPage(),1);
+
+    sleep(1000);
+    sortSearch(sort,pg.getRandPage(),1);
+
+
     // appendList[]の初期化
     appendList = new Array();
     appendList.push("tmp");
@@ -429,7 +434,11 @@ $(function() {
             scrollTop = $window.scrollTop(),
             documentHeight = $(document).height();
 
-        if (documentHeight === height + scrollTop) {
+        var outerheight = $('body').outerHeight();
+
+        //if (documentHeight === height + scrollTop) {
+
+            if (documentHeight < height + scrollTop + 1200 ) {
 
             //ローディング画像追加
             $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
