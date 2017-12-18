@@ -35,17 +35,6 @@ function toHistory(src,isbn) {
         /* ちょっとしたバグ:追加するごとに関数が呼ばれる*/
         for(var i=0;i<small_img_list.length;i++){
             $('.small-img').append(small_img_list[i])
-            /*
-              .find('img')
-              .mouseover(function () {
-              var src = $(this).attr('src');
-              //var title =
-              showImg(src);
-              })
-              .mouseout(function() {
-              hideImg();
-              });
-            */
         }
 
         appendList.push(isbn);
