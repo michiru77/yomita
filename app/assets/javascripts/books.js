@@ -149,7 +149,6 @@ $(document).ready(function(event) {
 $(document).ready(function(event) {
     $('#display_history').click(function(event) {
 
-
         $('#display_history_img').html(null);
         $('#display_history_img').css('display','none');
 
@@ -160,19 +159,18 @@ $(document).ready(function(event) {
         $('#top_loading').css('display','block');
         $('#end_loading').css('display','block');
 
-
         //スクロールサーチイベント変数値set
         sw.setFunc('title');
         pg.reset();
 
         var id = event.target.id - 3000;
-        var src = histBd.getImg(id).replace(/\?.*$/, '');
-        var url = histBd.getUrl(id);
-        var title = histBd.getTitle(id);
-        var author = histBd.getAuthor(id);
-        var caption = histBd.getCaption(id);
-
         tb.setTopBook(histBd.getBooks(id));
+
+        var src = tb.getImg(id).replace(/\?.*$/, '');
+        var url = tb.getUrl(id);
+        var title = tb.getTitle(id);
+        var author = tb.getAuthor(id);
+        var caption = tb.getCaption(id);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);

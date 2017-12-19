@@ -68,38 +68,9 @@ function BooksData()
 {
     var _books = [];
 
-
     this.getBooks = function(i)
     {
         return _books[i];
-    };
-    this.getUrl = function(i)
-    {
-        return _books[i].url;
-    };
-    this.getImg = function(i)
-    {
-        return _books[i].img;
-    };
-    this.getTitle = function(i)
-    {
-        return _books[i].title;
-    };
-    this.getAuthor = function(i)
-    {
-        return _books[i].author;
-    };
-    this.getGenreId = function(i)
-    {
-        return _books[i].genreId;
-    };
-    this.getCaption = function(i)
-    {
-        return _books[i].caption;
-    };
-    this.getIsbn = function(i)
-    {
-        return _books[i].isbn;
     };
 
     this.setBooks = function(data)
@@ -136,6 +107,10 @@ function TopBook()
     this.getAuthor = function()
     {
         return _topBook[0].author;
+    };
+    this.getGenreId = function(i)
+    {
+        return _topBook[0].genreId;
     };
     this.getCaption = function ()
     {
