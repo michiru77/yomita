@@ -46,7 +46,7 @@ body {
 }
 
 /* ヘッダー*/
-#header       {
+#header {
     width: 100%;
     top: 0px;
     //margin-right: auto;
@@ -138,6 +138,8 @@ float: left;
     margin-top: 16px;
     font-size: 10px;
     margin-right: 40px;
+    //font-family: MS Sans Serif;
+    font-family: 'New Gulim';
 }
 #Genre_button:hover{
     color:#E48E00;
@@ -155,6 +157,8 @@ float: left;
     //margin-left: 30px;
     float: right;
     font-size: 12px;
+ // font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 #rireki:hover{
     color:#E48E00;
@@ -175,6 +179,8 @@ float: left;
     //margin-right: auto;
     float: right;
     font-size: 12px;
+  //font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 #rireki_page_show:hover{
   color:#E48E00;
@@ -189,6 +195,8 @@ float: left;
     margin-right: 40px;
     float: right;
     font-size: 12px;
+    //font-family: 'Tahoma';
+    font-family: 'New Gulim';
 }
 #to_Top_page:hover{
     color:#E48E00;
@@ -203,6 +211,8 @@ float: left;
     float: right;
     font-size: 12px;
     margin-top: 16px;
+  //font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 #Modoru:hover{
     color:#E48E00;
@@ -575,6 +585,8 @@ img:hover{
     position: fixed ;
     display: none ;
     z-index: 2 ;
+  //font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 
 #modal-content-innar{
@@ -709,6 +721,8 @@ img:hover{
   margin-top: 16px;
   font-size: 12px;
   margin-right: 40px;
+  // font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 
 .menu-case:hover{
@@ -732,6 +746,8 @@ img:hover{
   //color: rgba(0,20,255,1);
   color: black;
   font-size: 12.5px;
+  //font-family: 'MS Sans Serif';
+  font-family: 'New Gulim';
 }
 
 .menu-one-text:hover{
