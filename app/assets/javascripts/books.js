@@ -458,6 +458,9 @@ $(function() {
                 break;
             case 2:
                 authorSearch(tb.getAuthor(), pg.getPage(), 1);
+                break;
+                case 3:
+                    genreSearch('001017', pg.getRandPage(), 1);
             }
         }
     });
@@ -561,6 +564,9 @@ $(function() {
 $(function() {
     $('.menu-one-text').click(function () {
 
+        //ページ下部検知時使用
+        sw.setFunc("genre");
+
         $('.title').html(null);
         $('.author').html(null);
         $('#photos_1').html(null);
@@ -568,10 +574,13 @@ $(function() {
         $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
 
         var genreID = $(this).attr('name');
+
         var rand = pg.getRandPage();
 
         sleep(1000);
         genreSearch(genreID,rand,1);
+
+        var rand = pg.getRandPage();
         sleep(1000);
         genreSearch(genreID,rand,1);
     })

@@ -53,6 +53,8 @@ function Switch() {
             _select = 1;
         } else if (select === "author") {
             _select = 2;
+        } else if (select === "genre"){
+            _select = 3;
         } else {
             alert("miss");
         }
