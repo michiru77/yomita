@@ -142,6 +142,8 @@ float: left;
 }
 #Genre_button:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 
@@ -157,6 +159,8 @@ float: left;
 }
 #rireki:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 //ヘッダーリストを囲む要素
@@ -174,7 +178,9 @@ float: left;
     font-size: 12px;
 }
 #rireki_page_show:hover{
-    color:#E48E00;
+  color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 //トップページボタン
@@ -187,6 +193,8 @@ float: left;
 }
 #to_Top_page:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 //戻るボタン
@@ -199,6 +207,8 @@ float: left;
 }
 #Modoru:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 //個別削除チェックボックス
@@ -211,6 +221,8 @@ float: left;
 }
 #rireki_1_delete:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 //個別削除ボタンを見えなくする
 input {
@@ -232,6 +244,8 @@ input {
 }
 #delete_1_button:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 h1 {
@@ -685,6 +699,8 @@ img:hover{
 }
 .menu-case:hover{
   color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 .menu-name:hover{
   cursor: pointer;
@@ -699,12 +715,15 @@ img:hover{
     z-index: -1;
     width: 10em;
   background-color: #FAF9F7;
-  color: rgba(0,20,255,1);
+  //color: rgba(0,20,255,1);
+  color: black;
   font-size: 12.5px;
 }
 .menu-one-text:hover{
   cursor: pointer;
-  border-bottom: solid 1px rgba(0,20,255,1);
+  //border-bottom: solid 1px rgba(0,20,255,1);
+  color: red;
+  border-bottom: solid 1px red;
   //text-decoration: underline;
 }
 
