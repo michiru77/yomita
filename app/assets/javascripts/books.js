@@ -557,11 +557,22 @@ $(function() {
     })
 });
 
-/*
+
 $(function() {
-    $('.menu-case').click(function () {
-        $('#photos_6').hide();
-        $('body').append('<h1>ライトノベル</h1><h1>小説</h1><h1>文庫</h1>');
+    $('.menu-one-text').click(function () {
+
+        $('.title').html(null);
+        $('.author').html(null);
+        $('#photos_1').html(null);
+        $('#photos_6').html(null);
+        $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
+
+        var genreID = $(this).attr('name');
+        var rand = pg.getRandPage();
+
+        sleep(1000);
+        genreSearch(genreID,rand,1);
+        sleep(1000);
+        genreSearch(genreID,rand,1);
     })
 });
-*/
