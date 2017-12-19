@@ -90,7 +90,7 @@ $(document).ready(function() {
 $(document).ready(function(event) {
     $('.author').click(function(event) {
         var author = event.target.name;
-        authorSearch(author,1,0);
+        authorSearch(author, pg.getPage(), 0);
         // photos_6 までスクロールダウン
         scrollDown();
 
