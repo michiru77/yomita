@@ -543,3 +543,25 @@ $(function() {
         $('#end_loading').css('display','block');
     })
 });
+
+
+$(function() {
+    $(".menu-case").on("mouseover", function () {
+        $('.menu-list').css('display','block');
+    })
+});
+
+$(function() {
+    $(".menu-case").on("mouseout", function () {
+        $('.menu-list').css('display','none');
+    })
+});
+
+/*
+$(function() {
+    $('.menu-case').click(function () {
+        $('#photos_6').hide();
+        $('body').append('<h1>ライトノベル</h1><h1>小説</h1><h1>文庫</h1>');
+    })
+});
+*/

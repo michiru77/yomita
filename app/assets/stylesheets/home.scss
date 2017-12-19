@@ -21,7 +21,7 @@ body {
 }
 
 .small-img img{
-    margin: 5px 0px 5px 5px;
+    margin: 6.5px 0px 2px 2px;
 }
 
 /* ヘッダーに並べるimg */
@@ -129,13 +129,14 @@ float: left;
 
 #display_history img{
     box-shadow: 2px 2px 4px gray;
+    //margin-top: 1px;
 }
 
 //ジャンルボタン
 #Genre_button{
     cursor: pointer;
     float: right;
-    margin-top: 15px;
+    margin-top: 16px;
     font-size: 10px;
     margin-right: 40px;
 }
@@ -148,7 +149,7 @@ float: left;
 #rireki {
     display: none;
     cursor : pointer;
-    margin-top: 15px;
+    margin-top: 16px;
     margin-right: 40px;
     //margin-left: 30px;
     float: right;
@@ -166,11 +167,11 @@ float: left;
 //履歴ページを見るボタン
 #rireki_page_show {
     cursor : pointer;
-    margin-top: 15px;
+    margin-top: 16px;
     //margin-left: 30px;
     //margin-right: auto;
     float: right;
-    font-size: 10px;
+    font-size: 12px;
 }
 #rireki_page_show:hover{
     color:#E48E00;
@@ -179,10 +180,10 @@ float: left;
 //トップページボタン
 #to_Top_page {
     cursor : pointer;
-    margin-top: 15px;
+    margin-top: 16px;
     margin-right: 40px;
     float: right;
-    font-size: 10px;
+    font-size: 12px;
 }
 #to_Top_page:hover{
     color:#E48E00;
@@ -194,7 +195,7 @@ float: left;
     cursor : pointer;
     float: right;
     font-size: 10px;
-    margin-top: 15px;
+    margin-top: 16px;
 }
 #Modoru:hover{
     color:#E48E00;
@@ -672,4 +673,42 @@ img:hover{
 #display_history_img{
     text-align: center;
     display: none;
+}
+
+//ジャンル検索ボタン
+.menu-case{
+  float: right;
+  cursor: pointer;
+  margin-top: 16px;
+  font-size: 12px;
+  margin-right: 40px;
+}
+.menu-case:hover{
+  color:#E48E00;
+}
+.menu-list{
+  list-style: none;
+  border: solid 0.5px #4D4B46;
+  padding: 10px;
+  //display: none;
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: 10em;
+  background-color: #FAF9F7;
+  color: rgba(0,20,255,1);
+  font-size: 12.5px;
+}
+.menu-one-text:hover{
+  border-bottom: solid 1px rgba(0,20,255,1);
+  //text-decoration: underline;
+}
+
+.menu-name:hover + .menu-list, .menu-list:hover {
+  opacity: 1;
+  z-index: 1;
+}
+
+.menu-case:hover .menu-name {
+  //color: #507ea4;
 }
