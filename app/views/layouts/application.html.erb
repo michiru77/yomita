@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    
     <title>読み太。</title>
     <%= csrf_meta_tags %>
     <%= include_gon %>
@@ -9,8 +11,89 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!--　script指定　-->
     <SCRIPT LANGUAGE="JavaScript"></SCRIPT>
+    <!-- ファビコン設定 -->
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-160x160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-196x196.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#2d88ef">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
   </head>
   <body>
+
+    <!-- headerだよ -->
+    <!--ヘッダーを幅いっぱいにする為のボックス -->
+    <div id="headerbg">
+      <!--ヘッダー -->
+      <div id="header">
+        <div class="header-logo">
+          <span class="header-logo-img">
+            <a href="/"><img src="<%= "/yomita_logo7.png"%>" width="210px" height="auto"></a>
+          </span>
+<!--
+          <a href="/"> 読み太。<span class="header-subtitle">表紙で巡る、本の旅</span></a>
+          -->
+        </div>
+        <div class="small-img" id="display_history"></div>
+        <div class="header-list">
+          <a id="rireki">履歴ページリセット</a>
+          <span class="Individual_delete">
+            <input type="checkbox" name="choice_delete" id="choice_delete1" value="1">
+            <label for="choice_delete1" id="delete_1_button">クリックした本を消去します</label>
+          </span>
+          <a id="rireki_page_show">履歴ページ</a>
+          <a id="Modoru">戻る</a>
+          <!--
+          <a id="Genre_button" >ジャンル</a>
+          -->
+          <a id="to_Top_page">トップ</a>
+
+          <!--
+              <div id="choice_hide">
+                -->
+          <!--
+              <span class="Individual_delete">
+                -->
+          <!--
+              <a id="rireki_1_delete" name="choice_delete" value="1">履歴削除</a>
+              -->
+
+          <!--
+              <input type="checkbox" name="choice_delete" id="choice_delete1" value="1">
+              <label for="choice_delete1" id="delete_1_button">クリックした本を消去します</label>
+              -->
+
+          <!--
+              <input type="checkbox" name="choice_delete" value="1" id="choice_delete"> <!--class="onoff"-->
+              <!--
+                  </span>
+-->
+              <!--
+                  </div>
+        -->
+
+        </div>
+      </div>
+      <!--ヘッダー終わり -->
+    </div>
+    <!--ヘッダーを幅いっぱいにする為のボックス終わり -->
+
     <%= yield %>
+
   </body>
 </html>

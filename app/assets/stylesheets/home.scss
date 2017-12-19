@@ -6,38 +6,84 @@
 
 body {
     //margin: 150px 100px 100px 100px;
-    margin-top: 150px;
+    margin-top: 70px;
     //background-color: #fafad2;
     //background-image: url("https://images-na.ssl-images-amazon.com/images/I/51VPC1RxO6L._SX348_BO1,204,203,200_.jpg");
     background-color: rgb(245,245,245);
 }
 
+
+/* ヘッダーに並べるimg */
+.small-img{
+    text-align: center;
+    float: left;
+    margin-left: 120px;
+}
+
+.small-img img{
+    margin: 5px 0px 5px 5px;
+}
+
+/* ヘッダーに並べるimg */
+#display_history {
+    /*
+    line-height: 0;
+    -webkit-column-count: 10;
+    -webkit-column-gap:   30px;
+    -moz-column-count:    10;
+    -moz-column-gap:      30px;
+    column-count:         10;
+    column-gap:           30px;
+   */
+    float: left;
+}
+
 /* ヘッダーを幅いっぱいにする為のボックス*/
 #headerbg {
-background-image: url(画像ファイルのurl);
-width:100%;
-min-width:1000px;
+    background-image: url(画像ファイルのurl);
+    width:100%;
+    min-width:1000px;
+    //border-bottom: solid 1px #B00100;
 }
+
 /* ヘッダー*/
 #header       {
-width: 100%;
-top: 0px;
-//margin-right: auto;
-//margin-left: auto;
-position:fixed;
-z-index: 9999;
-background-color: rgba(245,245,245,0.96);
+    width: 100%;
+    top: 0px;
+    //margin-right: auto;
+    //margin-left: auto;
+    position:fixed;
+    z-index: 9999;
+    background-color: rgba(245,245,245,0.96);
+    border-bottom: solid 1px darkgray;
 }
 
 .header-logo {
-text-align: center;
-border-bottom: solid 2px blue;
+    float: left;
+    text-align: center;
+    //padding: 2px;
+  margin-top: 6.5px;
+  margin-left: 10px;
 }
 
+.header-logo img:hover{
+  cursor: pointer;
+}
+
+.header-logo-img{
+  cursor: pointer;
+}
+
+//「表紙で巡る、本と出会う」
+.header-subtitle{
+    font-size: 13px;
+}
+
+//タイトル「読み太。」
 .header-logo a{
-text-decoration: none;
-color: black;
-font-size: 60px;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
 }
 
 /*
@@ -60,54 +106,130 @@ float: left;
 */
 
 #photos_6{
-  margin-right: 40px;
-  margin-left: 50px;
+    //margin-right: 40px;
+    //margin-left: 50px;
+    text-align: center;
 }
 #display_history{
-  margin-right: 40px;
-  margin-left: 50px;
+    margin-right: 40px;
+    margin-left: 50px;
 }
 
 #photos_6 img{
-  box-shadow: 2px 2px 4px gray;
+    box-shadow: 2px 2px 4px gray;
 }
 #photos_1 img{
-  box-shadow: 2px 2px 4px gray;
+    box-shadow: 2px 2px 4px gray;
 }
 #history_page img{
-  box-shadow: 2px 2px 4px gray;
+    box-shadow: 2px 2px 4px gray;
+  //margin: 2px;
 }
+
+
 #display_history img{
-  box-shadow: 2px 2px 4px gray;
+    box-shadow: 2px 2px 4px gray;
 }
 
-#rireki {
-    cursor : pointer;
-    margin-right: 20px;
+//ジャンルボタン
+#Genre_button{
+    cursor: pointer;
     float: right;
+    margin-top: 15px;
+    font-size: 10px;
+    margin-right: 40px;
+}
+#Genre_button:hover{
+    color:#E48E00;
 }
 
+
+//履歴を全削除するボタン
+#rireki {
+    display: none;
+    cursor : pointer;
+    margin-top: 15px;
+    margin-right: 40px;
+    //margin-left: 30px;
+    float: right;
+    font-size: 10px;
+}
 #rireki:hover{
     color:#E48E00;
 }
 
-#rireki_page_show {
-    cursor : pointer;
-    margin-right: 20px;
-    float: right;
+//ヘッダーリストを囲む要素
+.header-list{
+    margin-right: 25px;
 }
 
+//履歴ページを見るボタン
+#rireki_page_show {
+    cursor : pointer;
+    margin-top: 15px;
+    //margin-left: 30px;
+    //margin-right: auto;
+    float: right;
+    font-size: 10px;
+}
 #rireki_page_show:hover{
     color:#E48E00;
 }
 
+//トップページボタン
 #to_Top_page {
     cursor : pointer;
-    margin-right: 20px;
+    margin-top: 15px;
+    margin-right: 40px;
     float: right;
+    font-size: 10px;
+}
+#to_Top_page:hover{
+    color:#E48E00;
 }
 
-#to_Top_page:hover{
+//戻るボタン
+#Modoru{
+    display: none;
+    cursor : pointer;
+    float: right;
+    font-size: 10px;
+    margin-top: 15px;
+}
+#Modoru:hover{
+    color:#E48E00;
+}
+
+//個別削除チェックボックス
+#choice_delete{
+    display: none;
+}
+//履歴削除ボタン(1つずつ)
+#rireki_1_delete{
+    cursor : pointer;
+}
+#rireki_1_delete:hover{
+    color:#E48E00;
+}
+//個別削除ボタンを見えなくする
+input {
+    display: none;
+}
+#choice_hide{
+    display: none;
+    float: right;
+}
+.Individual_delete{
+    display: none;
+}
+#delete_1_button{
+    cursor : pointer;
+    font-size: 10px;
+    margin-top: 15px;
+    margin-right: 40px;
+    float: right;
+}
+#delete_1_button:hover{
     color:#E48E00;
 }
 
@@ -128,11 +250,40 @@ h1 {
     overflow:hidden;
     //box-shadow: 0px 5px 15px -5px rgba(0, 0, 0, 0.8);
 }
-
+/*
 img:hover{
     opacity: 0.8;
     transition: 0.35s;
     background-color: #000;
+    cursor: pointer;
+}
+*/
+
+#photos_6 img:hover{
+  opacity: 0.8;
+  transition: 0.35s;
+  background-color: #000;
+  cursor: pointer;
+}
+
+#photos_1 img:hover{
+  opacity: 0.8;
+  transition: 0.35s;
+  background-color: #000;
+  cursor: pointer;
+}
+#display_history img:hover{
+  opacity: 0.8;
+  transition: 0.35s;
+  background-color: #000;
+  cursor: pointer;
+}
+
+#history_page img:hover{
+  opacity: 0.8;
+  transition: 0.35s;
+  background-color: #000;
+  cursor: pointer;
 }
 
 #title00 {
@@ -142,33 +293,19 @@ img:hover{
 //画像がちらつくため,今はただ並べるだけに止める
                          #display_history img{
     //margin: 5px;
+    cursor: pointer;
+    margin-right: 2px;
+    //transform: scale(2.0,2.0);
 }
-
-
-#display_history {
-    //Prevent vertical gaps
-    line-height: 0;
-    -webkit-column-count: 10;
-    -webkit-column-gap:   30px;
-    -moz-column-count:    10;
-    -moz-column-gap:      30px;
-    column-count:         10;
-    column-gap:           30px;
-
-}
-
-#display_history img {
-    // Just in case there are inline attributes
-    width: 120% !important;
-    //width: 90px !important;
-    height: auto !important;
-    margin-top: 10px;
-    margin-right: 10px;
+#display_history img:hover{
+    //margin-top: 40px;
+    //transform: scale(4.0,4.0);
+    //zoom: 400%;
 }
 
 /*
 #photos_1 {
-    /* Prevent vertical gaps
+/* Prevent vertical gaps
     line-height: 1;
 
     -webkit-column-count: 1;
@@ -182,7 +319,7 @@ img:hover{
 */
 
 #photos_1 img:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #photos_1 img {
@@ -228,49 +365,6 @@ img:hover{
 
 
 /*
-#photos_5 {
-
-  line-height: 0;
-
-  -webkit-column-count: 5;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    5;
-  -moz-column-gap:      0px;
-  column-count:         5;
-  column-gap:           0px;
-
-}
-
-
-#photos_5 img {
-  width: 100% !important;
-  height: auto !important;
-  margin: 15px;
-}
-*/
-
-/*
-#photos_4 {
-  line-height: 0;
-
-  -webkit-column-count: 4;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    4;
-  -moz-column-gap:      0px;
-  column-count:         4;
-  column-gap:           0px;
-
-}
-
-
-#photos_4 img {
-  width: 100% !important;
-  height: auto !important;
-  margin: 15px;
-}
-*/
-
-/*
 #photos_6 {
 /* Prevent vertical gaps
     line-height: 0;
@@ -286,7 +380,7 @@ img:hover{
 */
 
 #photos_6 img {
-      //width: 100% !important;
+    //width: 100% !important;
     width: 120px !important;
     height: auto !important;
     //margin: 15px;
@@ -301,6 +395,7 @@ img:hover{
 #photos_6 img {
     margin: 5px;
 }
+
 
 #photos_history {
     /* Prevent vertical gaps */
@@ -482,6 +577,7 @@ img:hover{
 }
 
 //個別削除ボタン用
+/*
 .onoff {
 	display: none;
 }
@@ -518,15 +614,14 @@ img:hover{
     background: #73CAFF;
     color: #FFFFFF;
 }
+*/
 
 //初期状態では上にある前回までの履歴は非表示にしてある
 #history_page {
     display: none;
+    cursor : pointer;
 }
 
-#Modoru{
-    display: none;
-}
 
 #modal-content-innar{
     //text-align: center;
@@ -574,14 +669,7 @@ img:hover{
     //font-size: 10px;
 }
 
-#choice_delete{
-    display: none;
-}
-
-input {
-    display: none;
-}
-
-#choice_hide{
+#display_history_img{
+    text-align: center;
     display: none;
 }

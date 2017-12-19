@@ -1,59 +1,57 @@
-function excepGenre() {
-
+function excepGenre()
+{
     var _genres = [];
-    var _excep = 0;
 
-    this.setGenre = function(genre) {
+    this.setGenre = function(genre)
+    {
         _genres.push(genre);
     };
 
-    this.checkGenre = function(genre) {
-
+    this.checkGenre = function(genre)
+    {
         genre = genre.toString();
-
-        for (var g of _genres) {
-            var excep = genre.match(g);
-            if (excep !== null) {
-                _excep = 1;
-                break;
-            } else {
-                _excep = 0;
-            };
-        };
-
-        return _excep;
+        for (var i=0; i<_genres.length; i++) {
+            var excep = genre.match(_genres[i]);
+            if (excep !== null ) {
+                return 1;
+            }
+        }
+        return 0;
     };
+}
 
-};
-
-function Page() {
-
+function Page()
+{
     var _page = 0;
 
-    this.getPage = function() {
+    this.getPage = function()
+    {
         _page += 1;
         return _page;
     };
 
-    this.getRandPage = function() {
+    this.getRandPage = function()
+    {
         return  Math.floor(Math.random()*100);
     };
 
-    this.reset = function() {
+    this.reset = function()
+    {
         _page = 0;
     };
+}
 
-};
-
-function Switch() {
-
+function Switch()
+{
     var _select = 0;
 
-    this.getFunc = function() {
+    this.getFunc = function()
+    {
         return _select;
     };
 
-    this.setFunc = function(select) {
+    this.setFunc = function(select)
+    {
         if (select === "sort") {
             _select = 0;
         } else if (select === "title") {
@@ -62,108 +60,111 @@ function Switch() {
             _select = 2;
         } else {
             alert("miss");
-        };
+        }
     };
+}
 
-};
-
-function BooksData() {
-
+function BooksData()
+{
     var _books = [];
 
-    this.getBooks = function(i) {
+
+    this.getBooks = function(i)
+    {
         return _books[i];
     };
-    this.getUrl = function(i) {
+    this.getUrl = function(i)
+    {
         return _books[i].url;
     };
-    this.getImg = function(i) {
+    this.getImg = function(i)
+    {
         return _books[i].img;
     };
-    this.getTitle = function(i) {
+    this.getTitle = function(i)
+    {
         return _books[i].title;
     };
-    this.getAuthor = function(i) {
+    this.getAuthor = function(i)
+    {
         return _books[i].author;
     };
-    this.getGenreId = function(i) {
+    this.getGenreId = function(i)
+    {
         return _books[i].genreId;
     };
-    this.getCaption = function(i) {
+    this.getCaption = function(i)
+    {
         return _books[i].caption;
     };
-    this.getIsbn = function(i) {
+    this.getIsbn = function(i)
+    {
         return _books[i].isbn;
     };
 
-    this.setBooks = function(data,i) {
-
-        var url = data["params"]["itemUrl"];
-        var img = data["params"]["largeImageUrl"];
-        var title = data["params"]["title"];
-        var author = data["params"]["author"].replace(/\/.*$/, '');
-        var genreId = data["params"]["booksGenreId"].split('/', 1);
-        var caption = data["params"]["itemCaption"];
-        var isbn = data["params"]["isbn"];
-
-        _books[i] = {
-            url: url,
-            img: img,
-            title: title,
-            author: author,
-            genreId: genreId,
-            caption: caption,
-            isbn: isbn
-        };
+    this.setBooks = function(data)
+    {
+        _books.push(data);
     };
 
-    this.reset = function() {
+    this.reset = function()
+    {
         _books.length = 0;
     };
+}
 
-};
+function TopBook()
+{
+    var _topBook = [];
 
-function TopBook() {
-
-    var _topBook = {};
-
-    this.getUrl = function() {
-        return _topBook.url;
+    this.getTopBook = function()
+    {
+        return _topBook[0];
     };
-    this.getImg = function() {
-        return _topBook.img;
+    this.getUrl = function()
+    {
+        return _topBook[0].url;
     };
-    this.getTitle = function() {
-        return _topBook.title;
+    this.getImg = function()
+    {
+        return _topBook[0].img;
     };
-    this.getAuthor = function() {
-        return _topBook.author;
+    this.getTitle = function()
+    {
+        return _topBook[0].title;
     };
-    this.getCaption = function () {
-        return _topBook.caption;
+    this.getAuthor = function()
+    {
+        return _topBook[0].author;
     };
-    this.getIsbn = function() {
-        return _topBook.isbn;
+    this.getCaption = function ()
+    {
+        return _topBook[0].caption;
+    };
+    this.getIsbn = function()
+    {
+        return _topBook[0].isbn;
     };
 
-    this.setTopBook = function(book) {
-        Object.assign(_topBook,book);
+    this.setTopBook = function(book)
+    {
+        _topBook[0] = book;
     };
+}
 
-};
-
-function IdGen() {
-
+function IdGen()
+{
     var _id = 0;
 
-    this.getId = function() {
+    this.getId = function()
+    {
         var id = _id;
         _id += 1;
         return id;
     };
 
-    this.reset = function() {
+    this.reset = function()
+    {
         _id = 0;
     };
-
-};
+}

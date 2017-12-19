@@ -8,8 +8,10 @@ const ig = new IdGen();
 const sw = new Switch();
 const pg = new Page();
 
-$(window).load(function(){
+const histBd = new BooksData();
+const histIg = new IdGen();
 
+$(window).load(function(){
     //スクロールサーチイベント切り替え変数をセット
     sw.setFunc('sort');
     pg.reset();
@@ -18,11 +20,15 @@ $(window).load(function(){
     $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
 
     var sort = 'sales';
-    var page = pg.getRandPage();
-    setTimeout(function(){
-        sortSearch(sort,page,0);
-    },1000);
-    
+
+
+    sleep(1000);
+    sortSearch(sort,pg.getRandPage(),1);
+
+    sleep(1000);
+    sortSearch(sort,pg.getRandPage(),1);
+
+
     // appendList[]の初期化
     appendList = new Array();
     appendList.push("tmp");
@@ -31,15 +37,15 @@ $(window).load(function(){
 
 // #photos_1にmouse pointerを置いた際の処理。
 $(document).ready(function() {
-    $('#photos_1 img').mouseover(function(e){
+    $('#photos_1 img').mouseover(function(event){
         $(this).css("cursor","pointer");
-        console.log('mouseover:' + e.target.id);
+        console.log('mouseover:' + event.target.id);
     });
 });
 
 // クリックした表紙をトップへ移動する
 $(document).ready(function() {
-    $('#photos_6').click(function(){
+    $('#photos_6').click(function(event) {
 
         //スクロールサーチイベント切り替え変数をセット
         sw.setFunc('title');
@@ -56,17 +62,15 @@ $(document).ready(function() {
         var isbn = tb.getIsbn();
 
         // 履歴を上に残す
-        tohistory(url,src,title,author,caption,isbn);
+        toHistory(src,isbn);
 
         $('#photos_6').html(null);
 
         // タイトル検索
         var searchTitle = title.slice(0,2);
 
-        setTimeout(function(){
-            // ここに検索関数を放り込む
-            titleSearch(searchTitle, pg.getPage(), 0);
-        },1000);
+        sleep(1000);
+        titleSearch(searchTitle, pg.getPage(), 0);
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
@@ -83,8 +87,8 @@ $(document).ready(function() {
 });
 
 //作者名をクリックすると作者検索を実行
-$(document).ready(function() {
-    $('.author').click(function() {
+$(document).ready(function(event) {
+    $('.author').click(function(event) {
         var author = event.target.name;
         authorSearch(author,1,0);
         // photos_6 までスクロールダウン
@@ -97,7 +101,7 @@ $(document).ready(function() {
 });
 
 // photos_1 の表紙をクリックするとキャプションを表示する
-$(document).ready(function() {
+$(document).ready(function(event) {
 
     $(function () {
         $('#photos_1').click(function () {
@@ -142,45 +146,62 @@ $(document).ready(function() {
 });
 
 //本の道筋imgをクリックした時の処理
-$(document).ready(function() {
-    $('#display_history').click(function() {
+$(document).ready(function(event) {
+    $('#display_history').click(function(event) {
+
+
+        $('#display_history_img').html(null);
+        $('#display_history_img').css('display','none');
+
+        $('#photos_1').css('display','block');
+        $('#photos_6').css('display','block');
+        $('.title').css('display','block');
+        $('.author').css('display','block');
+        $('#top_loading').css('display','block');
+        $('#end_loading').css('display','block');
+
 
         //スクロールサーチイベント変数値set
         sw.setFunc('title');
         pg.reset();
 
-        var src = event.target.src;
-        var alt = event.target.alt;
-        var url = getUrl(alt);
-        var title = getTitle(alt);
-        var author = getAuthor(alt);
-        var caption = getCaption(alt);
+        var id = event.target.id - 3000;
+        var src = histBd.getImg(id).replace(/\?.*$/, '');
+        var url = histBd.getUrl(id);
+        var title = histBd.getTitle(id);
+        var author = histBd.getAuthor(id);
+        var caption = histBd.getCaption(id);
+
+        tb.setTopBook(histBd.getBooks(id));
 
         // トップに表紙を配置
         putTopBook(url,src,title,author,caption);
 
-        // タイトルの頭二文字を抽出
-        var searchTitle = title.slice(0,2);
-
         //htmlをnull
         $('#photos_6').html(null);
 
-        setTimeout(function(){
-            // ここに検索関数を放り込む
-            titleSearch(searchTitle, pg.getPage(), 0);
-        },1000);
+        // タイトルの頭二文字を抽出
+        var searchTitle = title.slice(0,2);
+        sleep(1000);
+        titleSearch(searchTitle, pg.getPage(), 0);
 
         // photos_6 までスクロールダウン
         scrollDown();
 
-        //履歴情報の保存
-        var img = src;
     });
 });
 
+//var clickElement = document.getElementById("#history_page img");
+/*
+  clickElement.addEventListener("click", function(event) {
+  var img = event.target.src;
+  alert(img);
+  },false);
+*/
+
 //履歴ページのimgをクリックしたときの処理
-$(function(){
-    $("#history_page").click(function() {
+$(function(event){
+    $("#history_page").click(function(event) {
 
         // スクロールサーチイベント変数値セット
         sw.setFunc('title');
@@ -192,8 +213,12 @@ $(function(){
         if( $("[name=choice_delete]:checked").val()==1 ){
             history_cDelete(isbn);
             //$('#history_page').html(null);
-            event.target.remove();
-            //$('#history_page').append();
+            //event.target.remove();
+            // event.target.img;
+            if(event.target.src){
+                event.target.remove();
+            }
+
         }else{
             //全てのhtmlの中身を削除
             // $('#display_history').html(null);
@@ -223,8 +248,9 @@ $(function(){
             $('#photos_6').show();
 
             //タイトル上2文字検索
-            search_title = title.slice(0,2);
-            titleSearch(search_title);
+            var search_title = title.slice(0,2);
+            sleep(1000);
+            titleSearch(search_title, pg.getPage(), 0);
 
             //履歴ページを隠す
             $('#history_page').hide(1000);
@@ -240,6 +266,15 @@ $(function(){
 
             //履歴のミチシルベを表示する
             $('#display_history').show();
+
+            //個別履歴削除ボタンを隠す
+            $('.Individual_delete').hide();
+
+            //ヘッダー右側にマージンをとります
+            $('.header-list').css('margin-right','25px');
+
+            //rireki全削除ボタンを隠す
+            $('#rireki').hide();
         }
 
     });
@@ -263,9 +298,14 @@ $(document).ready(function() {
 // 履歴削除ボタンをクリックした時の処理
 $(document).ready(function() {
     $('#rireki').click(function() {
-        history_delete(1);
-        $('#display_history').html(null);
-        $('#history_page').html(null);
+
+        var res = confirm("全ての履歴をリセットしますか？");
+        if(res == true){
+            $('#display_history').html(null);
+            $('#history_page').html(null);
+            history_delete(1);
+        }
+
     });
 });
 
@@ -285,6 +325,16 @@ $(function(){
         $('#Modoru').show();
         //$("#choice_delete").show();
         $("#choice_hide").show();
+        $('#rireki').show();
+        //$("#choice_delete").hide();
+
+        $('.Individual_delete').show();
+        //$('#delete_1_button').show();
+        //$('#hiroya').show();
+        //$('input').hide();
+        $('#Modoru').css('margin-right','40px');
+        // $('#rireki').css('margin-right','1px');
+        $('.header-list').css('margin-right','0px');
     });
 });
 
@@ -292,6 +342,9 @@ $(function(){
 $(function(){
     $("#Modoru").click(function() {
 
+        $('.header-list').css('margin-right','25px');
+
+        $('#rireki').hide();
         $('#history_page').hide(1000);
 
         $('#display_history').show(1000);
@@ -306,6 +359,8 @@ $(function(){
         $('#Modoru').hide();
         //$("#choice_delete").hide();
         $("#choice_hide").hide();
+
+        $('.Individual_delete').hide();
     });
 });
 
@@ -343,13 +398,13 @@ function putTopBook(url,src,title,author,caption) {
     $('.author').html(null);
     $('.author').append(authorHtml);
 
-    if(caption){
+    if (caption) {
         // あらすじ追加
         var captionHtml = '<p class="red bold">'
             + caption
             + '<br /></p>'
             + '<p><a id="modal-close" class="button-link">閉じる</a></p>';
-    }else{
+    } else {
         var captionHtml = '<p class="red bold">'
             + 'あらすじはありません'
             + '<br /></p>'
@@ -384,23 +439,27 @@ $(function() {
             scrollTop = $window.scrollTop(),
             documentHeight = $(document).height();
 
-        if (documentHeight === height + scrollTop) {
+        var outerheight = $('body').outerHeight();
+
+        //if (documentHeight === height + scrollTop) {
+
+            if (documentHeight < height + scrollTop + 1200 ) {
 
             //ローディング画像追加
             $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
 
-            //サーチ切り替えナンバー取得
-            var number = sw.getFunc();
-
             sleep(1000);
-            if (number == 0) {
+            switch (sw.getFunc()) {
+            case 0:
                 sortSearch('sales', pg.getRandPage(), 1);
-            }else if(number == 1){
+                break;
+            case 1:
                 titleSearch(tb.getTitle().slice(0,2), pg.getPage(), 1);
-            } else {
+                break;
+            case 2:
                 authorSearch(tb.getAuthor(), pg.getPage(), 1);
-            };
-        };
+            }
+        }
     });
 });
 
@@ -410,4 +469,77 @@ function sleep(waitMsec) {
     var startMsec = new Date();
     // 指定ミリ秒間、空ループ。CPUは常にビジー。
     while (new Date() - startMsec < waitMsec);
-};
+}
+
+// 履歴削除切り替えボタンの変更
+$(function(){
+    $("#choice_delete1").click(function() {
+        //$('#choice_delete1').remove();
+        if($('#choice_delete1:checked').val()){
+            $('#delete_1_button').text("消去したい本を選択してください");
+            $('#delete_1_button').css('color','red');
+        }else{
+            $('#delete_1_button').text("クリックした本を消去します");
+            $('#delete_1_button').css('color','black');
+        }
+    });
+});
+
+
+$(function() {
+    $('#display_history').mouseover(function() {
+
+        $('#photos_1').css('display','none');
+        $('#photos_6').css('display','none');
+        $('.title').css('display','none');
+        $('.author').css('display','none');
+        $('#top_loading').css('display','none');
+        $('#end_loading').css('display','none');
+
+    })
+
+    $('#display_history').mouseout(function() {
+
+        $('#photos_1').css('display','block');
+        $('#photos_6').css('display','block');
+        $('.title').css('display','block');
+        $('.author').css('display','block');
+        $('#top_loading').css('display','block');
+        $('#end_loading').css('display','block');
+
+    })
+
+
+});
+
+//imgにmouseoverした時の処理
+$(function() {
+    $("#display_history").on("mouseover", "img", function () {
+        var src = $(this).attr("src");
+        $('#display_history_img').css('display','block');
+        $('#display_history_img').append('<img src="'+ src +'" width="350px" height="auto">');
+        //alert('マウスオーバーしました');
+        $('#photos_1').css('display','none');
+        $('#photos_6').css('display','none');
+        $('.title').css('display','none');
+        $('.author').css('display','none');
+        $('#top_loading').css('display','none');
+        $('#end_loading').css('display','none');
+
+    })
+});
+
+//imgをmouseoutした時の処理
+$(function() {
+    $("#display_history").on("mouseout", "img", function () {
+        $('#display_history_img').html(null);
+        $('#display_history_img').css('display','none');
+        //alert('マウスアウトしました');
+        $('#photos_1').css('display','block');
+        $('#photos_6').css('display','block');
+        $('.title').css('display','block');
+        $('.author').css('display','block');
+        $('#top_loading').css('display','block');
+        $('#end_loading').css('display','block');
+    })
+});
