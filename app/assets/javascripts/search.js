@@ -134,8 +134,10 @@ function outBooks(data, check)
         };
     });
     // ローディング画像削除
+    //sleep(1000);
     $('#top_loading').html(null);
     $('#end_loading').html(null);
+    //$('#photos_6').css('display','block');
 };
 
 function getBook(data)

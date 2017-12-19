@@ -11,22 +11,29 @@ const pg = new Page();
 const histBd = new BooksData();
 const histIg = new IdGen();
 
+$(window).ready(function () {
+    $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
+    //$('#photos_6').css('display','none');
+});
+
 $(window).load(function(){
     //スクロールサーチイベント切り替え変数をセット
     sw.setFunc('sort');
     pg.reset();
 
     //トップページリロード時のローディング画像セット
-    $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
+    //$('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
+
+    //$('#photos_6').css('display','none');
 
     var sort = 'sales';
 
-
-    sleep(1000);
+    //sleep(1000);
     sortSearch(sort,pg.getRandPage(),1);
 
     sleep(1000);
     sortSearch(sort,pg.getRandPage(),1);
+
 
 
     // appendList[]の初期化
@@ -310,16 +317,27 @@ $(document).ready(function() {
 //履歴ページを見るボタンをクリックした時の処理
 $(function(){
     $("#rireki_page_show").click(function() {
-
-        $('#display_history').hide(1000);
-        $('.line').hide(1000);
-        $('.title').hide(1000);
-        $('.author').hide(1000);
-        $('#photos_6').hide(1000);
-        $('#photos_1').hide(1000);
+/*
+        $('#display_history').hide(700);
+        $('.line').hide(700);
+        $('.title').hide(700);
+        $('.author').hide(700);
+        $('#photos_6').hide(700);
+        $('#photos_1').hide(700);
+*/
+        $('#display_history').hide();
+        $('.line').hide();
+        $('.title').hide();
+        $('.author').hide();
+        $('#photos_6').hide();
+        $('#photos_1').hide();
 
         $('#rireki_page_show').hide();
-        $('#history_page').show(1000);
+
+        $('#history_page').show();
+        //$('#history_page').show(700);
+
+
         $('#Modoru').show();
         //$("#choice_delete").show();
         $("#choice_hide").show();
@@ -341,18 +359,31 @@ $(function(){
     $("#Modoru").click(function() {
 
         $('.header-list').css('margin-right','25px');
+/*
+        $('#rireki').hide(700);
+        $('#history_page').hide(700);
 
-        $('#rireki').hide();
-        $('#history_page').hide(1000);
+        $('#display_history').show(700);
+        $('.line').show(700);
+        $('.title').show(700);
+        $('.author').show(700);
+        $('#photos_6').show(700);
+        $('#photos_1').show(700);
 
-        $('#display_history').show(1000);
-        $('.line').show(1000);
-        $('.title').show(1000);
-        $('.author').show(1000);
-        $('#photos_6').show(1000);
-        $('#photos_1').show(1000);
+        $('#rireki_page_show').show(700);
+        */
 
-        $('#rireki_page_show').show();
+        $('#rireki').hide(0);
+        $('#history_page').hide(0);
+
+        $('#display_history').show(0);
+        $('.line').show(0);
+        $('.title').show(0);
+        $('.author').show(0);
+        $('#photos_6').show(0);
+        $('#photos_1').show(0);
+
+        $('#rireki_page_show').show(0);
 
         $('#Modoru').hide();
         //$("#choice_delete").hide();
@@ -431,6 +462,13 @@ function scrollDown() {
 
 // ページ下部検知
 $(function() {
+
+    var genreID;
+
+    $('.menu-one-text').click(function() {
+         genreID = $(this).attr('name');
+    });
+
     $(window).scroll(function(ev) {
         var $window = $(ev.currentTarget),
             height = $window.height(),
@@ -438,10 +476,9 @@ $(function() {
             documentHeight = $(document).height();
 
         var outerheight = $('body').outerHeight();
-
         //if (documentHeight === height + scrollTop) {
 
-            if (documentHeight < height + scrollTop + 1200 ) {
+            if (documentHeight < height + scrollTop + 1400 ) {
 
             //ローディング画像追加
             $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
@@ -456,6 +493,9 @@ $(function() {
                 break;
             case 2:
                 authorSearch(tb.getAuthor(), pg.getPage(), 1);
+                break;
+                case 3:
+                    genreSearch(genreID, pg.getRandPage(), 1);
             }
         }
     });
@@ -481,7 +521,20 @@ $(function(){
             $('#delete_1_button').css('color','black');
         }
     });
+
 });
+
+/*
+$(function () {
+    $('#delete_1_button').mouseover(function () {
+        $('#delete_1_button').css('color','#E48E00');
+    })
+
+    $('#delete_1_button').mouseout(function () {
+        $('#delete_1_button').css('color','black');
+    })
+});
+*/
 
 
 $(function() {
@@ -541,3 +594,60 @@ $(function() {
         $('#end_loading').css('display','block');
     })
 });
+
+//ジャンルボタン処理
+$(function() {
+    $(".menu-case").on("mouseover", function () {
+        $('.menu-list').css('display','block');
+    })
+});
+
+//ジャンルボタン処理
+$(function() {
+    $(".menu-case").on("mouseout", function () {
+        $('.menu-list').css('display','none');
+    })
+});
+
+//ジャンルテキストクリック時の処理
+$(function() {
+    $('.menu-one-text').click(function () {
+
+        //ページ下部検知時使用
+        sw.setFunc("genre");
+
+        $('.title').html(null);
+        $('.author').html(null);
+        $('#photos_1').html(null);
+        $('#photos_6').html(null);
+        $('#top_loading').html('<div id="loading_1"><img src="/gif-load.gif"></div>');
+
+        var genreID = $(this).attr('name');
+
+        var rand = pg.getRandPage();
+
+        sleep(1000);
+        genreSearch(genreID,rand,1);
+
+        var rand = pg.getRandPage();
+        sleep(1000);
+        genreSearch(genreID,rand,1);
+    })
+});
+
+
+// 子ジャンルを出す処理
+/*
+$(function() {
+    $("#wadai").on("mouseover", function () {
+        $('.sub-menu-list').css('display','block');
+        $('.sub-menu-list').css('color','blue');
+    })
+});
+
+$(function() {
+    $("#wadai").on("mouseout", function () {
+        $('.sub-menu-list').css('display','none');
+    })
+});
+*/
