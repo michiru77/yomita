@@ -112,11 +112,12 @@ function outBooks(data, check)
     };
 
     $.each(data, function(i) {
-        bd.setBooks(getBook(data[i]));
+        var book = getBook(data[i]);
+        bd.setBooks(book);
         var id = ig.getId();
-        var url = bd.getUrl(id);
-        var img = bd.getImg(id);
-        var genre = bd.getGenreId(id);
+        var url = book.url;
+        var img = book.img;
+        var genre = book.genreId;
 
         var excep = eg.checkGenre(genre);
         var noImg = img.match(/noimage/);
