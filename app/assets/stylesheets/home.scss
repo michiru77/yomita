@@ -19,7 +19,6 @@ body {
     float: left;
     margin-left: 120px;
 }
-
 .small-img img{
     margin: 6.5px 0px 2px 2px;
 }
@@ -243,7 +242,8 @@ input {
     float: right;
 }
 #delete_1_button:hover{
-    color:#E48E00;
+  color:#E48E00;
+  //color: red;
   //color: red;
   //border-bottom: solid 1px red;
 }
@@ -288,14 +288,14 @@ img:hover{
   cursor: pointer;
 }
 #display_history img:hover{
-  opacity: 0.8;
+  opacity: 0.75;
   transition: 0.35s;
   background-color: #000;
   cursor: pointer;
 }
 
 #history_page img:hover{
-  opacity: 0.8;
+  opacity: 0.75;
   transition: 0.35s;
   background-color: #000;
   cursor: pointer;
@@ -306,7 +306,7 @@ img:hover{
 }
 
 //画像がちらつくため,今はただ並べるだけに止める
-                         #display_history img{
+#display_history img{
     //margin: 5px;
     cursor: pointer;
     margin-right: 2px;
@@ -486,6 +486,18 @@ img:hover{
 .iconBuyButton:hover i{
 	opacity:		1;	/* ホバー時にマスクを表示する */
     transition: 0.35s;
+  //color: red;
+}
+
+//購入アイコンにhoverするとアイコンが黒になる
+.iconBuyButton i:hover{
+  color: black;
+  //color: #E48E00;
+}
+
+.iconBuyButtonTop i:hover{
+  color: black;
+  //color: #E48E00;
 }
 
 .iconBuyButtonTop:hover i{
@@ -689,7 +701,8 @@ img:hover{
     display: none;
 }
 
-/*ここからジャンル検索ボタンcss*/
+/****** ここからジャンル検索ボタンcss *****/
+
 .menu-case{
   float: right;
   //cursor: pointer;
@@ -697,14 +710,15 @@ img:hover{
   font-size: 12px;
   margin-right: 40px;
 }
+
 .menu-case:hover{
   color:#E48E00;
-  //color: red;
-  //border-bottom: solid 1px red;
 }
+
 .menu-name:hover{
   cursor: pointer;
 }
+
 .menu-list{
   list-style: none;
   border: solid 0.5px #4D4B46;
@@ -719,12 +733,11 @@ img:hover{
   color: black;
   font-size: 12.5px;
 }
+
 .menu-one-text:hover{
   cursor: pointer;
-  //border-bottom: solid 1px rgba(0,20,255,1);
   color: red;
   border-bottom: solid 1px red;
-  //text-decoration: underline;
 }
 
 .menu-name:hover + .menu-list, .menu-list:hover {
@@ -735,4 +748,9 @@ img:hover{
 .menu-case:hover .menu-name {
   //color: #507ea4;
 }
-/*ここまでジャンル検索ボタンcss*/
+
+.sub-menu-list{
+  display: none;
+}
+
+/***** ここまでジャンル検索ボタンcss *****/
