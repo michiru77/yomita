@@ -433,6 +433,13 @@ function scrollDown() {
 
 // ページ下部検知
 $(function() {
+
+    var genreID;
+
+    $('.menu-one-text').click(function() {
+         genreID = $(this).attr('name');
+    });
+
     $(window).scroll(function(ev) {
         var $window = $(ev.currentTarget),
             height = $window.height(),
@@ -440,7 +447,6 @@ $(function() {
             documentHeight = $(document).height();
 
         var outerheight = $('body').outerHeight();
-
         //if (documentHeight === height + scrollTop) {
 
             if (documentHeight < height + scrollTop + 1200 ) {
@@ -460,7 +466,7 @@ $(function() {
                 authorSearch(tb.getAuthor(), pg.getPage(), 1);
                 break;
                 case 3:
-                    genreSearch('001017', pg.getRandPage(), 1);
+                    genreSearch(genreID, pg.getRandPage(), 1);
             }
         }
     });
