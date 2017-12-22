@@ -19,9 +19,8 @@ body {
     float: left;
     margin-left: 120px;
 }
-
 .small-img img{
-    margin: 5px 0px 5px 5px;
+    margin: 6.5px 0px 2px 2px;
 }
 
 /* ヘッダーに並べるimg */
@@ -47,7 +46,7 @@ body {
 }
 
 /* ヘッダー*/
-#header       {
+#header {
     width: 100%;
     top: 0px;
     //margin-right: auto;
@@ -129,18 +128,23 @@ float: left;
 
 #display_history img{
     box-shadow: 2px 2px 4px gray;
+    //margin-top: 1px;
 }
 
 //ジャンルボタン
 #Genre_button{
     cursor: pointer;
     float: right;
-    margin-top: 15px;
+    margin-top: 16px;
     font-size: 10px;
     margin-right: 40px;
+    //font-family: MS Sans Serif;
+    font-family: 'New Gulim';
 }
 #Genre_button:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 
@@ -148,14 +152,18 @@ float: left;
 #rireki {
     display: none;
     cursor : pointer;
-    margin-top: 15px;
+    margin-top: 16px;
     margin-right: 40px;
     //margin-left: 30px;
     float: right;
-    font-size: 10px;
+    font-size: 12px;
+ // font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 #rireki:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 //ヘッダーリストを囲む要素
@@ -166,26 +174,34 @@ float: left;
 //履歴ページを見るボタン
 #rireki_page_show {
     cursor : pointer;
-    margin-top: 15px;
+    margin-top: 16px;
     //margin-left: 30px;
     //margin-right: auto;
     float: right;
-    font-size: 10px;
+    font-size: 12px;
+  //font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 #rireki_page_show:hover{
-    color:#E48E00;
+  color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 //トップページボタン
 #to_Top_page {
     cursor : pointer;
-    margin-top: 15px;
+    margin-top: 16px;
     margin-right: 40px;
     float: right;
-    font-size: 10px;
+    font-size: 12px;
+    //font-family: 'Tahoma';
+    font-family: 'New Gulim';
 }
 #to_Top_page:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 //戻るボタン
@@ -193,11 +209,15 @@ float: left;
     display: none;
     cursor : pointer;
     float: right;
-    font-size: 10px;
-    margin-top: 15px;
+    font-size: 12px;
+    margin-top: 16px;
+  //font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 #Modoru:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 //個別削除チェックボックス
@@ -210,6 +230,8 @@ float: left;
 }
 #rireki_1_delete:hover{
     color:#E48E00;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 //個別削除ボタンを見えなくする
 input {
@@ -224,13 +246,16 @@ input {
 }
 #delete_1_button{
     cursor : pointer;
-    font-size: 10px;
-    margin-top: 15px;
+    font-size: 12px;
+    margin-top: 16px;
     margin-right: 40px;
     float: right;
 }
 #delete_1_button:hover{
-    color:#E48E00;
+  color:#E48E00;
+  //color: red;
+  //color: red;
+  //border-bottom: solid 1px red;
 }
 
 h1 {
@@ -273,14 +298,14 @@ img:hover{
   cursor: pointer;
 }
 #display_history img:hover{
-  opacity: 0.8;
+  opacity: 0.75;
   transition: 0.35s;
   background-color: #000;
   cursor: pointer;
 }
 
 #history_page img:hover{
-  opacity: 0.8;
+  opacity: 0.75;
   transition: 0.35s;
   background-color: #000;
   cursor: pointer;
@@ -291,7 +316,7 @@ img:hover{
 }
 
 //画像がちらつくため,今はただ並べるだけに止める
-                         #display_history img{
+#display_history img{
     //margin: 5px;
     cursor: pointer;
     margin-right: 2px;
@@ -471,6 +496,18 @@ img:hover{
 .iconBuyButton:hover i{
 	opacity:		1;	/* ホバー時にマスクを表示する */
     transition: 0.35s;
+  //color: red;
+}
+
+//購入アイコンにhoverするとアイコンが黒になる
+.iconBuyButton i:hover{
+  color: black;
+  //color: #E48E00;
+}
+
+.iconBuyButtonTop i:hover{
+  color: black;
+  //color: #E48E00;
 }
 
 .iconBuyButtonTop:hover i{
@@ -548,6 +585,8 @@ img:hover{
     position: fixed ;
     display: none ;
     z-index: 2 ;
+  //font-family: MS Sans Serif;
+  font-family: 'New Gulim';
 }
 
 #modal-content-innar{
@@ -673,3 +712,197 @@ img:hover{
     text-align: center;
     display: none;
 }
+
+/****** ここからジャンル検索ボタンcss *****/
+
+.menu-case{
+  float: right;
+  //cursor: pointer;
+  margin-top: 16px;
+  font-size: 12px;
+  margin-right: 40px;
+  // font-family: MS Sans Serif;
+  font-family: 'New Gulim';
+}
+
+.menu-case:hover{
+  color:#E48E00;
+}
+
+.menu-name:hover{
+  cursor: pointer;
+}
+
+.menu-list{
+  list-style: none;
+  border: solid 0.5px #4D4B46;
+  padding: 10px;
+  //display: none;
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: 10em;
+  background-color: #FAF9F7;
+  //color: rgba(0,20,255,1);
+  color: black;
+  font-size: 12.5px;
+  //font-family: 'MS Sans Serif';
+  font-family: 'New Gulim';
+}
+
+.menu-one-text:hover{
+  cursor: pointer;
+  color: red;
+  border-bottom: solid 1px red;
+}
+
+.menu-name:hover + .menu-list, .menu-list:hover {
+  opacity: 1;
+  z-index: 1;
+}
+
+.menu-case:hover .menu-name {
+  //color: #507ea4;
+}
+
+.sub-menu-list{
+  display: none;
+}
+
+/***** ここまでジャンル検索ボタンcss *****/
+
+
+/**サブメニュー表示ボタンcss**/
+#dropmenu {
+  list-style-type: none;
+  //width: 960px;
+  //margin: 30px auto 500px;
+  padding: 0;
+  margin-right: 40px;
+  font-size: 12.5px;
+  //font-family: 'MS Sans Serif';
+  font-family: 'New Gulim';
+  float: right;
+  margin-top: 16px;
+  //font-size: 12px;
+  //margin-right: 40px;
+}
+#dropmenu li {
+  position: relative;
+  //width: 20%;
+  //width: 10em;
+  //float: right;
+  //width: 10em;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#dropmenu ul {
+  width: 10em;
+  //border: solid 0.5px #4D4B46;
+  //display: none;
+}
+.border_sub_menu{
+  border: solid 0.5px #4D4B46;
+}
+#dropmenu li a {
+  display: block;
+  margin: 0;
+  //padding: 16px 0;
+  //background: #8a9b0f;
+  color: black;
+  font-size: 12px;
+  //font-weight: bold;
+  //line-height: 1;
+  text-decoration: none;
+  //border: solid 0.5px #4D4B46;
+}
+#dropmenu li ul {
+  list-style: none;
+  position: absolute;
+  z-index: 100;
+  //top: 100%;
+  left: 0;
+  //width: 100%;
+  margin: 0;
+  padding: 0;
+  border: solid 0.5px #4D4B46;
+  ///display: none;
+}
+#dropmenu li ul li {
+  overflow: hidden;
+  //width: 100%;
+  height: 0;
+  color: black;
+  transition: .2s;
+}
+#dropmenu li ul li a {
+  //padding: 13px 15px;
+  //background: #7c8c0e;
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
+}
+#dropmenu > li:hover > a {
+  //background: #7c8c0e
+  display: block;
+  background:white;
+}
+#dropmenu > li:hover li:hover > a {
+  //background: #6e7c0c
+  display: block;
+  background:white;
+}
+#dropmenu > li:hover > ul > li {
+  display: block;
+  overflow: visible;
+  height: 100px;
+  background: blanchedalmond;
+}
+#dropmenu li ul li ul {
+  top: 0;
+  //left: 100%;
+}
+#dropmenu li:last-child ul li ul {
+  left: -100%;
+  width: 100%;
+  //border: solid ;
+  //border: solid 0.5px #4D4B46;
+}
+#dropmenu li ul li ul:before {
+  position: absolute;
+  content: "";
+  //top: 13px;
+  //left: -20px;
+  width: 0;
+  height: 0;
+  //border: 5px solid transparent;
+  border-left-color: #454e08;
+}
+#dropmenu li:last-child ul li ul:before {
+  position: absolute;
+  content: "";
+  //top: 13px;
+  //left: 200%;
+  //margin-left: -20px;
+  //border: 5px solid transparent;
+  //border-right-color: #454e08;
+  //border-right-color: red;
+}
+#dropmenu li ul li:hover > ul > li {
+  display: block;
+  overflow: visible;
+  height: 38px;
+}
+#dropmenu li ul li ul li a {
+  //background: #616d0b
+  background: whitesmoke;
+}
+#dropmenu li:hover ul li ul li a:hover {
+  //background: #535d09
+  display: block;
+  background: whitesmoke;
+}
+
+
+/**ここまでサブメニュー表示ボタンcss**/
