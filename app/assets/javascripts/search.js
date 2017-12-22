@@ -118,10 +118,12 @@ function outBooks(data, check)
         var url = book.url;
         var img = book.img;
         var genre = book.genreId;
+        var isbn = book.isbn;
 
         var excep = eg.checkGenre(genre);
+        var excep_isbn = eg.checkGenre(isbn);
         var noImg = img.match(/noimage/);
-        if (noImg === null && excep !== 1) {
+        if (noImg === null && excep !== 1 && excep_isbn !== 1) {
             var list = '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
@@ -180,8 +182,20 @@ eg.setGenre('001019014');
 
 // その他
 eg.setGenre('001015');
+
 // 漫画/その他
-eg.setGenre('001001012');
+//eg.setGenre('001001012');
+
+//危ない本
+//姉ちゃん（泥酔中）と、気持ちイイこと
+//https://books.rakuten.co.jp/rb/15179511/
+eg.setGenre('9784434238413');
+//女子落ちっ！　2階からエロ娘が降ってきて、オレのアレに！？
+//https://books.rakuten.co.jp/rb/15203529/
+eg.setGenre('9784434239335');
+
+
+
 // 語学・学習参考書/その他
 eg.setGenre('001002007');
 // 絵本・児童書・図鑑/その他

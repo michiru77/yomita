@@ -34,14 +34,6 @@
     <% end %>
     -->
 
-<!--検索フォーム(未使用)-->
-<% form_tag :home_titleSearch, method: :get do  %>
-<% label_tag :title, 'Title Search' %>
-<% text_field_tag 'title', params[:title] %>
-<% submit_tag "Search" %>
-<% end %>
-
-
 <% session[:Receivefruit].each do |i|%>
 <!--
     <img src="<%= i %>" width="50" height="50">

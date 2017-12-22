@@ -326,6 +326,9 @@ $(function(){
         $('#photos_1').hide(700);
 */
         $('#display_history').hide();
+
+        $('.menu-case').hide();
+
         $('.line').hide();
         $('.title').hide();
         $('.author').hide();
@@ -382,6 +385,8 @@ $(function(){
         $('.author').show(0);
         $('#photos_6').show(0);
         $('#photos_1').show(0);
+
+        $('.menu-case').show(0);
 
         $('#rireki_page_show').show(0);
 
@@ -478,7 +483,7 @@ $(function() {
         var outerheight = $('body').outerHeight();
         //if (documentHeight === height + scrollTop) {
 
-            if (documentHeight < height + scrollTop + 1400 ) {
+            if (documentHeight < height + scrollTop + 2000 ) {
 
             //ローディング画像追加
             $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
@@ -636,18 +641,3 @@ $(function() {
 });
 
 
-// 子ジャンルを出す処理
-/*
-$(function() {
-    $("#wadai").on("mouseover", function () {
-        $('.sub-menu-list').css('display','block');
-        $('.sub-menu-list').css('color','blue');
-    })
-});
-
-$(function() {
-    $("#wadai").on("mouseout", function () {
-        $('.sub-menu-list').css('display','none');
-    })
-});
-*/
