@@ -110,7 +110,7 @@ function TopBook()
     {
         return _topBook[0].author;
     };
-    this.getGenreId = function(i)
+    this.getGenreId = function()
     {
         return _topBook[0].genreId;
     };
