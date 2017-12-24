@@ -45,10 +45,19 @@
           <span class="header-logo-img">
             <a href="/"><img src="<%= "/yomita_logo7.png"%>" width="210px" height="auto"></a>
           </span>
+
 <!--
           <a href="/"> 読み太。<span class="header-subtitle">表紙で巡る、本の旅</span></a>
           -->
         </div>
+
+        <!--検索フォーム(未使用)-->
+        <%= form_tag :home_titleSearch, method: :get do  %>
+            <% label_tag :title, 'Title Search' %>
+            <%= text_field_tag 'title', params[:title] %>
+            <%= submit_tag "Search" %>
+        <% end %>
+
         <div class="small-img" id="display_history"></div>
         <div class="header-list">
           <a id="rireki">履歴ページリセット</a>
@@ -61,6 +70,9 @@
           <!--
           <a id="Genre_button" >ジャンル</a>
           -->
+
+
+
 
 
 
@@ -77,7 +89,8 @@
               </div>
               -->
 
-              <li class="menu-one"><span class="menu-one-text" name="001004">小説・エッセイ</span></li>
+              <li class="menu-one"><span class="menu-one-text" name="001004008">小説</span></li>
+              <li class="menu-one"><span class="menu-one-text" name="001004003">エッセイ</span></li>
               <li class="menu-one"><span class="menu-one-text" name="001019">文庫</span></li>
               <li class="menu-one"><span class="menu-one-text" name="001008022">文学</span></li>
               <li class="menu-one"><span class="menu-one-text" name="001001">マンガ</span></li>
@@ -85,19 +98,19 @@
               <li class="menu-one"><span class="menu-one-text" name="001021">ボーイズラブ(BL)</span></li>
               <li class="menu-one"><span class="menu-one-text" name="001006">ビジネス・経済</span></li>
               <!--
-              <li class="menu-one"><span class="menu-one-text" name="001006009">自己啓発</span></li>
+              <li class="menu-one"><span class="menu-one-text" name="001011001">エンタメ</span></li>
               -->
+              <li class="menu-one"><span class="menu-one-text" name="001011005">ゲーム</span></li>
+              <li class="menu-one"><span class="menu-one-text" name="001009">ホビー</span></li>
 
 
-              <!--
-              <li class="menu-one"><span class="menu-one-text" name="001004004">ノンフィクション</span></li>
-              -->
 
-              <!--
-              <li class="menu-one"><span class="menu-one-text" name="001013001">写真集</span></li>
-              -->
+
+
+
             </div>
           </div>
+
 
 
 
@@ -132,6 +145,14 @@
       <!--ヘッダー終わり -->
     </div>
     <!--ヘッダーを幅いっぱいにする為のボックス終わり -->
+
+
+
+
+
+
+
+
 
     <%= yield %>
 
