@@ -80,7 +80,7 @@ $(document).ready(function() {
         titleSearch(searchTitle, pg.getPage(), 0);
 
         // トップに表紙を配置
-        putTopBook(url,src,title,author,caption);
+        putTopBook(url,src,title,author,caption,isbn);
 
         // photos_1 へスクロールアップ
         scrollUp();
@@ -178,9 +178,10 @@ $(document).ready(function(event) {
         var title = tb.getTitle(id);
         var author = tb.getAuthor(id);
         var caption = tb.getCaption(id);
+        var isbn = tb.getIsbn(id);
 
         // トップに表紙を配置
-        putTopBook(url,src,title,author,caption);
+        putTopBook(url,src,title,author,caption,isbn);
 
         //htmlをnull
         $('#photos_6').html(null);
@@ -242,7 +243,7 @@ $(function(event){
             var caption = tb.getCaption();
 
             // トップに表紙を配置
-            putTopBook(url,src,title,author,caption);
+            putTopBook(url,src,title,author,caption,isbn);
 
             // タイトル，作者要素を表示
             $('.title').show();
@@ -406,15 +407,15 @@ $(function(){
 });
 
 // photos_1 に表紙を配置
-function putTopBook(url,src,title,author,caption) {
+function putTopBook(url,src,title,author,caption,isbn) {
 
     // トップの表紙，URLを追加ra
     var top = '<div id="hiroya" class="iconBuyButtonTop">'
         + '<p><img src="'
         + src
         + '"></p>'
-        + '<a href="'
-        + url
+        + '<a href="https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=カタカナ&url=search-alias%3Dstripbooks&field-keywords='
+        + isbn
         + '" target="_blank">'
         + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
         + '</a></div>';
