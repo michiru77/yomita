@@ -34,7 +34,14 @@ $(window).load(function(){
     sleep(1000);
     sortSearch(sort,pg.getRandPage(),1);
 
+    sleep(1000);
+    sortSearch(sort,pg.getRandPage(),1);
 
+    sleep(1000);
+    sortSearch(sort,pg.getRandPage(),1);
+
+    //sleep(1000);
+    //sortSearch(sort,pg.getRandPage(),1);
 
     // appendList[]の初期化
     appendList = new Array();
