@@ -124,6 +124,8 @@ function outBooks(data, check)
         var excep_isbn = eg.checkGenre(isbn);
         var noImg = img.match(/noimage/);
         if (noImg === null && excep !== 1 && excep_isbn !== 1) {
+
+            //楽天購入サイトへ
             /*
             var list = '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
@@ -133,7 +135,8 @@ function outBooks(data, check)
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
                 + '</a>'
                 + '</span>';
-*/
+            */
+
             //アマゾンリンクに飛ぶ仕様
             var list = '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
