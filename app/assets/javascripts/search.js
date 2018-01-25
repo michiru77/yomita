@@ -124,6 +124,7 @@ function outBooks(data, check)
         var excep_isbn = eg.checkGenre(isbn);
         var noImg = img.match(/noimage/);
         if (noImg === null && excep !== 1 && excep_isbn !== 1) {
+            /*
             var list = '<span class="iconBuyButton">'
                 + '<img id="' + id + '" '
                 + 'src="' + img + '"> '
@@ -132,6 +133,17 @@ function outBooks(data, check)
                 + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
                 + '</a>'
                 + '</span>';
+                */
+
+            var list = '<span class="iconBuyButton">'
+                + '<img id="' + id + '" '
+                + 'src="' + img + '"> '
+                + '<a href="https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=カタカナ&url=search-alias%3Dstripbooks&field-keywords='+ isbn + '" '
+                + 'target="_blank">'
+                + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
+                + '</a>'
+                + '</span>';
+
             $("#photos_6").append(list);
         };
     });
