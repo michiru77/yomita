@@ -37,9 +37,6 @@ $(window).load(function(){
     sleep(1000);
     sortSearch(sort,pg.getRandPage(),1);
 
-    sleep(1000);
-    sortSearch(sort,pg.getRandPage(),1);
-
     //sleep(1000);
     //sortSearch(sort,pg.getRandPage(),1);
 
@@ -325,14 +322,14 @@ $(document).ready(function() {
 //履歴ページを見るボタンをクリックした時の処理
 $(function(){
     $("#rireki_page_show").click(function() {
-/*
-        $('#display_history').hide(700);
-        $('.line').hide(700);
-        $('.title').hide(700);
-        $('.author').hide(700);
-        $('#photos_6').hide(700);
-        $('#photos_1').hide(700);
-*/
+        /*
+          $('#display_history').hide(700);
+          $('.line').hide(700);
+          $('.title').hide(700);
+          $('.author').hide(700);
+          $('#photos_6').hide(700);
+          $('#photos_1').hide(700);
+        */
         $('#display_history').hide();
 
         $('.menu-case').hide();
@@ -370,18 +367,18 @@ $(function(){
     $("#Modoru").click(function() {
 
         $('.header-list').css('margin-right','25px');
-/*
-        $('#rireki').hide(700);
-        $('#history_page').hide(700);
+        /*
+          $('#rireki').hide(700);
+          $('#history_page').hide(700);
 
-        $('#display_history').show(700);
-        $('.line').show(700);
-        $('.title').show(700);
-        $('.author').show(700);
-        $('#photos_6').show(700);
-        $('#photos_1').show(700);
+          $('#display_history').show(700);
+          $('.line').show(700);
+          $('.title').show(700);
+          $('.author').show(700);
+          $('#photos_6').show(700);
+          $('#photos_1').show(700);
 
-        $('#rireki_page_show').show(700);
+          $('#rireki_page_show').show(700);
         */
 
         $('#rireki').hide(0);
@@ -421,8 +418,7 @@ function putTopBook(url,src,title,author,caption,isbn) {
         + '<p><img src="'
         + src
         + '"></p>'
-        + '<a href=https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=カタカナ&url=search-alias%3Dstripbooks&field-keywords="'
-        //+ url
+        + '<a href="https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=カタカナ&url=search-alias%3Dstripbooks&field-keywords='
         + isbn
         + '" target="_blank">'
         + '<i class="fa fa-shopping-cart fa-fw fa-border" aria-hidden="true"></i>'
@@ -480,7 +476,7 @@ $(function() {
     var genreID;
 
     $('.menu-one-text').click(function() {
-         genreID = $(this).attr('name');
+        genreID = $(this).attr('name');
     });
 
     $(window).scroll(function(ev) {
@@ -492,7 +488,7 @@ $(function() {
         var outerheight = $('body').outerHeight();
         //if (documentHeight === height + scrollTop) {
 
-            if (documentHeight < height + scrollTop + 2000 ) {
+        if (documentHeight < height + scrollTop + 2000 ) {
 
             //ローディング画像追加
             $('#end_loading').html('<div id="loading_2"><img src="/gif-load.gif"></div>');
@@ -508,8 +504,8 @@ $(function() {
             case 2:
                 authorSearch(tb.getAuthor(), pg.getPage(), 1);
                 break;
-                case 3:
-                    genreSearch(genreID, pg.getRandPage(), 1);
+            case 3:
+                genreSearch(genreID, pg.getRandPage(), 1);
             }
         }
     });
@@ -539,15 +535,15 @@ $(function(){
 });
 
 /*
-$(function () {
-    $('#delete_1_button').mouseover(function () {
-        $('#delete_1_button').css('color','#E48E00');
-    })
+  $(function () {
+  $('#delete_1_button').mouseover(function () {
+  $('#delete_1_button').css('color','#E48E00');
+  })
 
-    $('#delete_1_button').mouseout(function () {
-        $('#delete_1_button').css('color','black');
-    })
-});
+  $('#delete_1_button').mouseout(function () {
+  $('#delete_1_button').css('color','black');
+  })
+  });
 */
 
 
@@ -648,5 +644,3 @@ $(function() {
         genreSearch(genreID,rand,1);
     })
 });
-
-

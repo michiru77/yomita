@@ -16,8 +16,8 @@ group :development, :test do
   gem 'sqlite3',            '1.3.13'
   gem 'byebug',             '9.0.6', platform: :mri
   gem 'minitest-reporters', '1.1.14'
-  gem 'pry-rails' 
-  gem 'pry-doc'   
+  gem 'pry-rails'
+  gem 'pry-doc'
   gem 'pry-byebug'
 end
 
