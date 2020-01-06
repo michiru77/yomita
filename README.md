@@ -15,7 +15,7 @@ Web上で実現するサービスで， 読みたい本が決まっていなく�
 * Members:<br>
 YutaMiyagi(@e155721)<br>
 HiroyaSunagawa(@SunagawaHiro)<br>
-MichiruTakamine(@minemichi)<br>
+MichiruTakamine(@michiru-teacher)<br>
 ShogoKuba(@98kuba)<br>
 ShoichiroYamazato(@o-yama)
 * Service URL: https://yomita.herokuapp.com/
